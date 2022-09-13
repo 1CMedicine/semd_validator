@@ -7,7 +7,19 @@
   <servlet>
     <servlet-name>semd</servlet-name>
     <servlet-class>SEMDValidator</servlet-class>
-  </servlet>
+       <init-param> 
+          <param-name>DATA_PATH</param-name> 
+          <param-value>D:/source/semd_validator/data</param-value> 
+       </init-param> 
+       <init-param> 
+          <param-name>ADMIN_NAME</param-name> 
+          <param-value>admin</param-value> 
+       </init-param> 
+       <init-param> 
+          <param-name>ADMIN_PASS</param-name> 
+          <param-value>pass</param-value> 
+       </init-param> 
+    </servlet>
 
   <servlet-mapping>
     <servlet-name>semd</servlet-name>

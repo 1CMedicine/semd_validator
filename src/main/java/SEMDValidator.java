@@ -33,7 +33,6 @@ public class SEMDValidator extends HttpServlet {
     private String ADMIN_NAME;
     private String ADMIN_PASS;
 
-    final static byte[] buffer = new byte[2048];
     final static Logger log = LogManager.getLogger(SEMDValidator.class.getName());
     private static final MultipartConfigElement MULTI_PART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
     private HashMap<String, Templates> cacheXslt = new HashMap<String, Templates>(200);
@@ -101,8 +100,12 @@ public class SEMDValidator extends HttpServlet {
             throws ServletException, IOException {
 
         if (req.getServletPath().equals("/semd/upload")) { 
+            HttpSession session = req.getSession(false);
+            if (session != null && session.getAttribute("user") != null) 
+                upload(req, resp);
+            else
+                resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Authorization Failed");
             log.info(req.getServletPath());
-            upload(req, resp);
         } else if (req.getServletPath().equals("/semd/verify")) { 
             log.info(req.getServletPath());
             verify(req, resp);
@@ -413,7 +416,8 @@ public class SEMDValidator extends HttpServlet {
 
         ZipInputStream zipInput = new ZipInputStream(zipFile);
         ZipEntry entry = zipInput.getNextEntry();
-            
+        byte[] buffer = new byte[2048];
+           
         while (entry != null) {
             final String entryName = entry.getName();
             final File file = new File(destinationFolder + File.separator + entryName);

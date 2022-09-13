@@ -283,6 +283,7 @@ public class SEMDValidator extends HttpServlet {
 
     private void send_sch(final String contextPath, HttpServletResponse resp) 
             throws IOException {
+
         resp.setHeader("Content-Type", "text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         out.print(String.join("\n"
@@ -317,6 +318,7 @@ public class SEMDValidator extends HttpServlet {
 
     private void get_sch_list(final String contextPath, HttpServletResponse resp) 
             throws IOException {
+
         resp.setHeader("Content-Type", "text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         out.print(String.join("\n"
@@ -379,6 +381,7 @@ public class SEMDValidator extends HttpServlet {
 
     private void send_semd(final String contextPath, HttpServletResponse resp) 
             throws IOException {
+
         resp.setHeader("Content-Type", "text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         out.print(String.join("\n"
@@ -407,6 +410,7 @@ public class SEMDValidator extends HttpServlet {
 
     private static void unzip(String destinationFolder, InputStream zipFile) 
             throws IOException {
+
         ZipInputStream zipInput = new ZipInputStream(zipFile);
         ZipEntry entry = zipInput.getNextEntry();
             
@@ -443,7 +447,6 @@ public class SEMDValidator extends HttpServlet {
     * getServletInfo<BR>
     * Required by Servlet interface
     */
-
     public String getServletInfo() {
         return "SEMD Validator";
     }
@@ -451,9 +454,9 @@ public class SEMDValidator extends HttpServlet {
     /**
     * Apply stylesheet to source document
     */
-
     private void xslt(StreamSource source, final String style, StreamResult dst)
             throws TransformerException {
+
         Templates pss = tryXsltCache(style);
         Transformer transformer = pss.newTransformer();
         transformer.transform(source, dst);
@@ -477,6 +480,7 @@ public class SEMDValidator extends HttpServlet {
     */
     private synchronized Templates tryXsltCache(final String path) 
             throws TransformerException {
+
         Templates x = cacheXslt.get(path);
         if (x == null) {
             TransformerFactory factory = TransformerFactory.newInstance();
@@ -496,5 +500,4 @@ public class SEMDValidator extends HttpServlet {
         }
         return s;
     }
-
 }

@@ -68,7 +68,6 @@ public class SEMDValidator extends HttpServlet {
         if (session != null && session.getAttribute("user") != null) {
             user = true;
         }
-        log.info(req.getContextPath());
         if (req.getServletPath().equals("/send_sch.html")) {
             log.info(req.getServletPath());
             if (user)

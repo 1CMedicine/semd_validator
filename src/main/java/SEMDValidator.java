@@ -68,6 +68,7 @@ public class SEMDValidator extends HttpServlet {
         if (session != null && session.getAttribute("user") != null) {
             user = true;
         }
+        log.info(req.getContextPath());
         if (req.getServletPath().equals("/send_sch.html")) {
             log.info(req.getServletPath());
             if (user)
@@ -99,16 +100,16 @@ public class SEMDValidator extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
 
-        if (req.getServletPath().equals("/upload")) { 
+        if (req.getServletPath().equals("/verify")) { 
+            log.info(req.getServletPath());
+            verify(req, resp);
+        } else if (req.getServletPath().equals("/upload")) { 
+            log.info(req.getServletPath());
             HttpSession session = req.getSession(false);
             if (session != null && session.getAttribute("user") != null) 
                 upload(req, resp);
             else
                 resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Authorization Failed");
-            log.info(req.getServletPath());
-        } else if (req.getServletPath().equals("/verify")) { 
-            log.info(req.getServletPath());
-            verify(req, resp);
         } else {
             log.warn("PAGE NOT FOUND: "+req.getServletPath());
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);

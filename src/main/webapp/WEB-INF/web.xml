@@ -9,7 +9,7 @@
     <servlet-class>SEMDValidator</servlet-class>
        <init-param> 
           <param-name>DATA_PATH</param-name> 
-          <param-value>D:/source/semd_validator/data</param-value> 
+          <param-value>/var/www/upload/tron2</param-value> 
        </init-param> 
        <init-param> 
           <param-name>ADMIN_NAME</param-name> 

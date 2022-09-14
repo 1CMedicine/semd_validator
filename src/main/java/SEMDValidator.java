@@ -68,22 +68,22 @@ public class SEMDValidator extends HttpServlet {
         if (session != null && session.getAttribute("user") != null) {
             user = true;
         }
-        if (req.getServletPath().equals("/semd/send_sch.html")) {
+        if (req.getServletPath().equals("/send_sch.html")) {
             log.info(req.getServletPath());
             if (user)
                 send_sch(req.getContextPath(), resp);
             else
                 loginHtml(req.getContextPath(), resp);
-        } else if (req.getServletPath().equals("/semd/get_sch_list.html")) { 
+        } else if (req.getServletPath().equals("/get_sch_list.html")) { 
             log.info(req.getServletPath());
             if (user)
                 get_sch_list(req.getContextPath(), resp);
             else
                 loginHtml(req.getContextPath(), resp);
-        } else if (req.getServletPath().equals("/semd/send_semd.html")) {
+        } else if (req.getServletPath().equals("/send_semd.html")) {
             log.info(req.getServletPath());
             send_semd(req.getContextPath(), resp);
-        } else if (req.getServletPath().equals("/semd/login")) { 
+        } else if (req.getServletPath().equals("/login")) { 
             log.info(req.getServletPath());
             login(req, resp);
         } else if (req.getServletPath().equals("/login.html")) { 
@@ -99,14 +99,14 @@ public class SEMDValidator extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
 
-        if (req.getServletPath().equals("/semd/upload")) { 
+        if (req.getServletPath().equals("/upload")) { 
             HttpSession session = req.getSession(false);
             if (session != null && session.getAttribute("user") != null) 
                 upload(req, resp);
             else
                 resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Authorization Failed");
             log.info(req.getServletPath());
-        } else if (req.getServletPath().equals("/semd/verify")) { 
+        } else if (req.getServletPath().equals("/verify")) { 
             log.info(req.getServletPath());
             verify(req, resp);
         } else {
@@ -126,7 +126,7 @@ public class SEMDValidator extends HttpServlet {
         , "</head>"
         , "<body>"
         , "<H1>Вход в администрирование СЭМД валидатора</H1>"
-        , "<form method='get' action='", contextPath, "/semd/login'>"
+        , "<form method='get' action='", contextPath, "/login'>"
         , "  <fieldset>"
         , "  <p><label for='user'>Имя:</label><input type='text' name='user'></p>"
         , "  <p><label for='pass'>Пароль:</label><input type='password' name='pass'></p>"
@@ -169,6 +169,9 @@ public class SEMDValidator extends HttpServlet {
         if (req.getContentType() != null && req.getContentType().startsWith("multipart/form-data")) {
             req.setAttribute(Request.MULTIPART_CONFIG_ELEMENT, MULTI_PART_CONFIG);
         }
+        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+
         Part filePart = req.getPart("file");
         final String remdtype = req.getParameter("remdtype"); 
         final String verifytype = req.getParameter("verifytype"); 
@@ -176,11 +179,14 @@ public class SEMDValidator extends HttpServlet {
         String xml = new BufferedReader(new InputStreamReader(fileContent, "UTF-8")).lines().collect(Collectors.joining("\n"));
         // remove BOM
         if (xml.startsWith("\uFEFF")) {
-            xml = xml.substring(1);
+            out.print("XML should be without BOM");
+            return;
         }
 
-        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
-        PrintWriter out = resp.getWriter();
+        if (xml.substring(30, 50).indexOf("UTF-8") == -1) {
+            out.print("XML encoding should be UTF-8");
+            return;
+        }
 
         File xsd = new File(DATA_PATH+"/"+remdtype+"/CDA.xsd");
         boolean valid = true;
@@ -296,7 +302,7 @@ public class SEMDValidator extends HttpServlet {
         , " </head>"
         , " <body>"
         , "  <H1>Отправка zip-архива со схемой и схематроном</H1>"
-        , "  <form enctype = 'multipart/form-data'  method='post' action='", contextPath, "/semd/upload'>"
+        , "  <form enctype = 'multipart/form-data'  method='post' action='", contextPath, "/upload'>"
         , "   <input type='file' name='file'/>"
         , "   <input type='submit' value='Отправить zip'/>"
         , "  </form>"
@@ -313,8 +319,8 @@ public class SEMDValidator extends HttpServlet {
         , "</ul>"
         , "</ul>"
         , "<h2>См. также</h2>"
-        , "<a href='", contextPath, "/semd/send_semd.html'>Валидация СЭМД</a><br>"
-        , "<a href='", contextPath, "/semd/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
+        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
+        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
         , "</body>"
         , "</html>"));
     }
@@ -376,8 +382,8 @@ public class SEMDValidator extends HttpServlet {
         out.print(String.join("\n"
         , "</table>"
         , "<h2>См. также</h2>"
-        , "<a href='", contextPath, "/semd/send_sch.html'>Загрузка схемы и схематрона на сервер</a><br>"
-        , "<a href='", contextPath, "/semd/send_semd.html'>Валидация СЭМД</a>"
+        , "<a href='", contextPath, "/send_sch.html'>Загрузка схемы и схематрона на сервер</a><br>"
+        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a>"
         , "</body>"
         , "</html>"));
     }
@@ -393,7 +399,7 @@ public class SEMDValidator extends HttpServlet {
         , "</head>"
         , "<body>"
         , "<H1>Валидация СЭМД</H1>"
-        , "<form enctype = 'multipart/form-data' method='post' action='", contextPath, "/semd/verify'>"
+        , "<form enctype = 'multipart/form-data' method='post' action='", contextPath, "/verify'>"
         , "  <fieldset>"
         , "   <p><label for='remdtype'><a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>Тип РЭМД</a>:</label><input type='text' name='remdtype'></p>"
         , "   <p><label for='verifytype'>Тип валидации. 0 - xsd, 1 - sch, 2 - все:</label><input type='text' name='verifytype' value='2'></p>"
@@ -405,8 +411,8 @@ public class SEMDValidator extends HttpServlet {
         , "</form>"
         , "<hr>"
         , "<h2>См. также</h2>"
-        , "<a href='", contextPath, "/semd/send_sch.html'>Загрузка схемы и схематрона на сервер</a><br>"
-        , "<a href='", contextPath, "/semd/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
+        , "<a href='", contextPath, "/send_sch.html'>Загрузка схемы и схематрона на сервер</a><br>"
+        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
         , "</body>"
         , "</html>"));
     }
@@ -421,8 +427,6 @@ public class SEMDValidator extends HttpServlet {
         while (entry != null) {
             final String entryName = entry.getName();
             final File file = new File(destinationFolder + File.separator + entryName);
-                
-            log.info("Unzip file " + entryName + " to " + file.getAbsolutePath());
                 
             if (entry.isDirectory()) {
                 File newDir = new File(file.getAbsolutePath());

@@ -183,6 +183,9 @@ public class SEMDValidator extends HttpServlet {
             return;
         }
 
+        if (xml.length() < 50) {
+            out.print("XML is broken. Length="+xml.length());
+        }
         if (xml.substring(30, 50).indexOf("UTF-8") == -1) {
             out.print("XML encoding should be UTF-8");
             return;
@@ -206,6 +209,7 @@ public class SEMDValidator extends HttpServlet {
             if (valid && !verifytype.equals("0")) {
                 try {
                     File folder = new File(DATA_PATH+"/schematrons");
+                    boolean found = false;
                     for (File fileEntry : folder.listFiles()) {
                         if (!fileEntry.isDirectory()) {
                             final String filename = fileEntry.getName();
@@ -224,8 +228,12 @@ public class SEMDValidator extends HttpServlet {
                                     out.print(sb.substring(i));
                                     out.print("</sch>");
                                 }
+                                found = true;
                             }
                         }
+                    }
+                    if (!found) {
+                        out.print("error - no files '/schematrons/"+ remdtype+ "*.xsl'");
                     }
                 } catch (TransformerException e) {
                     out.print("error sch transfromation: "+ e.getMessage().replaceAll("\n", "<br>"));
@@ -339,9 +347,6 @@ public class SEMDValidator extends HttpServlet {
 
         List<String> list = new ArrayList<String>();
         final File folder = new File(DATA_PATH);
-        if (folder == null) {
-            throw new IOException("Wrong DATA_PATH-" + DATA_PATH);
-        }
         for (final File fileEntry : folder.listFiles()) {
             if (fileEntry.isFile()) {
                 list.add(fileEntry.getName());

@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 
 import org.eclipse.jetty.server.Request;
 import java.io.*;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.*;
@@ -318,9 +318,9 @@ public class SEMDValidator extends HttpServlet {
         , "<h3>Структура zip-архива</h3>"
         , "<ul>"
         , "<li>Имя архива - 118.zip, где имя файла - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a></li>"
-        , "<li>1_1.sch - схематрон (не обязателен). Первое число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a>," 
+        , "<li>118_1.sch - схематрон (не обязателен). Первое число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a>," 
         , "второе число (необязательное) используется в случае, когда для типа РЭМД существует несколько схематронов</li>"
-        , "<li>1 - папка (обязательна). Число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a>.</li>"
+        , "<li>118 - папка (обязательна). Число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a>.</li>"
         , "<ul>"
         , "<li>CDA.xsd - схема (обязательная). Имя файла должно быть именно таким</li>"
         , "<li>... - другие xsd файл, на которые ссылается головная схема. Друстимы папки, оригинальная иерархия должна быть сохранена</li>"
@@ -422,7 +422,7 @@ public class SEMDValidator extends HttpServlet {
         , "</html>"));
     }
 
-    private static void unzip(String destinationFolder, InputStream zipFile) 
+    private static void unzip(final String destinationFolder, InputStream zipFile) 
             throws IOException {
 
         ZipInputStream zipInput = new ZipInputStream(zipFile);
@@ -434,13 +434,7 @@ public class SEMDValidator extends HttpServlet {
             final File file = new File(destinationFolder + File.separator + entryName);
                 
             if (entry.isDirectory()) {
-                File newDir = new File(file.getAbsolutePath());
-                if (!newDir.exists()) {
-                    boolean success = newDir.mkdirs();
-                    if (!success) {
-                        log.warn("Problem creating Folder "+newDir.getName());
-                    }
-                }
+                Files.createDirectories(file.toPath());
             } else {
                 FileOutputStream fOutput = new FileOutputStream(file);
                 int count = 0;

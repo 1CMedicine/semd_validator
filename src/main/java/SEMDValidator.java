@@ -206,40 +206,54 @@ public class SEMDValidator extends HttpServlet {
                 out.print(e.getMessage().replaceAll("\n", "<br>"));
                 valid = false;
             }
-            if (valid && !verifytype.equals("0")) {
-                try {
-                    File folder = new File(DATA_PATH+"/schematrons");
-                    boolean found = false;
-                    for (File fileEntry : folder.listFiles()) {
-                        if (!fileEntry.isDirectory()) {
-                            final String filename = fileEntry.getName();
-                            final String ext = filename.substring(filename.length()-4, filename.length());
-                            final String name = filename.substring(0, filename.length()-4);
-                            if ((name.equals(remdtype) || name.equals(remdtype+"_")) && ext.equals(".xsl")) {
-                                StringWriter outWriter = new StringWriter();
-                                StreamResult result = new StreamResult(outWriter);
-                                xslt(new StreamSource(new StringReader(xml)), fileEntry.getAbsolutePath(), result);
-                                StringBuffer sb = outWriter.getBuffer();
+        }
 
-                                // вырезаем <?xml version="1.0" encoding="UTF-8"?>
-                                if (sb.substring(0, 6).equals("<?xml ")) {
-                                    int i = sb.indexOf(">", 7)+1;
-                                    out.print("<sch file=\""+filename+ "\">");
-                                    out.print(sb.substring(i));
-                                    out.print("</sch>");
-                                }
-                                found = true;
+        if (valid && !verifytype.equals("0")) {
+            // remove namespace because schematron validator doesn't see data with any default namespace
+            xml = xml.replace("xmlns=\"urn:hl7-org:v3\"", "").replace("xmlns='urn:hl7-org:v3'", "");
+            try {
+                File folder = new File(DATA_PATH+"/schematrons");
+                boolean found = false;
+                StringBuffer res = new StringBuffer();
+                for (File fileEntry : folder.listFiles()) {
+                    if (!fileEntry.isDirectory()) {
+                        final String filename = fileEntry.getName();
+                        final String ext = filename.substring(filename.length()-4, filename.length());
+                        final String name = filename.substring(0, filename.length()-4);
+                        if ((name.equals(remdtype) || name.equals(remdtype+"_")) && ext.equals(".xsl")) {
+                            StringWriter outWriter = new StringWriter();
+                            StreamResult result = new StreamResult(outWriter);
+                            xslt(new StreamSource(new StringReader(xml)), fileEntry.getAbsolutePath(), result);
+                            StringBuffer sb = outWriter.getBuffer();
+
+                            // вырезаем <?xml version="1.0" encoding="UTF-8"?>
+                            if (sb.substring(0, 6).equals("<?xml ")) {
+                                int i = sb.indexOf(">", 7)+1;
+                                res.append("<sch file=\"");
+                                res.append(filename);
+                                res.append("\">");
+                                res.append(sb.substring(i));
+                                res.append("</sch>");
                             }
+                            found = true;
                         }
                     }
-                    if (!found) {
-                        out.print("error - no files '/schematrons/"+ remdtype+ "*.xsl'");
-                    }
-                } catch (TransformerException e) {
-                    out.print("error sch transfromation: "+ e.getMessage().replaceAll("\n", "<br>"));
-                    valid = false;
                 }
+                if (!found) {
+                    out.print("error - no files '/schematrons/"+ remdtype+ "*.xsl'");
+                }
+                else {
+                    out.print("<result>");
+                    out.print(res.toString());
+                    out.print("</result>");
+                }
+            } catch (TransformerException e) {
+                out.print("error sch transfromation: "+ e.getMessage().replaceAll("\n", "<br>"));
+                valid = false;
             }
+        }
+        if (valid) {
+            out.print("valid");
         }
     }
 

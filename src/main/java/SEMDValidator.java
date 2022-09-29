@@ -283,7 +283,7 @@ public class SEMDValidator extends HttpServlet {
                     final String filename = fileEntry.getName();
                     final String ext = filename.substring(filename.length()-4, filename.length());
                     final String name = filename.substring(0, filename.length()-4);
-                    if ((name.equals(remdtype) || name.equals(remdtype+"_")) && ext.equals(".sch")) {
+                    if ((name.equals(remdtype) || name.startsWith(remdtype+"_")) && ext.equals(".sch")) {
                         sch = true;
                         final String xslName = DATA_PATH+"/schematrons/"+name+".xsl";
                         final File xsl = new File(xslName);

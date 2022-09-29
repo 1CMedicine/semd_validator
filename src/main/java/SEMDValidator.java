@@ -220,7 +220,7 @@ public class SEMDValidator extends HttpServlet {
                         final String filename = fileEntry.getName();
                         final String ext = filename.substring(filename.length()-4, filename.length());
                         final String name = filename.substring(0, filename.length()-4);
-                        if ((name.equals(remdtype) || name.equals(remdtype+"_")) && ext.equals(".xsl")) {
+                        if ((name.equals(remdtype) || name.startsWith(remdtype+"_")) && ext.equals(".xsl")) {
                             StringWriter outWriter = new StringWriter();
                             StreamResult result = new StreamResult(outWriter);
                             xslt(new StreamSource(new StringReader(xml)), fileEntry.getAbsolutePath(), result);
@@ -251,8 +251,7 @@ public class SEMDValidator extends HttpServlet {
                 out.print("error sch transfromation: "+ e.getMessage().replaceAll("\n", "<br>"));
                 valid = false;
             }
-        }
-        if (valid) {
+        } else if (valid) {     // для xsd проверки
             out.print("valid");
         }
     }

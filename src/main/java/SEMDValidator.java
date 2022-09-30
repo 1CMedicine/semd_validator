@@ -492,6 +492,7 @@ public class SEMDValidator extends HttpServlet {
         InputStream stream = new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8));
         Document document = parser.parse(stream);
         Validator validator = s.newValidator();
+        validator.setErrorHandler(new XsdErrorHandler());
         validator.validate(new DOMSource(document));
     }
 

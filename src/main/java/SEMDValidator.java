@@ -360,24 +360,32 @@ public class SEMDValidator extends HttpServlet {
 
         List<String> list = new ArrayList<String>();
         final File folder = new File(DATA_PATH);
-        for (final File fileEntry : folder.listFiles()) {
-            if (fileEntry.isFile()) {
-                list.add(fileEntry.getName());
-            } else if (fileEntry.isDirectory()) {
-                for (final File fileEntry2 : fileEntry.listFiles()) {
-                    if (fileEntry2.isFile() && fileEntry2.getName().compareToIgnoreCase("CDA.xsd") == 0) {
-                        list.add(fileEntry.getName()+"/CDA.xsd");
+        final File[] fl = folder.listFiles();
+        if (fl != null) {
+            for (final File fileEntry : fl) {
+                if (fileEntry.isFile()) {
+                    list.add(fileEntry.getName());
+                } else if (fileEntry.isDirectory()) {
+                    for (final File fileEntry2 : fileEntry.listFiles()) {
+                        if (fileEntry2.isFile() && fileEntry2.getName().compareToIgnoreCase("CDA.xsd") == 0) {
+                            list.add(fileEntry.getName()+"/CDA.xsd");
+                        }
                     }
                 }
             }
+        } else {
+            throw new IOException("Folder not found: "+DATA_PATH);
         }
         final File folder2 = new File(DATA_PATH+"/schematrons");
-        if (folder2 != null) {
-            for (final File fileEntry : folder2.listFiles()) {
+        final File[] fl2 = folder2.listFiles();
+        if (fl2 != null) {
+            for (final File fileEntry : fl2) {
                 if (fileEntry.isFile()) {
                     list.add(fileEntry.getName());
                 }
             }
+        } else {
+            throw new IOException("Folder not found: "+DATA_PATH+"/schematrons");
         }
         list.sort(Comparator.naturalOrder());
 

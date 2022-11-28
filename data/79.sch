@@ -1,4 +1,7 @@
-﻿<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+﻿<!-- Схематрон для СЭМД "Справка о прохождении медицинского освидетельствования в психоневрологическом диспансере (CDA) Редакция 1" -->
+<!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/3907 -->
+
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
     <ns prefix="identity" uri="urn:hl7-ru:identity"/>
     <ns prefix="address" uri="urn:hl7-ru:address"/>
@@ -115,8 +118,7 @@
             <assert test="count(effectiveTime)=1">У1-15. Элемент ClinicalDocument должен иметь 1 элемент effectiveTime.</assert>
         </rule>
         <rule context="ClinicalDocument/effectiveTime">
-<!--            <assert test="matches(@value, '^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">У1-15. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут. Если указано с точностью до минут, то должна быть указана временная зона.</assert>
--->
+            <assert test="matches(@value, '^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">У1-15. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</assert>
         </rule>
     </pattern>
     <!-- У1-16 -->
@@ -219,6 +221,10 @@
     <pattern>
         <rule context="ClinicalDocument/recordTarget/patientRole[identity:InsurancePolicy]">
             <assert test="count(identity:InsurancePolicy/identity:InsurancePolicyType)=1">У1-21. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy должен иметь 1 элемент identity:InsuracePolicyType.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/recordTarget/patientRole[identity:InsurancePolicy[not(@nullFlavor)]]">
             <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@xsi:type='CD'">У1-21. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy/identity:InsurancePolicyType должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
             <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@codeSystem='1.2.643.5.1.13.13.11.1035'">У1-21. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicyType/identity:InsuracePolicyType должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1035'.</assert>
             <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@code!=''">У1-21. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy/identity:InsurancePolicyType должен иметь не пустое значение атрибута @code.</assert>
@@ -333,7 +339,7 @@
             <assert test="count(assignedAuthor)=1">У1-22. Элемент ClinicalDocument/author должен иметь 1 элемент assignedAuthor .</assert>
         </rule>
         <rule context="ClinicalDocument/author/time">
-            <assert test="@value!=''">У1-22. Элемент ClinicalDocument/author/time должен иметь не пустое значение атрибута @value.</assert>
+            <assert test="@nullFlavor='NI'">У1-22. Элемент ClinicalDocument/author/time должен иметь значение атрибута @nullFlavor равное 'NI'.</assert>
         </rule>
         <rule context="ClinicalDocument/author/assignedAuthor">
             <assert test="count(id)=2">У1-22. Элемент ClinicalDocument/author/assignedAuthor author иметь 2 элемента id.</assert>
@@ -476,10 +482,10 @@
             <assert test="count(assignedEntity)=1">У1-26. Элемент ClinicalDocument/legalAuthenticator должен иметь 1 элемент assignedEntity .</assert>
         </rule>
         <rule context="ClinicalDocument/legalAuthenticator/time">
-            <assert test="@value!=''">У1-26. Элемент ClinicalDocument/legalAuthenticator/time должен иметь не пустое значение атрибута @value.</assert>
+            <assert test="@nullFlavor='NI'">У1-26. Элемент ClinicalDocument/legalAuthenticator/time должен иметь значение атрибута @nullFlavor равное 'NI'.</assert>
         </rule>
         <rule context="ClinicalDocument/legalAuthenticator/signatureCode">
-            <assert test="@code='S'">У1-26. Элемент ClinicalDocument/legalAuthenticator/signatureCode должен иметь значение атрибута @code равное 'S'.</assert>
+            <assert test="@nullFlavor='NI'">У1-26. Элемент ClinicalDocument/legalAuthenticator/signatureCode должен иметь значение атрибута @nullFlavor равное 'NI'.</assert>
         </rule>
         <rule context="ClinicalDocument/legalAuthenticator/assignedEntity">
             <assert test="count(id)=2">У1-26. Элемент ClinicalDocument/legalAuthenticator/assignedEntity author иметь 2 элемента id.</assert>
@@ -579,17 +585,9 @@
         </rule>
     </pattern>
     <pattern>
-        <rule context="ClinicalDocument/participant/associatedEntity">
+        <rule context="ClinicalDocument/participant/associatedEntity[identity:DocInfo[not(@nullFlavor)]]">
             <assert test="count(identity:DocInfo/identity:IdentityDocType)=1">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:IdentityDocType.</assert>
             <assert test="count(identity:DocInfo/identity:InsurancePolicyType)=1">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:InsurancePolicyType.</assert>
-            <assert test="identity:DocInfo/identity:InsurancePolicyType/@xsi:type='CD'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
-<!--@nullFlavor в КП-->
-<!--            <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystem='1.2.643.5.1.13.13.11.1035'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1035'.</assert>
-            <assert test="identity:DocInfo/identity:InsurancePolicyType/@code!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @code.</assert>
-            <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystemVersion!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
-            <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystemName!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemName.</assert>
-            <assert test="identity:DocInfo/identity:InsurancePolicyType/@displayName!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @displayName.</assert>
--->
             <assert test="count(identity:DocInfo/identity:Series)=1">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:Series.</assert>
             <assert test="identity:DocInfo/identity:Series/@xsi:type='ST'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:Series должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <assert test="count(identity:DocInfo/identity:Number)=1">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:Number.</assert>
@@ -598,6 +596,17 @@
             <assert test="count(identity:DocInfo/identity:effectiveTime)=1">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:effectiveTime.</assert>
         </rule>
     </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/participant/associatedEntity[identity:DocInfo/identity:InsurancePolicyType[not(@nullFlavor)]]">
+            <assert test="identity:DocInfo/identity:InsurancePolicyType/@xsi:type='CD'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
+            <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystem='1.2.643.5.1.13.13.11.1035'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1035'.</assert>
+            <assert test="identity:DocInfo/identity:InsurancePolicyType/@code!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystemVersion!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystemName!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="identity:DocInfo/identity:InsurancePolicyType/@displayName!=''">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @displayName.</assert>
+        </rule>
+    </pattern>
+    
     <pattern>
         <rule context="ClinicalDocument/participant/associatedEntity[@classCode='GUAR'][identity:DocInfo/identity:IdentityDocType/@code='3']">
             <assert test="identity:DocInfo/identity:INN/@xsi:type='ST'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:INN должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
@@ -657,7 +666,7 @@
         </rule>
     </pattern>
     <pattern>
-        <rule context="ClinicalDocument/participant/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')]">
+        <rule context="ClinicalDocument/participant/associatedEntity[identity:DocInfo[not(@nullFlavor)]][identity:DocInfo/identity:InsurancePolicyType[not(@nullFlavor)]][not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')]">
             <assert test="count(identity:DocInfo/identity:effectiveTime/identity:low)=1">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:effectiveTime должен иметь 1 элемент identity:low.</assert>
             <assert test="identity:DocInfo/identity:effectiveTime/identity:low/@xsi:type='TS'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:effectiveTime/identity:low должен иметь значение атрибута @xsi:type равное 'TS'.</assert>
             <assert test="matches(identity:DocInfo/identity:effectiveTime/identity:low/@value, '^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$')">У1-27. Дата в элементе должна быть указана с точностью до дня.</assert>
@@ -669,7 +678,7 @@
         <rule context="ClinicalDocument/participant/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='2']">
             <assert test="identity:DocInfo/identity:effectiveTime/identity:high/@nullFlavor='NAV'">У1-27. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:effectiveTime/identity:high должен иметь значение атрибута @nullFlavor равное 'NAV'.</assert>
         </rule>
-        <rule context="ClinicalDocument/participant/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@code='2')]">
+        <rule context="ClinicalDocument/participant/associatedEntity[identity:DocInfo[not(@nullFlavor)]][not(identity:DocInfo/identity:InsurancePolicyType/@code='2')]">
             <assert test="matches(identity:DocInfo/identity:effectiveTime/identity:high/@value, '^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$')">У1-27. Дата в элементе должна быть указана с точностью до дня.</assert>
         </rule>
     </pattern>
@@ -768,7 +777,10 @@
     <pattern>
         <rule context="ClinicalDocument/documentationOf/serviceEvent/performer">
             <assert test="@typeCode=['PPRF','SPRF']">У1-28. Элемент ClinicalDocument/documentationOf/serviceEvent/performer должен иметь значение атрибута @typeCode равное 'PPRF' или 'SPRF'.</assert>
+<!-- Отсутствует в КП -->
+<!--
             <assert test="count(functionCode)=1">У1-28. Элемент ClinicalDocument/documentationOf/serviceEvent/performer должен иметь 1 элемент functionCode.</assert>
+-->
             <assert test="count(assignedEntity)=1">У1-28. Элемент ClinicalDocument/documentationOf/serviceEvent/performer должен иметь 1 элемент assignedEntity.</assert>
         </rule>
         <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/functionCode">
@@ -1057,9 +1069,12 @@
             <assert test="@typeCode='REFR'">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference должен иметь значение атрибута @typeCode равное 'REFR'.</assert>
             <assert test="count(externalDocument)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference должен иметь 1 элемент externalDocument.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument[not(@nullFlavor)]">
+<!-- Отсутствует в КП -->
+<!--
             <assert test="@classCode='DOCCLIN'">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument должен иметь значение атрибута @classCode равное 'DOCCLIN'.</assert>
             <assert test="@moodCode='EVN'">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
+-->
             <assert test="count(id)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument должен иметь 1 элемент id.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id">

@@ -1,4 +1,18 @@
-﻿<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+﻿<!-- Схематрон для СЭМД "Протокол решения (выписка из протокола решения) комиссии по оказанию высокотехнологичной медицинской помощи Редакция 1" -->
+<!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/3993 -->
+
+<!-- Список изменений -->
+<!-- 06.06.2022 - v.1.1: -->
+<!--
+1) В правилах У1-12, У1-13, У1-14, У1-17, У1-18, У1-19 устранена ошибка, при которой структура элемента postalCode проверялась даже при наличии в элементе атрибута @nullFlavor
+2) В правилах У1-12, У1-13, У1-14 устранена ошибка, при которой структура элемента fias:HOUSEGUID проверялась даже при наличии в элементе атрибута @nullFlavor
+3) В правилах У1-13, У1-17, У1-19 устранена ошибка, при которой структура элемента fias:Address проверялась даже при наличии в элементе атрибута @nullFlavor
+4) В правиле У1-18 устранена ошибка, при которой структура элемента identity:InsurancePolicyType проверялась даже при наличии в элементе атрибута @nullFlavor
+5) В правиле У1-19 исправлена кардинальность элемента high с [1..1] на [0..1]
+-->
+<!-- 13.10.2021 - v.1.0: Схематрон разработан -->
+
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
     <ns prefix="identity" uri="urn:hl7-ru:identity"/>
     <ns prefix="address" uri="urn:hl7-ru:address"/>
@@ -187,8 +201,12 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/recordTarget/patientRole/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/addr/postalCode должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -257,8 +275,12 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/postalCode должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -266,6 +288,10 @@
             <assert test="count(fias:Address/fias:AOGUID)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
             <assert test="fias:Address/fias:AOGUID!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/fias:Address/fias:AOGUID должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address/fias:HOUSEGUID)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/recordTarget/patientRole/providerOrganization/addr[fias:Address/fias:HOUSEGUID[not(@nullFlavor)]]">
             <assert test="fias:Address/fias:HOUSEGUID!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/addr/fias:Address/fias:HOUSEGUID должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
@@ -311,13 +337,25 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+        <rule context="ClinicalDocument/author/assignedAuthor/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/postalCode должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/author/assignedAuthor/addr[fias:Address[not(@nullFlavor)]]">
             <assert test="count(fias:Address/fias:AOGUID)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
             <assert test="fias:Address/fias:AOGUID!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/fias:Address/fias:AOGUID должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address/fias:HOUSEGUID)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/author/assignedAuthor/addr[fias:Address/fias:HOUSEGUID[not(@nullFlavor)]]">
             <assert test="fias:Address/fias:HOUSEGUID!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/addr/fias:Address/fias:HOUSEGUID должен иметь не пустое значение.</assert>
         </rule>
+    </pattern>
+    <pattern>
         <rule context="ClinicalDocument/author/assignedAuthor/assignedPerson">
             <assert test="count(name)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/assignedPerson должен иметь 1 элемент name.</assert>
         </rule>
@@ -347,11 +385,21 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+        <rule context="ClinicalDocument/author/assignedAuthor/representedOrganization/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/postalCode должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/author/assignedAuthor/representedOrganization/addr[fias:Address[not(@nullFlavor)]]">
             <assert test="count(fias:Address/fias:AOGUID)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
             <assert test="fias:Address/fias:AOGUID!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/fias:Address/fias:AOGUID должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address/fias:HOUSEGUID)=1">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/author/assignedAuthor/representedOrganization/addr[fias:Address/fias:HOUSEGUID[not(@nullFlavor)]]">
             <assert test="fias:Address/fias:HOUSEGUID!=''">У1-13. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/addr/fias:Address/fias:HOUSEGUID должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
@@ -385,9 +433,11 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(address:stateCode)=1">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr должен иметь 1 элемент address:stateCode.</assert>
             <assert test="count(fias:Address)=1">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+        <rule context="ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/postalCode должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -395,6 +445,10 @@
             <assert test="count(fias:Address/fias:AOGUID)=1">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
             <assert test="fias:Address/fias:AOGUID!=''">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/fias:Address/fias:AOGUID должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address/fias:HOUSEGUID)=1">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr[fias:Address/fias:HOUSEGUID[not(@nullFlavor)]]">
             <assert test="fias:Address/fias:HOUSEGUID!=''">У1-14. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr/fias:Address/fias:HOUSEGUID должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
@@ -473,10 +527,18 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/addr[fias:Address[not(@nullFlavor)]]">
             <assert test="count(fias:Address/fias:AOGUID)=1">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
             <assert test="count(fias:Address/fias:HOUSEGUID)=1">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/addr/postalCode должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson">
             <assert test="count(name)=1">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson должен иметь 1 элемент name.</assert>
@@ -508,8 +570,10 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+        <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-17. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/addr/postalCode должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -547,18 +611,22 @@
         </rule>
     </pattern>
     <pattern>
-        <rule context="ClinicalDocument/participant/associatedEntity">
+        <rule context="ClinicalDocument/participant/associatedEntity[identity:DocInfo[not(@nullFlavor)]]">
             <assert test="count(identity:DocInfo/identity:IdentityDocType)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:IdentityDocType.</assert>
             <assert test="count(identity:DocInfo/identity:InsurancePolicyType)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:InsurancePolicyType.</assert>
+            <assert test="count(identity:DocInfo/identity:Series)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:Series.</assert>
+            <assert test="count(identity:DocInfo/identity:Number)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:Number.</assert>
+            <assert test="count(identity:DocInfo/identity:INN)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:INN.</assert>
+            <assert test="count(identity:DocInfo/identity:effectiveTime)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:effectiveTime.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/participant/associatedEntity[identity:DocInfo/identity:InsurancePolicyType[not(@nullFlavor)]]">
             <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystem='1.2.643.5.1.13.13.11.1035'">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1035'.</assert>
             <assert test="identity:DocInfo/identity:InsurancePolicyType/@code!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @code.</assert>
             <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystemVersion!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="identity:DocInfo/identity:InsurancePolicyType/@codeSystemName!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="identity:DocInfo/identity:InsurancePolicyType/@displayName!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo/identity:InsurancePolicyType должен иметь не пустое значение атрибута @displayName.</assert>
-            <assert test="count(identity:DocInfo/identity:Series)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:Series.</assert>
-            <assert test="count(identity:DocInfo/identity:Number)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:Number.</assert>
-            <assert test="count(identity:DocInfo/identity:INN)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:INN.</assert>
-            <assert test="count(identity:DocInfo/identity:effectiveTime)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity/identity:DocInfo должен иметь 1 элемент identity:effectiveTime.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -652,8 +720,10 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-18. Элемент ClinicalDocument/participant/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+        <rule context="ClinicalDocument/participant/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr/postalCode должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -687,7 +757,7 @@
         </rule>
         <rule context="ClinicalDocument/documentationOf/serviceEvent/effectiveTime">
             <assert test="count(low)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/effectiveTime должен иметь 1 элемент low.</assert>
-            <assert test="count(high)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/effectiveTime должен иметь 1 элемент high.</assert>
+            <assert test="count(high)&lt;=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/effectiveTime должен иметь не более 1 элемента high.</assert>
         </rule>
         <rule context="ClinicalDocument/documentationOf/serviceEvent/effectiveTime/low">
             <assert test="matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">У1-19. Дата в элементе должна быть указана с точностью до минут. Если указано с точностью до минут, то должна быть указана временная зона.</assert>
@@ -767,10 +837,18 @@
             <assert test="address:stateCode/@codeSystemVersion!=''">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="address:stateCode/@displayName!=''">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
             <assert test="count(postalCode)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr должен иметь 1 элемент postalCode.</assert>
-            <assert test="postalCode!=''">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr[fias:Address[not(@nullFlavor)]]">
             <assert test="count(fias:Address/fias:AOGUID)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
             <assert test="count(fias:Address/fias:HOUSEGUID)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/addr/postalCode должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson">
             <assert test="count(name)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson должен иметь 1 элемент name.</assert>
@@ -799,6 +877,10 @@
             <assert test="count(postalCode)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/addr должен иметь 1 элемент postalCode.</assert>
             <assert test="postalCode!=''">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/addr/postalCode должен иметь не пустое значение.</assert>
             <assert test="count(fias:Address)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/addr[fias:Address[not(@nullFlavor)]]">
             <assert test="count(fias:Address/fias:AOGUID)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
             <assert test="count(fias:Address/fias:HOUSEGUID)=1">У1-19. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
         </rule>

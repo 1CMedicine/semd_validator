@@ -883,7 +883,7 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']">
             <assert test="count(entry[1])=1">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO'] должен иметь 1 элемент entry[1].</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[1]">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[1][not(@nullFlavor)]">
             <assert test="count(observation)=1">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[1] должен иметь 1 элемент observation.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[1]/observation">
@@ -913,7 +913,7 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']">
             <assert test="count(entry[2])=1">У3-2. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO'] должен иметь 1 элемент entry[2].</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[2]">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[2][not(@nullFlavor)]">
             <assert test="count(observation)=1">У3-2. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[2] должен иметь 1 элемент observation.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='MEDEXAMINFO']/entry[2]/observation">

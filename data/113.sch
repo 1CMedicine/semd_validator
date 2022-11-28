@@ -148,7 +148,6 @@
             <assert test="count(id)=1">У1-13. Элемент ClinicalDocument должен иметь 1 элемент id.</assert>
             <assert test="count(setId)=1">У1-13. Элемент ClinicalDocument должен иметь 1 элемент setId.</assert>
             <assert test="count(versionNumber)=1">У1-13. Элемент ClinicalDocument должен иметь 1 элемент versionNumber.</assert>
-            <report test="matches(id/@root,setId/@root)">У1-13. Значения атрибута @root элементов ClinicalDocument/id и ClinicalDocument/setId должны различаться.</report>
         </rule>
         <rule context="ClinicalDocument/id">
             <assert test="@extension">У1-13. Элемент ClinicalDocument/id должен иметь атрибут @extension.</assert>
@@ -157,6 +156,11 @@
         <rule context="ClinicalDocument/setId">
             <assert test="@extension">У1-13. Элемент ClinicalDocument/setId должен иметь атрибут @extension.</assert>
             <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+$')">У1-13. Элемент ClinicalDocument/setId должен иметь синтаксически корректное значение атрибута @root, соответствующее регулярному выражению '([0-2])([.]([1-9][0-9]*|0))+'.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument[id/@root][setId/@root]">
+            <report test="matches(id/@root,setId/@root)">У1-13. Значения атрибута @root элементов ClinicalDocument/id и ClinicalDocument/setId должны различаться.</report>
         </rule>
         <rule context="ClinicalDocument/versionNumber">
             <assert test="@value!=''">У1-13. Элемент ClinicalDocument/versionNumber должен иметь атрибут @value, представленый не пустым значением.</assert>
@@ -635,7 +639,7 @@
     <!-- У2-2 -->
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody">
-            <assert test="count(component/section/code[@code='DEADPATINFO'])=1">У2-2. Элемент ClinicalDocument/component/structuredBody должен иметь 1 элемент component со значением атрибута section/code/@code равным 'DOCINFO'.</assert>
+            <assert test="count(component/section/code[@code='DEADPATINFO'])=1">У2-2. Элемент ClinicalDocument/component/structuredBody должен иметь 1 элемент component со значением атрибута section/code/@code равным 'DEADPATINFO'.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='DEADPATINFO']">
             <report test="@nullFlavor">У2-2. Элемент ClinicalDocument/component/structuredBody/component/section не должен иметь атрибут @nullFlavor.</report>
@@ -655,7 +659,7 @@
     <!-- У2-3 -->
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody">
-            <assert test="count(component/section/code[@code='ABOUTDEAD'])=1">У2-3. Элемент ClinicalDocument/component/structuredBody должен иметь 1 элемент component со значением атрибута section/code/@code равным 'DOCINFO'.</assert>
+            <assert test="count(component/section/code[@code='ABOUTDEAD'])=1">У2-3. Элемент ClinicalDocument/component/structuredBody должен иметь 1 элемент component со значением атрибута section/code/@code равным 'ABOUTDEAD'.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='ABOUTDEAD']">
             <report test="@nullFlavor">У2-3. Элемент ClinicalDocument/component/structuredBody/component/section не должен иметь атрибут @nullFlavor.</report>
@@ -694,6 +698,7 @@
             <report test="@nullFlavor">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='5013'] не должен иметь атрибут @nullFlavor.</report>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='5013']]/value">
+            <assert test="matches(.,'^[0-9]{2}$')">Согласно НПА для сведений о бумажном свидетельстве о смерти количество знаков в серии должно состоять из двух разрядов.</assert>
             <assert test="@xsi:type='ST'">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='5013']]/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <report test="@nullFlavor">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='5013']]/value не должен иметь атрибут @nullFlavor.</report>
         </rule>
@@ -864,7 +869,7 @@
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='12135']]/value">
             <assert test="@xsi:type='BL'">У3-7. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='12135']]/value должен иметь значение атрибута @xsi:type равное 'BL'.</assert>
-            <assert test="@value=['true','false']">У3-7. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='12135']]/value должен иметь пустое значение атрибута @value равное 'true' или 'false'.</assert>
+            <assert test="@value='false'">У3-7. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='12135']]/value должен иметь пустое значение атрибута @value равное 'false'.</assert>
             <report test="@nullFlavor">У3-7. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='12135']]/value не должен иметь атрибут @nullFlavor.</report>
         </rule>
     </pattern>
@@ -1500,7 +1505,7 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='ABOUTDEAD']/entry/observation[code[@code='6019']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='TS'">У3-22. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='ABOUTDEAD']/entry/observation[code[@code='6019']]/value должен иметь значение атрибута @xsi:type равное 'TS'.</assert>
             <assert test="@value!=''">У3-22. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='ABOUTDEAD']/entry/observation[code[@code='6019']]/value должен иметь не пустое значение атрибута @value.</assert>
-            <assert test="matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">У3-22. Время в элементе должно быть указано с точностью до минут, должна быть указана временная зона.</assert>
+            <assert test="matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">У3-22. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='ABOUTDEAD']/entry/observation[code[@code='6019']]/value[@nullFlavor]">
             <assert test="@nullFlavor='NA'">У3-22. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='ABOUTDEAD']/entry/observation[code[@code='6019']]/value должен иметь значение атрибута @nullFlavor равное 'NA'.</assert>

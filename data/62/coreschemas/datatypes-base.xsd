@@ -1336,7 +1336,6 @@
                   <xs:element name="given" type="en.given"/>
                   <xs:element name="prefix" type="en.prefix"/>
                   <xs:element name="suffix" type="en.suffix"/>
-				  <xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
                </xs:choice>
                <xs:element name="validTime" minOccurs="0" maxOccurs="1" type="IVL_TS">
                   <xs:annotation>

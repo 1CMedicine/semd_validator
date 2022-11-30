@@ -187,7 +187,7 @@ public class SEMDValidator extends HttpServlet {
             out.print("XML is broken. Length="+xml.length());
         }
         if (xml.substring(30, 50).indexOf("UTF-8") == -1) {
-            out.print("XML encoding should be UTF-8");
+            out.print("First line should be '<?xml?>' with encoding='UTF-8'");
             return;
         }
 

@@ -1,7 +1,11 @@
-﻿<!-- Схематрон для СЭМД "Медицинское заключение об отсутствии медицинских противопоказаний к владению оружием" (Редакция 1) -->
+﻿<!-- Схематрон для СЭМД "Медицинское заключение об отсутствии медицинских противопоказаний к владению оружием (CDA) Редакция 1" -->
 <!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/3827 -->
 
 <!-- Список изменений -->
+<!-- 23.09.2022 - v.1.1.2: -->
+<!--
+1) В схематрон внедрены фрагменты модуля проверки структуры адреса [Core02], соответствующие общим требованиям к структуре и наполнению элементов //addr
+-->
 <!-- 03.06.2022 - v.1.1.1: -->
 <!--
 1) В правиле У1-21 теперь выполняется проверка корректности СНИЛС (11 цифр, могут быть разделены на группы 3+3+3+2 прочерками или пробелами)
@@ -1025,6 +1029,47 @@
             <assert test="@moodCode='EVN'">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
 -->
             <assert test="count(id)=1">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument должен иметь 1 элемент id.</assert>
+        </rule>
+    </pattern>
+
+
+
+    <!-- Core02-1 -->
+    <pattern>
+        <rule context="//addr[not(@nullFlavor)]">
+            <assert test="count(streetAddressLine)=1">Core02-1. Элемент //addr должен иметь 1 элемент streetAddressLine.</assert>
+            <assert test="count(address:stateCode)=1">Core02-1. Элемент //addr должен иметь 1 элемент address:stateCode.</assert>
+            <assert test="count(fias:Address)=1">Core02-1. Элемент //addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr/streetAddressLine">
+            <assert test=".!=''">Core02-1. Элемент //addr/streetAddressLine должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[address:stateCode]">
+            <assert test="address:stateCode/@codeSystem=['1.2.643.5.1.13.13.99.2.206','1.2.643.5.1.13.13.11.1093']">Core02-1. Элемент //addr/address:stateCode должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.206' или '1.2.643.5.1.13.13.11.1093'.</assert>
+            <assert test="address:stateCode/@code!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="address:stateCode/@codeSystemName!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="address:stateCode/@codeSystemVersion!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="address:stateCode/@displayName!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[fias:Address[not(@nullFlavor)]]">
+            <assert test="count(fias:Address/fias:AOGUID)=1">Core02-1. Элемент //addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
+            <assert test="count(fias:Address/fias:HOUSEGUID)=1">Core02-1. Элемент //addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[fias:Address/fias:AOGUID]">
+            <assert test="fias:Address/fias:AOGUID!=''">Core02-1. Элемент //addr/fias:Address/fias:AOGUID должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[fias:Address/fias:HOUSEGUID[not(@nullFlavor)]]">
+            <assert test="fias:Address/fias:HOUSEGUID!=''">Core02-1. Элемент //addr/fias:Address/fias:HOUSEGUID должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
 </schema>

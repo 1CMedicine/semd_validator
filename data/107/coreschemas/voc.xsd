@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mif="urn:hl7-org:v3/mif">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mif="urn:hl7-org:v3/mif" targetNamespace="urn:hl7-org:v3" xmlns="urn:hl7-org:v3">
    <xs:annotation>
-      <xs:documentation> $Id: Vocabulary.xml,v 1.1 2005/08/25 11:33:46 mcraig Exp $ 
+      <xs:documentation> $Id: Vocabulary.xml,v 1.1<xs:complexType>
+         <xs:choice minOccurs="0">
+            <xs:group ref="Organization"/>
+         </xs:choice>
+         <xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
+      </xs:complexType>05/08/25 11:33:46 mcraig Exp $ 
 RoseTree XML to Schema: $Id: VocabXMLtoXSD.xsl,v 1.6 2005/05/24 00:14:18 lmckenzi Exp $</xs:documentation>
    </xs:annotation>
    <xs:include schemaLocation="datatypes.xsd"/>
@@ -551,15 +556,15 @@ RoseTree XML to Schema: $Id: VocabXMLtoXSD.xsl,v 1.6 2005/05/24 00:14:18 lmckenz
       </xs:annotation>
       <xs:restriction base="cs">
          <xs:enumeration value="fax"/>
-         <xs:enumeration value="file"/>
-         <xs:enumeration value="ftp"/>
+         <!--<xs:enumeration value="file"/>-->
+         <!--<xs:enumeration value="ftp"/>-->
          <xs:enumeration value="http"/>
          <xs:enumeration value="mailto"/>
-         <xs:enumeration value="mllp"/>
-         <xs:enumeration value="modem"/>
-         <xs:enumeration value="nfs"/>
+         <!--<xs:enumeration value="mllp"/>-->
+         <!--<xs:enumeration value="modem"/>-->
+         <!--<xs:enumeration value="nfs"/>-->
          <xs:enumeration value="tel"/>
-         <xs:enumeration value="telnet"/>
+         <!--<xs:enumeration value="telnet"/>-->
       </xs:restriction>
    </xs:simpleType>
    <xs:annotation>
@@ -1503,6 +1508,7 @@ RoseTree XML to Schema: $Id: VocabXMLtoXSD.xsl,v 1.6 2005/05/24 00:14:18 lmckenz
                <xs:enumeration value="NI"/>
                <xs:enumeration value="MSK"/>
                <xs:enumeration value="NA"/>
+               <xs:enumeration value="INV"/>
             </xs:restriction>
          </xs:simpleType>
       </xs:union>

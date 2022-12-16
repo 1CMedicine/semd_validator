@@ -174,8 +174,31 @@ public class SEMDValidator extends HttpServlet {
 
         Part filePart = req.getPart("file");
         final String remdtype = req.getParameter("remdtype"); 
-        final String verifytype = req.getParameter("verifytype"); 
-        InputStream fileContent = filePart.getInputStream();
+        final String verifytype = req.getParameter("verifytype");
+        
+        try {
+            int rt = Integer.parseInt(remdtype);
+            if (rt < 1) {
+                out.print("remdtype parameter should be greater then 0");
+            }
+         }
+         catch (NumberFormatException e) {
+            out.print("remdtype parameter should be integer");
+            return;
+         }
+
+         try {
+            int vt = Integer.parseInt(verifytype);
+            if (vt < 0 || vt > 2) {
+                out.print("verifytype parameter should be in (0, 1, 2)");
+            }
+         }
+         catch (NumberFormatException e) {
+            out.print("verifytype parameter should be integer");
+            return;
+         }
+
+         InputStream fileContent = filePart.getInputStream();
         String xml = new BufferedReader(new InputStreamReader(fileContent, "UTF-8")).lines().collect(Collectors.joining("\n"));
         // remove BOM
         if (xml.startsWith("\uFEFF")) {
@@ -185,6 +208,7 @@ public class SEMDValidator extends HttpServlet {
 
         if (xml.length() < 50) {
             out.print("XML is broken. Length="+xml.length());
+            return;
         }
         if (xml.substring(30, 50).indexOf("UTF-8") == -1) {
             out.print("First line should be '<?xml?>' with encoding='UTF-8'");
@@ -330,10 +354,10 @@ public class SEMDValidator extends HttpServlet {
         , "<hr>"
         , "<h3>Структура zip-архива</h3>"
         , "<ul>"
-        , "<li>Имя архива - 118.zip, где имя файла - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a></li>"
-        , "<li>118_1.sch - схематрон (не обязателен). Первое число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a>," 
+        , "<li>Имя архива - 118.zip, где имя файла - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД (OID)</a></li>"
+        , "<li>118_1.sch - схематрон (не обязателен). Первое число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД (OID)</a>," 
         , "второе число (необязательное) используется в случае, когда для типа РЭМД существует несколько схематронов</li>"
-        , "<li>118 - папка (обязательна). Число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД</a>.</li>"
+        , "<li>118 - папка (обязательна). Число - <a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>тип РЭМД (OID)</a>.</li>"
         , "<ul>"
         , "<li>CDA.xsd - схема (обязательная). Имя файла должно быть именно таким</li>"
         , "<li>... - другие xsd файл, на которые ссылается головная схема. Друстимы папки, оригинальная иерархия должна быть сохранена</li>"
@@ -427,7 +451,7 @@ public class SEMDValidator extends HttpServlet {
         , "<H1>Валидация СЭМД</H1>"
         , "<form enctype = 'multipart/form-data' method='post' action='", contextPath, "/verify'>"
         , "  <fieldset>"
-        , "   <p><label for='remdtype'><a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>Тип РЭМД</a>:</label><input type='text' name='remdtype'></p>"
+        , "   <p><label for='remdtype'><a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>Тип РЭМД (OID)</a>:</label><input type='text' name='remdtype'></p>"
         , "   <p><label for='verifytype'>Тип валидации. 0 - xsd, 1 - sch, 2 - все:</label><input type='text' name='verifytype' value='2'></p>"
         , "  </fieldset>"
         , "  <p>"

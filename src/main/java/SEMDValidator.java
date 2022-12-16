@@ -180,6 +180,7 @@ public class SEMDValidator extends HttpServlet {
             int rt = Integer.parseInt(remdtype);
             if (rt < 1) {
                 out.print("remdtype parameter should be greater then 0");
+                return;
             }
          }
          catch (NumberFormatException e) {
@@ -191,6 +192,7 @@ public class SEMDValidator extends HttpServlet {
             int vt = Integer.parseInt(verifytype);
             if (vt < 0 || vt > 2) {
                 out.print("verifytype parameter should be in (0, 1, 2)");
+                return;
             }
          }
          catch (NumberFormatException e) {
@@ -294,6 +296,18 @@ public class SEMDValidator extends HttpServlet {
 
         resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
         PrintWriter out = resp.getWriter();
+
+        try {
+            int rt = Integer.parseInt(remdtype);
+            if (rt < 1) {
+                out.print("remdtype parameter should be greater then 0");
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            out.print("remdtype parameter should be integer");
+            return;
+        }
 
         File xsd = new File(DATA_PATH+"/"+remdtype+"/CDA.xsd");
         if (!xsd.exists() ||  xsd.isDirectory()) {

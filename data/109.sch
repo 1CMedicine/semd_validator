@@ -355,7 +355,7 @@
         <rule context="ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1]">
             <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+$')">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1] должен иметь синтаксически корректное значение атрибута @root, соответствующее регулярному выражению '([0-2])([.]([1-9][0-9]*|0))+'.</assert>
         </rule>
-        <rule context="ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2]">
+        <rule context="ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2][not(@nullFlavor)]">
             <assert test="@root='1.2.643.5.1.13.2.1.1.1504.101'">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2] должен иметь значение атрибута @root равное '1.2.643.5.1.13.2.1.1.1504.101'.</assert>
             <assert test="@extension!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2] должен иметь не пустое значение атрибута @extension.</assert>
             <assert test="@assigningAuthorityName!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2] должен иметь не пустое значение атрибута @assigningAuthorityName.</assert>
@@ -1235,7 +1235,7 @@
             <assert test="@code!=''">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act/code должен иметь не пустое значение атрибута @code.</assert>
             <assert test="@displayName!=''">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act[code[@codeSystem='1.2.643.5.1.13.13.99.2.856']]/participant">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act[code[@codeSystem='1.2.643.5.1.13.13.99.2.856']]/participant[not(@nullFlavor)]">
             <assert test="@typeCode='LOC'">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act/participant должен иметь значение атрибута @typeCode равное 'LOC'.</assert>
             <assert test="count(participantRole)=1">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act/participant должен иметь 1 элемент participantRole.</assert>
         </rule>
@@ -1746,7 +1746,7 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4058']]/effectiveTime">
             <assert test="count(high)=1">У3-14. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/effectiveTime должен иметь 1 элемент high.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4058']]/effectiveTime/high">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4058']]/effectiveTime/high[not(@nullFlavor)]">
             <assert test="@value!=''">У3-14. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/effectiveTime/high должен иметь не пустое значение атрибута @value.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4058']]/entryRelationship">
@@ -1816,10 +1816,10 @@
             <assert test="count(low)=1">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/effectiveTime должен иметь 1 элемент low.</assert>
             <assert test="count(high)&lt;=1">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/effectiveTime должен иметь не более 1 элемента high.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code/qualifier]/effectiveTime/low">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code/qualifier]/effectiveTime/low[not(@nullFlavor)]">
             <assert test="@value!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/effectiveTime/low должен иметь не пустое значение атрибута @value.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code/qualifier]/effectiveTime/high">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code/qualifier]/effectiveTime/high[not(@nullFlavor)]">
             <assert test="@value!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/effectiveTime/high должен иметь не пустое значение атрибута @value.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code/qualifier]/entryRelationship[observation/code[@code='4115']]">
@@ -2417,7 +2417,7 @@
             <assert test="@codeSystemName!=''">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@displayName!=''">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='ST'">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <assert test=".!=''">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь не пустое значение.</assert>
         </rule>
@@ -2550,7 +2550,7 @@
             <assert test="@codeSystemName!=''">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@displayName!=''">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='12132']]/value">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='12132']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='ST'">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <assert test=".!=''">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь не пустое значение.</assert>
         </rule>
@@ -2670,11 +2670,11 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/value">
             <assert test="@xsi:type='ST'">У3-37. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference[not(@nullFlavor)]">
             <assert test="@typeCode='REFR'">У3-37. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference должен иметь значение атрибута @typeCode равное 'REFR'.</assert>
             <assert test="count(externalDocument)=1">У3-37. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference должен иметь 1 элемент externalDocument.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference/externalDocument">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference/externalDocument[not(@nullFlavor)]">
             <assert test="@classCode='DOCCLIN'">У3-37. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь значение атрибута @classCode равное 'DOCCLIN'.</assert>
             <assert test="@moodCode='EVN'">У3-37. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
             <assert test="count(id)=1">У3-37. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь 1 элемент externalDocument.</assert>

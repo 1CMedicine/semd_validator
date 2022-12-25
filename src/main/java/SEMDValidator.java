@@ -89,6 +89,9 @@ public class SEMDValidator extends HttpServlet {
         } else if (req.getServletPath().equals("/login.html")) { 
             log.info(req.getServletPath());
             loginHtml(req.getContextPath(), resp);
+        } else if (req.getServletPath().startsWith("/file/")) { 
+            log.info(req.getServletPath());
+            download(req.getServletPath(), resp);
         } else {
             log.warn("PAGE NOT FOUND: "+req.getServletPath());
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -311,7 +314,7 @@ public class SEMDValidator extends HttpServlet {
 
         File xsd = new File(DATA_PATH+"/"+remdtype+"/CDA.xsd");
         if (!xsd.exists() ||  xsd.isDirectory()) {
-            out.print("no xsd - " + DATA_PATH + "/" + remdtype+"/CDA.xsd");
+            out.print("no xsd - " + remdtype+"/CDA.xsd");
         } else {
             File folder = new File(DATA_PATH);
             boolean valid = true;
@@ -384,6 +387,36 @@ public class SEMDValidator extends HttpServlet {
         , "</html>"));
     }
 
+    private void download(final String servletPath, HttpServletResponse resp) 
+            throws IOException {
+
+        resp.setContentType("text/plain");
+        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
+
+        if (servletPath.contains("..")) {
+            PrintWriter out = resp.getWriter();
+            out.print("ERROR: URL '" + servletPath + "' contains '..'");
+            return;
+        }
+        final String url = DATA_PATH+servletPath.substring(5);   // "/file/"
+        final File file = new File(url);
+        if (file.exists()) {
+            OutputStream out = resp.getOutputStream();
+            FileInputStream in = new FileInputStream(file);
+            byte[] buffer = new byte[4096];
+            int length;
+            while ((length = in.read(buffer)) > 0) {
+                out.write(buffer, 0, length);
+            }
+            in.close();
+            out.flush();
+        } else {
+            PrintWriter out = resp.getWriter();
+            out.print("File not found - " + servletPath.substring(5));
+            return;
+        }
+    }
+
     private void get_sch_list(final String contextPath, HttpServletResponse resp) 
             throws IOException {
 
@@ -437,7 +470,7 @@ public class SEMDValidator extends HttpServlet {
             String ext = item.substring(item.length()-3, item.length());
             File file = new File(p);
             if (ext.equals("sch") || ext.equals("xsd")) {
-                out.print(String.join("", "<tr><td>", item, "</td><td align='right'>", Long.toString(file.length()), "</td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
+                out.print(String.join("", "<tr><td><a href='./file/", item,"'>", item, "</a></td><td align='right'>", Long.toString(file.length()), "</td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
             } else if (ext.equals("xsl")) {
                 out.print(String.join("","<tr><td>", item, "</td><td></td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
             }

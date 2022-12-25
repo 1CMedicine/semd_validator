@@ -4,7 +4,7 @@
       <xs:documentation> $Id: Vocabulary.xml,v 1.1 2005/08/25 11:33:46 mcraig Exp $ 
 RoseTree XML to Schema: $Id: VocabXMLtoXSD.xsl,v 1.6 2005/05/24 00:14:18 lmckenzi Exp $</xs:documentation>
    </xs:annotation>
-   <xs:include schemaLocation="http://tech-iemc-test.rosminzdrav.ru/tech/download/infrastructure/8/coreschemas/datatypes.xsd"/>
+   <xs:include schemaLocation="datatypes.xsd"/>
    <xs:simpleType name="Classes">
       <xs:restriction base="cs"/>
    </xs:simpleType>

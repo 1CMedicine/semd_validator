@@ -91,7 +91,7 @@ public class SEMDValidator extends HttpServlet {
             loginHtml(req.getContextPath(), resp);
         } else if (req.getServletPath().startsWith("/file/")) { 
             log.info(req.getServletPath());
-            download(req.getServletPath(), resp);
+            download(req.getContextPath(), req.getServletPath(), resp);
         } else {
             log.warn("PAGE NOT FOUND: "+req.getServletPath());
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -203,7 +203,7 @@ public class SEMDValidator extends HttpServlet {
             return;
          }
 
-         InputStream fileContent = filePart.getInputStream();
+        InputStream fileContent = filePart.getInputStream();
         String xml = new BufferedReader(new InputStreamReader(fileContent, "UTF-8")).lines().collect(Collectors.joining("\n"));
         // remove BOM
         if (xml.startsWith("\uFEFF")) {
@@ -387,35 +387,44 @@ public class SEMDValidator extends HttpServlet {
         , "</html>"));
     }
 
-    private void download(final String servletPath, HttpServletResponse resp) 
+    private void download(final String contextPath, final String servletPath, HttpServletResponse resp) 
             throws IOException {
 
-        resp.setContentType("text/plain");
-        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
+        resp.setHeader("Content-Type", "text/html; charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+        out.print(String.join("\n"
+        , "<html>"
+        , " <head>"
+        , "  <title>", servletPath.substring(5), "</title>"
+        , " </head>"
+        , " <body>"));
 
         if (servletPath.contains("..")) {
-            PrintWriter out = resp.getWriter();
             out.print("ERROR: URL '" + servletPath + "' contains '..'");
-            return;
-        }
-        final String url = DATA_PATH+servletPath.substring(5);   // "/file/"
-        final File file = new File(url);
-        if (file.exists()) {
-            OutputStream out = resp.getOutputStream();
-            FileInputStream in = new FileInputStream(file);
-            byte[] buffer = new byte[4096];
-            int length;
-            while ((length = in.read(buffer)) > 0) {
-                out.write(buffer, 0, length);
-            }
-            in.close();
-            out.flush();
         } else {
-            PrintWriter out = resp.getWriter();
-            out.print("File not found - " + servletPath.substring(5));
-            return;
+            final String url = DATA_PATH+servletPath.substring(5);   // 5 - это  "/file"
+            final int i = servletPath.lastIndexOf("/");     // remove file name
+            final String p = contextPath+"/file"+servletPath.substring(5, i+1);   // 5 - это "/file"
+            final File file = new File(url);
+            if (file.exists()) {
+                FileReader fr = new FileReader(file, StandardCharsets.UTF_8);
+                BufferedReader reader = new BufferedReader(fr);
+                String line = reader.readLine();
+                while (line != null) {
+                    String str = escapeHTML(p, line);
+                    out.print(str);
+                    out.print("<br>");
+                    line = reader.readLine();
+                }
+                reader.close();
+            } else {
+                out.print("File not found - " + servletPath.substring(5));
+            }
         }
-    }
+        out.print(String.join("\n"
+        , "</body>"
+        , "</html>"));
+}
 
     private void get_sch_list(final String contextPath, HttpServletResponse resp) 
             throws IOException {
@@ -425,7 +434,7 @@ public class SEMDValidator extends HttpServlet {
         out.print(String.join("\n"
         , "<html>"
         , " <head>"
-        , "  <title>Список загруженных xsd, sch и сгенерированных xsl из sch</title></title>"
+        , "  <title>Список загруженных xsd, sch и сгенерированных xsl из sch</title>"
         , " </head>"
         , " <body>"));
 
@@ -599,5 +608,41 @@ public class SEMDValidator extends HttpServlet {
             cacheXsd.put(path, s);
         }
         return s;
+    }
+
+    public static String escapeHTML(final String path, final String s) {
+        StringBuilder out = new StringBuilder(Math.max(16, s.length()));
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c > 127 || c == '"' || c == '\'' || c == '<' || c == '>' || c == '&') {
+                out.append("&#");
+                out.append((int) c);
+                out.append(';');
+            } else if (c == ' ') {
+                out.append("&nbsp;");
+            } else {
+                out.append(c);
+            }
+        }
+        int i1 = out.indexOf("include ");
+        if (i1 > 0) {
+            int i2 = out.indexOf("schemaLocation", i1+8);
+            if (i2 >= 0) {
+                int i3 = out.indexOf("&#39;", i2+15);
+                if (i3 < 0) {
+                    i3 = out.indexOf("&#34;", i2+15);
+                }
+                int i4 = out.indexOf("&#39;", i3+5);
+                if (i4 < 0) {
+                    i4 = out.indexOf("&#34;", i3+5);
+                }
+                if (i3 > 0 && i4 > 0) {
+                    String file = out.substring(i3+5, i4);
+                    String out2 = out.substring(0, i3+5)+ "<a href='"+path+file+"'>"+file+"</a>"+out.substring(i4);
+                    return out2;
+                }
+            }
+        }
+        return out.toString();
     }
 }

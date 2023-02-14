@@ -22,7 +22,7 @@
             <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
          </dct:Agent>
       </dct:creator>
-      <dct:created>2022-12-16T16:42:48.637201171+08:00</dct:created>
+      <dct:created>2023-02-14T17:09:30.530014454+08:00</dct:created>
    </rdf:Description>
    <xsl:output indent="yes"/>
    <xsl:template match="root()">
@@ -57,7 +57,7 @@
                         <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
                      </dct:Agent>
                   </dct:creator>
-                  <dct:created>2022-12-16T16:42:48.637201171+08:00</dct:created>
+                  <dct:created>2023-02-14T17:09:30.530014454+08:00</dct:created>
                </rdf:Description>
             </dct:source>
          </svrl:metadata>
@@ -24803,16 +24803,16 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value"
+   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value[not(@nullFlavor)]"
                   priority="67"
                   mode="d13e26">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
          <xsl:when test="$schxslt:patterns-matched[. = 'd13e5589']">
             <schxslt:rule pattern="d13e5589">
-               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value" shadowed by preceding rule</xsl:comment>
+               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:suppressed-rule>
             </schxslt:rule>
             <xsl:next-match>
@@ -24824,7 +24824,7 @@
          <xsl:otherwise>
             <schxslt:rule pattern="d13e5589">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4113']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
                <xsl:if test="not(@xsi:type='ST')">
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -25386,16 +25386,16 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value"
+   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value[not(@nullFlavor)]"
                   priority="56"
                   mode="d13e26">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
          <xsl:when test="$schxslt:patterns-matched[. = 'd13e5645']">
             <schxslt:rule pattern="d13e5645">
-               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value" shadowed by preceding rule</xsl:comment>
+               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:suppressed-rule>
             </schxslt:rule>
             <xsl:next-match>
@@ -25407,7 +25407,7 @@
          <xsl:otherwise>
             <schxslt:rule pattern="d13e5645">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12182']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
                <xsl:if test="not(@xsi:type='ST')">
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -25598,16 +25598,16 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value"
+   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value[not(@nullFlavor)]"
                   priority="52"
                   mode="d13e26">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
          <xsl:when test="$schxslt:patterns-matched[. = 'd13e5645']">
             <schxslt:rule pattern="d13e5645">
-               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value" shadowed by preceding rule</xsl:comment>
+               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:suppressed-rule>
             </schxslt:rule>
             <xsl:next-match>
@@ -25619,7 +25619,7 @@
          <xsl:otherwise>
             <schxslt:rule pattern="d13e5645">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12183']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
                <xsl:if test="not(@xsi:type='ST')">
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -25810,16 +25810,16 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value"
+   <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value[not(@nullFlavor)]"
                   priority="48"
                   mode="d13e26">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
          <xsl:when test="$schxslt:patterns-matched[. = 'd13e5645']">
             <schxslt:rule pattern="d13e5645">
-               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value" shadowed by preceding rule</xsl:comment>
+               <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:suppressed-rule>
             </schxslt:rule>
             <xsl:next-match>
@@ -25831,7 +25831,7 @@
          <xsl:otherwise>
             <schxslt:rule pattern="d13e5645">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value</xsl:attribute>
+                  <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/entryRelationship/observation[code[@code='12184']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
                <xsl:if test="not(@xsi:type='ST')">
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -27403,7 +27403,7 @@
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                                        location="{schxslt:location(.)}">
                      <xsl:attribute name="test">recordTarget/patientRole/telecom/@value!='' or recordTarget/patientRole/patient/guardian/telecom/@value!=''</xsl:attribute>
-                     <svrl:text>У3-39. Элемент ClinicalDocument/recordTarget/patientRole/telecom или элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/telecom должен иметь не пустое значение атрибута @value.</svrl:text>
+                     <svrl:text>У3-40. Элемент ClinicalDocument/recordTarget/patientRole/telecom или элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/telecom должен иметь не пустое значение атрибута @value.</svrl:text>
                   </svrl:failed-assert>
                </xsl:if>
             </schxslt:rule>
@@ -27438,11 +27438,11 @@
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument[component/structuredBody/component/section[code/@code='CONSENT']/entry/observation[code/@code='12481']/value/@code='2']</xsl:attribute>
                </svrl:fired-rule>
-               <xsl:if test="not(recordTarget/patientRole/patient/guardian/addr!='' or recordTarget/patientRole/patient/guardian/guardianOrganization/addr!='')">
+               <xsl:if test="not(recordTarget/patientRole/addr!='' or recordTarget/patientRole/patient/guardian/addr!='' or recordTarget/patientRole/patient/guardian/guardianOrganization/addr!='')">
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                                        location="{schxslt:location(.)}">
-                     <xsl:attribute name="test">recordTarget/patientRole/patient/guardian/addr!='' or recordTarget/patientRole/patient/guardian/guardianOrganization/addr!=''</xsl:attribute>
-                     <svrl:text>У3-39. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr или элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/addr должен иметь не пустое значение.</svrl:text>
+                     <xsl:attribute name="test">recordTarget/patientRole/addr!='' or recordTarget/patientRole/patient/guardian/addr!='' or recordTarget/patientRole/patient/guardian/guardianOrganization/addr!=''</xsl:attribute>
+                     <svrl:text>У3-40. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr или элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/addr должен иметь не пустое значение.</svrl:text>
                   </svrl:failed-assert>
                </xsl:if>
             </schxslt:rule>

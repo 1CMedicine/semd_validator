@@ -203,6 +203,7 @@ public class SEMDValidator extends HttpServlet {
             return;
          }
 
+        log.info("REMD type: " + remdtype + ", verify type: " + verifytype);
         InputStream fileContent = filePart.getInputStream();
         String xml = new BufferedReader(new InputStreamReader(fileContent, "UTF-8")).lines().collect(Collectors.joining("\n"));
         // remove BOM

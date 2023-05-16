@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Схема разработана Центром по разработке СЭМД ЦНИИОИЗ 2021 -->
+<!-- Схема разработана Центром актуализации и модернизации руководств по структурированным электронным медицинским документам ЦНИИОИЗ 2022 -->
 <!-- Включены элементы разработанные Health Level Seven -->
 <xs:schema xmlns="urn:hl7-ru:medService" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="urn:hl7-ru:medService" xmlns:medService="urn:hl7-ru:medService" elementFormDefault="qualified" xmlns:hl7="urn:hl7-org:v3">
@@ -35,39 +35,59 @@
 ********************************************************************************************************************
 	  -->
 	<xs:import namespace="urn:hl7-org:v3" schemaLocation="coreschemas\datatypes-base.xsd"/>
+	<!-- Элемент "Вид медицинской карты" -->
 	<xs:element name="DocType" type="DocType"/>
 	<xs:complexType name="DocType">
 		<xs:complexContent>
 			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.11.1522"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
+				<xs:attribute name="code" type="hl7:cs" use="required"/>
+				<xs:attribute name="codeSystem" type="hl7:uid" use="required" fixed="1.2.643.5.1.13.13.11.1522"/>
+				<xs:attribute name="codeSystemName" type="hl7:st" use="required"/>
+				<xs:attribute name="codeSystemVersion" type="hl7:st" use="required"/>
+				<xs:attribute name="displayName" type="hl7:st" use="required"/>
+				<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="prohibited"/>
 			</xs:restriction>
 		</xs:complexContent>
 	</xs:complexType>
+	<!-- Элемент "Форма оказания медицинской помощи" -->
 	<xs:element name="serviceForm" type="serviceForm"/>
 	<xs:complexType name="serviceForm">
 		<xs:complexContent>
 			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.11.1551"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
+				<xs:attribute name="code" type="hl7:cs" use="required"/>
+				<xs:attribute name="codeSystem" type="hl7:uid" use="required" fixed="1.2.643.5.1.13.13.11.1551"/>
+				<xs:attribute name="codeSystemName" type="hl7:st" use="required"/>
+				<xs:attribute name="codeSystemVersion" type="hl7:st" use="required"/>
+				<xs:attribute name="displayName" type="hl7:st" use="required"/>
+				<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="prohibited"/>
 			</xs:restriction>
 		</xs:complexContent>
 	</xs:complexType>
+	<!-- Элемент "Вид медицинской помощи" -->
 	<xs:element name="serviceType" type="serviceType"/>
 	<xs:complexType name="serviceType">
 		<xs:complexContent>
 			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.11.1034"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
+				<xs:attribute name="code" type="hl7:cs" use="required"/>
+				<xs:attribute name="codeSystem" type="hl7:uid" use="required" fixed="1.2.643.5.1.13.13.11.1034"/>
+				<xs:attribute name="codeSystemName" type="hl7:st" use="required"/>
+				<xs:attribute name="codeSystemVersion" type="hl7:st" use="required"/>
+				<xs:attribute name="displayName" type="hl7:st" use="required"/>
+				<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="prohibited"/>
 			</xs:restriction>
 		</xs:complexContent>
 	</xs:complexType>
+	<!-- Элемент "Условия оказания медицинской помощи" -->
 	<xs:element name="serviceCond" type="serviceCond"/>
 	<xs:complexType name="serviceCond">
 		<xs:complexContent>
 			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.99.2.322"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
+				<xs:attribute name="code" type="hl7:cs" use="required"/>
+				<xs:attribute name="codeSystem" type="hl7:uid" use="required" fixed="1.2.643.5.1.13.13.99.2.322"/>
+				<xs:attribute name="codeSystemName" type="hl7:st" use="required"/>
+				<xs:attribute name="codeSystemVersion" type="hl7:st" use="required"/>
+				<xs:attribute name="displayName" type="hl7:st" use="required"/>
+				<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="prohibited"/>
 			</xs:restriction>
 		</xs:complexContent>
 	</xs:complexType>

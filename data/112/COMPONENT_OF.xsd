@@ -83,11 +83,11 @@
 					<xs:documentation>тип медицинской карты</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DocType" minOccurs="0" maxOccurs="1" type="ST">
+			<xs:element ref="medService:DocType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>вид медицинской карты</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>		
 			<xs:element name="effectiveTime" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>даты случая</xs:documentation>

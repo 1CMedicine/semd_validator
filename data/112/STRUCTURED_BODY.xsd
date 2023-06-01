@@ -64,10 +64,6 @@
 				<xs:annotation>
 					<xs:documentation></xs:documentation>
 				</xs:annotation>
-				<xs:key name="SectionCodeKey">
-					<xs:selector xpath=".//hl7:section/hl7:code" />
-					<xs:field xpath="@code" />
-				</xs:key>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
@@ -78,10 +74,6 @@
 				<xs:annotation>
 					<xs:documentation>секция документа</xs:documentation>
 				</xs:annotation>
-				<xs:key name="EntryCodeKey_Obs">
-					<xs:selector xpath=".//hl7:entry/hl7:observation/hl7:code" />
-					<xs:field xpath="@code" />
-				</xs:key>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
@@ -270,14 +262,7 @@
 							<xs:attribute name="codeSystemName" type="st" use="optional"/>
 							<xs:attribute name="codeSystemVersion" type="st" use="optional"/>
 							<xs:attribute name="displayName" type="st" use="optional"/>
-							<xs:attribute name="nullFlavor" use="optional">
-								<xs:simpleType>
-									<xs:restriction base="NullFlavor">
-										<xs:enumeration value="NA"/>
-										<xs:enumeration value="NI"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:attribute>
+							<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 						</xs:restriction>
 					</xs:complexContent>
 				</xs:complexType>
@@ -437,15 +422,15 @@
 					<xs:complexType>
 						<xs:complexContent>
 							<xs:restriction base="CE_non_elements"> 
-								<xs:attribute name="code" type="cs" use="required"/>
-								<xs:attribute name="codeSystem" type="uid" use="required"/>
-								<xs:attribute name="codeSystemName" type="st" use="required"/>
-								<xs:attribute name="codeSystemVersion" type="st" use="required"/>
-								<xs:attribute name="displayName" type="st" use="required"/>
+								<xs:attribute name="code" type="cs" use="optional"/>
+								<xs:attribute name="codeSystem" type="uid" use="optional"/>
+								<xs:attribute name="codeSystemName" type="st" use="optional"/>
+								<xs:attribute name="codeSystemVersion" type="st" use="optional"/>
+								<xs:attribute name="displayName" type="st" use="optional"/>
 								<xs:attribute name="nullFlavor" use="optional">
 									<xs:simpleType>
 										<xs:restriction base="NullFlavor">
-											<xs:enumeration value="NA"/>
+											<xs:enumeration value="OTH"/>
 										</xs:restriction>
 									</xs:simpleType>
 								</xs:attribute>
@@ -454,7 +439,7 @@
 					</xs:complexType>
 				</xs:element>
 				<xs:choice minOccurs="0">
-					<xs:element name="name" type="EN_1" minOccurs="1" maxOccurs="1"> 
+					<xs:element name="name" type="ST" minOccurs="1" maxOccurs="1"> 
 						<xs:annotation>
 							<xs:documentation>Наименование медицинского изделия</xs:documentation>
 						</xs:annotation>
@@ -511,13 +496,7 @@
 							<xs:restriction base="II"> 
 								<xs:attribute name="root" type="uid" use="optional"/>
 								<xs:attribute name="extension" type="st" use="optional"/>
-								<xs:attribute name="nullFlavor" use="optional">
-									<xs:simpleType>
-										<xs:restriction base="NullFlavor">
-											<xs:enumeration value="NA"/>
-										</xs:restriction>
-									</xs:simpleType>
-								</xs:attribute>
+								<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 							</xs:restriction>
 						</xs:complexContent>
 					</xs:complexType>
@@ -590,8 +569,4 @@
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 	</xs:complexType>	
-	<!-- Наименование медицинского изделия -->
-	<xs:simpleType name="EN_1">
-		<xs:restriction base="st"/>
-	</xs:simpleType>
 </xs:schema>

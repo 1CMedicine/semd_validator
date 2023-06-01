@@ -150,7 +150,7 @@
 						<xs:documentation>наименование медицинской организации или ФИО индивидуального предпринимателя</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="telecom" type="TEL" minOccurs="1" maxOccurs="unbounded">
+				<xs:element name="telecom" type="TEL" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>контакты медицинской организации или индивидуального предпринимателя</xs:documentation>
 					</xs:annotation>

@@ -41,6 +41,7 @@ public class SEMDValidator extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         System.setProperty("javax.xml.transform.TransformerFactory", "net.sf.saxon.TransformerFactoryImpl");
+        System.setProperty("javax.xml.parsers.DocumentBuilderFactory","org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
         ServletConfig config = this.getServletConfig();
 
         DATA_PATH = config.getInitParameter("DATA_PATH");
@@ -575,7 +576,7 @@ public class SEMDValidator extends HttpServlet {
             throws IOException, ParserConfigurationException, SAXException {
 
         Schema s = tryXsdCache(xsd);
-        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl", null);
         builderFactory.setNamespaceAware(true);
         DocumentBuilder parser = builderFactory.newDocumentBuilder();
         InputStream stream = new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8));

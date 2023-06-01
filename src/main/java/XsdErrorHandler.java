@@ -21,6 +21,6 @@ public class XsdErrorHandler implements ErrorHandler {
         int lineNumber = exception.getLineNumber();
         int columnNumber = exception.getColumnNumber();
         String message = exception.getMessage();
-        throw new SAXException(":" + level + ": Line: " + lineNumber + " Column: " + columnNumber + " message: " + message);
+        throw new SAXException(":" + level + ": Line: " + lineNumber + " Column: " + columnNumber + " Message: " + message);
     }
 } 

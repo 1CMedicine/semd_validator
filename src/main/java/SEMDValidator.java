@@ -13,7 +13,6 @@ import javax.xml.validation.*;
 import java.util.stream.Collectors;
 import org.xml.sax.SAXException;
 import org.w3c.dom.Document;
-import javax.xml.transform.dom.DOMSource;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.DocumentBuilder;
@@ -575,15 +574,16 @@ public class SEMDValidator extends HttpServlet {
     private void xsd(final String xml, final String xsd)
             throws IOException, ParserConfigurationException, SAXException {
 
+        
         Schema s = tryXsdCache(xsd);
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl", null);
         builderFactory.setNamespaceAware(true);
+        builderFactory.setSchema(s);
         DocumentBuilder parser = builderFactory.newDocumentBuilder();
         InputStream stream = new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8));
+        parser.setErrorHandler(new XsdErrorHandler());
         Document document = parser.parse(stream);
-        Validator validator = s.newValidator();
-        validator.setErrorHandler(new XsdErrorHandler());
-        validator.validate(new DOMSource(document));
+        document = null;
     }
 
     /**

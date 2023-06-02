@@ -2,6 +2,7 @@ import org.xml.sax.*;
 
 public class XsdErrorHandler implements ErrorHandler {
 
+
     @Override
     public void warning(SAXParseException exception) throws SAXException {
         handleMessage("WARNING", exception);

@@ -12,7 +12,6 @@ import javax.xml.XMLConstants;
 import javax.xml.validation.*;
 import java.util.stream.Collectors;
 import org.xml.sax.SAXException;
-import org.w3c.dom.Document;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.DocumentBuilder;
@@ -233,7 +232,7 @@ public class SEMDValidator extends HttpServlet {
                 out.print(e.getMessage());
                 valid = false;
             } catch (SAXException e) {
-                out.print(e.getMessage().replaceAll("\n", "<br>"));
+                out.print(e.getMessage());
                 valid = false;
             }
         }
@@ -581,9 +580,13 @@ public class SEMDValidator extends HttpServlet {
         builderFactory.setSchema(s);
         DocumentBuilder parser = builderFactory.newDocumentBuilder();
         InputStream stream = new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8));
-        parser.setErrorHandler(new XsdErrorHandler());
-        Document document = parser.parse(stream);
-        document = null;
+        XsdErrorHandler handler = new XsdErrorHandler();
+        parser.setErrorHandler(handler);
+        parser.parse(stream);
+        String error = handler.getMessage();
+        if (error.length() > 0) {
+            throw new SAXException(error);
+        }
     }
 
     /**

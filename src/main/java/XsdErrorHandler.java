@@ -2,6 +2,7 @@ import org.xml.sax.*;
 
 public class XsdErrorHandler implements ErrorHandler {
 
+    StringBuilder error = new StringBuilder("");
 
     @Override
     public void warning(SAXParseException exception) throws SAXException {
@@ -18,10 +19,17 @@ public class XsdErrorHandler implements ErrorHandler {
         handleMessage("ERROR", exception);
     }
 
-    private String handleMessage(String level, SAXParseException exception) throws SAXException {
+    private void handleMessage(String level, SAXParseException exception) throws SAXException {
         int lineNumber = exception.getLineNumber();
         int columnNumber = exception.getColumnNumber();
         String message = exception.getMessage();
-        throw new SAXException(":" + level + ": Line: " + lineNumber + " Column: " + columnNumber + " Message: " + message);
+        if (error.length() > 0) {
+            error.append("\n");
+        }
+        error.append(":" + level + ": Line: " + lineNumber + " Column: " + columnNumber + " Message: " + message);
+    }
+
+    public String getMessage() {
+        return error.toString();
     }
 } 

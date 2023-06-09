@@ -49,7 +49,12 @@
 </result>
 ```
 
-Пример неуспешной проверки:
+Примеры неуспешных проверок:
+```
+:ERROR: Line: 292 Column: 186 Message: cvc-elt.4.3: Type 'CD' is not validly derived from the type definition, '#AnonType_IdentityDocTypePOCD_MT000040.DocInfo', of element 'identity:IdentityDocType'.
+:ERROR: Line: 294 Column: 242 Message: cvc-elt.4.3: Type 'CD' is not validly derived from the type definition, '#AnonType_InsurancePolicyTypePOCD_MT000040.DocInfo', of element 'identity:InsurancePolicyType'.
+```
+
 ```
 <result>
 <sch file="118.xsl">

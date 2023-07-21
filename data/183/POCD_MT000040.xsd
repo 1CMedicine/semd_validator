@@ -464,7 +464,7 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 			<xs:element name="realmCode" type="CS" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="typeId" type="POCD_MT000040.InfrastructureRoot.typeId" minOccurs="0"/>
 			<xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice minOccurs="0">
+			<xs:choice>
 				<xs:element name="act" type="POCD_MT000040.Act"/>
 				<xs:element name="encounter" type="POCD_MT000040.Encounter"/>
 				<xs:element name="observation" type="POCD_MT000040.Observation"/>
@@ -565,6 +565,7 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 			<xs:element name="typeId" type="POCD_MT000040.InfrastructureRoot.typeId" minOccurs="0"/>
 			<xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="id" type="II" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="code" type="CE" minOccurs="0"/>
 			<xs:element name="addr" type="AD" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="telecom" type="TEL" minOccurs="0" maxOccurs="unbounded"/>
@@ -575,6 +576,7 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 		<xs:attribute name="classCode" type="RoleClass" use="optional" fixed="GUARD"/>
+		<xs:anyAttribute namespace="##other"/>
 	</xs:complexType>
 	<xs:complexType name="POCD_MT000040.HealthCareFacility">
 		<xs:sequence>
@@ -1026,11 +1028,13 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 			<xs:element name="code" type="CE" minOccurs="0"/>
 			<xs:element name="quantity" type="PQ" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="name" type="PN" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="desc" type="ED" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 		<xs:attribute name="classCode" type="EntityClassRoot" use="optional" default="ENT"/>
 		<xs:attribute name="determinerCode" type="EntityDeterminer" use="optional" fixed="INSTANCE"/>
+		<xs:anyAttribute namespace="##other"/>
 	</xs:complexType>
 	<xs:complexType name="POCD_MT000040.Precondition">
 		<xs:sequence>

@@ -8,6 +8,78 @@
     <ns prefix="medService" uri="urn:hl7-ru:medService"/>
     <ns prefix="fias" uri="urn:hl7-ru:fias"/>
     <ns prefix="PII" uri="urn:hl7-ru:PII"/>
+    <!-- Общие ограничения -->
+    <pattern>
+        <rule context="//code[not(@nullFlavor)][not(@code='ASSERTION')]">
+            <assert test="@codeSystemName!=''">Общие ограничения. Элемент //code должен иметь не пустое значение атрибута @codeSystemName.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='CD'][not(@nullFlavor)]">
+            <assert test="@codeSystem!=''">Общие ограничения. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @codeSystem.</assert>
+            <assert test="@codeSystemName!=''">Общие ограничения. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="@code!=''">Общие ограничения. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="@codeSystemVersion!=''">Общие ограничения. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="@displayName!=''">Общие ограничения. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @displayName.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='ST'][not(@nullFlavor)]">
+            <assert test=".!=''">Общие ограничения. Элемент //observation/value[@xsi:type='ST'] должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='BL'][not(@nullFlavor)]">
+            <assert test="@value=['true','false']">Общие ограничения. Элемент //observation/value[@xsi:type='BL'] должен иметь значение атрибута @value равное 'true' или 'false'.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='PQ'][not(@nullFlavor)]">
+            <assert test="@value!=''">Общие ограничения. Элемент //observation/value[@xsi:type='PQ'] должен иметь не пустое значение атрибута @value.</assert>
+            <assert test="@unit!=''">Общие ограничения. Элемент //observation/value[@xsi:type='PQ'] должен иметь не пустое значение атрибута @unit.</assert>
+            <assert test="count(translation)&lt;=1">Общие ограничения. Элемент //observation/value[@xsi:type='PQ'] должен иметь не более 1 элемента translation.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='TS'][not(@nullFlavor)]">
+            <assert test="@value!=''">Общие ограничения. Элемент //observation/value[@xsi:type='TS'] должен иметь не пустое значение атрибута @value.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='INT'][not(@nullFlavor)]">
+            <assert test="@value!=''">Общие ограничения. Элемент //observation/value[@xsi:type='INT'] должен иметь не пустое значение атрибута @value.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/recordTarget/patientRole[id[@root='1.2.643.100.3']/@extension][patient/guardian/id[@root='1.2.643.100.3']/@extension]">
+            <report test="matches(id[@root='1.2.643.100.3'][@extension][1]/@extension,patient/guardian/id[@root='1.2.643.100.3'][@extension][1]/@extension)">Общие ограничения. СНИЛС пациента не должен совпадать со СНИЛС законного представителя.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//id[@root='1.2.643.100.3']">
+            <report test="matches(@extension,'^([0]{3}[-\s]{0,1}){3}[0]{2}$')">Общие ограничения. СНИЛС не должен иметь состоять целиком из нулей.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//guardianOrganization[identity:Props/identity:Ogrn[not(@nullFlavor)]]">
+            <assert test="matches(identity:Props/identity:Ogrn,'^[0-9]{13}$')">Общие ограничения. ОГРН должен иметь синтаксически корректное значение: должен состоять из 13 цифр без разделителей.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//providerOrganization[identity:Props/identity:Ogrn[not(@nullFlavor)]]">
+            <assert test="matches(identity:Props/identity:Ogrn,'^[0-9]{13}$')">Общие ограничения. ОГРН должен иметь синтаксически корректное значение: должен состоять из 13 цифр без разделителей.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//providerOrganization[identity:Props/identity:Ogrnip[not(@nullFlavor)]]">
+            <assert test="matches(identity:Props/identity:Ogrnip,'^[0-9]{15}$')">Общие ограничения. ОГРНИП должен иметь синтаксически корректное значение: должен состоять из 13 цифр без разделителей.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//participantRole[identity:Props/identity:Ogrn[not(@nullFlavor)]]">
+            <assert test="matches(identity:Props/identity:Ogrn,'^[0-9]{13}$')">Общие ограничения. ОГРН должен иметь синтаксически корректное значение: должен состоять из 13 цифр без разделителей.</assert>
+        </rule>
+    </pattern>
     <!-- У1-1 -->
 <!-- Нужно вручную применять это правило далее по схематрону к элементам name, содержащим ФИО  -->
 <!--
@@ -127,6 +199,7 @@
         <rule context="ClinicalDocument/confidentialityCode">
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.285','1.2.643.5.1.13.2.1.1.1504.9','2.16.840.1.113883.2.35.10.9','1.2.643.5.1.13.13.11.1116']">У1-16. Элемент ClinicalDocument/confidentialityCode должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.285', '1.2.643.5.1.13.2.1.1.1504.9', '2.16.840.1.113883.2.35.10.9' или '1.2.643.5.1.13.13.11.1116'.</assert>
             <assert test="@code!=''">У1-16. Элемент ClinicalDocument/confidentialityCode должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="@codeSystemName!=''">У1-16. Элемент ClinicalDocument/confidentialityCode должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@codeSystemVersion!=''">У1-16. Элемент ClinicalDocument/confidentialityCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="@displayName!=''">У1-16. Элемент ClinicalDocument/confidentialityCode должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
@@ -187,6 +260,11 @@
         </rule>
     </pattern>
     <pattern>
+        <rule context="ClinicalDocument/recordTarget/patientRole[(patient/guardian[not(telecom)]|patient/guardian/telecom[@nullFlavor])]/telecom">
+            <report test="@nullFlavor">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/telecom не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
         <rule context="ClinicalDocument/recordTarget/patientRole[identity:IdentityDoc]">
             <assert test="count(identity:IdentityDoc/identity:IdentityCardType)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc должен иметь 1 элемент identity:IdentityCardType.</assert>
             <assert test="identity:IdentityDoc/identity:IdentityCardType/@xsi:type='CD'">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc/identity:IdentityCardType должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
@@ -198,6 +276,7 @@
             <assert test="count(identity:IdentityDoc/identity:Series)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc должен иметь 1 элемент identity:Series.</assert>
             <assert test="count(identity:IdentityDoc/identity:Number)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc должен иметь 1 элемент identity:Number.</assert>
             <assert test="identity:IdentityDoc/identity:Number/@xsi:type='ST'">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc/identity:Number должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
+            <assert test="identity:IdentityDoc/identity:Number!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc/identity:Number должен иметь не пустое значение.</assert>
             <assert test="count(identity:IdentityDoc/identity:IssueOrgName)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc должен иметь 1 элемент identity:IssueOrgName.</assert>
             <assert test="count(identity:IdentityDoc/identity:IssueOrgCode)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc должен иметь 1 элемент identity:IssueOrgCode.</assert>
             <assert test="count(identity:IdentityDoc/identity:IssueDate)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:IdentityDoc должен иметь 1 элемент identity:IssueDate.</assert>
@@ -227,6 +306,7 @@
             <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@codeSystem='1.2.643.5.1.13.13.11.1035'">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicyType/identity:InsuracePolicyType должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1035'.</assert>
             <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@code!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy/identity:InsurancePolicyType должен иметь не пустое значение атрибута @code.</assert>
             <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@displayName!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy/identity:InsurancePolicyType должен иметь не пустое значение атрибута @displayName.</assert>
+            <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@codeSystemName!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="identity:InsurancePolicy/identity:InsurancePolicyType/@codeSystemVersion!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy/identity:InsurancePolicyType должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="count(identity:InsurancePolicy/identity:Series)&lt;=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy должен иметь не более 1 элемента identity:Series.</assert>
             <assert test="count(identity:InsurancePolicy/identity:Number)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/identity:InsurancePolicy должен иметь 1 элемент identity:Number.</assert>
@@ -239,6 +319,11 @@
         </rule>
     </pattern>
     <pattern>
+        <rule context="ClinicalDocument/recordTarget/patientRole/addr">
+            <assert test="count(address:Type)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/addr должен иметь 1 элемент address:Type.</assert>
+        </rule>
+    </pattern>
+    <pattern>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient">
             <assert test="count(name)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient должен иметь 1 элемент name.</assert>
             <assert test="count(administrativeGenderCode)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient должен иметь 1 элемент administrativeGenderCode.</assert>
@@ -247,7 +332,7 @@
             <assert test="count(guardianPerson)&lt;=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient должен иметь не более 1 элемента guardianPerson.</assert>
             <assert test="count(guardianOrganization)&lt;=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient должен иметь не более 1 элемента guardianOrganization.</assert>
         </rule>
-        <rule context="ClinicalDocument/recordTarget/patientRole/patient/name[not(@nullFlavor)]">
+        <rule context="ClinicalDocument/recordTarget/patientRole/patient/name">
             <assert test="count(family)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/name должен иметь 1 элемент family.</assert>
             <assert test="count(given)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/name должен иметь 1 элемент given.</assert>
             <assert test="count(identity:Patronymic)&lt;=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/name должен иметь не более 1 элемента identity:Patronymic.</assert>
@@ -257,6 +342,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.11.1040','1.2.643.5.1.13.2.1.1.156']">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1040' или '1.2.643.5.1.13.2.1.1.156'.</assert>
             <assert test="@code!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode должен иметь не пустое значение атрибута @code.</assert>
             <assert test="@displayName!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode должен иметь не пустое значение атрибута @displayName.</assert>
+            <assert test="@codeSystemName!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@codeSystemVersion!=''">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient/birthTime">
@@ -357,7 +443,7 @@
             <assert test="count(identity:Props)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization должен иметь 1 элемент identity:Props.</assert>
             <assert test="count(name)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization должен иметь 1 элемент name.</assert>
             <assert test="count(telecom)>=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization должен иметь не менее 1 элемента telecom.</assert>
-            <assert test="count(addr)&lt;=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization должен иметь не более 1 элемента addr.</assert>
+            <assert test="count(addr)=1">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization должен иметь 1 элемент addr.</assert>
         </rule>
         <rule context="ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1]">
             <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+$')">У1-20. Элемент ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1] должен иметь синтаксически корректное значение атрибута @root, соответствующее регулярному выражению '([0-2])([.]([1-9][0-9]*|0))+'.</assert>
@@ -417,7 +503,7 @@
         <rule context="ClinicalDocument/author/assignedAuthor/assignedPerson">
             <assert test="count(name)=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/assignedPerson должен иметь 1 элемент name.</assert>
         </rule>
-        <rule context="ClinicalDocument/author/assignedAuthor/assignedPerson/name[not(@nullFlavor)]">
+        <rule context="ClinicalDocument/author/assignedAuthor/assignedPerson/name">
             <assert test="count(family)=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/assignedPerson/name должен иметь 1 элемент family.</assert>
             <assert test="count(given)=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/assignedPerson/name должен иметь 1 элемент given.</assert>
             <assert test="count(identity:Patronymic)&lt;=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/assignedPerson/name должен иметь не более 1 элемента identity:Patronymic.</assert>
@@ -427,7 +513,7 @@
             <assert test="@classCode='ORG'">У1-21. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization должен иметь значение атрибута @classCode равное 'ORG'.</assert>
             <assert test="count(id)=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization должен иметь 1 элемент id.</assert>
             <assert test="count(name)=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization должен иметь 1 элемент name.</assert>
-            <assert test="count(addr)&lt;=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization должен иметь 1 элемент addr.</assert>
+            <assert test="count(addr)=1">У1-21. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization должен иметь 1 элемент addr.</assert>
         </rule>
         <rule context="ClinicalDocument/author/assignedAuthor/representedOrganization/id">
             <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+$')">У1-21. Элемент ClinicalDocument/author/assignedAuthor/representedOrganization/id должен иметь синтаксически корректное значение атрибута @root, соответствующее регулярному выражению '([0-2])([.]([1-9][0-9]*|0))+'.</assert>
@@ -452,37 +538,12 @@
         <rule context="ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/id">
             <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+$')">У1-22. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/id должен иметь синтаксически корректное значение атрибута @root, соответствующее регулярному выражению '([0-2])([.]([1-9][0-9]*|0))+'.</assert>
         </rule>
+        <rule context="ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr">
+            <report test="@nullFlavor">У1-22. Элемент ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/addr не должен иметь атрибут @nullFlavor.</report>
+        </rule>
     </pattern>
     <!-- У1-23 -->
-    <pattern>
-        <rule context="ClinicalDocument">
-            <assert test="count(informationRecipient)=1">У1-23. Элемент ClinicalDocument должен иметь 1 элемент informationRecipient.</assert>
-        </rule>
-        <rule context="ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']">
-            <assert test="count(intendedRecipient)=1">У1-23. Элемент ClinicalDocument/informationRecipient должен иметь 1 элемент intendedRecipient.</assert>
-        </rule>
-        <rule context="ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root='1.2.643.5.1.13']">
-            <assert test="count(receivedOrganization)=1">У1-23. Элемент ClinicalDocument/informationRecipient/intendedRecipient должен иметь 1 элемент receivedOrganization.</assert>
-        </rule>
-        <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root='1.2.643.5.1.13']">
-            <assert test="count(id)=1">У1-23. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент id.</assert>
-            <assert test="count(name)=1">У1-23. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент name.</assert>
-        </rule>
-    </pattern>
     <!-- У1-24 -->
-    <pattern>
-        <rule context="ClinicalDocument/informationRecipient[receivedOrganization/id/@root!='1.2.643.5.1.13']">
-            <assert test="count(receivedOrganization)=1">У1-24. Элемент ClinicalDocument/informationRecipient/intendedRecipient должен иметь 1 элемент receivedOrganization.</assert>
-        </rule>
-        <rule context="ClinicalDocument/informationRecipient/receivedOrganization[id/@root!='1.2.643.5.1.13']">
-            <assert test="count(id)=1">У1-24. Элемент ClinicalDocument/informationRecipient/receivedOrganization должен иметь 1 элемент id.</assert>
-            <assert test="count(name)=1">У1-24. Элемент ClinicalDocument/informationRecipient/receivedOrganization должен иметь 1 элемент name.</assert>
-        </rule>
-        <rule context="ClinicalDocument/informationRecipient/receivedOrganization[id/@root!='1.2.643.5.1.13']">
-            <assert test="count(id)=1">У1-24. Элемент ClinicalDocument/informationRecipient/receivedOrganization должен иметь 1 элемент id.</assert>
-            <assert test="count(name)=1">У1-24. Элемент ClinicalDocument/informationRecipient/receivedOrganization должен иметь 1 элемент name.</assert>
-        </rule>
-    </pattern>
     <!-- У1-25 -->
     <pattern>
         <rule context="ClinicalDocument">
@@ -524,7 +585,7 @@
         <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson">
             <assert test="count(name)=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson должен иметь 1 элемент name.</assert>
         </rule>
-        <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name[not(@nullFlavor)]">
+        <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name">
             <assert test="count(family)=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name должен иметь 1 элемент family.</assert>
             <assert test="count(given)=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name должен иметь 1 элемент given.</assert>
             <assert test="count(identity:Patronymic)&lt;=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name должен иметь не более 1 элемента identity:Patronymic.</assert>
@@ -534,7 +595,7 @@
             <assert test="@classCode='ORG'">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization должен иметь значение атрибута @classCode равное 'ORG'.</assert>
             <assert test="count(id)=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization должен иметь 1 элемент id.</assert>
             <assert test="count(name)=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization должен иметь 1 элемент name.</assert>
-            <assert test="count(addr)&lt;=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization должен иметь 1 элемент addr.</assert>
+            <assert test="count(addr)=1">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization должен иметь 1 элемент addr.</assert>
         </rule>
         <rule context="ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/id">
             <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+$')">У1-25. Элемент ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/id должен иметь синтаксически корректное значение атрибута @root, соответствующее регулярному выражению '([0-2])([.]([1-9][0-9]*|0))+'.</assert>
@@ -705,6 +766,7 @@
             <assert test="count(medService:serviceType)&lt;=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent должен иметь не более 1 элемента medService:serviceType.</assert>
             <assert test="count(medService:serviceCond)&lt;=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent должен иметь не более 1 элемента medService:serviceCond.</assert>
             <assert test="count(performer)>=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent должен иметь не менее 1 элемента performer.</assert>
+            <assert test="count(performer[@typeCode='PPRF'])>=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent должен иметь не менее 1 элемента performer.</assert>
         </rule>
         <rule context="ClinicalDocument/documentationOf/serviceEvent/code">
             <assert test="@codeSystem='1.2.643.5.1.13.13.99.2.726'">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.726'.</assert>
@@ -781,7 +843,7 @@
         <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson">
             <assert test="count(name)=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson должен иметь 1 элемент name.</assert>
         </rule>
-        <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]">
+        <rule context="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name">
             <assert test="count(family)=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name должен иметь 1 элемент family.</assert>
             <assert test="count(given)=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name должен иметь 1 элемент given.</assert>
             <assert test="count(identity:Patronymic)&lt;=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name должен иметь не более 1 элемента identity:Patronymic.</assert>
@@ -791,7 +853,7 @@
             <assert test="@classCode='ORG'">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization должен иметь значение атрибута @classCode равное 'ORG'.</assert>
             <assert test="count(id)=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization должен иметь 1 элемент id.</assert>
             <assert test="count(name)=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization должен иметь 1 элемент name.</assert>
-            <assert test="count(addr)&lt;=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization должен иметь не более 1 элемента addr.</assert>
+            <assert test="count(addr)=1">У1-27. Элемент ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization должен иметь 1 элемент addr.</assert>
         </rule>
     </pattern>
     <!-- У1-28 -->
@@ -1270,13 +1332,14 @@
         </rule>
     </pattern>
     <pattern>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act[code[@codeSystem='1.2.643.5.1.13.13.99.2.856']]/participant/participantRole[identity:Props[not(@nullFlavor)]]">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act[code[@codeSystem='1.2.643.5.1.13.13.99.2.856']]/participant/participantRole[identity:Props]">
             <assert test="count(identity:Props/identity:Ogrn)=1">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act/participant/participantRole/identity:Props должен иметь 1 элемент identity:Ogrn.</assert>
         </rule>
     </pattern>
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act[code[@codeSystem='1.2.643.5.1.13.13.99.2.856']]/participant/participantRole[identity:Props/identity:Ogrn]">
             <assert test="identity:Props/identity:Ogrn/@xsi:type='ST'">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act/participant/participantRole/identity:Props/identity:Ogrn должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
+            <assert test="identity:Props/identity:Ogrn!=''">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCOPORG']/entry/act/participant/participantRole/identity:Props/identity:Ogrn должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
     <!-- У3-4 -->
@@ -1325,11 +1388,11 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/statusCode">
             <assert test="@code='completed'">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/statusCode должен иметь значение атрибута @code равное 'completed'.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant[not(@nullFlavor)]">
             <assert test="@typeCode='LOC'">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant должен иметь значение атрибута @typeCode равное 'LOC'.</assert>
             <assert test="count(participantRole)=1">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant должен иметь 1 элемент participantRole.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant/participantRole">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant/participantRole[not(@nullFlavor)]">
             <assert test="@classCode='SDLOC'">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant/participantRole должен иметь значение атрибута @classCode равное 'SDLOC'.</assert>
             <assert test="count(addr)=1">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant/participantRole должен иметь 1 элемент addr.</assert>
             <assert test="count(playingEntity)=1">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/participant/participantRole должен иметь 1 элемент playingEntity.</assert>
@@ -1351,7 +1414,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4074']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4074']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/text должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component[observation/code[@code='4075']]">
@@ -1368,7 +1431,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4075']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4075']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/text должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component[observation/code[@code='4076']]">
@@ -1385,7 +1448,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4076']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4076']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/text должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component[organizer]">
@@ -1403,6 +1466,7 @@
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/code">
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
+            <assert test="@code='4077'">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/code должен иметь значение атрибута @code равное '4077'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/statusCode">
@@ -1422,7 +1486,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation[code[@code='4078']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation[code[@code='4078']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/text должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component[observation/code[@code='4079']]">
@@ -1439,7 +1503,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation[code[@code='4079']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation[code[@code='4079']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/text должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component[observation/code[@code='4080']]">
@@ -1456,7 +1520,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation[code[@code='4080']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation[code[@code='4080']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/organizer/component/observation/text должен иметь не пустое значение.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component[observation/code[@code='4081']]">
@@ -1473,7 +1537,7 @@
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
             <assert test="@codeSystemVersion!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4081']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation[code[@code='4081']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='WORK']/entry/organizer/component/observation/text должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
@@ -1609,7 +1673,7 @@
             <assert test="@codeSystemName!=''">У3-10. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@displayName!=''">У3-10. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4102']]/value">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4102']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='ST'">У3-10. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <assert test=".!=''">У3-10. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/value должен иметь не пустое значение.</assert>
         </rule>
@@ -1634,7 +1698,7 @@
             <assert test="@codeSystemName!=''">У3-11. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@displayName!=''">У3-11. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4103']]/value">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4103']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='ST'">У3-11. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <assert test=".!=''">У3-11. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/value должен иметь не пустое значение.</assert>
         </rule>
@@ -1663,7 +1727,7 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code[@code='4082']/originalText">
             <assert test="count(reference)=1">У3-12. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code/originalText должен иметь 1 элемент reference.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4082']]/text">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code[@code='4082']]/text[not(@nullFlavor)]">
             <assert test=".!=''">У3-12. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/text должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
@@ -1793,6 +1857,7 @@
             <assert test="@codeSystem='1.2.643.5.1.13.13.99.2.325'">У3-14. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.325'.</assert>
             <assert test="@code!=''">У3-14. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @code.</assert>
             <assert test="@displayName!=''">У3-14. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @displayName.</assert>
+            <assert test="@codeSystemName!=''">У3-14. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@codeSystemVersion!=''">У3-14. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
     </pattern>
@@ -1834,6 +1899,7 @@
             <assert test="@codeSystem='1.2.643.5.1.13.13.11.1041'">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code/qualifier/value должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1041'.</assert>
             <assert test="@code!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code/qualifier/value должен иметь не пустое значение атрибута @code.</assert>
             <assert test="@displayName!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code/qualifier/value должен иметь не пустое значение атрибута @displayName.</assert>
+            <assert test="@codeSystemName!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code/qualifier/value должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@codeSystemVersion!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/code/qualifier/value должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code/qualifier]/effectiveTime">
@@ -1865,6 +1931,7 @@
             <assert test="@codeSystem='1.2.643.5.1.13.13.99.2.358'">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.358'.</assert>
             <assert test="@code!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @code.</assert>
             <assert test="@displayName!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @displayName.</assert>
+            <assert test="@codeSystemName!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@codeSystemVersion!=''">У3-15. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation/entryRelationship/observation/value должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SOCANAM']/entry/observation[code/qualifier]/entryRelationship[observation/code[@code='4169']]">
@@ -2112,6 +2179,7 @@
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value">
             <assert test="@xsi:type=['PQ','INT','REAL']">У3-22. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value должен иметь значение атрибута @xsi:type равное 'PQ', 'INT' или 'REAL'.</assert>
+            <assert test="@value!=''">У3-22. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value должен иметь не пустое значение атрибута @value.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -2324,7 +2392,7 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/code[@code='4054']/originalText/reference">
             <assert test="@value!=''">У3-28. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/code/originalText/reference должен иметь не пустое значение атрибута @value.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation[code[@code='4054']]/value">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation[code[@code='4054']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='CD'">У3-28. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
             <assert test="@codeSystem='1.2.643.5.1.13.13.99.2.148'">У3-28. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.148'.</assert>
             <assert test="@codeSystemVersion!=''">У3-28. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
@@ -2416,7 +2484,7 @@
             <assert test="@codeSystemName!=''">У3-31. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@displayName!=''">У3-31. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4111']]/value">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4111']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='ST'">У3-31. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <assert test=".!=''">У3-31. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь не пустое значение.</assert>
         </rule>
@@ -2441,7 +2509,7 @@
             <assert test="@codeSystemName!=''">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@displayName!=''">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4112']]/value">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation[code[@code='4112']]/value[not(@nullFlavor)]">
             <assert test="@xsi:type='ST'">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
             <assert test=".!=''">У3-32. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/observation/value должен иметь не пустое значение.</assert>
         </rule>
@@ -2499,18 +2567,12 @@
             <assert test="count(manufacturedMaterial)=1">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct должен иметь 1 элемент manufacturedMaterial.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial">
-            <!-- В КП - @classCode -->
-            <!--
-            <assert test="@typeCode='MMAT'">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial должен иметь значение атрибута @typeCode равное 'MMAT'.</assert>
--->
+            <assert test="@classCode='MMAT'">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial должен иметь значение атрибута @classCode равное 'MMAT'.</assert>
             <assert test="@determinerCode='KIND'">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial должен иметь значение атрибута @determinerCode равное 'KIND'.</assert>
             <assert test="count(code)=1">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial должен иметь 1 элемент code.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code">
-            <!-- В КП - @codeSystem -->
-            <!--
-            <assert test="@code='1.2.643.5.1.13.13.99.2.611'">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь значение атрибута @code равное '1.2.643.5.1.13.13.99.2.611'.</assert>
--->
+            <assert test="@codeSystem='1.2.643.5.1.13.13.99.2.611'">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь значение атрибута @codeSystemName равное '1.2.643.5.1.13.13.99.2.611'.</assert>
             <assert test="@code!=''">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @code.</assert>
             <assert test="@codeSystemVersion!=''">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="@codeSystemName!=''">У3-34. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='REGIME']/component/section[code/@code='RECTREAT']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @codeSystemName.</assert>
@@ -2763,6 +2825,7 @@
             <assert test="count(effectiveTime)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act должен иметь 1 элемент effectiveTime.</assert>
             <assert test="count(entryRelationship[observation/code[@code='11002']])&lt;=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act должен иметь не более 1 элемента entryRelationship.</assert>
             <assert test="count(entryRelationship[observation/code[@code='11003']])&lt;=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act должен иметь не более 1 элемента entryRelationship.</assert>
+            <assert test="count(reference)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act должен иметь 1 элемент reference.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/code">
             <assert test="@codeSystem=['1.2.643.5.1.13.13.11.1522','1.2.643.5.1.13.2.1.1.646','1.2.643.5.1.13.13.11.1115','1.2.643.5.1.13.13.99.2.195']">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1522', '1.2.643.5.1.13.2.1.1.646', '1.2.643.5.1.13.13.11.1115' или '1.2.643.5.1.13.13.99.2.195'.</assert>
@@ -2801,7 +2864,6 @@
             <assert test="@moodCode='EVN'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
             <assert test="count(code)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation должен иметь 1 элемент code.</assert>
             <assert test="count(value)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation должен иметь 1 элемент value.</assert>
-            <assert test="count(reference)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation должен иметь 1 элемент reference.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/code[@code='11003']">
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.166','1.2.643.5.1.13.2.1.1.1504.41','1.2.643.5.1.13.13.11.1380']">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166', '1.2.643.5.1.13.2.1.1.1504.41' или '1.2.643.5.1.13.13.11.1380'.</assert>
@@ -2812,18 +2874,377 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/value">
             <assert test="@xsi:type='ST'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference">
             <assert test="@typeCode='REFR'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference должен иметь значение атрибута @typeCode равное 'REFR'.</assert>
             <assert test="count(externalDocument)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference должен иметь 1 элемент externalDocument.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference/externalDocument">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument">
             <assert test="@classCode='DOCCLIN'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь значение атрибута @classCode равное 'DOCCLIN'.</assert>
             <assert test="@moodCode='EVN'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
             <assert test="count(id)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь 1 элемент externalDocument.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference/externalDocument/id">
-            <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+\.100([.]([1-9][0-9]*|0))+\.51$')">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference/externalDocument/id должен иметь синтаксически корректное значение атрибута @root, сформированное по правилу формирования идентификаторов документов, т.е. "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.51".</assert>
-            <assert test="@extension!=''">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/reference/externalDocument/id должен иметь не пустое значение атрибута @extension.</assert>
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id">
+            <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+\.100([.]([1-9][0-9]*|0))+\.51$')">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id должен иметь синтаксически корректное значение атрибута @root, сформированное по правилу формирования идентификаторов документов, т.е. "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.51".</assert>
+            <assert test="@extension!=''">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id должен иметь не пустое значение атрибута @extension.</assert>
+        </rule>
+    </pattern>
+
+
+
+<!-- [Main05_1]Модуль проверки информации об организации-получателе документа (ClinicalDocument/informationRecipient) -->
+
+<!-- Вариант по умолчанию -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 25.07.2022 - v.1.0.0: Модуль разработан -->
+<!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
+
+    <!-- Main05-1 -->
+    <pattern>
+        <rule context="ClinicalDocument">
+            <assert test="count(informationRecipient[intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13'])=1">Main05-1. Элемент ClinicalDocument должен иметь 1 элемент informationRecipient.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/informationRecipient">
+            <assert test="count(intendedRecipient)=1">Main05-1. Элемент ClinicalDocument/informationRecipient должен иметь 1 элемент intendedRecipient.</assert>
+            <report test="@nullFlavor">Main05-1. Элемент ClinicalDocument/informationRecipient не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/informationRecipient/intendedRecipient">
+            <assert test="count(receivedOrganization)=1">Main05-1. Элемент ClinicalDocument/informationRecipient/intendedRecipient должен иметь 1 элемент receivedOrganization.</assert>
+            <report test="@nullFlavor">Main05-1. Элемент ClinicalDocument/informationRecipient/intendedRecipient не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization">
+            <assert test="count(id)=1">Main05-1. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент id.</assert>
+            <assert test="count(name)=1">Main05-1. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент name.</assert>
+            <report test="@nullFlavor">Main05-1. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id[@root='1.2.643.5.1.13']">
+            <report test="@nullFlavor">Main05-1. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id[@root='1.2.643.5.1.13'] не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    
+
+
+<!-- [Core01_1]Модуль проверки имен и наименований (//name) -->
+
+<!-- Вариант по умолчанию -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 02.09.2022 - v.1.0.0: Модуль разработан -->
+<!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
+
+    <!-- Core01-1 -->
+    <pattern>	
+        <rule context="//name[family|given|identity:Patronymic][not(@nullFlavor)]">
+			<assert test="count(family)=1">Core01-1. Элемент //name должен иметь 1 элемент family.</assert>
+			<assert test="count(given)=1">Core01-1. Элемент //name должен иметь 1 элемент given.</assert>
+            <assert test="count(identity:Patronymic)&lt;=1">Core01-1. Элемент //name должен иметь не более 1 элемента identity:Patronymic.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//name/family">
+            <assert test=".!=''">Core01-1. Элемент //name/family должен иметь не пустое значение.</assert>
+            <report test="@nullFlavor">Core01-1. Элемент //name/family не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//name/given">
+            <assert test=".!=''">Core01-1. Элемент //name/given должен иметь не пустое значение.</assert>
+            <report test="@nullFlavor">Core01-1. Элемент //name/given не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <!-- Core01-2 -->
+    <pattern>
+        <rule context="//name[identity:Patronymic]">
+            <assert test="identity:Patronymic/@xsi:type='ST'">Core01-2. Элемент //name/identity:Patronymic должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
+            <assert test="identity:Patronymic!=''">Core01-1. Элемент //name/identity:Patronymic должен иметь не пустое значение.</assert>
+            <report test="identity:Patronymic/@nullFlavor">Core01-1. Элемент //name/identity:Patronymic не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//name[not(family|given|identity:Patronymic)]">
+            <assert test=".!=''">Core01-2. Элемент //name должен иметь не пустое значение.</assert>
+            <report test="@nullFlavor">Core01-2. Элемент //name не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+
+
+
+<!-- [Core02_1]Модуль проверки адресов (//addr) -->
+
+<!-- Вариант по умолчанию -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 28.07.2022 - v.1.0.0: Модуль разработан -->
+<!-- 09.09.2022 - v.1.0.1:
+1) Core02-1: Из модуля Main02 перенесена проверка структуры элемента address:Type
+2) Core02-1: Элемент addr/address:residentCode не должен иметь @nullFlavor
+-->
+<!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
+
+    <!-- Core02-1 -->
+    <pattern>
+        <rule context="//addr[not(@nullFlavor)]">
+            <assert test="count(streetAddressLine)=1">Core02-1. Элемент //addr должен иметь 1 элемент streetAddressLine.</assert>
+            <assert test="count(address:stateCode)=1">Core02-1. Элемент //addr должен иметь 1 элемент address:stateCode.</assert>
+            <assert test="count(postalCode)=1">Core02-1. Элемент //addr должен иметь 1 элемент postalCode.</assert>
+            <assert test="count(fias:Address)=1">Core02-1. Элемент //addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr/streetAddressLine">
+            <assert test=".!=''">Core02-1. Элемент //addr/streetAddressLine должен иметь не пустое значение.</assert>
+            <report test="@nullFlavor">Core02-1. Элемент //addr/streetAddressLine не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[not(address:country) or address:country/@code='185'][address:stateCode]">
+            <assert test="address:stateCode/@codeSystem=['1.2.643.5.1.13.13.99.2.206','1.2.643.5.1.13.13.11.1093']">Core02-1. Элемент //addr/address:stateCode должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.206' или '1.2.643.5.1.13.13.11.1093'.</assert>
+            <assert test="address:stateCode/@code!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="address:stateCode/@codeSystemName!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="address:stateCode/@codeSystemVersion!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="address:stateCode/@displayName!=''">Core02-1. Элемент //addr/address:stateCode должен иметь не пустое значение атрибута @displayName.</assert>
+            <report test="address:stateCode/@nullFlavor">Core02-1. Элемент //addr/address:stateCode не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[address:Type]">
+            <assert test="address:Type/@codeSystem=['1.2.643.5.1.13.13.11.1504','1.2.643.5.1.13.13.11.1415','1.2.643.5.1.13.13.99.2.241']">Core02-1. Элемент //addr/address:Type должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1504', '1.2.643.5.1.13.13.11.1415' или '1.2.643.5.1.13.13.99.2.241'.</assert>
+            <assert test="address:Type/@codeSystemName!=''">Core02-1. Элемент //addr/address:Type должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="address:Type/@code!=''">Core02-1. Элемент //addr/address:Type должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="address:Type/@codeSystemVersion!=''">Core02-1. Элемент //addr/address:Type должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="address:Type/@displayName!=''">Core02-1. Элемент //addr/address:Type должен иметь не пустое значение атрибута @displayName.</assert>
+            <report test="address:Type/@nullFlavor">Core02-1. Элемент //addr/address:Type не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[address:country]">
+            <assert test="address:country/@codeSystem=['1.2.643.5.1.13.13.99.2.545']">Core02-1. Элемент //addr/address:country должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.545'.</assert>
+            <assert test="address:country/@codeSystemName!=''">Core02-1. Элемент //addr/address:country должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="address:country/@code!=''">Core02-1. Элемент //addr/address:country должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="address:country/@codeSystemVersion!=''">Core02-1. Элемент //addr/address:country должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="address:country/@displayName!=''">Core02-1. Элемент //addr/address:country должен иметь не пустое значение атрибута @displayName.</assert>
+            <report test="address:country/@nullFlavor">Core02-1. Элемент //addr/address:country не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[address:residentCode]">
+            <assert test="address:residentCode/@codeSystem=['1.2.643.5.1.13.13.11.1042','1.2.643.5.1.13.2.1.1.573']">Core02-1. Элемент //addr/address:residentCode должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1042' или '1.2.643.5.1.13.2.1.1.573'.</assert>
+            <assert test="address:residentCode/@code!=''">Core02-1. Элемент //addr/address:residentCode должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="address:residentCode/@codeSystemName!=''">Core02-1. Элемент //addr/address:residentCode должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="address:residentCode/@codeSystemVersion!=''">Core02-1. Элемент //addr/address:residentCode должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="address:residentCode/@displayName!=''">Core02-1. Элемент //addr/address:residentCode должен иметь не пустое значение атрибута @displayName.</assert>
+            <report test="address:residentCode/@nullFlavor">Core02-1. Элемент //addr/address:residentCode не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr/postalCode[not(@nullFlavor)]">
+            <assert test=".!=''">Core02-1. Элемент //addr/postalCode должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[fias:Address[not(@nullFlavor)]]">
+            <assert test="count(fias:Address/fias:AOGUID)=1">Core02-1. Элемент //addr/fias:Address должен иметь 1 элемент fias:AOGUID.</assert>
+            <assert test="count(fias:Address/fias:HOUSEGUID)=1">Core02-1. Элемент //addr/fias:Address должен иметь 1 элемент fias:HOUSEGUID.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[fias:Address/fias:AOGUID]">
+            <assert test="fias:Address/fias:AOGUID!=''">Core02-1. Элемент //addr/fias:Address/fias:AOGUID должен иметь не пустое значение.</assert>
+            <report test="fias:Address/fias:AOGUID/@nullFlavor">Core02-1. Элемент //addr/fias:Address/fias:AOGUID не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//addr[fias:Address/fias:HOUSEGUID[not(@nullFlavor)]]">
+            <assert test="fias:Address/fias:HOUSEGUID!=''">Core02-1. Элемент //addr/fias:Address/fias:HOUSEGUID должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+
+
+
+<!-- [Core03_1]Модуль проверки даты/времени (//effectiveTime, //birthTime, //PII:birthTime, //time, //effectiveTime/low, //identity:low, //effectiveTime/high, //identity:high, //identity:IssueDate, //value[@xsi:type='TS']) -->
+
+<!-- Вариант по умолчанию -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 28.07.2022 - v.1.0.0: Модуль разработан -->
+<!-- 12.09.2022 - v.1.0.1: Исправлена ошибка, при которой не проверялось наличие проверяемого атрибута @value -->
+<!-- 07.11.2022 - v.1.1.0: Добавление проверки элемента value[xsi:type='TS'] -->
+<!-- 29.11.2022 - v.1.2.0: Добавление проверки элемента identity:AuthorityDoc/identity:IssueDate -->
+<!-- 19.01.2023 - v.1.2.1: Восстановлена проверка элемента value[@xsi:type='TS'] -->
+
+    <!-- Core03-1 -->
+    <pattern>
+        <rule context="//effectiveTime[not(low|high)][not(@nullFlavor)]">
+            <assert test="matches(@value,'^[1-2]{1}[0-9]{3}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(@value,'^[1-2]{1}[0-9]{3}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//birthTime[not(@nullFlavor)]|//time[not(@nullFlavor)]|//effectiveTime/low[not(@nullFlavor)]|//effectiveTime/high[not(@nullFlavor)]|//value[@xsi:type='TS'][not(@nullFlavor)]">
+            <assert test="matches(@value,'^[1-2]{1}[0-9]{3}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(@value,'^[1-2]{1}[0-9]{3}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//*[PII:birthTime[not(@nullFlavor)]]">
+            <assert test="matches(PII:birthTime/@value,'^[1-2]{1}[0-9]{3}$') or matches(PII:birthTime/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(PII:birthTime/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(PII:birthTime/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(PII:birthTime/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(PII:birthTime/@value,'^[1-2]{1}[0-9]{3}$') or matches(PII:birthTime/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//*[identity:DocInfo/identity:effectiveTime/identity:low[not(@nullFlavor)]]">
+            <assert test="matches(identity:DocInfo/identity:effectiveTime/identity:low/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:DocInfo/identity:effectiveTime/identity:low/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:DocInfo/identity:effectiveTime/identity:low/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(identity:DocInfo/identity:effectiveTime/identity:low/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:DocInfo/identity:effectiveTime/identity:low/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(identity:DocInfo/identity:effectiveTime/identity:low/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:DocInfo/identity:effectiveTime/identity:low/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//*[identity:DocInfo/identity:effectiveTime/identity:high[not(@nullFlavor)]]">
+            <assert test="matches(identity:DocInfo/identity:effectiveTime/identity:high/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:DocInfo/identity:effectiveTime/identity:high/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:DocInfo/identity:effectiveTime/identity:high/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(identity:DocInfo/identity:effectiveTime/identity:high/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:DocInfo/identity:effectiveTime/identity:high/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(identity:DocInfo/identity:effectiveTime/identity:high/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:DocInfo/identity:effectiveTime/identity:high/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//*[identity:IdentityDoc/identity:IssueDate[not(@nullFlavor)]]">
+            <assert test="matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//*[identity:AuthorityDoc/identity:IssueDate[not(@nullFlavor)]]">
+            <assert test="matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня.</report>
+        </rule>
+    </pattern>
+
+
+
+<!-- [Core04_1]Модуль проверки уникальных идентификаторов (//id) -->
+
+<!-- Вариант по умолчанию -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 25.07.2022 - v.1.0.0: Модуль разработан -->
+
+    <!-- Core04-1 -->
+    <pattern>
+        <rule context="//id[not(@nullFlavor)]">
+            <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+$')">Core04-1. Элемент //id должен иметь синтаксически корректное значение атрибута @root, соответствующее регулярному выражению '([0-2])([.]([1-9][0-9]*|0))+'.</assert>
+        </rule>
+    </pattern>
+
+
+
+<!-- [Core11_2 - фрагмент]Модуль проверки наполнения секции (//observation/value[@xsi:type=['CD','ST','BL','PQ','TS','INT']], //translation, //text, //substanceAdministration, //precondition, //interpretationCode, //statusCode, //referenceRange, //modeCode) -->
+
+<!-- Альтернативный вариант: value[@xsi:type=['CD','ST','BL','PQ','TS','INT']] может иметь @nullFlavor -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 24.10.2022 - v.1.0.0: Модуль разработан -->
+<!-- 07.11.2022 - v.1.1.0: Добавлены проверки структуры //value[@xsi:type=['TS','INT']], //interpretationCode, //statusCode, //referenceRange, //modeCode -->
+
+    <!-- Core11-1 -->
+    <pattern>
+        <rule context="//observation/value[@xsi:type='CD'][not(@nullFlavor)]">
+            <assert test="@codeSystem!=''">Core11-1. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @codeSystem.</assert>
+            <assert test="@codeSystemName!=''">Core11-1. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @codeSystemName.</assert>
+            <assert test="@code!=''">Core11-1. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @code.</assert>
+            <assert test="@codeSystemVersion!=''">Core11-1. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
+            <assert test="@displayName!=''">Core11-1. Элемент //observation/value[@xsi:type='CD'] должен иметь не пустое значение атрибута @displayName.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='ST'][not(@nullFlavor)]">
+            <assert test=".!=''">Core11-1. Элемент //observation/value[@xsi:type='ST'] должен иметь не пустое значение.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='BL'][not(@nullFlavor)]">
+            <assert test="@value=['true','false']">Core11-1. Элемент //observation/value[@xsi:type='BL'] должен иметь значение атрибута @value равное 'true' или 'false'.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='PQ'][not(@nullFlavor)]">
+            <assert test="@value!=''">Core11-1. Элемент //observation/value[@xsi:type='PQ'] должен иметь не пустое значение атрибута @value.</assert>
+            <assert test="@unit!=''">Core11-1. Элемент //observation/value[@xsi:type='PQ'] должен иметь не пустое значение атрибута @unit.</assert>
+            <assert test="count(translation)&lt;=1">Core11-1. Элемент //observation/value[@xsi:type='PQ'] должен иметь не более 1 элемента translation.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='TS'][not(@nullFlavor)]">
+            <assert test="@value!=''">Core11-1. Элемент //observation/value[@xsi:type='TS'] должен иметь не пустое значение атрибута @value.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//observation/value[@xsi:type='INT'][not(@nullFlavor)]">
+            <assert test="@value!=''">Core11-1. Элемент //observation/value[@xsi:type='INT'] должен иметь не пустое значение атрибута @value.</assert>
+        </rule>
+    </pattern>
+
+
+
+<!-- [Extra01]Модуль проверки структуры СНИЛС (//id[@root='1.2.643.100.3']) -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 26.07.2022 - v.1.0.0: Модуль разработан -->
+
+    <!-- Extra01-1 -->
+    <pattern>
+        <rule context="//id[@root='1.2.643.100.3']">
+            <assert test="matches(@extension,'^([0-9]{3}[-\s]{0,1}){3}[0-9]{2}$')">Extra01-1. Элемент //id[@root='1.2.643.100.3'] должен иметь синтаксически корректное значение атрибута @extension, соответствующее СНИЛС: должно состоять из 11 цифр, цифры могут группироваться по 3+3+3+2, между группами может ставиться пробел или тире.</assert>
+        </rule>
+    </pattern>
+
+
+
+    <!-- [Extra02]Модуль проверки структуры почтового индекса (//postalCode) -->
+
+<!-- Поддерживается следующими видами СЭМД: -->
+<!-- 
+-->
+
+<!-- Список изменений -->
+<!-- 12.09.2022 - v.1.0.0: Модуль разработан -->
+
+    <!-- Extra02-1 -->
+    <pattern>
+        <rule context="//postalCode[not(@nullFlavor)]">
+            <assert test="matches(.,'^[0-9]{6}$')">Extra02-1. Элемент //postalCode должен иметь синтаксически корректное значение, соответствующее почтовому индексу: должно состоять из 6 цифр без разделителей.</assert>
         </rule>
     </pattern>
 </schema>

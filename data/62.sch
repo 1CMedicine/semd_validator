@@ -381,7 +381,6 @@
 			<assert test="code/@codeSystem='1.2.643.5.1.13.13.99.2.197'">У2-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.197'.</assert>
 			<assert test="count(title)=1">У2-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']] должен иметь один элемент title.</assert>
 			<assert test="count(text)=1">У2-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']] должен иметь один элемент text.</assert>
-			<assert test="matches(title,'Сведения об электронном рецепте','i')">У2-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/title должен иметь значение 'Сведения об электронном рецепте'.</assert>
 		</rule>
 	</pattern>
 	<!-- У2-2 -->
@@ -393,7 +392,6 @@
 			<assert test="code/@codeSystem='1.2.643.5.1.13.13.99.2.197'">У2-2. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.197'.</assert>
 			<assert test="count(title)=1">У2-2. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']] должен иметь один элемент title.</assert>
 			<assert test="count(text)=1">У2-2. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']] должен иметь один элемент text.</assert>
-			<assert test="matches(title,'Назначение медикамента','i')">У2-2. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/title должен иметь значение 'Назначение медикамента'.</assert>
 		</rule>
 	</pattern>
 	<!-- У3-1 -->
@@ -409,12 +407,10 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6000']">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.166'">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6000'] должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166'.</assert>
-			<assert test="matches(@displayName,'Приоритет исполнения рецепта','i')">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6000'] должен иметь значение атрибута @displayName равное 'Приоритет исполнения рецепта'.</assert>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6000']]/value">
 			<assert test="@xsi:type='CD'">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6000']]/value должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.609'">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6000']]/value должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.609'.</assert>
-			<assert test="matches(@codeSystemName,'Приоритет исполнения рецепта','i')">У3-1. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6000']]/value должен иметь значение атрибута @codeSystemName равное 'Приоритет исполнения рецепта'.</assert>
 		</rule>
 	</pattern>
 	<!-- У3-2 -->
@@ -432,7 +428,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='4059']">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.166'">У3-2. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='4059'] должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166'.</assert>
-			<assert test="matches(@displayName,'Протокол врачебной комиссии','i')">У3-2. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='4059'] должен иметь значение атрибута @displayName равное 'Протокол врачебной комиссии'.</assert>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='4059']]/effectiveTime">
 			<assert test="matches(@value, '^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">У3-2. Дата в элементе ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='4059']]/effectiveTime должна быть указана с точностью до дня, следует указывать с точностью до минут. Если указано с точностью до минут, то должна быть указана временная зона.</assert>
@@ -462,13 +457,11 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6004']">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.166'">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6004'] должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166'.</assert>
-			<assert test="matches(@displayName,'Срок действия рецепта','i')">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6004'] должен иметь значение атрибута @displayName равное 'Срок действия рецепта'.</assert>
 			<report test="@nullFlavor">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6004'] не должен иметь атрибут @nullFlavor.</report>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6004']]/value">
 			<assert test="@xsi:type='CD'">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6004']]/value должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.608'">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6004']]/value должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.609'.</assert>
-			<assert test="matches(@codeSystemName,'Срок действия рецепта','i')">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6004']]/value должен иметь значение атрибута @codeSystemName равное 'Срок действия рецепта'.</assert>
 			<assert test="@code=['3','5']">У3-3. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6004']]/value должен иметь значение атрибута @code равное '3' или '5'.</assert>
 		</rule>
 	</pattern>
@@ -485,7 +478,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6005']">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.166'">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6005'] должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166'.</assert>
-			<assert test="matches(@displayName,'Дата окончания действия рецепта','i')">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6005'] должен иметь значение атрибута @displayName равное 'Дата окончания действия рецепта'.</assert>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6005']]/value">
 			<assert test="@xsi:type='TS'">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6005']]/value должен иметь значение атрибута @xsi:type равное 'TS'.</assert>
@@ -504,7 +496,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6006']">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.166'">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6006'] должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166'.</assert>
-			<assert test="matches(@displayName,'По специальному назначению \(отметка\)','i')">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation/code[@code='6006'] должен иметь значение атрибута @displayName равное 'По специальному назначению (отметка)'.</assert>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6006']]/value">
 			<assert test="@xsi:type='BL'">У3-5. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='DOCINFO']]/entry/observation[code[@code='6006']]/value должен иметь значение атрибута @xsi:type равное 'BL'.</assert>
@@ -541,7 +532,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/effectiveTime[not(@nullFlavor)]/width/translation">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.11.1358'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/effectiveTime/width/translation должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1358'.</assert>
-			<assert test="matches(@codeSystemName,'Единицы измерения','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/effectiveTime/width/translation должен иметь значение атрибута @codeSystemName равное 'Единицы измерения'.</assert>
 			<assert test="@code=['22','23','24','520','521','522']">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/effectiveTime/width/translation должен иметь значение атрибута @codeSystem равное '22', '23', '24', '520', '521' или '522'.</assert>
 			<assert test="@displayName=['мин','ч','сут','нед','мес','год']">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/effectiveTime/width/translation должен иметь значение атрибута @displayName равное 'мин', 'ч', 'сут', 'нед', 'мес' или 'год'.</assert>
 		</rule>
@@ -549,7 +539,6 @@
 			<assert test="@code!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/routeCode должен иметь не пустое значение атрибута @code.</assert>
 			<assert test="@codeSystem='1.2.643.5.1.13.13.11.1468'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/routeCode должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1468'.</assert>
 			<assert test="@displayName!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/routeCode должен иметь не пустое значение атрибута @displayName.</assert>
-			<assert test="matches(@codeSystemName,'Пути введения лекарственных препаратов, в том числе для льготного лекарственного обеспечения','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/routeCode должен иметь значение атрибута @codeSystemName равное 'Пути введения лекарственных препаратов, в том числе для льготного лекарственного обеспечения'.</assert>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable">
 			<assert test="@typeCode='CSM'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable должен иметь значение атрибута @typeCode равное 'CSM'.</assert>
@@ -569,7 +558,6 @@
 			<assert test="@code!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @code.</assert>
 			<assert test="@displayName!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @displayName.</assert>
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.611'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.611'.</assert>
-			<assert test="matches(@codeSystemName,'Узлы СМНН. ЕСКЛП','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь значение атрибута @codeSystemName равное 'Узлы СМНН. ЕСКЛП'.</assert>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code[@nullFlavor]">
 			<assert test="@nullFlavor='OTH'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь значение атрибута @nullFlavor равное 'OTH'.</assert>
@@ -597,7 +585,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/effectiveTime[not(@nullFlavor)]/period/translation">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.11.1358'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1358'.</assert>
-			<assert test="matches(@codeSystemName,'Единицы измерения','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @codeSystemName равное 'Единицы измерения'.</assert>
 			<assert test="@code=['22','23','24','520','521','522']">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @codeSystem равное '22', '23', '24', '520', '521' или '522'.</assert>
 			<assert test="@displayName=['мин','ч','сут','нед','мес','год']">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @displayName равное 'мин', 'ч', 'сут', 'нед', 'мес' или 'год'.</assert>
 			<report test="@nullFlavor">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/effectiveTime[not(@nullFlavor)]/period/translation не должен иметь атрибут @nullFlavor.</report>
@@ -611,7 +598,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/doseQuantity/translation">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.612'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/doseQuantity/translation должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.612'.</assert>
-			<assert test="matches(@codeSystemName,'Потребительские единицы ЕСКЛП','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/doseQuantity/translation должен иметь значение атрибута @codeSystemName равное 'Потребительские единицы ЕСКЛП'.</assert>
 			<assert test="@value!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/doseQuantity/translation должен иметь не пустое значение атрибута @value.</assert>
 			<assert test="@code!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/doseQuantity/translation должен иметь не пустое значение атрибута @code.</assert>
 			<assert test="@displayName!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship[not(observation[code[@code='6011']])]/substanceAdministration/doseQuantity/translation должен иметь не пустое значение атрибута @displayName.</assert>
@@ -637,7 +623,6 @@
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation/code[@code='6011']">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.166'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation/code[@code='6011'] должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166'.</assert>
 			<assert test="@code='6011'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation/code[@code='6011'] должен иметь значение атрибута @code равное '6011'.</assert>
-			<assert test="matches(@displayName,'Количество назначенных доз','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation/code[@code='6011'] должен иметь значение атрибута @displayName равное 'Количество назначенных доз'.</assert>
 			<report test="@nullFlavor">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation/code[@code='6011'] не должен иметь атрибут @nullFlavor.</report>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/value">
@@ -648,7 +633,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/value/translation">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.11.1358'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/value/translation должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1358'.</assert>
-			<assert test="matches(@codeSystemName,'Единицы измерения','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/value/translation должен иметь значение атрибута @codeSystemName равное 'Единицы измерения'.</assert>
 			<assert test="@code='128'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/value/translation должен иметь значение атрибута @code равное '128'.</assert>
 			<assert test="@value!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/value/translation должен иметь не пустое значение атрибута @value.</assert>
 			<assert test="@displayName!=''">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/value/translation должен иметь не пустое значение атрибута @displayName.</assert>
@@ -666,7 +650,6 @@
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation/code">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.99.2.166'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation/code должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.166'.</assert>
 			<assert test="@code='6017'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation/code должен иметь значение атрибута @code равное '6017'.</assert>
-			<assert test="matches(@displayName,'Периодичность отпуска препарата \(по справочнику\)','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation/code должен иметь значение атрибута @displayName равное 'Периодичность отпуска препарата (по справочнику)'.</assert>
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation[code[@code='6017']]/value">
 			<assert test="@xsi:type='CD'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation[code[@code='6017']]/value должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
@@ -697,7 +680,6 @@
 		</rule>
 		<rule context="ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation[code[@code='6017']]/entryRelationship/supply/effectiveTime[not(@nullFlavor)]/period/translation">
 			<assert test="@codeSystem='1.2.643.5.1.13.13.11.1358'">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation[code[@code='6017']]/entryRelationship/supply/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.11.1358'.</assert>
-			<assert test="matches(@codeSystemName,'Единицы измерения','i')">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']/]entryRelationship/observation[code[@code='6017']]/entryRelationship/supply/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @codeSystemName равное 'Единицы измерения'.</assert>
 			<assert test="@code=['22','23','24','520','521','522']">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation[code[@code='6017']]/entryRelationship/supply/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @codeSystem равное '22', '23', '24', '520', '521' или '522'.</assert>
 			<assert test="@displayName=['мин','ч','сут','нед','мес','год']">У3-6. Элемент ClinicalDocument/component/structuredBody/component/section[code[@code='RECIPE']]/entry/substanceAdministration/entryRelationship/observation[code[@code='6011']]/entryRelationship/observation[code[@code='6017']]/entryRelationship/supply/effectiveTime[not(@nullFlavor)]/period/translation должен иметь значение атрибута @displayName равное 'мин', 'ч', 'сут', 'нед', 'мес' или 'год'.</assert>
 		</rule>

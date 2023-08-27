@@ -291,19 +291,23 @@ public class SEMDValidator extends HttpServlet {
         if (req.getContentType() != null && req.getContentType().startsWith("multipart/form-data")) {
             req.setAttribute(Request.MULTIPART_CONFIG_ELEMENT, MULTI_PART_CONFIG);
         }
+        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+
         Part filePart = req.getPart("file");
         final String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        if (fileName.length() < 5) {
+            out.print("file name should be like '118.zip'");
+            return;
+        }
         final String remdtype = fileName.substring(0, fileName.length()-4);
         InputStream fileContent = filePart.getInputStream();
         unzip(DATA_PATH, fileContent);
 
-        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
-        PrintWriter out = resp.getWriter();
-
         try {
             int rt = Integer.parseInt(remdtype);
             if (rt < 1) {
-                out.print("remdtype parameter should be greater then 0");
+                out.print("remdtype should be in filename (int))");
                 return;
             }
         }

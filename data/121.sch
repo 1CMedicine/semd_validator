@@ -1,5 +1,5 @@
 ﻿<!-- Схематрон для СЭМД "Направление на медико-социальную экспертизу (CDA) Редакция 6" -->
-<!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/____ -->
+<!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/4283 -->
 
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
@@ -2977,15 +2977,20 @@
         </rule>
     </pattern>
     <pattern>
-        <rule context="//name[not(family|given|identity:Patronymic)]">
+        <rule context="//name[not(family|given|identity:Patronymic)][not(ancestor::organizer[code/@code='4073'])]">
             <assert test=".!=''">Core01-2. Элемент //name должен иметь не пустое значение.</assert>
             <report test="@nullFlavor">Core01-2. Элемент //name не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//name[ancestor::organizer[code/@code='4073']][not(@nullFlavor)]">
+            <assert test=".!=''">Core01-2. Элемент //name должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
 
 
 
-<!-- [Core02_1]Модуль проверки адресов (//addr) -->
+    <!-- [Core02_1]Модуль проверки адресов (//addr) -->
 
 <!-- Вариант по умолчанию -->
 

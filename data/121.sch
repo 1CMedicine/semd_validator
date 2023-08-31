@@ -2806,7 +2806,7 @@
     </pattern>
     <pattern>
         <rule context="ClinicalDocument[component/structuredBody/component/section[code/@code='CONSENT']/entry/observation[code/@code='12481']/value/@code='2']">
-            <assert test="recordTarget/patientRole/addr!='' or recordTarget/patientRole/patient/guardian/addr!='' or recordTarget/patientRole/patient/guardian/guardianOrganization/addr!=''">У3-40. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr или элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/addr должен иметь не пустое значение.</assert>
+            <assert test="recordTarget/patientRole/addr!='' or recordTarget/patientRole/patient/guardian/addr!='' or recordTarget/patientRole/patient/guardian/guardianOrganization/addr!=''">У3-40. Элемент ClinicalDocument/recordTarget/patientRole/addr, ClinicalDocument/recordTarget/patientRole/patient/guardian/addr или элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/addr должен иметь не пустое значение.</assert>
         </rule>
     </pattern>
     <!-- У3-41 -->
@@ -2874,16 +2874,16 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code[@code='11003']]/value">
             <assert test="@xsi:type='ST'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference[not(@nullFlavor)]">
             <assert test="@typeCode='REFR'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference должен иметь значение атрибута @typeCode равное 'REFR'.</assert>
             <assert test="count(externalDocument)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference должен иметь 1 элемент externalDocument.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument[not(@nullFlavor)]">
             <assert test="@classCode='DOCCLIN'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь значение атрибута @classCode равное 'DOCCLIN'.</assert>
             <assert test="@moodCode='EVN'">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
             <assert test="count(id)=1">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation/reference/externalDocument должен иметь 1 элемент externalDocument.</assert>
         </rule>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id">
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id[not(@nullFlavor)]">
             <assert test="matches(@root,'^[0-2](\.([1-9][0-9]*|0))+\.100([.]([1-9][0-9]*|0))+\.51$')">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id должен иметь синтаксически корректное значение атрибута @root, сформированное по правилу формирования идентификаторов документов, т.е. "OID_медицинской_организации.100.НомерМИС.НомерЭкзМИС.51".</assert>
             <assert test="@extension!=''">У3-41. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id должен иметь не пустое значение атрибута @extension.</assert>
         </rule>

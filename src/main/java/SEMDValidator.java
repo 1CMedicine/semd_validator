@@ -20,10 +20,12 @@ import java.nio.charset.StandardCharsets;
 import org.eclipse.jetty.server.Request;
 import java.io.*;
 import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.*;
 import java.text.SimpleDateFormat;
+import java.time.*;
 
 public class SEMDValidator extends HttpServlet {
 
@@ -479,13 +481,13 @@ public class SEMDValidator extends HttpServlet {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
         for (Iterator<String> i = list.iterator(); i.hasNext();) {
             String item = i.next();
-            String p = DATA_PATH + "/"+item;
             String ext = item.substring(item.length()-3, item.length());
-            File file = new File(p);
             if (ext.equals("sch") || ext.equals("xsd")) {
+                File file = new File(DATA_PATH + "/"+item);
                 out.print(String.join("", "<tr><td><a href='./file/", item,"'>", item, "</a></td><td align='right'>", Long.toString(file.length()), "</td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
             } else if (ext.equals("xsl")) {
-                out.print(String.join("","<tr><td>", item, "</td><td></td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
+                File file = new File(DATA_PATH + "/schematrons/"+item);
+                out.print(String.join("","<tr><td>", "schematrons/"+item, "</td><td></td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
             }
         }
 

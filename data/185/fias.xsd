@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Схема разработана Центром по разработке СЭМД ЦНИИОИЗ 2021 -->
+<!-- Схема разработана Центром актуализации и модернизации руководств по структурированным электронным медицинским документам ЦНИИОИЗ 2022 -->
 <!-- Включены элементы разработанные Health Level Seven -->
-<xs:schema xmlns="urn:hl7-ru:medService" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="urn:hl7-ru:medService" xmlns:medService="urn:hl7-ru:medService" elementFormDefault="qualified" xmlns:hl7="urn:hl7-org:v3">
+<xs:schema xmlns="urn:hl7-ru:fias"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:hl7-ru:fias"
+           elementFormDefault="qualified" xmlns:hl7="urn:hl7-org:v3">
 	<!--
 *****************************************************************************************************************
 * XML schema for message type POCD_MT000040.
@@ -35,40 +37,36 @@
 ********************************************************************************************************************
 	  -->
 	<xs:import namespace="urn:hl7-org:v3" schemaLocation="coreschemas\datatypes-base.xsd"/>
-	<xs:element name="DocType" type="DocType"/>
-	<xs:complexType name="DocType">
-		<xs:complexContent>
-			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.11.1522"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
-			</xs:restriction>
-		</xs:complexContent>
+	<!-- Блок "Идентификатор адреса по ФИАС" -->
+	<xs:element name="Address" type="FiasAddress">
+	</xs:element>
+	<xs:complexType name="FiasAddress">
+		<xs:choice minOccurs="0">
+			<xs:sequence>
+				<xs:element name="AOGUID" type="hl7:uuid" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>глобальный уникальный идентификатор адресного объекта</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="HOUSEGUID" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>глобальный уникальный идентификатор дома</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="uuid">
+								<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="optional"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+		<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="optional"/>
 	</xs:complexType>
-	<xs:element name="serviceForm" type="serviceForm"/>
-	<xs:complexType name="serviceForm">
-		<xs:complexContent>
-			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.11.1551"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
-			</xs:restriction>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="serviceType" type="serviceType"/>
-	<xs:complexType name="serviceType">
-		<xs:complexContent>
-			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.11.1034"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
-			</xs:restriction>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="serviceCond" type="serviceCond"/>
-	<xs:complexType name="serviceCond">
-		<xs:complexContent>
-			<xs:restriction base="hl7:CE_non_elements">
-				<xs:attribute name="codeSystem" type="hl7:uid" fixed="1.2.643.5.1.13.13.99.2.322"/>
-				<xs:attribute name="codeSystemName" type="hl7:st"/>
-			</xs:restriction>
-		</xs:complexContent>
-	</xs:complexType>
+	<xs:simpleType name="uuid">
+		<xs:restriction base="xs:string">
+			<xs:pattern	value="([0-9a-zA-Z]{8}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{12})?"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

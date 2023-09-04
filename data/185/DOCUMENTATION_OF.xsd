@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Схема разработана Центром по разработке СЭМД ЦНИИОИЗ 2021 -->
+<!-- Схема разработана Центром актуализации и модернизации руководств по структурированным электронным медицинским документам ЦНИИОИЗ 2022 -->
 <!-- Включены элементы разработанные Health Level Seven -->
 <xs:schema xmlns:mif="urn:hl7-org:v3/mif"
 	xmlns="urn:hl7-org:v3" xmlns:hl7="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -44,86 +44,64 @@
 	<xs:include schemaLocation="coreschemas/datatypes.xsd"/>
 	<xs:include schemaLocation="coreschemas/voc.xsd"/>
 	<xs:include schemaLocation="coreschemas/NarrativeBlock.xsd"/>
-	<xs:complexType name="POCD_MT000040.Component1">
+	<!-- Блок "Сведения о документируемом событии" -->
+	<xs:complexType name="POCD_MT000040.DocumentationOf">
 		<xs:sequence>
-			<xs:element name="encompassingEncounter" type="POCD_MT000040.EncompassingEncounter"
-				minOccurs="1" maxOccurs="1">
+			<xs:element name="serviceEvent" type="POCD_MT000040.ServiceEvent">
 				<xs:annotation>
-					<xs:documentation>случай оказания медицинской помощи</xs:documentation>
+					<xs:documentation>сведения о документируемом событии</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="POCD_MT000040.EncompassingEncounter">
+	<xs:complexType name="POCD_MT000040.ServiceEvent">
 		<xs:sequence>
-			<xs:element name="id" minOccurs="1" maxOccurs="2">
-				<xs:complexType>
-					<xs:complexContent>
-						<xs:restriction base="II">
-							<xs:attribute name="root" use="optional">
-								<xs:simpleType>
-									<xs:restriction base="uid">
-										<xs:pattern value="[0-2](\.(0|[1-9][0-9]*))*.15|[0-2](\.(0|[1-9][0-9]*))*.16"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:attribute>
-							<xs:attribute name="extension" type="st" use="optional"/>
-							<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
-							<xs:attribute name="displayable" type="bl" use="prohibited"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
-						</xs:restriction>
-					</xs:complexContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="code" minOccurs="0" maxOccurs="1">
+			<xs:element name="code" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>тип медицинской карты</xs:documentation>
+					<xs:documentation>тип документируемого события</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:restriction base="CE_non_elements">
-							<xs:attribute name="codeSystem" type="uid" use="optional" fixed="1.2.643.5.1.13.13.99.2.723"/>
-							<xs:attribute name="codeSystemName" type="st"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
+						<xs:restriction base="hl7:CE_non_elements">
+							<xs:attribute name="code" type="cs" use="required"/>
+							<xs:attribute name="codeSystem" type="hl7:uid" use="required" fixed="1.2.643.5.1.13.13.99.2.726"/>
+							<xs:attribute name="codeSystemName" type="st" use="required"/>
+							<xs:attribute name="codeSystemVersion" type="st" use="required"/>
+							<xs:attribute name="displayName" type="st" use="required"/>
+							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 						</xs:restriction>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="medService:DocType" minOccurs="0" maxOccurs="1">
+			<xs:element name="effectiveTime" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>вид медицинской карты</xs:documentation>
+					<xs:documentation>дата документируемого события</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="TS">
+							<xs:attribute name="value" use="required" type="ts"/>
+							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="medService:serviceForm" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>форма оказания медицинской помощи</xs:documentation>
 				</xs:annotation>
 			</xs:element>			
-			<xs:element name="effectiveTime" minOccurs="0" maxOccurs="1">
+			<xs:element ref="medService:serviceType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>даты случая</xs:documentation>
+					<xs:documentation>вид медицинскойй помощи</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:choice minOccurs="0">
-						<xs:sequence>
-							<xs:element name="low" minOccurs="1" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>дата и время начала</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:restriction base="IVXB_TS">
-											<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-										</xs:restriction>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>				
-							<xs:element name="high" minOccurs="0" maxOccurs="1" type="IVXB_TS">
-								<xs:annotation>
-									<xs:documentation>дата и время окончания</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-						</xs:sequence>
-					</xs:choice>
-					<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
-				</xs:complexType>
+			</xs:element>
+			<xs:element ref="medService:serviceCond" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>условия оказания медицинской помощи</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
+		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>		
 	</xs:complexType>
 </xs:schema>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Схема разработана Центром по разработке СЭМД ЦНИИОИЗ 2021 -->
+<!-- Схема разработана Центром актуализации и модернизации руководств по структурированным электронным медицинским документам ЦНИИОИЗ 2022 -->
 <!-- Включены элементы разработанные Health Level Seven -->
 <xs:schema xmlns:mif="urn:hl7-org:v3/mif" xmlns="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v3" elementFormDefault="qualified" xmlns:address="urn:hl7-ru:address" xmlns:fias="urn:hl7-ru:fias" xmlns:identity="urn:hl7-ru:identity">
 	<!--
@@ -40,6 +40,7 @@
 	<xs:include schemaLocation="coreschemas/voc.xsd"/>
 	<xs:include schemaLocation="coreschemas/NarrativeBlock.xsd"/>
 	
+	<!-- Блок "Сведения о владельце документа" -->
 	<xs:complexType name="POCD_MT000040.Custodian">
 		<xs:sequence>
 			<xs:element name="assignedCustodian" type="POCD_MT000040.AssignedCustodian" minOccurs="1" maxOccurs="1">
@@ -72,10 +73,18 @@
 					<xs:documentation>наименование организации или ФИО индивидуального предпринимателя</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="telecom" type="TEL" minOccurs="0" maxOccurs="1">
+			<xs:element name="telecom" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>телефон медицинской организации или индивидуального предпринимателя</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="TEL">
+							<xs:attribute name="value" type="url" use="required"/>
+							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="addr" minOccurs="1" maxOccurs="1">
 				<xs:annotation>

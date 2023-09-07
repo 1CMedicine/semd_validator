@@ -635,17 +635,18 @@ public class SEMDValidator extends HttpServlet {
                 out.append(c);
             }
         }
-        int i1 = out.indexOf("include ");
+
+        int i1 = out.indexOf("include");
         if (i1 > 0) {
             int i2 = out.indexOf("schemaLocation", i1+8);
             if (i2 >= 0) {
-                int i3 = out.indexOf("&#39;", i2+15);
+                int i3 = out.indexOf("&#39;", i2+15);  // символ '
                 if (i3 < 0) {
-                    i3 = out.indexOf("&#34;", i2+15);
+                    i3 = out.indexOf("&#34;", i2+15);  // символ "
                 }
-                int i4 = out.indexOf("&#39;", i3+5);
+                int i4 = out.indexOf("&#39;", i3+5);  // символ '
                 if (i4 < 0) {
-                    i4 = out.indexOf("&#34;", i3+5);
+                    i4 = out.indexOf("&#34;", i3+5);  // символ "
                 }
                 if (i3 > 0 && i4 > 0) {
                     String file = out.substring(i3+5, i4);

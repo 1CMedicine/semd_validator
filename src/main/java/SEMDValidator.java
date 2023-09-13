@@ -20,18 +20,17 @@ import java.nio.charset.StandardCharsets;
 import org.eclipse.jetty.server.Request;
 import java.io.*;
 import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.*;
 import java.text.SimpleDateFormat;
-import java.time.*;
 
 public class SEMDValidator extends HttpServlet {
 
-    protected String DATA_PATH;
+    private String DATA_PATH;
     private String ADMIN_NAME;
     private String ADMIN_PASS;
+    private int LIST_TYPES_FOR_VARIFICATION[] = {};
 
     final static Logger log = LogManager.getLogger(SEMDValidator.class.getName());
     private static final MultipartConfigElement MULTI_PART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
@@ -44,6 +43,26 @@ public class SEMDValidator extends HttpServlet {
         System.setProperty("javax.xml.parsers.DocumentBuilderFactory","org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
         ServletConfig config = this.getServletConfig();
 
+        String param = config.getInitParameter("LIST_TYPES_FOR_VARIFICATION");
+        if (param != null && param.length() > 0) {
+            String[] types = param.split(",");
+            LIST_TYPES_FOR_VARIFICATION = new int[types.length];
+            for (int i = 0; i < types.length; i++) {
+                String str = types[i];
+                try {
+                    int rt = Integer.parseInt(str.trim());
+                    if (rt < 1) {
+                        break;
+                    }
+                    LIST_TYPES_FOR_VARIFICATION[i] = rt;
+                }
+                catch (NumberFormatException e) {
+                    break;
+                }
+            }
+             Arrays.sort(LIST_TYPES_FOR_VARIFICATION);
+        }
+        log.info("LIST_TYPES_FOR_VARIFICATION="+Arrays.toString(LIST_TYPES_FOR_VARIFICATION));
         DATA_PATH = config.getInitParameter("DATA_PATH");
         if (DATA_PATH == null)
             throw new ServletException("Servlet param DATA_PATH is not set");
@@ -180,8 +199,9 @@ public class SEMDValidator extends HttpServlet {
         final String remdtype = req.getParameter("remdtype"); 
         final String verifytype = req.getParameter("verifytype");
         
+        int rt = 0;
         try {
-            int rt = Integer.parseInt(remdtype);
+            rt = Integer.parseInt(remdtype);
             if (rt < 1) {
                 out.print("remdtype parameter should be greater then 0");
                 return;
@@ -224,9 +244,13 @@ public class SEMDValidator extends HttpServlet {
 
         File xsd = new File(DATA_PATH+"/"+remdtype+"/CDA.xsd");
         boolean valid = true;
-        if (!xsd.exists() || xsd.isDirectory()) {
+        int inList = Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, rt);
+        if (inList == -1 || !xsd.exists() || xsd.isDirectory()) {
             out.print("no xsd - " + DATA_PATH + "/" + remdtype+"/CDA.xsd");
             valid = false;
+            if (inList == -1) {
+                log.info("REMD type filtered: " + remdtype);
+            }
         } else if (verifytype.equals("0") || verifytype.equals("2")) {
             try {
                 xsd(xml, xsd.getAbsolutePath());
@@ -475,19 +499,42 @@ public class SEMDValidator extends HttpServlet {
         }
         list.sort(Comparator.naturalOrder());
 
-        out.print(String.join("\n"
-        , "<h2>Список загруженных xsd, sch и сгенерированных xsl из sch</h2>"
-        , "<table><tr><th>File</th><th>Size in bytes</th><th>Upload date</th></tr>"));
+        out.print("<h2>Список загруженных xsd, sch и сгенерированных xsl из sch</h2>\n");
+        if (LIST_TYPES_FOR_VARIFICATION.length > 0) {
+            out.print("<h3>Включена выборочная проверка по типам <span style=\"font-weight:bold; background-color: #3366CC;\">"+Arrays.toString(LIST_TYPES_FOR_VARIFICATION)+"</span>. В списке выделены активные типы РЭМД</h3>\n");
+        }
+        out.print("<table><tr><th>File</th><th>Size in bytes</th><th>Upload date</th></tr>");
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
         for (Iterator<String> i = list.iterator(); i.hasNext();) {
             String item = i.next();
+            String style = "";
+            if (LIST_TYPES_FOR_VARIFICATION.length > 0) {
+                int rt = 0;
+                String n = item.substring(0, item.length()-4);
+                if (n.endsWith("CDA") && item.length() > 8) {
+                    n = item.substring(0, item.length()-8);     // 102/CDA.xsd
+                } else {
+                    int idx = n.indexOf('_');
+                    if (idx > 0) {
+                        n = n.substring(0, idx);        // 102_1.sch
+                    }
+                }
+                try {
+                    rt = Integer.parseInt(n);
+                }
+                catch (NumberFormatException e) {
+                }
+                if (Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, rt) >= 0) {
+                    style = " style=\"font-weight:bold; background-color: #3366CC;\"";
+                }
+            }
             String ext = item.substring(item.length()-3, item.length());
             if (ext.equals("sch") || ext.equals("xsd")) {
                 File file = new File(DATA_PATH + "/"+item);
-                out.print(String.join("", "<tr><td><a href='./file/", item,"'>", item, "</a></td><td align='right'>", Long.toString(file.length()), "</td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
+                out.print(String.join("", "<tr><td", style, "><a href='./file/", item,"'>", item, "</a></td><td align='right'", style,">", Long.toString(file.length()), "</td><td", style,">", dateFormat.format(file.lastModified()), "</td></tr>"));
             } else if (ext.equals("xsl")) {
                 File file = new File(DATA_PATH + "/schematrons/"+item);
-                out.print(String.join("","<tr><td>", "schematrons/"+item, "</td><td></td><td>", dateFormat.format(file.lastModified()), "</td></tr>"));
+                out.print(String.join("","<tr><td", style, ">", "schematrons/"+item, "</td><td", style,"></td><td", style,">", dateFormat.format(file.lastModified()), "</td></tr>"));
             }
         }
 

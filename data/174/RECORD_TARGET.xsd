@@ -127,168 +127,8 @@
 					<xs:documentation>дата рождения пациента</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="guardian" type="POCD_MT000040.Guardian" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>сведения о законном (уполномоченном) представителе гражданина</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-	</xs:complexType>
-	
-	<!-- Блок "Сведения о законном (уполномоченном) представителе гражданина" -->
-	<xs:complexType name="POCD_MT000040.Guardian">
-		<xs:sequence>
-			<xs:element name="id" minOccurs="0" maxOccurs="1">
-				<xs:complexType>
-					<xs:complexContent>
-						<xs:restriction base="II">
-							<xs:attribute name="root" use="required">
-								<xs:simpleType>
-									<xs:restriction base="uid">
-										<xs:pattern value="1.2.643.100.3"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:attribute>
-							<xs:attribute name="extension" type="st" use="required"/>
-							<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
-							<xs:attribute name="displayable" type="bl" use="prohibited"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-						</xs:restriction>
-					</xs:complexContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element ref="identity:IdentityDoc" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>документ, удостоверяющий личность представителя, серия, номер, кем выдан</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="identity:AuthorityDoc" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>документ, удостоверяющий полномочия представителя, серия, номер, кем выдан</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="code" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>тип связи между представителем (физическое лицо) и гражданином</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:complexContent>
-						<xs:restriction base="CE_non_elements">
-							<xs:attribute name="code" type="cs" use="required"/>
-							<xs:attribute name="codeSystem" type="uid" use="required" fixed="1.2.643.5.1.13.13.99.2.14"/>
-							<xs:attribute name="codeSystemName" type="st" use="required"/>
-							<xs:attribute name="codeSystemVersion" type="st" use="required"/>
-							<xs:attribute name="displayName" type="st" use="required"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-						</xs:restriction>
-					</xs:complexContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="addr" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>адрес фактического места жительства представителя</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:choice minOccurs="0">
-						<xs:group ref="AD"/>
-					</xs:choice>
-					<xs:attribute name="use" use="optional" type="set_PostalAddressUse"/>
-					<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="telecom" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>контакты представителя</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:complexContent>
-						<xs:restriction base="TEL">
-							<xs:attribute name="value" type="url" use="required"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-						</xs:restriction>
-					</xs:complexContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:choice>
-				<!-- Блок "Сведения о законном представителе (физическом лице)" -->
-				<xs:element name="guardianPerson" minOccurs="1" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>законный представитель (человек)</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="name" type="PN" minOccurs="1" maxOccurs="1"/>
-						</xs:sequence>
-						<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-					</xs:complexType>
-				</xs:element>
-				<!-- Блок "Сведения о законном представителе (юридическом лице)" -->
-				<xs:element name="guardianOrganization" minOccurs="1" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>законный представитель (юридическое лицо)</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="id" minOccurs="0" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>уникальный идентификатор медицинской организации</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:restriction base="II">
-											<xs:attribute name="root" type="uid" use="required"/>
-											<xs:attribute name="extension" type="st" use="optional"/>
-											<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
-											<xs:attribute name="displayable" type="bl" use="prohibited"/>
-											<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-										</xs:restriction>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-							<xs:element ref="identity:Props" minOccurs="1" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>реквизиты организации</xs:documentation>
-								</xs:annotation>
-							</xs:element>			
-							<xs:element name="name" type="ON" minOccurs="1" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>наименование медицинской организации или ФИО индивидуального предпринимателя</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="telecom" minOccurs="0" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>контакты медицинской организации или индивидуального предпринимателя</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:restriction base="TEL">
-											<xs:attribute name="value" type="url" use="required"/>
-											<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-										</xs:restriction>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="addr" minOccurs="0" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>адрес медицинской организации или индивидуального предпринимателя</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:choice minOccurs="0">
-										<xs:group ref="AD"/>
-									</xs:choice>
-									<xs:attribute name="use" use="optional" type="set_PostalAddressUse"/>
-									<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-						<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
-					</xs:complexType>
-				</xs:element>
-			</xs:choice>
-		</xs:sequence>
-		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-		<xs:attribute name="classCode" type="RoleClass" use="optional" fixed="GUARD"/>
 	</xs:complexType>
 	<!-- Блок "Сведения об организации, оказывающей медицинскую помощь" -->
 	<xs:complexType name="POCD_MT000040.Organization_Patient">
@@ -311,7 +151,11 @@
 						</xs:complexContent>
 					</xs:complexType>
 				</xs:element>
-				<xs:group ref="identity:Props"/>		
+				<xs:element ref="identity:Props" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>реквизиты организации</xs:documentation>
+					</xs:annotation>
+				</xs:element>			
 				<xs:element name="name" type="ON" minOccurs="1" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>наименование медицинской организации или ФИО индивидуального предпринимателя</xs:documentation>
@@ -330,12 +174,12 @@
 						</xs:complexContent>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="addr" minOccurs="1" maxOccurs="1">
+				<xs:element name="addr" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>адрес медицинской организации или индивидуального предпринимателя</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
-						<xs:choice minOccurs="1">
+						<xs:choice minOccurs="0">
 							<xs:group ref="AD"/>
 						</xs:choice>
 						<xs:attribute name="use" use="optional" type="set_PostalAddressUse"/>

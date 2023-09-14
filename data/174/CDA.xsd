@@ -81,7 +81,15 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="II">
-							<xs:attribute name="root" type="uid" use="required" fixed="1.2.643.5.1.13.13.14.108.9.1"/>
+							<xs:attribute name="root" use="required">
+								<xs:simpleType>
+									<xs:restriction base="uid">
+										<xs:enumeration value="1.2.643.5.1.13.13.14.6.9.4"/>
+										<xs:enumeration value="1.2.643.5.1.13.13.14.6.9.4.1"/>
+										<xs:enumeration value="1.2.643.5.1.13.13.14.6.9.4.2"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
 							<xs:attribute name="extension" type="st" use="prohibited"/>
 							<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
 							<xs:attribute name="displayable" type="bl" use="prohibited"/>
@@ -121,7 +129,7 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="CE_non_elements">
-							<xs:attribute name="code" type="cs" use="required" fixed="108"/>
+							<xs:attribute name="code" type="cs" use="required" fixed="6"/>
 							<xs:attribute name="codeSystem" type="uid" use="required" fixed="1.2.643.5.1.13.13.11.1522"/>
 							<xs:attribute name="codeSystemName" type="st" use="required"/>
 							<xs:attribute name="codeSystemVersion" type="st" use="required"/>
@@ -265,7 +273,7 @@
 				</xs:annotation>
 			</xs:element>
 			<!-- Блок "Сведения о случае оказания медицинской помощи" -->
-			<xs:element name="componentOf" type="POCD_MT000040.Component1" minOccurs="1" maxOccurs="1">
+			<xs:element name="componentOf" type="POCD_MT000040.Component1" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>сведения о случае оказания медицинской помощи</xs:documentation>
 				</xs:annotation>

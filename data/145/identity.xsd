@@ -35,7 +35,7 @@
 	  -->
 	<xs:import namespace="urn:hl7-org:v3" schemaLocation="coreschemas\datatypes-base.xsd"/>
 	<xs:element name="Patronymic" type="hl7:ST"/>
-		
+	
 	<!-- Блок "Сведения о документе, удостоверяющем личность" -->
 	<xs:element name="IdentityDoc" type="POCD_MT000040.IdentityDoc">
 	</xs:element>
@@ -165,38 +165,6 @@
 		</xs:choice>
 		<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="optional"/>
 	</xs:complexType>
-	
-	<!-- Блок "Реквизиты организации" для медицинской организации, оказывающей медицинскую помощь пациенту -->
-	<xs:group name="Props">
-		<xs:sequence>
-			<xs:element name="Props">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Ogrn" type="hl7:ST" minOccurs="1" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>код ОГРН</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Ogrnip" type="hl7:ST" minOccurs="1" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>код ОГРНИП</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Okpo" type="hl7:st" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>код ОКПО</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Okato" type="hl7:st" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>код ОКАТО</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:group>	
 	
 	<!-- Блок "Сведения о документе, удостоверяющем полномочия представителя" -->
 	<xs:element name="AuthorityDoc" type="POCD_MT000040.AuthorityDoc">
@@ -332,7 +300,6 @@
 			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
-	
 	<!-- Блок "Срок дейсвия документа-основания" -->
 	<xs:complexType name="Effective_time">
 		<xs:choice minOccurs="0">
@@ -358,7 +325,4 @@
 		</xs:choice>
 		<xs:attribute name="nullFlavor" type="hl7:NullFlavor" use="optional"/>		
 	</xs:complexType>
-	
-	<!-- Элемент "Уникальный идентификатор" устройства, имплантанта -->
-	<xs:element name="Device" type="hl7:st"/>
 </xs:schema>

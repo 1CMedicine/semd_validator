@@ -1482,20 +1482,18 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="IVXB_TS">
-							<xs:attribute name="value" type="ts" use="required"/>
 							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 						</xs:restriction>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>				
-			<xs:element name="high" minOccurs="1" maxOccurs="1">
+			<xs:element name="high" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>дата и время окончания</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="IVXB_TS">
-							<xs:attribute name="value" type="ts" use="required"/>
 							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 						</xs:restriction>
 					</xs:complexContent>

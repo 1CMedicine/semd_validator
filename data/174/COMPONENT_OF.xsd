@@ -46,18 +46,20 @@
 	<xs:include schemaLocation="coreschemas/NarrativeBlock.xsd"/>
 	<!-- Блок "Сведения о случае оказания медицинской помощи" -->
 	<xs:complexType name="POCD_MT000040.Component1">
-		<xs:sequence>
-			<xs:element name="encompassingEncounter" type="POCD_MT000040.EncompassingEncounter"
+		<xs:choice minOccurs="0">
+			<xs:sequence>
+				<xs:element name="encompassingEncounter" type="POCD_MT000040.EncompassingEncounter"
 					minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>случай оказания медицинской помощи</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+					<xs:annotation>
+						<xs:documentation>случай оказания медицинской помощи</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="POCD_MT000040.EncompassingEncounter">
 		<xs:sequence>
-			<xs:element name="id" minOccurs="2" maxOccurs="2">
+			<xs:element name="id" minOccurs="1" maxOccurs="2">
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="II">
@@ -76,7 +78,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="code" minOccurs="1" maxOccurs="1">
+			<xs:element name="code" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>тип медицинской карты</xs:documentation>
 				</xs:annotation>
@@ -93,12 +95,12 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="medService:DocType" minOccurs="1" maxOccurs="1">
+			<xs:element ref="medService:DocType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>вид медицинской карты</xs:documentation>
 				</xs:annotation>
 			</xs:element>		
-			<xs:element name="effectiveTime" minOccurs="0" maxOccurs="1">
+			<xs:element name="effectiveTime" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>даты случая</xs:documentation>
 				</xs:annotation>
@@ -112,7 +114,6 @@
 								<xs:complexType>
 									<xs:complexContent>
 										<xs:restriction base="IVXB_TS">
-											<xs:attribute name="value" type="ts" use="required"/>
 											<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 										</xs:restriction>
 									</xs:complexContent>
@@ -125,7 +126,6 @@
 								<xs:complexType>
 									<xs:complexContent>
 										<xs:restriction base="IVXB_TS">
-											<xs:attribute name="value" type="ts" use="required"/>
 											<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 										</xs:restriction>
 									</xs:complexContent>

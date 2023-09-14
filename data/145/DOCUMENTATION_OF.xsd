@@ -63,7 +63,7 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="hl7:CE_non_elements">
-							<xs:attribute name="code" type="cs" use="required" fixed="12"/>
+							<xs:attribute name="code" type="cs" use="required"/>
 							<xs:attribute name="codeSystem" type="hl7:uid" use="required" fixed="1.2.643.5.1.13.13.99.2.726"/>
 							<xs:attribute name="codeSystemName" type="st" use="required"/>
 							<xs:attribute name="codeSystemVersion" type="st" use="required"/>
@@ -79,9 +79,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="IVL_TS_1">
+						<xs:restriction base="TS">
+							<xs:attribute name="value" use="required" type="ts"/>
 							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-						</xs:extension>
+						</xs:restriction>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
@@ -100,100 +101,7 @@
 					<xs:documentation>условия оказания медицинской помощи</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="performer" type="POCD_MT000040.Performer1" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>участник документируемого события</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>		
-	</xs:complexType>
-	<!-- Блок "Сведения об участнике документируемого события" -->
-	<xs:complexType name="POCD_MT000040.Performer1">
-		<xs:choice minOccurs="1">
-			<xs:sequence>
-				<xs:element name="functionCode" minOccurs="1" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>роль участника документируемого события</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:complexContent>
-							<xs:restriction base="CE_non_elements">
-								<xs:attribute name="code" type="cs" use="required"/>
-								<xs:attribute name="codeSystem" type="uid" use="required" fixed="1.2.643.5.1.13.13.99.2.368"/>
-								<xs:attribute name="codeSystemName" type="st" use="required"/>
-								<xs:attribute name="codeSystemVersion" type="st" use="required"/>
-								<xs:attribute name="displayName" type="st" use="required"/>
-								<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-							</xs:restriction>
-						</xs:complexContent>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="assignedEntity" minOccurs="1" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>участник документируемого события (исполнитель) (роль)</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="id" minOccurs="1" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>уникальный идентификатор исполнителя</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:restriction base="II">
-											<xs:attribute name="root" use="optional">
-												<xs:simpleType>
-													<xs:restriction base="uid">
-														<xs:pattern value="[0-2](\.(0|[1-9][0-9]*))*.70"/>
-													</xs:restriction>
-												</xs:simpleType>
-											</xs:attribute>
-											<xs:attribute name="extension" type="st" use="optional"/>
-											<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
-											<xs:attribute name="displayable" type="bl" use="prohibited"/>
-											<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
-										</xs:restriction>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="code" type="POCD_MT000040.code_profession" minOccurs="1" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>код должности исполнителя</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="telecom" minOccurs="0" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>контакты исполнителя</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:restriction base="TEL">
-											<xs:attribute name="value" type="url" use="required"/>
-											<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-										</xs:restriction>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="assignedPerson" type="POCD_MT000040.Person" minOccurs="1" maxOccurs="1">
-								<xs:annotation>
-									<xs:documentation>ФИО исполнителя</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-						</xs:sequence>
-						<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:choice>
-		<xs:attribute name="typeCode" use="required">
-			<xs:simpleType>
-				<xs:restriction base="cs">
-					<xs:enumeration value="PPRF"/>
-					<xs:enumeration value="SPRF"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 	</xs:complexType>
 </xs:schema>

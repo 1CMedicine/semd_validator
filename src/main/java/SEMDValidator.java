@@ -244,11 +244,11 @@ public class SEMDValidator extends HttpServlet {
 
         File xsd = new File(DATA_PATH+"/"+remdtype+"/CDA.xsd");
         boolean valid = true;
-        int inList = Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, rt);
-        if (inList == -1 || !xsd.exists() || xsd.isDirectory()) {
+        boolean filtered = LIST_TYPES_FOR_VARIFICATION.length > 0 && Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, rt) < 0;
+        if (filtered || !xsd.exists() || xsd.isDirectory()) {
             out.print("no xsd - " + DATA_PATH + "/" + remdtype+"/CDA.xsd");
             valid = false;
-            if (inList == -1) {
+            if (filtered) {
                 log.info("REMD type filtered: " + remdtype);
             }
         } else if (verifytype.equals("0") || verifytype.equals("2")) {

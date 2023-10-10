@@ -246,7 +246,7 @@ public class SEMDValidator extends HttpServlet {
         boolean valid = true;
         boolean filtered = LIST_TYPES_FOR_VARIFICATION.length > 0 && Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, rt) < 0;
         if (filtered || !xsd.exists() || xsd.isDirectory()) {
-            out.print("no xsd - " + DATA_PATH + "/" + remdtype+"/CDA.xsd");
+            out.print("no xsd - " + remdtype+"/CDA.xsd");
             valid = false;
             if (filtered) {
                 log.info("REMD type filtered: " + remdtype);

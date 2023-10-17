@@ -375,10 +375,13 @@ public class SEMDValidator extends HttpServlet {
                     }
                 }
             }
-            if (valid && sch)
+            if (valid && sch) {
                 out.print("xsd and sch loaded");
-            else if (valid)
+                cacheXslt.clear();
+                cacheXsd.clear();
+            } else if (valid)
                 out.print("xsd loaded");
+                cacheXsd.clear();
         }
     }
 

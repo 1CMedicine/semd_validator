@@ -4,6 +4,7 @@
 <!-- Список изменений -->
 <!-- 20.03.2023 - v.1.0.0: Схематрон разработан -->
 <!-- 28.03.2023 - v.1.0.1: Обновлен модуль Core02, исправления в правилах У1-19 и У3-14 -->
+<!-- 19.06.2023 - v.1.0.2: Исправление в правиле У3-10 -->
 
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
@@ -549,11 +550,6 @@
         </rule>
     </pattern>
     <!-- У3-10 -->
-    <pattern>
-        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='EXAMINFO']">
-            <assert test="count(entry[observation/code[@code='808']])=1">У3-10. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='EXAMINFO'] должен иметь 1 элемент entry[observation/code[@code='808']].</assert>
-        </rule>
-    </pattern>
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='EXAMINFO']/entry/observation[code[@code='808']]">
             <assert test="count(value)=1">У3-10. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='EXAMINFO']/entry/observation[code[@code='808']] должен иметь 1 элемент value.</assert>
@@ -3062,6 +3058,7 @@
             <assert test="@typeCode=['PPRF','SPRF']">Main08-1. Элемент ClinicalDocument/documentationOf/serviceEvent/performer должен иметь значение атрибута @typeCode равное 'PPRF' или 'SPRF'.</assert>
             <assert test="count(assignedEntity)=1">Main08-1. Элемент ClinicalDocument/documentationOf/serviceEvent/performer должен иметь 1 элемент assignedEntity.</assert>
             <report test="@nullFlavor">Main08-1. Элемент ClinicalDocument/documentationOf/serviceEvent/performer не должен иметь атрибут @nullFlavor.</report>
+            <assert test="count(functionCode)=1">Main08-1. Элемент ClinicalDocument/documentationOf/serviceEvent/performer должен иметь 1 элемент functionCode.</assert>
         </rule>
     </pattern>
     <pattern>

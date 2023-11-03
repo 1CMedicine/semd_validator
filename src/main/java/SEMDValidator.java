@@ -30,7 +30,7 @@ public class SEMDValidator extends HttpServlet {
     private String DATA_PATH;
     private String ADMIN_NAME;
     private String ADMIN_PASS;
-    private int LIST_TYPES_FOR_VARIFICATION[] = {};
+    private String LIST_TYPES_FOR_VARIFICATION[] = {};
 
     final static Logger log = LogManager.getLogger(SEMDValidator.class.getName());
     private static final MultipartConfigElement MULTI_PART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
@@ -46,21 +46,11 @@ public class SEMDValidator extends HttpServlet {
         String param = config.getInitParameter("LIST_TYPES_FOR_VARIFICATION");
         if (param != null && param.length() > 0) {
             String[] types = param.split(",");
-            LIST_TYPES_FOR_VARIFICATION = new int[types.length];
+            LIST_TYPES_FOR_VARIFICATION = new String[types.length];
             for (int i = 0; i < types.length; i++) {
-                String str = types[i];
-                try {
-                    int rt = Integer.parseInt(str.trim());
-                    if (rt < 1) {
-                        break;
-                    }
-                    LIST_TYPES_FOR_VARIFICATION[i] = rt;
-                }
-                catch (NumberFormatException e) {
-                    break;
-                }
+                LIST_TYPES_FOR_VARIFICATION[i] = types[i].trim();
             }
-             Arrays.sort(LIST_TYPES_FOR_VARIFICATION);
+            Arrays.sort(LIST_TYPES_FOR_VARIFICATION);
         }
         log.info("LIST_TYPES_FOR_VARIFICATION="+Arrays.toString(LIST_TYPES_FOR_VARIFICATION));
         DATA_PATH = config.getInitParameter("DATA_PATH");
@@ -198,19 +188,6 @@ public class SEMDValidator extends HttpServlet {
         Part filePart = req.getPart("file");
         final String remdtype = req.getParameter("remdtype"); 
         final String verifytype = req.getParameter("verifytype");
-        
-        int rt = 0;
-        try {
-            rt = Integer.parseInt(remdtype);
-            if (rt < 1) {
-                out.print("remdtype parameter should be greater then 0");
-                return;
-            }
-         }
-         catch (NumberFormatException e) {
-            out.print("remdtype parameter should be integer");
-            return;
-         }
 
          try {
             int vt = Integer.parseInt(verifytype);
@@ -244,7 +221,7 @@ public class SEMDValidator extends HttpServlet {
 
         File xsd = new File(DATA_PATH+"/"+remdtype+"/CDA.xsd");
         boolean valid = true;
-        boolean filtered = LIST_TYPES_FOR_VARIFICATION.length > 0 && Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, rt) < 0;
+        boolean filtered = LIST_TYPES_FOR_VARIFICATION.length > 0 && Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, remdtype) < 0;
         if (filtered || !xsd.exists() || xsd.isDirectory()) {
             out.print("no xsd - " + remdtype+"/CDA.xsd");
             valid = false;
@@ -331,10 +308,15 @@ public class SEMDValidator extends HttpServlet {
         unzip(DATA_PATH, fileContent);
 
         try {
-            int rt = Integer.parseInt(remdtype);
-            if (rt < 1) {
-                out.print("remdtype should be in filename (int))");
-                return;
+            if (!remdtype.startsWith("beta")) {
+                if (Integer.parseInt(remdtype) < 1) {
+                    out.print("remdtype in filename should be number or like 'beta%'");
+                    return;
+                }
+            } else {
+                if (remdtype.contains(" ") || remdtype.contains(".") || remdtype.contains("_")) {
+                    throw new IOException("SEMD-beta type should not contains spaces, dots, Underscores");
+                }
             }
         }
         catch (NumberFormatException e) {
@@ -412,6 +394,8 @@ public class SEMDValidator extends HttpServlet {
         , "<li>CDA.xsd - схема (обязательная). Имя файла должно быть именно таким</li>"
         , "<li>... - другие xsd файл, на которые ссылается головная схема. Друстимы папки, оригинальная иерархия должна быть сохранена</li>"
         , "</ul>"
+        , "<li>Второй вариант имени архива - betaOnko.zip. Используется для СЭМД-бета, имя должно начинаться на 'beta' и не содержать символов '.', '_', ' '.<br>"
+        , "В этом случае обязательная папка будет иметь название betaOnko. Схемарон (при наличии) также будет иметь имя betaOnko.sch или betaOnko_1.sch</li>"
         , "</ul>"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
@@ -440,8 +424,9 @@ public class SEMDValidator extends HttpServlet {
             final String p = contextPath+"/file"+servletPath.substring(5, i+1);   // 5 - это "/file"
             final File file = new File(url);
             if (file.exists()) {
-                FileReader fr = new FileReader(file, StandardCharsets.UTF_8);
-                BufferedReader reader = new BufferedReader(fr);
+                FileInputStream fis = new FileInputStream(file);
+                InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                BufferedReader reader = new BufferedReader(isr);
                 String line = reader.readLine();
                 while (line != null) {
                     String str = escapeHTML(p, line);
@@ -512,7 +497,6 @@ public class SEMDValidator extends HttpServlet {
             String item = i.next();
             String style = "";
             if (LIST_TYPES_FOR_VARIFICATION.length > 0) {
-                int rt = 0;
                 String n = item.substring(0, item.length()-4);
                 if (n.endsWith("CDA") && item.length() > 8) {
                     n = item.substring(0, item.length()-8);     // 102/CDA.xsd
@@ -522,12 +506,7 @@ public class SEMDValidator extends HttpServlet {
                         n = n.substring(0, idx);        // 102_1.sch
                     }
                 }
-                try {
-                    rt = Integer.parseInt(n);
-                }
-                catch (NumberFormatException e) {
-                }
-                if (Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, rt) >= 0) {
+                if (Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, n) >= 0) {
                     style = " style=\"font-weight:bold; background-color: #3366CC;\"";
                 }
             }

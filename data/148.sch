@@ -1,15 +1,19 @@
 ﻿<!-- Схематрон для СЭМД "Рецепт на лекарственный препарат (CDA) Редакция 2" -->
-<!-- Разработано в соотвествии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/____ -->
+<!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/4321 -->
 
 <!-- Список изменений -->
 <!-- 20.10.2022 - v.1.0.0: Схематрон разработан -->
 <!-- 14.11.2022 - v.1.0.1: У3-4 - восстановлена проверка substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code/@codeSystem -->
+<!-- 10.07.2023 - v.1.0.2: Обновлены модули Core03, Core10, Main01, Main12 -->
+<!-- 11.08.2023 - v.1.0.4: Обновлена проверка блока инструкции по применению (разовой дозы), в случае отсутствия кодирования назначенного лекарственного препарата -->
 
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
     <ns prefix="identity" uri="urn:hl7-ru:identity"/>
     <ns prefix="address" uri="urn:hl7-ru:address"/>
     <ns prefix="medService" uri="urn:hl7-ru:medService"/>
+    <ns prefix="fias" uri="urn:hl7-ru:fias"/>
+    <ns prefix="PII" uri="urn:hl7-ru:PII"/>
 
 
 
@@ -250,7 +254,7 @@
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/effectiveTime[1]/width">
             <assert test="@value!=''">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/effectiveTime/width должен иметь не пустое значение атрибута @value.</assert>
             <assert test="@unit!=''">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/effectiveTime/width должен иметь не пустое значение атрибута @unit.</assert>
-            <assert test="count(translation)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/effectiveTime/width должен иметь 1 элемент translationhigh.</assert>
+            <assert test="count(translation)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/effectiveTime/width должен иметь 1 элемент translation.</assert>
             <report test="@nullFlavor">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/effectiveTime/width не должен иметь атрибут @nullFlavor.</report>
         </rule>
     </pattern>
@@ -282,11 +286,17 @@
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/doseQuantity">
             <assert test="@value!=''">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/doseQuantity должен иметь не пустое значение атрибута @value.</assert>
+            <report test="@nullFlavor">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/doseQuantity не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration[consumable/manufacturedProduct/manufacturedMaterial/code[@nullFlavor='OTH']]/entryRelationship/substanceAdministration/doseQuantity">
+            <assert test="@value!=''">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/doseQuantity должен иметь не пустое значение атрибута @value.</assert>
             <assert test="@unit!=''">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/doseQuantity должен иметь не пустое значение атрибута @unit.</assert>
             <assert test="count(translation)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/doseQuantity должен иметь 1 элемент translation.</assert>
             <report test="@nullFlavor">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/substanceAdministration/doseQuantity не должен иметь атрибут @nullFlavor.</report>
         </rule>
-    </pattern>
+    </pattern>   
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/observation[code/@code='6011']">
             <assert test="count(value)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/entryRelationship/observation[code/@code='6011'] должен иметь 1 элемент value.</assert>
@@ -368,6 +378,7 @@
     </pattern>
 
 
+
 <!-- [Core01_2]Модуль проверки имен и наименований (//name) -->
 
 <!-- Альтернативный вариант: допускается отсутствие атрибута @xsi:type -->
@@ -379,8 +390,6 @@
 <!-- Список изменений -->
 <!-- 13.09.2022 - v.1.0.0: Модуль разработан -->
 <!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
-
-    <ns prefix="identity" uri="urn:hl7-ru:identity"/>
 
     <!-- Core01-1 -->
     <pattern>	
@@ -433,9 +442,6 @@
 2) Core02-1: Элемент addr/address:residentCode не должен иметь @nullFlavor
 -->
 <!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
-
-    <ns prefix="address" uri="urn:hl7-ru:address"/>
-    <ns prefix="fias" uri="urn:hl7-ru:fias"/>
 
     <!-- Core02-1 -->
     <pattern>
@@ -517,7 +523,7 @@
 
 
 
-<!-- [Core03_3]Модуль проверки даты/времени (//effectiveTime, //birthTime, //PII:birthTime, //time, //effectiveTime/low, //identity:low, //effectiveTime/high, //identity:high, //identity:IssueDate) -->
+<!-- [Core03_3]Модуль проверки даты/времени (//effectiveTime, //birthTime, //PII:birthTime, //time, //effectiveTime/low, //identity:low, //effectiveTime/high, //identity:high, //identity:IssueDate, //value[@xsi:type='TS']) -->
 
 <!-- Альтернативный вариант: для //effectiveTime[not(@xsi:type=['IVL_TS','PIVL_TS'])] -->
 
@@ -527,10 +533,9 @@
 
 <!-- Список изменений -->
 <!-- 06.10.2022 - v.1.0.0: Модуль разработан -->
-
-    <ns prefix="identity" uri="urn:hl7-ru:identity"/>
-    <ns prefix="PII" uri="urn:hl7-ru:PII"/>
-    <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
+<!-- 07.11.2022 - v.1.1.0: Добавление проверки элемента value[xsi:type='TS'] -->
+<!-- 29.11.2022 - v.1.2.0: Добавление проверки элемента identity:AuthorityDoc/identity:IssueDate -->
+<!-- 19.01.2023 - v.1.2.1: Восстановлена проверка элемента value[@xsi:type='TS'] -->
 
     <!-- Core03-1 -->
     <pattern>
@@ -540,7 +545,7 @@
         </rule>
     </pattern>
     <pattern>
-        <rule context="//birthTime[not(@nullFlavor)]|//time[not(@nullFlavor)]|//effectiveTime/low[not(@nullFlavor)]|//effectiveTime/high[not(@nullFlavor)]">
+        <rule context="//birthTime[not(@nullFlavor)]|//time[not(@nullFlavor)]|//effectiveTime/low[not(@nullFlavor)]|//effectiveTime/high[not(@nullFlavor)]|//value[@xsi:type='TS'][not(@nullFlavor)]">
             <assert test="matches(@value,'^[1-2]{1}[0-9]{3}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
             <report test="matches(@value,'^[1-2]{1}[0-9]{3}$') or matches(@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня, можно указывать с точностью до минут или до секунд. Если указано хотя бы с точностью до минут, то должна быть указана временная зона.</report>
         </rule>
@@ -567,6 +572,12 @@
         <rule context="//*[identity:IdentityDoc/identity:IssueDate[not(@nullFlavor)]]">
             <assert test="matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
             <report test="matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:IdentityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//*[identity:AuthorityDoc/identity:IssueDate[not(@nullFlavor)]]">
+            <assert test="matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата должна соответствовать формату "YYYYMMDDHHmmSS+|ZZZZ", где "YYYY" – год, "ММ" – месяц, "HH" - часы, "mm" - минуты, "SS" - секунды, "+|ZZZZ" - указатель временной зоны.</assert>
+            <report test="matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$') or matches(identity:AuthorityDoc/identity:IssueDate/@value,'^[1-2]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}\+[0-2]{1}[0-9]{1}[0-5]{1}[0]{1}$')">Core03-1. Дата в элементе должна быть указана с точностью до дня.</report>
         </rule>
     </pattern>
 
@@ -603,8 +614,6 @@
 <!-- Список изменений -->
 <!-- 13.09.2022 - v.1.0.0: Модуль разработан -->
 <!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
-
-    <ns prefix="identity" uri="urn:hl7-ru:identity"/>
 
     <!-- Core05-1 -->
     <pattern>
@@ -668,8 +677,6 @@
 <!-- Список изменений -->
 <!-- 04.10.2022 - v.1.0.0: Модуль разработан -->
 <!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
-
-    <ns prefix="identity" uri="urn:hl7-ru:identity"/>
 
     <!-- Core06-1 -->
     <pattern>
@@ -902,7 +909,7 @@
 
 
 
-<!-- [Core10_1]Модуль проверки структуры секции (//entry[observation|act|procedure], //observation, //entryRelationship, //act) -->
+<!-- [Core10_1]Модуль проверки структуры секции (//entry[observation|act|procedure|organizer|encounter], //observation, //encounter, //entryRelationship, //act, //organizer) -->
 
 <!-- Вариант по умолчанию -->
 
@@ -912,14 +919,10 @@
 
 <!-- Список изменений -->
 <!-- 03.08.2022 - v.1.0.0: Модуль разработан -->
-<!-- 12.09.2022 - v.1.0.1:
-1) Core10-1: Элемент referenceRange/observationRange должен иметь 1 элемент value
-2) Core10-1: Элемент referenceRange/observationRange/value должен иметь не более 1 элемента low
--->
+<!-- 12.09.2022 - v.1.0.1: referenceRange/observationRange должен иметь 1 элемент value, referenceRange/observationRange/value должен иметь не более 1 элемента low -->
 <!-- 27.09.2022 - v.1.1.0: Добавлена проверка элементов //entry[procedure] -->
 <!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
-
-    <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
+<!-- 07.11.2022 - v.2.1.0: Добавлена проверка элементов //entry[organizer|encounter], //organizer, //encounter -->
 
     <!-- Core10-1 -->
     <pattern>
@@ -940,6 +943,16 @@
     <pattern>
         <rule context="//entry[procedure]">
             <assert test="count(procedure)=1">Core10-1. Элемент //entry[procedure] должен иметь 1 элемент procedure.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//entry[organizer]">
+            <assert test="count(organizer)=1">Core10-1. Элемент //entry[organizer] должен иметь 1 элемент organizer.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//entry[encounter]">
+            <assert test="count(encounter)=1">Core10-1. Элемент //entry[encounter] должен иметь 1 элемент encounter.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -974,12 +987,24 @@
             <report test="@nullFlavor">Core10-1. Элемент //act не должен иметь атрибут @nullFlavor.</report>
         </rule>
     </pattern>
-
-
-
-
-
     <pattern>
+        <rule context="//organizer">
+            <assert test="@classCode='CLUSTER'">Core10-1. Элемент //organizer должен иметь значение атрибута @classCode равное 'CLUSTER'.</assert>
+            <assert test="@moodCode='EVN'">Core10-1. Элемент //organizer должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
+            <report test="@nullFlavor">Core10-1. Элемент //organizer не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//encounter">
+            <assert test="@classCode='ENC'">Core10-1. Элемент //encounter должен иметь значение атрибута @classCode равное 'ENC'.</assert>
+            <assert test="@moodCode='EVN'">Core10-1. Элемент //encounter должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
+            <report test="@nullFlavor">Core10-1. Элемент //encounter не должен иметь атрибут @nullFlavor.</report>
+        </rule>
+    </pattern>
+
+
+
+    <!--<pattern>
         <rule context="//subject">
             <assert test="count(relatedSubject)=1">Core10-1. Элемент //subject должен иметь 1 элемент relatedSubject.</assert>
         </rule>
@@ -1009,61 +1034,6 @@
         </rule>
     </pattern>
     <pattern>
-        <rule context="//organizer">
-            <assert test="@classCode='CLUSTER'">Core10-1. Элемент //organizer должен иметь значение атрибута @classCode равное 'CLUSTER'.</assert>
-            <assert test="@moodCode='EVN'">Core10-1. Элемент //organizer должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
-            <assert test="count(statusCode)=1">Core10-1. Элемент //organizer должен иметь 1 элемент statusCode.</assert>
-            <assert test="count(effectiveTime)=1">Core10-1. Элемент //organizer должен иметь 1 элемент statusCode.</assert>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//organizer/statusCode">
-            <assert test="@code='completed'">Core10-1. Элемент //organizer/statusCode должен иметь значение атрибута @code равное 'completed'.</assert>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//organizer/effectiveTime">
-            <report test="@nullFlavor">Core10-1. Элемент //organizer/effectiveTime не должен иметь атрибут @nullFlavor.</report>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//referenceRange">
-            <assert test="count(observationRange)=1">Core10-1. Элемент //referenceRange должен иметь 1 элемент observationRange.</assert>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//referenceRange/observationRange">
-            <assert test="count(text)=1">Core10-1. Элемент //referenceRange/observationRange должен иметь 1 элемент text.</assert>
-            <assert test="count(value)=1">Core10-1. Элемент //referenceRange/observationRange должен иметь 1 элемент value.</assert>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//referenceRange/observationRange/text">
-            <assert test=".!=''">Core10-1. Элемент //referenceRange/observationRange/text должен иметь не пустое значение.</assert>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//referenceRange/observationRange/value">
-            <assert test="@xsi:type='IVL_PQ'">Core10-1. Элемент //referenceRange/observationRange/value должен иметь значение атрибута @xsi:type равное 'IVL_PQ'.</assert>
-            <assert test="count(low)&lt;=1">Core10-1. Элемент //referenceRange/observationRange/value должен иметь не более 1 элемента low.</assert>
-            <assert test="count(high)=1">Core10-1. Элемент //referenceRange/observationRange/value должен иметь 1 элемент high.</assert>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//referenceRange/observationRange/value/low">
-            <assert test="@value!=''">Core10-1. Элемент //referenceRange/observationRange/value/low должен иметь не пустое значение атрибута @value.</assert>
-            <assert test="@unit!=''">Core10-1. Элемент //referenceRange/observationRange/value/low должен иметь не пустое значение атрибута @unit.</assert>
-            <assert test="count(translation)=1">Core10-1. Элемент //referenceRange/observationRange/value/low должен иметь 1 элемент translation.</assert>
-        </rule>
-    </pattern>
-    <pattern>
-        <rule context="//referenceRange/observationRange/value/high">
-            <assert test="@value!=''">Core10-1. Элемент //referenceRange/observationRange/value/high должен иметь не пустое значение атрибута @value.</assert>
-            <assert test="@unit!=''">Core10-1. Элемент //referenceRange/observationRange/value/high должен иметь не пустое значение атрибута @unit.</assert>
-            <assert test="count(translation)=1">Core10-1. Элемент //referenceRange/observationRange/value/high должен иметь 1 элемент translation.</assert>
-        </rule>
-    </pattern>
-    <pattern>
         <rule context="//procedure">
             <assert test="@classCode='PROC'">Core10-1. Элемент //procedure должен иметь значение атрибута @classCode равное 'PROC'.</assert>
             <assert test="@moodCode='EVN'">Core10-1. Элемент //procedure должен иметь значение атрибута @moodCode равное 'EVN'.</assert>
@@ -1087,7 +1057,7 @@
         <rule context="//procedure/effectiveTime/high">
             <report test="@nullFlavor">Core10-1. Элемент //procedure/effectiveTime/high не должен иметь атрибут @nullFlavor.</report>
         </rule>
-    </pattern>
+    </pattern>-->
 
 
 
@@ -1102,8 +1072,6 @@
 <!-- Список изменений -->
 <!-- 11.10.2022 - v.1.0.0: Модуль разработан -->
 <!-- 20.10.2022 - v.1.1.0: Добавлены проверки структуры //substanceAdministration, //precondition -->
-
-    <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
 
     <!-- Core11-1 -->
     <pattern>
@@ -1216,8 +1184,6 @@
 <!-- Список изменений -->
 <!-- 20.10.2022 - v.1.0.0: Модуль разработан -->
 
-    <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
-
     <!-- Core12-1 -->
     <pattern>
         <rule context="//telecom[not(ancestor::scopingOrganization)][not(ancestor::providerOrganization)]">
@@ -1243,12 +1209,16 @@
 
 <!-- Список изменений -->
 <!-- 26.07.2022 - v.1.0.0: Модуль разработан -->
-<!-- 13.09.2022 - v.1.0.1:
-1) Main01-5: Элемент code не должен иметь @nullFlavor
--->
+<!-- 13.09.2022 - v.1.0.1: Элемент code не должен иметь @nullFlavor -->
 <!-- 11.10.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
+<!-- 25.04.2023 - v.2.1.0: Добавлена проверка наличия корневого элемента (ClinicalDocument) -->
 
     <!-- Main01-1 -->
+    <pattern>
+        <rule context="/">
+            <assert test="count(ClinicalDocument)=1">Main01-1. Документ должен иметь 1 корневой элемент ClinicalDocument.</assert>
+        </rule>
+    </pattern>
     <pattern>
         <rule context="ClinicalDocument">
             <assert test="count(realmCode)=1">Main01-1. Элемент ClinicalDocument должен иметь 1 элемент realmCode.</assert>
@@ -1333,7 +1303,7 @@
     </pattern>
     <pattern>
         <rule context="ClinicalDocument/effectiveTime[@nullFlavor]">
-            <assert test="@nullFlavor='NA'">Main01-7. Элемент ClinicalDocument/effectiveTime должен иметь значение атрибут @nullFlavor равное 'NA'.</assert>
+            <assert test="@nullFlavor='NA'">Main01-7. Элемент ClinicalDocument/effectiveTime должен иметь значение атрибута @nullFlavor равное 'NA'.</assert>
         </rule>
     </pattern>
     <!-- Main01-8 -->
@@ -1424,10 +1394,6 @@
 
 <!-- Список изменений -->
 <!-- 18.10.2022 - v.1.0.0: Модуль разработан -->
-
-    <ns prefix="identity" uri="urn:hl7-ru:identity"/>
-    <ns prefix="address" uri="urn:hl7-ru:address"/>
-    <ns prefix="PII" uri="urn:hl7-ru:PII"/>
 
     <!-- Main02-1 -->
     <pattern>
@@ -1913,8 +1879,6 @@
 <!-- Список изменений -->
 <!-- 18.10.2022 - v.1.0.0: Модуль разработан -->
 
-    <ns prefix="medService" uri="urn:hl7-ru:medService"/>
-
     <!-- Main08-1 -->
     <pattern>
         <rule context="ClinicalDocument">
@@ -1990,8 +1954,9 @@
 
 <!-- Список изменений -->
 <!-- 11.10.2022 - v.1.0.0: Модуль разработан -->
-
-    <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
+<!-- 10.01.2023 - v.1.1.0: Дублирование в модуле запрета на @nullFlavor в value (независимость от модуля Core11) -->
+<!-- 16.01.2023 - v.1.1.1: Допустимость указания идентификатора документа в новом формате -->
+<!-- 14.02.2023 - v.1.1.2: Корректировка нового формата идентификатора документа -->
 
     <!-- Main12-1 -->
     <pattern>
@@ -2027,6 +1992,7 @@
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='11002']/value">
             <assert test="@xsi:type='ST'">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='11002']/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
+            <report test="@nullFlavor">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='11002']/value не должен иметь атрибут @nullFlavor.</report>
         </rule>
     </pattern>
     <pattern>
@@ -2042,6 +2008,7 @@
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='11003']/value">
             <assert test="@xsi:type='ST'">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='11003']/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
+            <report test="@nullFlavor">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='11003']/value не должен иметь атрибут @nullFlavor.</report>
         </rule>
     </pattern>
     <pattern>
@@ -2056,8 +2023,9 @@
     </pattern>
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='6058']/value">
-            <assert test="@xsi:type='CD'">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='6058']/value должен иметь значение атрибута @xsi:type равное 'ST'.</assert>
+            <assert test="@xsi:type='CD'">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='6058']/value должен иметь значение атрибута @xsi:type равное 'CD'.</assert>
             <assert test="@codeSystem=['1.2.643.5.1.13.13.99.2.1008']">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='6058']/value должен иметь значение атрибута @codeSystem равное '1.2.643.5.1.13.13.99.2.1008'.</assert>
+            <report test="@nullFlavor">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/entryRelationship/observation[code/@code='6058']/value не должен иметь атрибут @nullFlavor.</report>
         </rule>
     </pattern>
     <pattern>
@@ -2084,7 +2052,7 @@
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id[2][not(@nullFlavor)]">
             <assert test="@root='1.2.643.5.1.13.13.17.1.1'">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id[2] должен иметь значение атрибута @root равное '1.2.643.5.1.13.13.17.1.1'.</assert>
-            <assert test="matches(@extension,'^[0-9]{2}[.][0-9]{2}[.][0-9]{3,4}[.][0-9]{9}$')">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id[2] должен иметь синтаксически корректное значение атрибута @extension, соответствующее формату "^[0-9]{2}[.][0-9]{2}[.][0-9]{3,4}[.][0-9]{9}$".</assert>
+            <assert test="matches(@extension,'(^[0-9]{2}[.][0-9]{2}[.][0-9]{3,4}[.][0-9]{9}$|^[0-9]{1,3}[.][0-9]{2}[.][0-9]{2}[.][0-9]{2}[.][0-9]{9}$)')">Main12-1. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='LINKDOCS']/entry/act/reference/externalDocument/id[2] должен иметь синтаксически корректное значение атрибута @extension, соответствующее формату "^[0-9]{2}[.][0-9]{2}[.][0-9]{3,4}[.][0-9]{9}$" или "^[0-9]{1,3}[.][0-9]{2}[.][0-9]{2}[.][0-9]{2}[.][0-9]{9}$".</assert>
         </rule>
     </pattern>
 

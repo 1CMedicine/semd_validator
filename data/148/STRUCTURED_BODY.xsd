@@ -262,11 +262,11 @@
   </xs:complexType>
   <xs:complexType name="doseQuantity_200">
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="translation" type="translation_201" />
+      <xs:element minOccurs="0" maxOccurs="1" name="translation" type="translation_201" />
     </xs:sequence>
     <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
     <xs:attribute name="value" type="real" use="required" />
-    <xs:attribute name="unit" type="cs" use="required" />
+    <xs:attribute name="unit" type="cs" use="optional" />
   </xs:complexType>
   <xs:complexType name="translation_201">
     <xs:attribute name="value" type="real" use="required" />

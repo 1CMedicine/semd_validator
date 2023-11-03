@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Схема разработана Управлением актуализации и модернизации руководств по структурированным электронным медицинским документам (СЭМД) 2023 -->
+<!-- Включены элементы разработанные Health Level Seven -->
+<xs:schema xmlns="urn:hl7-org:v3" xmlns:address="urn:hl7-ru:address" xmlns:fias="urn:hl7-ru:fias" xmlns:identity="urn:hl7-ru:identity" elementFormDefault="qualified" targetNamespace="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="fias.xsd" namespace="urn:hl7-ru:fias" />
+  <xs:import schemaLocation="address.xsd" namespace="urn:hl7-ru:address" />
+  <xs:import schemaLocation="identity.xsd" namespace="urn:hl7-ru:identity" />
+  <xs:include schemaLocation="coreschemas/datatypes.xsd" />
+  <xs:include schemaLocation="coreschemas/voc.xsd" />
+  <xs:include schemaLocation="coreschemas/NarrativeBlock.xsd" />
+  <xs:complexType name="POCD_MT000040.Component2">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="structuredBody" type="structuredBody_244" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="structuredBody_244">
+    <xs:sequence>
+      <xs:element minOccurs="2" maxOccurs="13" name="component" type="component_245" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="component_245">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="section" type="section_246" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="section_246">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_247" />
+      <xs:element minOccurs="1" maxOccurs="1" name="title" type="ST" />
+      <xs:element minOccurs="0" maxOccurs="1" name="text" type="StrucDoc.Text" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entry" type="entry_250" />
+      <xs:element minOccurs="0" maxOccurs="9" name="component" type="component_355" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="code_247">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="PATINFO" />
+          <xs:enumeration value="COMPLNTS" />
+          <xs:enumeration value="ANAM" />
+          <xs:enumeration value="LANAM" />
+          <xs:enumeration value="EXAMINFO" />
+          <xs:enumeration value="VITALPARAM" />
+          <xs:enumeration value="SCORES" />
+          <xs:enumeration value="DGN" />
+          <xs:enumeration value="MEDINTERVENTIONS" />
+          <xs:enumeration value="PLANACTIVE" />
+          <xs:enumeration value="PRESCRIBE" />
+          <xs:enumeration value="SERVICES" />
+          <xs:enumeration value="LINKDOCS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.197" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.23" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="entry_250">
+    <xs:sequence>
+      <xs:choice minOccurs="1">
+        <xs:element minOccurs="1" maxOccurs="1" name="act" type="act_658" />
+        <xs:element minOccurs="1" maxOccurs="1" name="observation" type="observation_251" />
+        <xs:element minOccurs="1" maxOccurs="1" name="organizer" type="organizer_454" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="observation_251">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_252" />
+      <xs:element minOccurs="0" maxOccurs="1" name="text" type="ED" />
+      <xs:element minOccurs="0" maxOccurs="1" name="effectiveTime" type="effectiveTime_491" />
+      <xs:element minOccurs="0" maxOccurs="1" name="value" type="ANY" />
+      <xs:element minOccurs="0" maxOccurs="1" name="performer" type="performer_494" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entryRelationship" type="entryRelationship_504" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassObservation">
+          <xs:enumeration value="OBS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActMoodDocumentObservation">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_252">
+    <xs:attribute name="code" type="cs" use="required" />
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.166" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.41" />
+          <xs:enumeration value="1.2.643.5.1.13.13.11.1514" />
+          <xs:enumeration value="1.2.643.5.1.13.13.11.1077" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="component_355">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="section" type="section_356" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="section_356">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_357" />
+      <xs:element minOccurs="1" maxOccurs="1" name="title" type="ST" />
+      <xs:element minOccurs="1" maxOccurs="1" name="text" type="StrucDoc.Text" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entry" type="entry_365" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="code_357">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="PSYCH" />
+          <xs:enumeration value="NERVOUS" />
+          <xs:enumeration value="SKIN" />
+          <xs:enumeration value="MUSCULOSKELETAL" />
+          <xs:enumeration value="RESPIRATORY" />
+          <xs:enumeration value="CARDIOVASCULAR" />
+          <xs:enumeration value="DIGESTION" />
+          <xs:enumeration value="UROGENITAL" />
+          <xs:enumeration value="LOCALIS" />
+          <xs:enumeration value="OBSPLAN" />
+          <xs:enumeration value="TRTMPLAN" />
+          <xs:enumeration value="DRUG" />
+          <xs:enumeration value="ELSEPROCEDURE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.197" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.23" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="entry_365">
+    <xs:sequence>
+      <xs:choice minOccurs="1">
+        <xs:element minOccurs="1" maxOccurs="1" name="act" type="act_606" />
+        <xs:element minOccurs="1" maxOccurs="1" name="observation" type="observation_366" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="observation_366">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_367" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassObservation">
+          <xs:enumeration value="OBS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActMoodDocumentObservation">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_367">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="8081" />
+          <xs:enumeration value="8077" />
+          <xs:enumeration value="8078" />
+          <xs:enumeration value="8079" />
+          <xs:enumeration value="8068" />
+          <xs:enumeration value="8071" />
+          <xs:enumeration value="8072" />
+          <xs:enumeration value="8084" />
+          <xs:enumeration value="8073" />
+          <xs:enumeration value="8117" />
+          <xs:enumeration value="8082" />
+          <xs:enumeration value="8074" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.166" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.41" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="organizer_454">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="statusCode" type="statusCode_455" />
+      <xs:element minOccurs="1" maxOccurs="1" name="effectiveTime" type="effectiveTime_456" />
+      <xs:element minOccurs="0" maxOccurs="1" name="precondition" type="precondition_457" />
+      <xs:element minOccurs="1" maxOccurs="2" name="component" type="component_461" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActClassDocumentEntryOrganizer">
+          <xs:enumeration value="CLUSTER" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActMood">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="statusCode_455">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="completed" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="effectiveTime_456">
+    <xs:attribute name="value" type="ts" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="precondition_457">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="criterion" type="criterion_458" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActRelationshipType">
+          <xs:enumeration value="PRCN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="criterion_458">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_459" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="code_459">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="ASSERTION" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="2.16.840.1.113883.5.4" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="component_461">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="observation" type="observation_462" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActRelationshipHasComponent">
+          <xs:enumeration value="COMP" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="observation_462">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="id" type="id_463" />
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_464" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+      <xs:element minOccurs="0" maxOccurs="2" name="entryRelationship" type="entryRelationship_467" />
+      <xs:element minOccurs="0" maxOccurs="1" name="referenceRange" type="referenceRange_475" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassObservation">
+          <xs:enumeration value="OBS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActMoodDocumentObservation">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="id_463">
+    <xs:attribute name="root" type="uid" use="optional" />
+    <xs:attribute name="extension" type="st" use="optional" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="code_464">
+    <xs:attribute name="code" type="cs" use="required" />
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.262" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="entryRelationship_467">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="observation" type="observation_468" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActRelationshipEntryRelationship">
+          <xs:enumeration value="COMP" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="observation_468">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_469" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassObservation">
+          <xs:enumeration value="OBS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActMoodDocumentObservation">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_469">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="6034" />
+          <xs:enumeration value="8034" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.166" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.41" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="referenceRange_475">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="observationRange" type="observationRange_476" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="observationRange_476">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="text" type="ST" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="effectiveTime_491">
+    <xs:attribute name="value" type="ts" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="performer_494">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="assignedEntity" type="assignedEntity_495" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="assignedEntity_495">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="id" type="id_496" />
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_497" />
+      <xs:element minOccurs="0" maxOccurs="1" name="telecom" type="telecom_498" />
+      <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" type="assignedPerson_499" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="id_496">
+    <xs:attribute name="root" type="uid" use="optional" />
+    <xs:attribute name="extension" type="st" use="optional" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="code_497">
+    <xs:attribute name="code" type="cs" use="required" />
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.11.1002" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="telecom_498">
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="value" type="url" use="required" />
+    <xs:attribute name="use" type="set_TelecommunicationAddressUse" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="assignedPerson_499">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="name" type="name_500" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="name_500">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="family" type="st" />
+      <xs:element minOccurs="1" maxOccurs="1" name="given" type="st" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="identity:Patronymic" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="entryRelationship_504">
+    <xs:sequence>
+      <xs:choice minOccurs="1">
+        <xs:element minOccurs="1" maxOccurs="1" name="act" type="act_648" />
+        <xs:element minOccurs="1" maxOccurs="1" name="observation" type="observation_505" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActRelationshipEntryRelationship">
+          <xs:enumeration value="COMP" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="observation_505">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="id" type="id_506" />
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_507" />
+      <xs:element minOccurs="0" maxOccurs="1" name="text" type="ED" />
+      <xs:element minOccurs="0" maxOccurs="1" name="effectiveTime" type="effectiveTime_508" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+      <xs:element minOccurs="0" maxOccurs="4" name="entryRelationship" type="entryRelationship_547" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassObservation">
+          <xs:enumeration value="OBS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActMoodDocumentObservation">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="id_506">
+    <xs:attribute name="root" type="uid" use="required" />
+    <xs:attribute name="extension" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="code_507">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="8020" />
+          <xs:enumeration value="8019" />
+          <xs:enumeration value="7026" />
+          <xs:enumeration value="12014" />
+          <xs:enumeration value="823" />
+          <xs:enumeration value="824" />
+          <xs:enumeration value="12120" />
+          <xs:enumeration value="8045" />
+          <xs:enumeration value="4072" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.166" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.41" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="effectiveTime_508">
+    <xs:attribute name="value" type="ts" use="optional" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="entryRelationship_547">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="observation" type="observation_548" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActRelationshipEntryRelationship">
+          <xs:enumeration value="COMP" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="observation_548">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_549" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassObservation">
+          <xs:enumeration value="OBS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActMoodDocumentObservation">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_549">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="12393" />
+          <xs:enumeration value="6047" />
+          <xs:enumeration value="6048" />
+          <xs:enumeration value="6049" />
+          <xs:enumeration value="6050" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.166" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.41" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="act_606">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_607" />
+      <xs:element minOccurs="1" maxOccurs="1" name="effectiveTime" type="effectiveTime_608" />
+      <xs:element minOccurs="2" maxOccurs="unbounded" name="entryRelationship" type="entryRelationship_611" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActClassDocumentEntryAct">
+          <xs:enumeration value="ACT" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_DocumentActMood">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_607">
+    <xs:attribute name="nullFlavor" use="required">
+      <xs:simpleType>
+        <xs:restriction base="NullFlavor">
+          <xs:enumeration value="NI" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="effectiveTime_608">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="low" type="low_609" />
+      <xs:element minOccurs="1" maxOccurs="1" name="high" type="high_610" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="low_609">
+    <xs:attribute name="value" type="ts" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="high_610">
+    <xs:attribute name="value" type="ts" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="entryRelationship_611">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="substanceAdministration" type="substanceAdministration_612" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActRelationshipEntryRelationship">
+          <xs:enumeration value="COMP" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="substanceAdministration_612">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="2" name="effectiveTime" type="SXCM_TS" />
+      <xs:element minOccurs="0" maxOccurs="1" name="routeCode" type="routeCode_623" />
+      <xs:element minOccurs="0" maxOccurs="1" name="doseQuantity" type="doseQuantity_624" />
+      <xs:element minOccurs="1" maxOccurs="1" name="consumable" type="consumable_613" />
+      <xs:element minOccurs="0" maxOccurs="1" name="precondition" type="precondition_629" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClass">
+          <xs:enumeration value="SBADM" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_DocumentSubstanceMood">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="consumable_613">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="manufacturedProduct" type="manufacturedProduct_614" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ParticipationType">
+          <xs:enumeration value="CSM" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="manufacturedProduct_614">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="manufacturedMaterial" type="manufacturedMaterial_615" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="RoleClassManufacturedProduct">
+          <xs:enumeration value="MANU" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="manufacturedMaterial_615">
+    <xs:sequence minOccurs="0">
+      <xs:element minOccurs="0" maxOccurs="1" name="code" type="code_616" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" use="optional" type="NullFlavor" />
+    <xs:attribute name="classCode" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="EntityClassManufacturedMaterial">
+          <xs:enumeration value="MMAT" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="determinerCode" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="EntityDeterminerDetermined">
+          <xs:enumeration value="KIND" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_616">
+    <xs:attribute name="code" type="cs" use="required" />
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.611" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="routeCode_623">
+    <xs:attribute name="code" type="cs" use="required" />
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.11.1468" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="doseQuantity_624">
+    <xs:sequence minOccurs="0">
+      <xs:element minOccurs="1" maxOccurs="1" name="translation" type="translation_625" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="optional" />
+    <xs:attribute name="value" type="real" use="optional" />
+    <xs:attribute name="unit" type="cs" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="translation_625">
+    <xs:attribute name="value" type="real" use="required" />
+    <xs:attribute name="code" type="cs" use="required" />
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.11.1358" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="precondition_629">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="criterion" type="criterion_630" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActRelationshipType">
+          <xs:enumeration value="PRCN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="criterion_630">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_631" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="code_631">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="ASSERTION" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="2.16.840.1.113883.5.4" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="act_648">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_649" />
+      <xs:element minOccurs="0" maxOccurs="1" name="text" type="ED" />
+      <xs:element minOccurs="1" maxOccurs="1" name="effectiveTime" type="effectiveTime_651" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActClassDocumentEntryAct">
+          <xs:enumeration value="ACT" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_DocumentActMood">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_649">
+    <xs:attribute name="code" type="cs" use="optional" />
+    <xs:attribute name="codeSystem" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.11.1070" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="optional" />
+    <xs:attribute name="codeSystemVersion" type="st" use="optional" />
+    <xs:attribute name="displayName" type="st" use="optional" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="effectiveTime_651">
+    <xs:attribute name="value" type="ts" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="act_658">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_659" />
+      <xs:element minOccurs="0" maxOccurs="1" name="text" type="ED" />
+      <xs:element minOccurs="1" maxOccurs="1" name="effectiveTime" type="effectiveTime_661" />
+      <xs:element minOccurs="0" maxOccurs="3" name="entryRelationship" type="entryRelationship_662" />
+      <xs:element minOccurs="1" maxOccurs="1" name="reference" type="reference_674" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActClassDocumentEntryAct">
+          <xs:enumeration value="ACT" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_DocumentActMood">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_659">
+    <xs:attribute name="code" type="cs" use="required" />
+    <xs:attribute name="codeSystem" type="uid" use="required" />
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="effectiveTime_661">
+    <xs:attribute name="value" type="ts" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="entryRelationship_662">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="observation" type="observation_663" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActRelationshipEntryRelationship">
+          <xs:enumeration value="COMP" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="observation_663">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="code" type="code_664" />
+      <xs:element minOccurs="1" maxOccurs="1" name="value" type="ANY" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassObservation">
+          <xs:enumeration value="OBS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActMoodDocumentObservation">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="code_664">
+    <xs:attribute name="code" use="required">
+      <xs:simpleType>
+        <xs:restriction base="cs">
+          <xs:enumeration value="11002" />
+          <xs:enumeration value="11003" />
+          <xs:enumeration value="6058" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystem" use="required">
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:enumeration value="1.2.643.5.1.13.13.99.2.166" />
+          <xs:enumeration value="1.2.643.5.1.13.2.1.1.1504.41" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="codeSystemName" type="st" use="required" />
+    <xs:attribute name="codeSystemVersion" type="st" use="required" />
+    <xs:attribute name="displayName" type="st" use="required" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+  </xs:complexType>
+  <xs:complexType name="reference_674">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="externalDocument" type="externalDocument_675" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="typeCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="x_ActRelationshipExternalReference">
+          <xs:enumeration value="REFR" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="externalDocument_675">
+    <xs:sequence>
+      <xs:element minOccurs="2" maxOccurs="2" name="id" type="id_676" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited" />
+    <xs:attribute name="classCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActClassDocument">
+          <xs:enumeration value="DOCCLIN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="moodCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="ActMood">
+          <xs:enumeration value="EVN" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="id_676">
+    <xs:attribute name="root" use="optional" >
+      <xs:simpleType>
+        <xs:restriction base="uid">
+          <xs:pattern value="[0-2](\.(0|[1-9][0-9]*))*.51|1.2.643.5.1.13.13.17.1.1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="extension" type="st" use="optional" />
+    <xs:attribute name="nullFlavor" type="NullFlavor" use="optional" />
+  </xs:complexType>
+</xs:schema>

@@ -6,7 +6,7 @@
    <xs:import namespace="urn:hl7-ru:address" schemaLocation="..\address.xsd"/>
    <xs:import namespace="urn:hl7-ru:identity" schemaLocation="..\identity.xsd"/>
    <xs:import namespace="urn:hl7-ru:fias" schemaLocation="..\fias.xsd"/>
-   <xs:import namespace="urn:hl7-ru:medService" schemaLocation="..\medService.xsd"/>
+   <xs:import namespace="urn:tmk" schemaLocation="..\tmk.xsd"/>
    <xs:annotation>
       <xs:documentation>
            Copyright (c) 2001, 2002, 2003, 2004, 2005 Health Level Seven.

@@ -1,8 +1,5 @@
 ﻿<!-- Схематрон для СЭМД "Справка о наличии медицинских показаний, в соответствии с которыми ребенок не посещает дошкольную организацию или организацию, осуществляющую образовательную деятельность по основным общеобразовательным программам, в период учебного процесса (CDA) Редакция 1" -->
-<!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/____ -->
-
-<!-- Список изменений -->
-<!-- 06.06.2022 - v.1.0: Схематрон разработан -->
+<!-- Разработано в соответствии с Руководством по реализации: https://portal.egisz.rosminzdrav.ru/materials/4279 -->
 
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
@@ -346,7 +343,6 @@
         </rule>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient/guardian/id">
             <assert test="@root='1.2.643.100.3'">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/id должен иметь значение атрибута @root равное '1.2.643.100.3'.</assert>
-            <assert test="@classCode='GUARD'">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/id должен иметь значение атрибута @classCode равное 'GUARD'.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -440,7 +436,6 @@
             <assert test="@displayName!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient/guardian/addr">
-            <assert test="@use!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь не пустое значение атрибута @use.</assert>
             <assert test="count(streetAddressLine)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь 1 элемент streetAddressLine.</assert>
             <assert test="count(address:stateCode)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь 1 элемент address:stateCode.</assert>
             <assert test="count(postalCode)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь 1 элемент postalCode.</assert>
@@ -503,11 +498,11 @@
     </pattern>
     <pattern>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization[identity:Props[not(@nullFlavor)]]">
-            <assert test="count(identity:Props/identity:Ogrn)&lt;1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Ogrn.</assert>
-            <assert test="count(identity:Props/identity:Ogrnip)&lt;1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Ogrnip.</assert>
+            <assert test="count(identity:Props/identity:Ogrn)&lt;=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Ogrn.</assert>
+            <assert test="count(identity:Props/identity:Ogrnip)&lt;=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Ogrnip.</assert>
             <report test="identity:Props/identity:Ogrn and identity:Props/identity:Ogrnip">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props не должен одновременно иметь элемент identity:Ogrn и элемент identity:Ogrnip.</report>
-            <assert test="count(identity:Props/identity:Okpo)&lt;1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Okpo.</assert>
-            <assert test="count(identity:Props/identity:Okato)&lt;1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Okato.</assert>
+            <assert test="count(identity:Props/identity:Okpo)&lt;=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Okpo.</assert>
+            <assert test="count(identity:Props/identity:Okato)&lt;=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/guardianOrganization/identity:Props должен иметь не более 1 элемента identity:Okato.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -820,7 +815,7 @@
             <assert test="count(id)=1">У1-16. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент id.</assert>
             <assert test="count(name)=1">У1-16. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент name.</assert>
         </rule>
-        <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id">
+        <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id[not(@nullFlavor)]">
             <assert test="@root!=''">У1-16. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id должен иметь не пустое значение атрибута @root.</assert>
         </rule>
         <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/name">
@@ -1097,7 +1092,7 @@
         <rule context="ClinicalDocument/participant/associatedEntity/scopingOrganization/name">
             <assert test=".!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity/scopingOrganization/name должен иметь не пустое значение.</assert>
         </rule>
-        <rule context="ClinicalDocument/participant/associatedEntity/scopingOrganization/telecom">
+        <rule context="ClinicalDocument/participant/associatedEntity/scopingOrganization/telecom[not(@nullFlavor)]">
             <assert test="@value!=''">У1-18. Элемент ClinicalDocument/participant/associatedEntity/scopingOrganization/telecom должен иметь не пустое значение атрибута @value.</assert>
         </rule>
         <rule context="ClinicalDocument/participant/associatedEntity/scopingOrganization/addr[not(@nullFlavor)]">

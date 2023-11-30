@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Схема разработана Центром актуализации и модернизации руководств по структурированным электронным медицинским документам ЦНИИОИЗ 2022 -->
+<!-- Схема разработана Управлением актуализации и модернизации руководств по структурированным электронным медицинским документам (СЭМД) 2023 -->
 <!-- Включены элементы разработанные Health Level Seven -->
 <xs:schema targetNamespace="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3" xmlns:mif="urn:hl7-org:v3/mif" elementFormDefault="qualified">
 	<!--
@@ -38,12 +38,12 @@
 	<xs:include schemaLocation="RECORD_TARGET.xsd"/>
 	<xs:include schemaLocation="CUSTODIAN.xsd"/>
 	<xs:include schemaLocation="INFORMATION_RECIPIENT.xsd"/>
-	<xs:include schemaLocation="DOCUMENTATION_OF.xsd"/>
 	<xs:include schemaLocation="PARTICIPANT.xsd"/>
 	<xs:include schemaLocation="STRUCTURED_BODY.xsd"/>
 	<xs:element name="ClinicalDocument" type="POCD_MT000040.ClinicalDocument"/>
 	<xs:complexType name="POCD_MT000040.ClinicalDocument">
 		<xs:sequence>
+			<!-- Элемент "Указание на область применения документа (РФ)" -->
 			<xs:element name="realmCode" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>область применения документа (страна)</xs:documentation>
@@ -53,6 +53,7 @@
 					<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Указание на тип структуры документа (CDA R2)" -->
 			<xs:element name="typeId" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>указатель на использование CDA R2</xs:documentation>
@@ -69,6 +70,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Уникальный идентификатор руководства по реализации СЭМД" -->
 			<xs:element name="templateId" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>уникальный идентификатор руководства по реализации</xs:documentation>
@@ -76,7 +78,7 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="II">
-							<xs:attribute name="root" type="uid" use="required"/>
+							<xs:attribute name="root" type="uid" use="required" fixed="1.2.643.5.1.13.13.15.71.2"/>
 							<xs:attribute name="extension" type="st" use="prohibited"/>
 							<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
 							<xs:attribute name="displayable" type="bl" use="prohibited"/>
@@ -85,6 +87,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Уникальный идентификатор документа" -->
 			<xs:element name="id" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>уникальный идентификатор документа</xs:documentation>
@@ -107,23 +110,33 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Вид медицинского документа" -->
 			<xs:element name="code" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>тип документа</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:complexContent>
-						<xs:restriction base="CE_non_elements">
-							<xs:attribute name="code" type="cs" use="required"/>
-							<xs:attribute name="codeSystem" type="uid" use="required" fixed="1.2.643.5.1.13.13.11.1522"/>
-							<xs:attribute name="codeSystemName" type="st" use="required"/>
-							<xs:attribute name="codeSystemVersion" type="st" use="required"/>
-							<xs:attribute name="displayName" type="st" use="required"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
-						</xs:restriction>
-					</xs:complexContent>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="translation">
+							<xs:complexType>
+								<xs:attribute name="code" type="cs" use="required" fixed="223"/>
+								<xs:attribute name="codeSystem" type="uid" use="required" fixed="1.2.643.5.1.13.13.11.1520"/>
+								<xs:attribute name="codeSystemName" type="st" use="required"/>
+								<xs:attribute name="codeSystemVersion" type="st" use="required"/>
+								<xs:attribute name="displayName" type="st" use="required"/>
+								<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="code" type="cs" use="required" fixed="71"/>
+					<xs:attribute name="codeSystem" type="uid" use="required" fixed="1.2.643.5.1.13.13.99.2.1079"/>
+					<xs:attribute name="codeSystemName" type="st" use="required"/>
+					<xs:attribute name="codeSystemVersion" type="st" use="required"/>
+					<xs:attribute name="displayName" type="st" use="required"/>
+					<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>		
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Заголовок документа" -->
 			<xs:element name="title" type="st" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>заголовок документа</xs:documentation>
@@ -143,6 +156,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Уровень конфиденциальности документа" -->
 			<xs:element name="confidentialityCode" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>уровень конфиденциальности документа</xs:documentation>
@@ -160,6 +174,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Указание на язык документа" -->
 			<xs:element name="languageCode" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>язык документа</xs:documentation>
@@ -169,6 +184,7 @@
 					<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Уникальный идентификатор набора версий документа" -->
 			<xs:element name="setId" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>уникальный идентификатор набора версий документа</xs:documentation>
@@ -191,6 +207,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<!-- Элемент "Номер версии документа" -->
 			<xs:element name="versionNumber" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>номер версии данного документа</xs:documentation>
@@ -204,42 +221,43 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
+			<!-- Блок "Сведения о пациенте" -->
 			<xs:element name="recordTarget" type="POCD_MT000040.RecordTarget" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>данные о пациенте</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!-- Блок "Сведения об авторе документа" -->
 			<xs:element name="author" type="POCD_MT000040.Author" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>данные об авторе документа</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!-- Блок "Сведения о владельце документа" -->
 			<xs:element name="custodian" type="POCD_MT000040.Custodian" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>данные об организации-владельце документа</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!-- Блок "Сведения о получателе документа" -->
 			<xs:element name="informationRecipient" type="POCD_MT000040.InformationRecipient" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>данные о получателе документа</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!-- Блок "Сведения о лице, придавшем юридическую силу документу" -->
 			<xs:element name="legalAuthenticator" type="POCD_MT000040.LegalAuthenticator" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>данные о лице, придавшем юридическую силу документу</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!-- Блоки "Сведения об источнике оплаты" и "Сведения о направившем лице, направившей организации" -->
 			<xs:element name="participant" type="POCD_MT000040.Participant1_IND" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>сведения об источнике оплаты</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- Блок "Сведения о документируемом событии" -->
-			<xs:element name="documentationOf" type="POCD_MT000040.DocumentationOf" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>сведения о документируемом событии</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<!-- Блок "Тело документа" -->
 			<xs:element name="component" type="POCD_MT000040.Component2" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>тело документа</xs:documentation>

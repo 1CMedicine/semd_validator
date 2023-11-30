@@ -41,6 +41,7 @@
 	<xs:include schemaLocation="DOCUMENTATION_OF.xsd"/>
 	<xs:include schemaLocation="PARTICIPANT.xsd"/>
 	<xs:include schemaLocation="STRUCTURED_BODY.xsd"/>
+	<xs:include schemaLocation="IN_FULFILLMENT_OF.xsd"/>
 	<xs:element name="ClinicalDocument" type="POCD_MT000040.ClinicalDocument"/>
 	<xs:complexType name="POCD_MT000040.ClinicalDocument">
 		<xs:sequence>
@@ -76,7 +77,7 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="II">
-							<xs:attribute name="root" type="uid" use="required"/>
+							<xs:attribute name="root" type="uid" use="required" fixed="1.2.643.5.1.13.13.14.372.9.1"/>
 							<xs:attribute name="extension" type="st" use="prohibited"/>
 							<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
 							<xs:attribute name="displayable" type="bl" use="prohibited"/>
@@ -114,7 +115,7 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="CE_non_elements">
-							<xs:attribute name="code" type="cs" use="required"/>
+							<xs:attribute name="code" type="cs" use="required" fixed="372"/>
 							<xs:attribute name="codeSystem" type="uid" use="required" fixed="1.2.643.5.1.13.13.11.1522"/>
 							<xs:attribute name="codeSystemName" type="st" use="required"/>
 							<xs:attribute name="codeSystemVersion" type="st" use="required"/>
@@ -129,7 +130,6 @@
 					<xs:documentation>заголовок документа</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- Элемент "Дата создания документа" -->
 			<xs:element name="effectiveTime" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>дата создания документа</xs:documentation>
@@ -137,8 +137,8 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="TS">
-							<xs:attribute name="value" use="optional" type="ts"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
+							<xs:attribute name="value" use="required" type="ts"/>
+							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 						</xs:restriction>
 					</xs:complexContent>
 				</xs:complexType>
@@ -229,12 +229,16 @@
 					<xs:documentation>данные о лице, придавшем юридическую силу документу</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="participant" type="POCD_MT000040.Participant1_IND" minOccurs="0" maxOccurs="1">
+			<xs:element name="participant" type="POCD_MT000040.Participant_1" minOccurs="0" maxOccurs="2">
 				<xs:annotation>
 					<xs:documentation>сведения об источнике оплаты</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- Блок "Сведения о документируемом событии" -->
+			<xs:element name="inFulfillmentOf" type="POCD_MT000040.inFulfillmentOf" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>сведения о направлении</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="documentationOf" type="POCD_MT000040.DocumentationOf" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>сведения о документируемом событии</xs:documentation>

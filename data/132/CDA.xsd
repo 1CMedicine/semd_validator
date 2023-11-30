@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Схема разработана Центром актуализации и модернизации руководств по структурированным электронным медицинским документам ЦНИИОИЗ 2022 -->
+<!-- Схема разработана Центром по разработке СЭМД ЦНИИОИЗ 2021 -->
 <!-- Включены элементы разработанные Health Level Seven -->
 <xs:schema targetNamespace="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3" xmlns:mif="urn:hl7-org:v3/mif" elementFormDefault="qualified">
 	<!--
@@ -38,7 +38,7 @@
 	<xs:include schemaLocation="RECORD_TARGET.xsd"/>
 	<xs:include schemaLocation="CUSTODIAN.xsd"/>
 	<xs:include schemaLocation="INFORMATION_RECIPIENT.xsd"/>
-	<xs:include schemaLocation="DOCUMENTATION_OF.xsd"/>
+	<xs:include schemaLocation="COMPONENT_OF.xsd"/>
 	<xs:include schemaLocation="PARTICIPANT.xsd"/>
 	<xs:include schemaLocation="STRUCTURED_BODY.xsd"/>
 	<xs:element name="ClinicalDocument" type="POCD_MT000040.ClinicalDocument"/>
@@ -129,7 +129,6 @@
 					<xs:documentation>заголовок документа</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- Элемент "Дата создания документа" -->
 			<xs:element name="effectiveTime" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>дата создания документа</xs:documentation>
@@ -137,8 +136,8 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:restriction base="TS">
-							<xs:attribute name="value" use="optional" type="ts"/>
-							<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
+							<xs:attribute name="value" use="required" type="ts"/>
+							<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
 						</xs:restriction>
 					</xs:complexContent>
 				</xs:complexType>
@@ -229,15 +228,14 @@
 					<xs:documentation>данные о лице, придавшем юридическую силу документу</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="participant" type="POCD_MT000040.Participant1_IND" minOccurs="0" maxOccurs="1">
+			<xs:element name="participant" type="POCD_MT000040.Participant1_IND" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>сведения об источнике оплаты</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- Блок "Сведения о документируемом событии" -->
-			<xs:element name="documentationOf" type="POCD_MT000040.DocumentationOf" minOccurs="1" maxOccurs="1">
+			<xs:element name="componentOf" type="POCD_MT000040.Component1" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>сведения о документируемом событии</xs:documentation>
+					<xs:documentation>сведения о случае оказания медицинской помощи</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="component" type="POCD_MT000040.Component2" minOccurs="1" maxOccurs="1">

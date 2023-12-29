@@ -737,7 +737,7 @@
             <assert test="count(id)=1">У1-16. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент id.</assert>
             <assert test="count(name)=1">У1-16. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization должен иметь 1 элемент name.</assert>
         </rule>
-        <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id">
+        <rule context="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id[not(@nullFlavor)]">
             <assert test="@root!=''">У1-16. Элемент ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization/id должен иметь не пустое значение атрибута @root.</assert>
         </rule>
     </pattern>

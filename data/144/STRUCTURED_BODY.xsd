@@ -64,10 +64,6 @@
 				<xs:annotation>
 					<xs:documentation></xs:documentation>
 				</xs:annotation>
-				<xs:key name="SectionCodeKey">
-					<xs:selector xpath=".//hl7:section/hl7:code" />
-					<xs:field xpath="@code" />
-				</xs:key>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>
@@ -78,10 +74,6 @@
 				<xs:annotation>
 					<xs:documentation>секция документа</xs:documentation>
 				</xs:annotation>
-				<xs:key name="EntryCodeKey_Obs">
-					<xs:selector xpath=".//hl7:entry/hl7:observation/hl7:code" />
-					<xs:field xpath="@code" />
-				</xs:key>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="prohibited"/>

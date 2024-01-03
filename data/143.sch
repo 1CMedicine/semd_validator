@@ -334,7 +334,6 @@
         </rule>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient/guardian/id">
             <assert test="@root='1.2.643.100.3'">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/id должен иметь значение атрибута @root равное '1.2.643.100.3'.</assert>
-            <assert test="@classCode='GUARD'">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/id должен иметь значение атрибута @classCode равное 'GUARD'.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -428,11 +427,13 @@
             <assert test="@displayName!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/code должен иметь не пустое значение атрибута @displayName.</assert>
         </rule>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient/guardian/addr">
-            <assert test="@use!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь не пустое значение атрибута @use.</assert>
             <assert test="count(streetAddressLine)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь 1 элемент streetAddressLine.</assert>
             <assert test="count(address:stateCode)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь 1 элемент address:stateCode.</assert>
             <assert test="count(postalCode)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь 1 элемент postalCode.</assert>
             <assert test="count(fias:Address)=1">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь 1 элемент fias:Address.</assert>
+        </rule>
+        <rule context="ClinicalDocument/recordTarget/patientRole/patient/guardian/addr[@use]">
+            <assert test="@use!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr должен иметь не пустое значение атрибута @use.</assert>
         </rule>
         <rule context="ClinicalDocument/recordTarget/patientRole/patient/guardian/addr/streetAddressLine">
             <assert test=".!=''">У1-12. Элемент ClinicalDocument/recordTarget/patientRole/patient/guardian/addr/streetAddressLine должен иметь не пустое значение.</assert>

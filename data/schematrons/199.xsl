@@ -21,7 +21,7 @@
             <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
          </dct:Agent>
       </dct:creator>
-      <dct:created>2023-10-21T21:16:06.030039401+08:00</dct:created>
+      <dct:created>2023-12-28T21:31:27.896306861+08:00</dct:created>
    </rdf:Description>
    <xsl:output indent="yes"/>
    <xsl:template match="root()">
@@ -56,7 +56,7 @@
                         <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
                      </dct:Agent>
                   </dct:creator>
-                  <dct:created>2023-10-21T21:16:06.030039401+08:00</dct:created>
+                  <dct:created>2023-12-28T21:31:27.896306861+08:00</dct:created>
                </rdf:Description>
             </dct:source>
          </svrl:metadata>
@@ -2468,11 +2468,11 @@
                 @nullFlavor</svrl:text>
                   </svrl:successful-report>
                </xsl:if>
-               <xsl:if test="not(@root = ['1.2.643.5.1.13.13.15.89.1.1','1.2.643.5.1.13.13.15.89.1.2'])">
+               <xsl:if test="not(@root = ['1.2.643.5.1.13.13.15.89.1.1','1.2.643.5.1.13.13.15.89.1.2','1.2.643.5.1.13.13.15.89.1.3'])">
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                                        location="{schxslt:location(.)}">
-                     <xsl:attribute name="test">@root = ['1.2.643.5.1.13.13.15.89.1.1','1.2.643.5.1.13.13.15.89.1.2']</xsl:attribute>
-                     <svrl:text>Элемент templateId обязан содержать один атрибут root со значением '1.2.643.5.1.13.13.15.89.1.1' или '1.2.643.5.1.13.13.15.89.1.2'</svrl:text>
+                     <xsl:attribute name="test">@root = ['1.2.643.5.1.13.13.15.89.1.1','1.2.643.5.1.13.13.15.89.1.2','1.2.643.5.1.13.13.15.89.1.3']</xsl:attribute>
+                     <svrl:text>Элемент templateId обязан содержать один атрибут root со значением '1.2.643.5.1.13.13.15.89.1.1','1.2.643.5.1.13.13.15.89.1.2','1.2.643.5.1.13.13.15.89.1.3'</svrl:text>
                   </svrl:failed-assert>
                </xsl:if>
             </schxslt:rule>

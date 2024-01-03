@@ -1,4 +1,5 @@
 import org.apache.logging.log4j.Logger;
+import org.apache.xerces.util.URI.MalformedURIException;
 import org.apache.logging.log4j.LogManager;
 
 import javax.servlet.ServletConfig;
@@ -15,15 +16,22 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.*;
 import java.nio.charset.StandardCharsets;
 
 import org.eclipse.jetty.server.Request;
 import java.io.*;
+import java.net.*;
 import java.nio.file.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.*;
 import java.text.SimpleDateFormat;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class SEMDValidator extends HttpServlet {
 
@@ -31,11 +39,15 @@ public class SEMDValidator extends HttpServlet {
     private String ADMIN_NAME;
     private String ADMIN_PASS;
     private String LIST_TYPES_FOR_VARIFICATION[] = {};
+    private String FNSI_USERKEY;
+    private String FNSI_LIST[] = {};
 
     final static Logger log = LogManager.getLogger(SEMDValidator.class.getName());
     private static final MultipartConfigElement MULTI_PART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
-    private HashMap<String, Templates> cacheXslt = new HashMap<String, Templates>(200);
-    private HashMap<String, Schema> cacheXsd = new HashMap<String, Schema>(200);
+    private HashMap<String, Templates> cacheXslt = new HashMap<String, Templates>(100);
+    private HashMap<String, Schema> cacheXsd = new HashMap<String, Schema>(100);
+    private HashMap<String, HashMap<String, String>> passports = new HashMap<String, HashMap<String, String>>(100);
+    private HashMap<String, HashMap<String, String>> refs = new HashMap<String, HashMap<String, String>>(100);
 
     public void init() throws ServletException {
         super.init();
@@ -67,6 +79,15 @@ public class SEMDValidator extends HttpServlet {
         ADMIN_PASS = config.getInitParameter("ADMIN_PASS");
         if (ADMIN_PASS == null)
             throw new ServletException("Servlet param ADMIN_PASS is not set");
+
+        FNSI_USERKEY = config.getInitParameter("FNSI_USERKEY");
+        log.info("FNSI_USERKEY="+FNSI_USERKEY);
+
+        try {
+            loadFNSIlist();
+        } catch (IOException e) {
+            throw new ServletException("loadFNSIlist exception - " + e.getMessage());
+        }
     }
     
     @Override
@@ -120,6 +141,13 @@ public class SEMDValidator extends HttpServlet {
             HttpSession session = req.getSession(false);
             if (session != null && session.getAttribute("user") != null) 
                 upload(req, resp);
+            else
+                resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Authorization Failed");
+        } else if (req.getServletPath().equals("/uploadFNSIlist")) { 
+            log.info(req.getServletPath());
+            HttpSession session = req.getSession(false);
+            if (session != null && session.getAttribute("user") != null) 
+                uploadFNSIlist(req, resp);
             else
                 resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Authorization Failed");
         } else {
@@ -185,14 +213,14 @@ public class SEMDValidator extends HttpServlet {
         resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
-        Part filePart = req.getPart("file");
+        final Part filePart = req.getPart("file");
         final String remdtype = req.getParameter("remdtype"); 
         final String verifytype = req.getParameter("verifytype");
 
          try {
             int vt = Integer.parseInt(verifytype);
-            if (vt < 0 || vt > 2) {
-                out.print("verifytype parameter should be in (0, 1, 2)");
+            if (vt < 0 || vt > 3) {
+                out.print("verifytype parameter should be in (0, 1, 2, 3)");
                 return;
             }
          }
@@ -221,6 +249,7 @@ public class SEMDValidator extends HttpServlet {
 
         File xsd = new File(DATA_PATH+"/"+remdtype+"/CDA.xsd");
         boolean valid = true;
+        Document document = null;
         boolean filtered = LIST_TYPES_FOR_VARIFICATION.length > 0 && Arrays.binarySearch(LIST_TYPES_FOR_VARIFICATION, remdtype) < 0;
         if (filtered || !xsd.exists() || xsd.isDirectory()) {
             out.print("no xsd - " + remdtype+"/CDA.xsd");
@@ -228,9 +257,9 @@ public class SEMDValidator extends HttpServlet {
             if (filtered) {
                 log.info("REMD type filtered: " + remdtype);
             }
-        } else if (verifytype.equals("0") || verifytype.equals("2")) {
+        } else if (verifytype.equals("0") || verifytype.equals("2") || verifytype.equals("3")) {      // xsd validation
             try {
-                xsd(xml, xsd.getAbsolutePath());
+                document = xsd(xml, xsd.getAbsolutePath());
             } catch (ParserConfigurationException e) {
                 out.print(e.getMessage());
                 valid = false;
@@ -240,7 +269,42 @@ public class SEMDValidator extends HttpServlet {
             }
         }
 
-        if (valid && !verifytype.equals("0")) {
+        // fnsi validation
+        if (valid && verifytype.equals("3")) {
+            NodeList codeList = document.getDocumentElement().getElementsByTagName("code");
+            for (int j = 0; j < codeList.getLength(); j++) {
+                NamedNodeMap attributes = codeList.item(j).getAttributes();
+                String code = null;
+                String codeSystem = null;
+                String codeSystemVersion = null;
+                String codeSystemName = null;
+                String displayName = null;
+                Node node = attributes.getNamedItem("code");
+                if (node != null) 
+                    code = node.getNodeValue();
+                node = attributes.getNamedItem("codeSystem");
+                if (node != null) 
+                    codeSystem = node.getNodeValue();
+                node = attributes.getNamedItem("codeSystemName");
+                if (node != null) 
+                    codeSystemName = node.getNodeValue();
+                node = attributes.getNamedItem("displayName");
+                if (node != null) 
+                    displayName = node.getNodeValue();
+                node = attributes.getNamedItem("codeSystemVersion");
+                if (node != null) 
+                    codeSystemVersion = node.getNodeValue();
+
+                if (Arrays.binarySearch(FNSI_LIST, codeSystem) < 0) {
+                    boolean v = getRef(out, codeSystem, codeSystemVersion, codeSystemName, code, displayName);
+                    if (!v)
+                        valid = v;
+                }
+            }
+        }
+        
+        // xslt validation
+        if (valid && !verifytype.equals("0")) { 
             // remove namespace because schematron validator doesn't see data with any default namespace
             xml = xml.replace("xmlns=\"urn:hl7-org:v3\"", "").replace("xmlns='urn:hl7-org:v3'", "");
             try {
@@ -367,6 +431,32 @@ public class SEMDValidator extends HttpServlet {
         }
     }
 
+    private void uploadFNSIlist(HttpServletRequest req, HttpServletResponse resp) 
+            throws IOException, ServletException {
+
+        if (req.getContentType() != null && req.getContentType().startsWith("multipart/form-data")) {
+            req.setAttribute(Request.MULTIPART_CONFIG_ELEMENT, MULTI_PART_CONFIG);
+        }
+        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+
+        Part filePart = req.getPart("file");
+        final File file = new File(DATA_PATH + "/FNSIlist.txt");
+        InputStream fileContent = filePart.getInputStream();
+
+        byte[] buffer = new byte[2048];
+        FileOutputStream fOutput = new FileOutputStream(file);
+        int count = 0;
+        while ((count = fileContent.read(buffer)) > 0) {
+                fOutput.write(buffer, 0, count);
+        }
+        fOutput.close();
+        
+        loadFNSIlist();
+
+        out.print("FNSIlist.txt loaded");
+    }
+
     private void send_sch(final String contextPath, HttpServletResponse resp) 
             throws IOException {
 
@@ -397,6 +487,12 @@ public class SEMDValidator extends HttpServlet {
         , "<li>Второй вариант имени архива - betaOnko.zip. Используется для СЭМД-бета, имя должно начинаться на 'beta' и не содержать символов '.', '_', ' '.<br>"
         , "В этом случае обязательная папка будет иметь название betaOnko. Схемарон (при наличии) также будет иметь имя betaOnko.sch или betaOnko_1.sch</li>"
         , "</ul>"
+         , "<hr>"
+        , "  <H1>Отправка файла со списком справочников ФНСИ, исключенных из контроля</H1>"
+        , "  <form enctype = 'multipart/form-data'  method='post' action='", contextPath, "/uploadFNSIlist'>"
+        , "   <input type='file' name='file'/>"
+        , "   <input type='submit' value='Отправить FNSIlist.txt'/>"
+        , "  </form>"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
         , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
@@ -417,7 +513,7 @@ public class SEMDValidator extends HttpServlet {
         , " <body>"));
 
         if (servletPath.contains("..")) {
-            out.print("ERROR: URL '" + servletPath + "' contains '..'");
+            out.print(":ERROR: URL '" + servletPath + "' contains '..'");
         } else {
             final String url = DATA_PATH+servletPath.substring(5);   // 5 - это  "/file"
             final int i = servletPath.lastIndexOf("/");     // remove file name
@@ -513,15 +609,21 @@ public class SEMDValidator extends HttpServlet {
             String ext = item.substring(item.length()-3, item.length());
             if (ext.equals("sch") || ext.equals("xsd")) {
                 File file = new File(DATA_PATH + "/"+item);
-                out.print(String.join("", "<tr><td", style, "><a href='./file/", item,"'>", item, "</a></td><td align='right'", style,">", Long.toString(file.length()), "</td><td", style,">", dateFormat.format(file.lastModified()), "</td></tr>"));
+                out.print(String.join("", "<tr><td", style, "><a href='./file/", item,"'>", item, "</a></td><td align='right'", style,">", Long.toString(file.length()), "</td><td", style,">", dateFormat.format(file.lastModified()), "</td></tr>\n"));
             } else if (ext.equals("xsl")) {
                 File file = new File(DATA_PATH + "/schematrons/"+item);
-                out.print(String.join("","<tr><td", style, ">", "schematrons/"+item, "</td><td", style,"></td><td", style,">", dateFormat.format(file.lastModified()), "</td></tr>"));
+                out.print(String.join("","<tr><td", style, ">", "schematrons/"+item, "</td><td", style,"></td><td", style,">", dateFormat.format(file.lastModified()), "</td></tr>\n"));
             }
         }
 
         out.print(String.join("\n"
-        , "</table>"
+        , "</table>"));
+        if (FNSI_LIST.length > 0) {
+            out.print(String.join("\n"
+            , "<H2>Список OID справочников ФНСИ, исключаемых из проверок</H2>"));
+            out.print(String.join("<br>\n", FNSI_LIST));
+        }
+        out.print(String.join("\n"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_sch.html'>Загрузка схемы и схематрона на сервер</a><br>"
         , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a>"
@@ -543,7 +645,7 @@ public class SEMDValidator extends HttpServlet {
         , "<form enctype = 'multipart/form-data' method='post' action='", contextPath, "/verify'>"
         , "  <fieldset>"
         , "   <p><label for='remdtype'><a href='https://nsi.rosminzdrav.ru/#!/refbook/1.2.643.5.1.13.13.11.1520'>Тип РЭМД (OID)</a>:</label><input type='text' name='remdtype'></p>"
-        , "   <p><label for='verifytype'>Тип валидации. 0 - xsd, 1 - sch, 2 - все:</label><input type='text' name='verifytype' value='2'></p>"
+        , "   <p><label for='verifytype'>Тип валидации. 0 - xsd, 1 - sch, 2 - xsd+sch, 3 - xsd+sch+fnsi :</label><input type='text' name='verifytype' value='3'></p>"
         , "  </fieldset>"
         , "  <p>"
         , "   <input type='file' name='file'>"
@@ -600,16 +702,15 @@ public class SEMDValidator extends HttpServlet {
     private void xslt(StreamSource source, final String style, StreamResult dst)
             throws TransformerException {
 
-        Templates pss = tryXsltCache(style);
+        final Templates pss = tryXsltCache(style);
         Transformer transformer = pss.newTransformer();
         transformer.transform(source, dst);
     }
 
-    private void xsd(final String xml, final String xsd)
+    private Document xsd(final String xml, final String xsd)
             throws IOException, ParserConfigurationException, SAXException {
 
-        
-        Schema s = tryXsdCache(xsd);
+        final Schema s = tryXsdCache(xsd);
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl", null);
         builderFactory.setNamespaceAware(true);
         builderFactory.setSchema(s);
@@ -617,11 +718,12 @@ public class SEMDValidator extends HttpServlet {
         InputStream stream = new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8));
         XsdErrorHandler handler = new XsdErrorHandler();
         parser.setErrorHandler(handler);
-        parser.parse(stream);
+        Document document = parser.parse(stream);
         String error = handler.getMessage();
         if (error.length() > 0) {
             throw new SAXException(error);
         }
+        return document;
     }
 
     /**
@@ -648,6 +750,26 @@ public class SEMDValidator extends HttpServlet {
             cacheXsd.put(path, s);
         }
         return s;
+    }
+    
+    private void loadFNSIlist() throws IOException {
+        final File file = new File(DATA_PATH+"/FNSIlist.txt");
+        if (file.exists()) {
+            FileInputStream fis = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.US_ASCII);
+            BufferedReader reader = new BufferedReader(isr);
+            String line = reader.readLine();
+            ArrayList<String> list = new ArrayList<String>();
+            while (line != null) {
+                line = line.trim();
+                if (line.length() > 0)
+                    list.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+            FNSI_LIST = list.stream().toArray(String[]::new);
+            Arrays.sort(FNSI_LIST);
+        }
     }
 
     public static String escapeHTML(final String path, final String s) {
@@ -685,5 +807,197 @@ public class SEMDValidator extends HttpServlet {
             }
         }
         return out.toString();
+    }
+
+    // получаем паспорт справочника и записываем паспорт в файл
+    // если паспорт был получен ранее, то читаем его с диска
+    // фукнция возвращает хеш с ключевыми данными паспорта - rowsCount, codeSystem, codeSystemName, codeSystemVersion, PRIMARY, VALUE
+    private HashMap<String, String> getPassport(PrintWriter resp, final String oid, final String version) {
+        final String key = oid + "_" + version;
+        HashMap<String, String> ret = passports.get(key);
+        if (ret != null)
+            return ret;
+
+        final File file = new File(DATA_PATH + "/fnsi/"+key+"_passport");
+        if (!file.exists()) {
+            try {
+                URL fnsi = new URL("https://nsi.rosminzdrav.ru/port/rest/passport?userKey="+FNSI_USERKEY+"&identifier="+oid+"&version="+version);
+                log.info("Download passport "+fnsi);
+                URLConnection conn = fnsi.openConnection();
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String inputLine;
+                FileOutputStream fOutput = new FileOutputStream(file);
+                while ((inputLine = in.readLine()) != null) 
+                    fOutput.write(inputLine.getBytes());
+                in.close();
+                fOutput.close();
+            } catch (MalformedURIException ex) {
+                log.error(ex);
+            } catch (IOException ex) {
+                log.error(ex);
+                if (file.exists()) {
+                    log.info("Delete wrong file (IOException) "+file);
+                    file.delete();
+                }
+            }
+        }
+        try {
+            log.info("Reading file "+file);
+            JSONParser parser = new JSONParser();
+            JSONObject obj = (JSONObject)parser.parse(new FileReader(file.getAbsolutePath()));
+            Object rowsCount = obj.get("rowsCount");
+            String fullName = (String)obj.get("fullName");
+            JSONArray keys = (JSONArray)obj.get("keys");
+            if (obj.get("result").equals("OK") && rowsCount != null && fullName != null && keys != null) {
+                ret = new HashMap<String, String>();
+                ret.put("rowsCount", rowsCount.toString());
+                ret.put("codeSystem", oid);
+                ret.put("codeSystemName", fullName);
+                ret.put("codeSystemVersion", version);
+                String primary_id = null;
+                String value_name = null;
+                Iterator<JSONObject> i = keys.iterator();
+                while (i.hasNext()) {
+                    JSONObject ikey = i.next();
+                    String type = (String)ikey.get("type");
+                    if (primary_id == null && type.equals("PRIMARY")) {
+                        primary_id = (String)ikey.get("field");
+                        ret.put("PRIMARY", primary_id);
+                    } else if (value_name == null && type.equals("VALUE")) {
+                        value_name = (String)ikey.get("field");
+                        ret.put("VALUE", value_name);
+                    }
+                }
+                passports.put(key, ret);
+                return ret;
+            }
+        }
+        catch (IOException ex) {
+            resp.print("WARNING: "+ex);
+            log.error("Passport-"+key+". "+ex);
+            ex.printStackTrace(resp);
+        }
+        catch (ParseException ex) {
+            resp.print("WARNING: "+ex);
+            log.error("Passport-"+key+". "+ex);
+            ex.printStackTrace(resp);
+            if (file.exists()) {
+                log.info("Delete wrong file (ParseException) "+file);
+                file.delete();
+            }
+        }
+        return null;
+    }
+
+    // Проверка тега code на соответствие ФНСИ. 
+    // Для проверки получаем справочник и записываем в файл
+    // если справочник был получен ранее, то читаем его с диска в хеш. Тоже самое делаем сначала с паспортом справочника.
+    // Значение атрибута code сопоставляется со значение поля, указанного как PRIMARY в массиве keys в паспорте справочника.
+    // Значение атрибута displayName сопоставляется со значение поля, указанного как VALUE в массиве keys в паспорте справочника.
+    // Значение атрибута codeSystemName сопоставляется со значение поля fullName в паспорте справочника.
+    private boolean getRef(PrintWriter resp, final String codeSystem, final String codeSystemVersion, final String codeSystemName, final String code, final String displayName) {
+        final String key = codeSystem + "_" + codeSystemVersion;
+
+        HashMap<String, String> passport = getPassport(resp, codeSystem, codeSystemVersion);
+        if (passport == null) {
+            resp.print(":ERROR: Passport "+codeSystem+" version "+codeSystemVersion+" was not found\n");
+            return false;
+        }
+        if (!passport.get("codeSystemName").equals(codeSystemName)) {
+            resp.print(":ERROR: Неверный codeSystemName. Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"] '."+passport.get("codeSystemName")+"' != '"+codeSystemName+"'\n");
+            return false;
+        }
+
+        final String primary_id = passport.get("PRIMARY");
+        final String value_name = passport.get("VALUE");
+        if (primary_id == null || value_name == null) {
+            resp.print("WARNING: For ref "+codeSystem+" version "+codeSystemVersion+" '"+codeSystemName+"' can't figure out PRIMARY and VALUE fields\n");
+            return false;
+        }
+
+        HashMap<String, String> ref = refs.get(key);
+        if (ref == null) {
+            final File file = new File(DATA_PATH + "/fnsi/"+key);
+            if (!file.exists()) {
+                int rowsCount = Integer.parseInt(passport.get("rowsCount"));
+                int c = (rowsCount-1)/2000+1;
+                try {
+                    FileOutputStream fOutput = new FileOutputStream(file);
+                    for (int i=1; i <= c; i++) {
+                        URL fnsi = new URL("https://nsi.rosminzdrav.ru/port/rest/data?userKey="+FNSI_USERKEY+"&identifier="+codeSystem+"&version="+codeSystemVersion+"&page="+c+"&size=2000");
+                        log.info("Download data "+fnsi);
+                        URLConnection conn = fnsi.openConnection();
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String inputLine;
+                        while ((inputLine = in.readLine()) != null) 
+                            fOutput.write(inputLine.getBytes());
+                        in.close();
+                    }
+                    fOutput.close();
+                } catch (MalformedURIException ex) {
+                    log.error(ex);
+                } catch (IOException ex) {
+                    log.error(ex);
+                    if (file.exists()) {
+                        log.info("Delete wrong file (IOException) "+file);
+                        file.delete();
+                    }
+                }
+            }
+            ref = new HashMap<String, String>();
+            try {
+                log.info("Reading file "+file);
+                JSONParser parser = new JSONParser();
+                JSONObject obj = (JSONObject)parser.parse(new FileReader(file.getAbsolutePath()));
+                if (obj.get("result").equals("OK")) {
+                    JSONArray list = (JSONArray)obj.get("list");
+                    Iterator i = list.iterator();
+                    while (i.hasNext()) {
+                        JSONArray row = (JSONArray)i.next();
+                        Iterator<JSONObject> i2 = row.iterator();
+                        String data_primary = null;
+                        String data_value = null;
+                        while (i2.hasNext()) {
+                            JSONObject field = i2.next();
+                            String col = (String)field.get("column");
+                            if (col.equals(primary_id)) {
+                                data_primary = (String)field.get("value");
+                                if (data_value != null)
+                                    break;
+                            } else if (col.equals(value_name)) {
+                                data_value = (String)field.get("value");
+                                if (data_primary != null)
+                                    break;
+                            }
+                        }
+                        if (data_primary != null && data_value != null)
+                            ref.put(data_primary, data_value);
+                    }
+                }
+            }
+            catch (ParseException ex) {
+                log.error("Passport-"+key+". "+ex);
+                ex.printStackTrace(resp);
+                if (file.exists()) {
+                    log.info("Delete wrong file (ParseException) "+file);
+                    file.delete();
+                }
+                return false;
+            } catch (IOException ex) {
+                log.error(ex);
+                return false;
+            }
+            refs.put(key, ref);
+        }
+        String dn = ref.get(code);
+        if (dn == null) {
+            resp.print(":ERROR: INVALID_ELEMENT_VALUE_CODE Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Элемент с кодом ["+code+"] отсутствует.\n");
+            return false;
+        }
+        if (!dn.equals(displayName)) {
+            resp.print(":ERROR: INVALID_ELEMENT_VALUE_NAME Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Наименование элемента ["+displayName+"] не соответствует наименованию элемента в НСИ ["+dn+"]\n");
+            return false;
+        }
+        return true;
     }
 }

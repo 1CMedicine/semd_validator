@@ -18,10 +18,14 @@
        <init-param> 
           <param-name>ADMIN_PASS</param-name> 
           <param-value>pass</param-value> 
-       </init-param> 
+       </init-param>
        <init-param> 
           <param-name>LIST_TYPES_FOR_VARIFICATION</param-name> 
           <param-value></param-value> 
+       </init-param> 
+       <init-param> 
+          <param-name>LIST_TAGS_FOR_VARIFICATION</param-name> 
+          <param-value>code,administrativeGenderCode,value,identity:IdentityCardType,identity:InsurancePolicyType,address:Type,address:stateCode,functionCode</param-value> 
        </init-param> 
        <init-param> 
           <param-name>FNSI_USERKEY</param-name> 

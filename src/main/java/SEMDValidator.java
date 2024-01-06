@@ -337,7 +337,7 @@ public class SEMDValidator extends HttpServlet {
                     out.print("</result>");
                 }
             } catch (TransformerException e) {
-                out.print("error sch transfromation: "+ e.getMessage().replaceAll("\n", "<br>"));
+                out.print("error sch transfromation: "+ e.getMessageAndLocation().replaceAll("\n", "<br>")+" "+e.getLocator());
                 valid = false;
             }
         } else if (valid) {     // для xsd проверки
@@ -447,6 +447,8 @@ public class SEMDValidator extends HttpServlet {
         
         FNSI_SKIP_LIST = new String[0];
         FNSI_COLS_MAPPING.clear();
+        passports.clear();
+        refs.clear();
         loadFNSIlist(out);
 
         out.print("FNSIlist.txt loaded");
@@ -626,6 +628,10 @@ public class SEMDValidator extends HttpServlet {
                 out.println(String.join("", k, " - {\"PRIMARY\":\"", v[0], "\", \"VALUE\":\"", v[1],"\"}<br>"));
             }
         }
+        if (LIST_TAGS_FOR_VARIFICATION.length > 0) {
+            out.println("<H2>Список тегов, проверяемых на соответствие ФНСИ</H2>");
+            out.println(String.join(", ", LIST_TAGS_FOR_VARIFICATION));
+        }
         out.print(String.join("\n"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_sch.html'>Настройки</a><br>"
@@ -798,8 +804,6 @@ public class SEMDValidator extends HttpServlet {
                                     String[] arr = new String[2];
                                     arr[0] = primary;
                                     arr[1] = value;
-                                    if (resp != null)
-                                        resp.println(line.substring(0, i).trim()+ "_"+arr[0]+ "_"+arr[1]);
                                     FNSI_COLS_MAPPING.put(line.substring(0, i).trim(), arr);
                                 }
                             }
@@ -904,7 +908,7 @@ public class SEMDValidator extends HttpServlet {
                 return null;
             } catch (IOException ex) {
                 log.error(ex);
-                resp.print(":ERROR: Tag-"+tag+". Passport "+codeSystem[0]+" version "+codeSystem[1]+" was not found. IOException - "+ex+"\n");
+                resp.print(":ERROR: Tag:"+tag+". Passport "+codeSystem[0]+" version "+codeSystem[1]+" was not found. IOException - "+ex+"\n");
                 if (file.exists()) {
                     log.info("Delete wrong file (IOException) "+file);
                     file.delete();

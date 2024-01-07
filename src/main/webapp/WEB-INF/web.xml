@@ -27,7 +27,11 @@
           <param-name>LIST_TAGS_FOR_VARIFICATION</param-name> 
           <param-value>code,administrativeGenderCode,value,identity:IdentityCardType,identity:InsurancePolicyType,identity:IdentityDocType,address:Type,address:stateCode,functionCode,translation,confidentialityCode,medService:serviceForm,medService:serviceType,medService:serviceCond,interpretationCode</param-value> 
        </init-param> 
-       <init-param> 
+       <init-param>
+          <param-name>ACTUAL_FNSI_CACHE_DAYS</param-name> 
+          <param-value>300</param-value> 
+       </init-param> 
+       <init-param>
           <param-name>FNSI_USERKEY</param-name> 
           <param-value></param-value> 
        </init-param> 

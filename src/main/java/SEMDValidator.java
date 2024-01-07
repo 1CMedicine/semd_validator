@@ -23,10 +23,12 @@ import org.eclipse.jetty.server.Request;
 import java.io.*;
 import java.net.*;
 import java.nio.file.*;
+import java.nio.file.attribute.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.*;
 import java.text.SimpleDateFormat;
+
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -34,6 +36,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class SEMDValidator extends HttpServlet {
+
+    private final int MILLISEC_TO_DAY = 1000*60*60*24;
 
     private String DATA_PATH;
     private String ADMIN_NAME;
@@ -43,6 +47,7 @@ public class SEMDValidator extends HttpServlet {
     private String FNSI_USERKEY;
     private String FNSI_SKIP_LIST[] = {};
     private HashMap<String, String[]> FNSI_COLS_MAPPING = new HashMap<String, String[]>();
+    private int ACTUAL_FNSI_CACHE_DAYS = 30; 
 
     final static Logger log = LogManager.getLogger(SEMDValidator.class.getName());
     private static final MultipartConfigElement MULTI_PART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
@@ -52,7 +57,6 @@ public class SEMDValidator extends HttpServlet {
     private HashMap<String, HashMap<String, String>> refs = new HashMap<String, HashMap<String, String>>(100);
 
     public void init() throws ServletException {
-        super.init();
         System.setProperty("javax.xml.transform.TransformerFactory", "net.sf.saxon.TransformerFactoryImpl");
         System.setProperty("javax.xml.parsers.DocumentBuilderFactory","org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
         ServletConfig config = this.getServletConfig();
@@ -97,13 +101,64 @@ public class SEMDValidator extends HttpServlet {
         FNSI_USERKEY = config.getInitParameter("FNSI_USERKEY");
         log.info("FNSI_USERKEY="+FNSI_USERKEY);
 
+        String t = config.getInitParameter("ACTUAL_FNSI_CACHE_DAYS");
+        if (t != null) {
+            try {
+                ACTUAL_FNSI_CACHE_DAYS = Integer.parseInt(t);
+            } catch (NumberFormatException ex) {
+                log.error("Wrong value of ACTUAL_FNSI_CACHE_DAYS parameter. Should be integer");
+            }
+        }
+        log.info("ACTUAL_FNSI_CACHE_DAYS="+ACTUAL_FNSI_CACHE_DAYS);
+
         try {
             loadFNSIlist(null);
         } catch (IOException e) {
             throw new ServletException("loadFNSIlist exception - " + e.getMessage());
         }
     }
-    
+
+
+    // удаляем файлы из fnsi, доступа к которым не было более 7 дней.
+    @Override
+    public void destroy() {
+        log.info("destroy");
+
+        List<String> list = new ArrayList<String>();
+        final File folder = new File(DATA_PATH+"/fnsi");
+        final File[] fl = folder.listFiles();
+        if (fl != null) {
+            for (final File fileEntry : fl) {
+                if (fileEntry.isFile()) {
+                    list.add(fileEntry.getAbsolutePath());
+                }
+            }
+        } else {
+            log.error("Folder not found: "+DATA_PATH);
+        }
+
+        long t = System.currentTimeMillis();
+        int store_days = MILLISEC_TO_DAY*ACTUAL_FNSI_CACHE_DAYS;
+        for (Iterator<String> i = list.iterator(); i.hasNext();) {
+            String item = i.next();
+            Path p = Paths.get(item);
+            try { 
+                BasicFileAttributes attrs = Files.readAttributes(p, BasicFileAttributes.class);
+                long t1 = attrs.lastAccessTime().toMillis();
+
+                long age = t-t1;
+                if (age > store_days) {
+                    p.toFile().delete();
+                    log.info("Delete fnsi file: "+item+ ". Age="+age/MILLISEC_TO_DAY+" days");
+                }
+            } catch (SecurityException ex) {
+                log.error(ex.getMessage(), ex);
+            } catch (IOException ex) {
+                log.error(ex.getMessage(), ex);
+            }
+        }
+    } 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
@@ -904,10 +959,10 @@ public class SEMDValidator extends HttpServlet {
                 in.close();
                 fOutput.close();
             } catch (MalformedURIException ex) {
-                log.error(ex);
+                log.error(ex.getMessage(), ex);
                 return null;
             } catch (IOException ex) {
-                log.error(ex);
+                log.error(ex.getMessage(), ex);
                 resp.print(":ERROR: Tag:"+tag+". Passport "+codeSystem[0]+" version "+codeSystem[1]+" was not found. IOException - "+ex+"\n");
                 if (file.exists()) {
                     log.info("Delete wrong file (IOException) "+file);
@@ -950,9 +1005,11 @@ public class SEMDValidator extends HttpServlet {
                     ret.put("VALUE", arr[1]);
                 }
                 passports.put(key, ret);
+                long t = System.currentTimeMillis();
+                touch(file, t);
                 return ret;
             } else {
-                resp.println(":ERROR: Tag-"+tag+". Справочника OID ["+codeSystem[0]+"], версия ["+codeSystem[1]+"] не существует или имеет неверное содержимое");
+                resp.println(":ERROR: Tag-"+tag+". Справочника c OID ["+codeSystem[0]+"], версия ["+codeSystem[1]+"] не существует или имеет неверное содержимое");
                 log.info("Delete wrong passport - RESULT != OK: "+file);
                 file.delete();
             }
@@ -1022,6 +1079,7 @@ public class SEMDValidator extends HttpServlet {
         HashMap<String, String> ref = refs.get(key);
         if (ref == null || ref.size() != rowsCount) {
             int c = (rowsCount-1)/2000+1;
+            long t = System.currentTimeMillis();
             for (int i=1; i <= c; i++) {
                 final File file = new File(DATA_PATH + "/fnsi/"+key+"_part"+i);
                 if (!file.exists()) {
@@ -1037,9 +1095,9 @@ public class SEMDValidator extends HttpServlet {
                         in.close();
                         fOutput.close();
                     } catch (MalformedURIException ex) {
-                        log.error(ex);
+                        log.error(ex.getMessage(), ex);
                     } catch (IOException ex) {
-                        log.error(ex);
+                        log.error(ex.getMessage(), ex);
                         if (file.exists()) {
                             log.info("Delete wrong file (IOException) "+file);
                             file.delete();
@@ -1089,9 +1147,10 @@ public class SEMDValidator extends HttpServlet {
                     }
                     return false;
                 } catch (IOException ex) {
-                    log.error(ex);
+                    log.error(ex.getMessage(), ex);
                     return false;
                 }
+                touch(file, t);
             }
         }
         String dn = ref.get(code);
@@ -1104,5 +1163,19 @@ public class SEMDValidator extends HttpServlet {
             return false;
         }
         return true;
+    }
+
+    private static void touch(final File file, long t) {
+        FileTime fileTime = FileTime.fromMillis(t);
+        try {
+            Path p = Paths.get(file.getAbsolutePath());
+            Files.setAttribute(p, "lastAccessTime", fileTime);            
+        } catch (IllegalArgumentException ex) {
+            log.error(ex.getMessage(), ex);
+        } catch (SecurityException ex) {
+            log.error(ex.getMessage(), ex);
+        } catch (IOException ex) {
+            log.error(ex.getMessage(), ex);
+        } 
     }
 }

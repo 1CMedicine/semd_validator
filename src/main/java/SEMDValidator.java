@@ -2,33 +2,31 @@ import org.apache.logging.log4j.Logger;
 import org.apache.xerces.util.URI.MalformedURIException;
 import org.apache.logging.log4j.LogManager;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.MultipartConfigElement;
+import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.XMLConstants;
 import javax.xml.validation.*;
-import java.util.stream.Collectors;
+import javax.xml.parsers.*;
 import org.xml.sax.SAXException;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.*;
-import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
+import java.util.Collections;
 
 import org.eclipse.jetty.server.Request;
 import java.io.*;
 import java.net.*;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
+import java.nio.charset.StandardCharsets;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.*;
 import java.text.SimpleDateFormat;
-
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -37,24 +35,29 @@ import org.json.simple.parser.ParseException;
 
 public class SEMDValidator extends HttpServlet {
 
-    private final int MILLISEC_TO_DAY = 1000*60*60*24;
+    // Constants
+    final private static int MILLISEC_TO_DAY = 1000*60*60*24;
+    final private static Logger log = LogManager.getLogger(SEMDValidator.class.getName());
+    final private static MultipartConfigElement MULTI_PART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
 
+    // Settings from web.xml 
     private String DATA_PATH;
     private String ADMIN_NAME;
     private String ADMIN_PASS;
     private String LIST_TYPES_FOR_VARIFICATION[] = {};
     private String LIST_TAGS_FOR_VARIFICATION[] = {};
     private String FNSI_USERKEY;
-    private String FNSI_SKIP_LIST[] = {};
-    private HashMap<String, String[]> FNSI_COLS_MAPPING = new HashMap<String, String[]>();
     private int ACTUAL_FNSI_CACHE_DAYS = 30; 
 
-    final static Logger log = LogManager.getLogger(SEMDValidator.class.getName());
-    private static final MultipartConfigElement MULTI_PART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
+    // Значения, загружаемые из файла FNSIlist.txt
+    private CopyOnWriteArrayList<String> FNSI_SKIP_LIST = new CopyOnWriteArrayList<String>();
+    private ConcurrentHashMap<String, String[]> FNSI_COLS_MAPPING = new ConcurrentHashMap<String, String[]>();
+
+    // In memory db
     private HashMap<String, Templates> cacheXslt = new HashMap<String, Templates>(100);
     private HashMap<String, Schema> cacheXsd = new HashMap<String, Schema>(100);
-    private HashMap<String, HashMap<String, String>> passports = new HashMap<String, HashMap<String, String>>(100);
-    private HashMap<String, HashMap<String, String>> refs = new HashMap<String, HashMap<String, String>>(100);
+    private ConcurrentHashMap<String, HashMap<String, String>> passports = new ConcurrentHashMap<String, HashMap<String, String>>(500);
+    private ConcurrentHashMap<String, ConcurrentHashMap<String, String>> refs = new ConcurrentHashMap<String, ConcurrentHashMap<String, String>>(500);
 
     public void init() throws ServletException {
         System.setProperty("javax.xml.transform.TransformerFactory", "net.sf.saxon.TransformerFactoryImpl");
@@ -500,7 +503,7 @@ public class SEMDValidator extends HttpServlet {
         }
         fOutput.close();
         
-        FNSI_SKIP_LIST = new String[0];
+        FNSI_SKIP_LIST.clear();
         FNSI_COLS_MAPPING.clear();
         passports.clear();
         refs.clear();
@@ -670,7 +673,7 @@ public class SEMDValidator extends HttpServlet {
 
         out.print(String.join("\n"
         , "</table>"));
-        if (FNSI_SKIP_LIST.length > 0) {
+        if (FNSI_SKIP_LIST.size() > 0) {
             out.println("<H2>Список OID справочников ФНСИ, исключаемых из проверок</H2>");
             for (String k : FNSI_SKIP_LIST) {
                 out.println(String.join("", k, " - SKIP<br>\n"));
@@ -816,14 +819,13 @@ public class SEMDValidator extends HttpServlet {
         return s;
     }
     
-    private void loadFNSIlist(PrintWriter resp) throws IOException {
+    private synchronized void loadFNSIlist(PrintWriter resp) throws IOException {
         final File file = new File(DATA_PATH+"/FNSIlist.txt");
         if (file.exists()) {
             FileInputStream fis = new FileInputStream(file);
             InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.US_ASCII);
             BufferedReader reader = new BufferedReader(isr);
             String line = reader.readLine();
-            ArrayList<String> list = new ArrayList<String>();
             int ln = 0;
             JSONParser parser = new JSONParser();
             try {
@@ -837,7 +839,7 @@ public class SEMDValidator extends HttpServlet {
                             log.warn(msg);
                     } else {
                         if (line.substring(i).indexOf("SKIP") > 0) {
-                            list.add(line.substring(0, i).trim());
+                            FNSI_SKIP_LIST.add(line.substring(0, i).trim());
                         } else {
                             JSONObject obj = (JSONObject)parser.parse(line.substring(i+1));
                             String primary = (String)obj.get("PRIMARY");
@@ -874,8 +876,7 @@ public class SEMDValidator extends HttpServlet {
                 else
                     log.warn(ex);
             }
-            FNSI_SKIP_LIST = list.stream().toArray(String[]::new);
-            Arrays.sort(FNSI_SKIP_LIST);
+            FNSI_SKIP_LIST.sort(null);
         }
     }
 
@@ -1005,8 +1006,8 @@ public class SEMDValidator extends HttpServlet {
                     ret.put("VALUE", arr[1]);
                 }
                 passports.put(key, ret);
-                long t = System.currentTimeMillis();
-                touch(file, t);
+                FileTime fileTime = FileTime.fromMillis(System.currentTimeMillis());
+                touch(file, fileTime);
                 return ret;
             } else {
                 resp.println(":ERROR: Tag-"+tag+". Справочника c OID ["+codeSystem[0]+"], версия ["+codeSystem[1]+"] не существует или имеет неверное содержимое");
@@ -1060,7 +1061,7 @@ public class SEMDValidator extends HttpServlet {
         final String codeSystem = passport.get("codeSystem");
         final String codeSystemVersion = passport.get("codeSystemVersion");
         final String key = codeSystem+"_"+codeSystemVersion;
-        if (Arrays.binarySearch(FNSI_SKIP_LIST, codeSystem) >= 0) {
+        if (Collections.binarySearch(FNSI_SKIP_LIST, codeSystem) >= 0) {
             return true;
         }
         if (!passport.get("codeSystemName").equals(codeSystemName)) {
@@ -1076,10 +1077,10 @@ public class SEMDValidator extends HttpServlet {
         }
 
         int rowsCount = Integer.parseInt(passport.get("rowsCount"));
-        HashMap<String, String> ref = refs.get(key);
+        ConcurrentHashMap<String, String> ref = refs.get(key);
         if (ref == null || ref.size() != rowsCount) {
             int c = (rowsCount-1)/2000+1;
-            long t = System.currentTimeMillis();
+            FileTime fileTime = FileTime.fromMillis(System.currentTimeMillis());
             for (int i=1; i <= c; i++) {
                 final File file = new File(DATA_PATH + "/fnsi/"+key+"_part"+i);
                 if (!file.exists()) {
@@ -1105,7 +1106,7 @@ public class SEMDValidator extends HttpServlet {
                     }
                 }
                 if (ref == null) {
-                    ref = new HashMap<String, String>();
+                    ref = new ConcurrentHashMap<String, String>();
                     refs.put(key, ref);
                 }
                 try {
@@ -1150,7 +1151,7 @@ public class SEMDValidator extends HttpServlet {
                     log.error(ex.getMessage(), ex);
                     return false;
                 }
-                touch(file, t);
+                touch(file, fileTime);
             }
         }
         String dn = ref.get(code);
@@ -1165,8 +1166,7 @@ public class SEMDValidator extends HttpServlet {
         return true;
     }
 
-    private static void touch(final File file, long t) {
-        FileTime fileTime = FileTime.fromMillis(t);
+    private static void touch(final File file, final FileTime fileTime) {
         try {
             Path p = Paths.get(file.getAbsolutePath());
             Files.setAttribute(p, "lastAccessTime", fileTime);            

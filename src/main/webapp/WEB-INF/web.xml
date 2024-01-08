@@ -29,7 +29,7 @@
        </init-param> 
        <init-param>
           <param-name>ACTUAL_FNSI_CACHE_DAYS</param-name> 
-          <param-value>300</param-value> 
+          <param-value>30</param-value> 
        </init-param> 
        <init-param>
           <param-name>FNSI_USERKEY</param-name> 

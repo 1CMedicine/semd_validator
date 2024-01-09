@@ -973,7 +973,7 @@ public class SEMDValidator extends HttpServlet {
                         else
                             log.warn(msg);
                     } else {
-                        if (line.substring(i).indexOf("SKIP") > 0) {
+                        if (line.substring(i).indexOf("SKIP") >= 0 && line.substring(i).indexOf("{") < 0) {
                             FNSI_SKIP_LIST.add(line.substring(0, i).trim());
                         } else {
                             JSONObject obj = (JSONObject)parser.parse(line.substring(i+1));
@@ -981,7 +981,7 @@ public class SEMDValidator extends HttpServlet {
                             arr[0] = (String)obj.get("PRIMARY");
                             arr[1] = (String)obj.get("VALUE");
                             String level = (String)obj.get("LEVEL");
-                            if (level == null || !(level.equals("ERROR") || level.equals("WARNING") || level.equals("SKIP")))
+                            if (level == null || !(level.equals("ERROR") || level.equals("SKIP")))
                                 level = "ERROR";
                             arr[2] = level;
                                 FNSI_COLS_MAPPING.put(line.substring(0, i).trim(), arr);
@@ -1286,9 +1286,6 @@ public class SEMDValidator extends HttpServlet {
             if (level.equals("ERROR")) {
                 resp.println(":"+level+": Tag-"+tag+". INVALID_ELEMENT_VALUE_NAME Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Наименование элемента ["+displayName+"] с кодом ["+code+"] не соответствует наименованию элемента в НСИ ["+dn+"]");
                 return false;
-            } else if (level.equals("WARNING")) {
-                resp.println(":"+level+": Tag-"+tag+". INVALID_ELEMENT_VALUE_NAME Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Наименование элемента ["+displayName+"] с кодом ["+code+"] не соответствует наименованию элемента в НСИ ["+dn+"]");
-                return true;
             }
         }
         return true;

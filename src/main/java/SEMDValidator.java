@@ -44,13 +44,15 @@ public class SEMDValidator extends HttpServlet {
     private String ADMIN_NAME;
     private String ADMIN_PASS;
     private String LIST_TYPES_FOR_VARIFICATION[] = {};
-    private String LIST_TAGS_FOR_VARIFICATION[] = {};
     private String FNSI_USERKEY;
     private int ACTUAL_FNSI_CACHE_DAYS = 30; 
 
     // Значения, загружаемые из файла FNSIlist.txt
     private CopyOnWriteArrayList<String> FNSI_SKIP_LIST = new CopyOnWriteArrayList<String>();
     private ConcurrentHashMap<String, String[]> FNSI_COLS_MAPPING = new ConcurrentHashMap<String, String[]>();
+
+    // Значения, загружаемые из файла FNSITags.txt
+    private CopyOnWriteArrayList<String> LIST_TAGS_FOR_VARIFICATION = new CopyOnWriteArrayList<String>();
 
     // In memory db
     private HashMap<String, Templates> cacheXslt = new HashMap<String, Templates>(100);
@@ -73,17 +75,6 @@ public class SEMDValidator extends HttpServlet {
             Arrays.sort(LIST_TYPES_FOR_VARIFICATION);
         }
         log.info("LIST_TYPES_FOR_VARIFICATION="+Arrays.toString(LIST_TYPES_FOR_VARIFICATION));
-
-        param = config.getInitParameter("LIST_TAGS_FOR_VARIFICATION");
-        if (param != null && param.length() > 0) {
-            String[] types = param.split(",");
-            LIST_TAGS_FOR_VARIFICATION = new String[types.length];
-            for (int i = 0; i < types.length; i++) {
-                LIST_TAGS_FOR_VARIFICATION[i] = types[i].trim();
-            }
-            Arrays.sort(LIST_TAGS_FOR_VARIFICATION);
-        }
-        log.info("LIST_TAGS_FOR_VARIFICATION="+Arrays.toString(LIST_TAGS_FOR_VARIFICATION));
 
         DATA_PATH = config.getInitParameter("DATA_PATH");
         if (DATA_PATH == null)
@@ -117,6 +108,12 @@ public class SEMDValidator extends HttpServlet {
             loadFNSIlist(null);
         } catch (IOException e) {
             throw new ServletException("loadFNSIlist exception - " + e.getMessage());
+        }
+
+        try {
+            loadFNSITags(null);
+        } catch (IOException e) {
+            throw new ServletException("loadFNSITags exception - " + e.getMessage());
         }
     }
 
@@ -217,6 +214,13 @@ public class SEMDValidator extends HttpServlet {
             HttpSession session = req.getSession(false);
             if (session != null && session.getAttribute("user") != null) 
                 uploadFNSIlist(req, resp);
+            else
+                resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Authorization Failed");
+        } else if (req.getServletPath().equals("/uploadFNSITags")) { 
+            log.info(req.getServletPath());
+            HttpSession session = req.getSession(false);
+            if (session != null && session.getAttribute("user") != null) 
+                uploadFNSITags(req, resp);
             else
                 resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Authorization Failed");
         } else {
@@ -544,6 +548,39 @@ public class SEMDValidator extends HttpServlet {
     }
 
     /**
+     * Загрузка текстового файла со списков тегов для проверки на соотвествие справочникам ФНСИ
+     * @param req Входящий файл
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     * @throws ServletException
+     */
+    private void uploadFNSITags(HttpServletRequest req, HttpServletResponse resp) 
+            throws IOException, ServletException {
+
+        if (req.getContentType() != null && req.getContentType().startsWith("multipart/form-data")) {
+            req.setAttribute(Request.MULTIPART_CONFIG_ELEMENT, MULTI_PART_CONFIG);
+        }
+        resp.setHeader("Content-Type", "text/plain; charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+
+        Part filePart = req.getPart("file");
+        final File file = new File(DATA_PATH + "/FNSITags.txt");
+        InputStream fileContent = filePart.getInputStream();
+
+        byte[] buffer = new byte[2048];
+        FileOutputStream fOutput = new FileOutputStream(file);
+        int count = 0;
+        while ((count = fileContent.read(buffer)) > 0) {
+                fOutput.write(buffer, 0, count);
+        }
+        fOutput.close();
+        
+        loadFNSITags(out);
+
+        out.print("FNSITags.txt loaded");
+    }
+
+    /**
      * HTML страница с формами отправки файлов настроек в сервис валидации, в т.ч. xsd и sch схемы
      * @param contextPath URL сайта для формирования ссылок
      * @param resp Поток для вывода результата
@@ -584,6 +621,12 @@ public class SEMDValidator extends HttpServlet {
         , "  <form enctype = 'multipart/form-data'  method='post' action='", contextPath, "/uploadFNSIlist'>"
         , "   <input type='file' name='file'/>"
         , "   <input type='submit' value='Отправить FNSIlist.txt'/>"
+        , "  </form>"
+         , "<hr>"
+        , "  <H1>Отправка файла со списком тегов, подлежащих контролю на соответствие справочникам ФНСИ</H1>"
+        , "  <form enctype = 'multipart/form-data'  method='post' action='", contextPath, "/uploadFNSITags'>"
+        , "   <input type='file' name='file'/>"
+        , "   <input type='submit' value='Отправить FNSITags.txt'/>"
         , "  </form>"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
@@ -730,15 +773,15 @@ public class SEMDValidator extends HttpServlet {
             }
         }
         if (FNSI_COLS_MAPPING.size() > 0) {
-            out.println("<H2>Список OID справочников ФНСИ, с отдельными правилами проверки</H2>");
+            out.println("<H2>Список OID справочников ФНСИ, с отдельными правилами проверки (FNSIlist.txt)</H2>");
             for (String k : FNSI_COLS_MAPPING.keySet()) {
                 String[] v = FNSI_COLS_MAPPING.get(k);
                 out.println(String.join("", k, " - {\"PRIMARY\":\"", v[0], "\", \"VALUE\":\"", v[1],"\", \"LEVEL\":\"", v[2],"\"}<br>"));
             }
         }
-        if (LIST_TAGS_FOR_VARIFICATION.length > 0) {
-            out.println("<H2>Список тегов, проверяемых на соответствие ФНСИ</H2>");
-            out.println(String.join(", ", LIST_TAGS_FOR_VARIFICATION));
+        if (LIST_TAGS_FOR_VARIFICATION.size() > 0) {
+            out.println("<H2>Список тегов, проверяемых на соответствие ФНСИ (FNSITags.txt)</H2>");
+            out.println(String.join("<br>", LIST_TAGS_FOR_VARIFICATION));
         }
         out.print(String.join("\n"
         , "<h2>См. также</h2>"
@@ -998,6 +1041,27 @@ public class SEMDValidator extends HttpServlet {
                     log.warn(ex);
             }
             FNSI_SKIP_LIST.sort(null);
+        }
+    }
+
+    /**
+     * Загрузка файла со списком тегов СЭМД, подлежащих проверке на соответствие справочникам ФНСИ
+     * @param resp - поток для вывода результата проверки
+     * @throws IOException
+     */
+    private synchronized void loadFNSITags(PrintWriter resp) throws IOException {
+        final File file = new File(DATA_PATH+"/FNSITags.txt");
+        LIST_TAGS_FOR_VARIFICATION.clear();
+        if (file.exists()) {
+            FileInputStream fis = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.US_ASCII);
+            BufferedReader reader = new BufferedReader(isr);
+            String line = reader.readLine();
+            while (line != null) {
+                LIST_TAGS_FOR_VARIFICATION.add(line.trim());
+                line = reader.readLine();
+            }
+            reader.close();
         }
     }
 

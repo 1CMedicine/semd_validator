@@ -981,7 +981,7 @@ public class SEMDValidator extends HttpServlet {
                             arr[0] = (String)obj.get("PRIMARY");
                             arr[1] = (String)obj.get("VALUE");
                             String level = (String)obj.get("LEVEL");
-                            if (level == null || !(level.equals("ERROR") || level.equals("SKIP")))
+                            if (level == null || !(level.equals("ERROR") || level.equals("SKIP_codeSystemName") || level.equals("SKIP_displayName")))
                                 level = "ERROR";
                             arr[2] = level;
                                 FNSI_COLS_MAPPING.put(line.substring(0, i).trim(), arr);
@@ -1163,8 +1163,11 @@ public class SEMDValidator extends HttpServlet {
         if (Collections.binarySearch(FNSI_SKIP_LIST, codeSystem) >= 0) {
             return true;
         }
-        if (!passport.get("codeSystemName").equals(codeSystemName)) {
-            resp.println(":ERROR: Tag-"+tag+". Неверный codeSystemName. Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"] '."+passport.get("codeSystemName")+"' != '"+codeSystemName+"'");
+
+        final String[] arr = FNSI_COLS_MAPPING.get(codeSystem);
+        final String level = (arr != null) ? arr[2] : "ERROR";
+        if (!passport.get("codeSystemName").equals(codeSystemName) && !level.equals("SKIP_codeSystemName")) {
+            resp.println(":ERROR: Tag-"+tag+". Неверный codeSystemName. Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. '"+passport.get("codeSystemName")+"' != '"+codeSystemName+"'");
             return false;
         }
 
@@ -1281,9 +1284,7 @@ public class SEMDValidator extends HttpServlet {
             return false;
         }
         if (!dn.equals(displayName)) {
-            final String[] arr = FNSI_COLS_MAPPING.get(codeSystem);
-            final String level = (arr != null) ? arr[2] : "ERROR";
-            if (level.equals("ERROR")) {
+            if (!level.equals("SKIP_displayName")) {
                 resp.println(":"+level+": Tag-"+tag+". INVALID_ELEMENT_VALUE_NAME Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Наименование элемента ["+displayName+"] с кодом ["+code+"] не соответствует наименованию элемента в НСИ ["+dn+"]");
                 return false;
             }

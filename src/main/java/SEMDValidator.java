@@ -15,7 +15,9 @@ import org.w3c.dom.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
-import java.util.Collections;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.*;
 
 import org.eclipse.jetty.server.Request;
 import java.io.*;
@@ -23,9 +25,6 @@ import java.net.*;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
 import java.nio.charset.StandardCharsets;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.*;
 import java.text.SimpleDateFormat;
 
 import org.json.simple.JSONArray;
@@ -121,7 +120,6 @@ public class SEMDValidator extends HttpServlet {
         }
     }
 
-
     // удаляем файлы из fnsi, доступа к которым не было более 7 дней.
     @Override
     public void destroy() {
@@ -141,7 +139,6 @@ public class SEMDValidator extends HttpServlet {
         }
 
         long t = System.currentTimeMillis();
-        int store_days = MILLISEC_TO_DAY*ACTUAL_FNSI_CACHE_DAYS;
         for (Iterator<String> i = list.iterator(); i.hasNext();) {
             String item = i.next();
             Path p = Paths.get(item);
@@ -149,10 +146,10 @@ public class SEMDValidator extends HttpServlet {
                 BasicFileAttributes attrs = Files.readAttributes(p, BasicFileAttributes.class);
                 long t1 = attrs.lastAccessTime().toMillis();
 
-                long age = t-t1;
-                if (age > store_days) {
+                long age = (t-t1)/MILLISEC_TO_DAY;
+                if (age > ACTUAL_FNSI_CACHE_DAYS) {
                     p.toFile().delete();
-                    log.info("Delete fnsi file: "+item+ ". Age="+age/MILLISEC_TO_DAY+" days");
+                    log.info("Delete fnsi file: "+item+ ". Age="+age+" days");
                 }
             } catch (SecurityException ex) {
                 log.error(ex.getMessage(), ex);
@@ -228,6 +225,12 @@ public class SEMDValidator extends HttpServlet {
         }
     }
 
+    /**
+     * Покахать html страницу авторизации
+     * @param contextPath URL сайта для формирования гипер ссылок
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     */
     private void loginHtml(final String contextPath, HttpServletResponse resp) 
             throws IOException {
 
@@ -252,6 +255,12 @@ public class SEMDValidator extends HttpServlet {
         , "</html>"));
     }
 
+    /**
+     * Выполнить авторизацию. Авторизация дает доступ к странице настроек и их изменению.
+     * @param req Входящий поток (данные html формы)
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     */
     private void login(HttpServletRequest req, HttpServletResponse resp) 
             throws IOException {
         String user = req.getParameter("user");
@@ -276,6 +285,13 @@ public class SEMDValidator extends HttpServlet {
         }
     }
 
+    /**
+     * Загрузить СЭМД для валидации. СЭМД загружается через html форму, в которой задаются параметры проверки - тип СЭМД и тип проверки
+     * @param req Входящий поток (данные html формы)
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     * @throws ServletException
+     */
     private void verify(HttpServletRequest req, HttpServletResponse resp) 
             throws IOException, ServletException {
 
@@ -403,6 +419,14 @@ public class SEMDValidator extends HttpServlet {
         }
     }
 
+    /**
+     * Загрузка zip архива с xsd и sch для конкретного типа СЭМД.
+     * Требования к архиву описаны на странице с формой отправки zip (send_sch)
+     * @param req Входящий файл
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     * @throws ServletException
+     */
     private void upload(HttpServletRequest req, HttpServletResponse resp) 
             throws IOException, ServletException {
 
@@ -482,6 +506,13 @@ public class SEMDValidator extends HttpServlet {
         }
     }
 
+    /**
+     * Загрузка текстового файла с параметрами использования спраовчнико ФНСИ в процесс проверки СЭМД
+     * @param req Входящий файл
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     * @throws ServletException
+     */
     private void uploadFNSIlist(HttpServletRequest req, HttpServletResponse resp) 
             throws IOException, ServletException {
 
@@ -512,6 +543,12 @@ public class SEMDValidator extends HttpServlet {
         out.print("FNSIlist.txt loaded");
     }
 
+    /**
+     * HTML страница с формами отправки файлов настроек в сервис валидации, в т.ч. xsd и sch схемы
+     * @param contextPath URL сайта для формирования ссылок
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     */
     private void send_sch(final String contextPath, HttpServletResponse resp) 
             throws IOException {
 
@@ -555,6 +592,13 @@ public class SEMDValidator extends HttpServlet {
         , "</html>"));
     }
 
+    /**
+     * Вывеcти html страницу, содержащую xsd схему.
+     * @param contextPath URL сайта для формирования ссылок
+     * @param servletPath URL xsd, которая быдет выведена в html
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     */
     private void download(final String contextPath, final String servletPath, HttpServletResponse resp) 
             throws IOException {
 
@@ -593,8 +637,14 @@ public class SEMDValidator extends HttpServlet {
         out.print(String.join("\n"
         , "</body>"
         , "</html>"));
-}
+    }
 
+    /**
+     * HTML страница с выводом всех настроек сервиса валидации
+     * @param contextPath URL сайта для формирования ссылок
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     */
     private void get_sch_list(final String contextPath, HttpServletResponse resp) 
             throws IOException {
 
@@ -683,7 +733,7 @@ public class SEMDValidator extends HttpServlet {
             out.println("<H2>Список OID справочников ФНСИ, с отдельными правилами проверки</H2>");
             for (String k : FNSI_COLS_MAPPING.keySet()) {
                 String[] v = FNSI_COLS_MAPPING.get(k);
-                out.println(String.join("", k, " - {\"PRIMARY\":\"", v[0], "\", \"VALUE\":\"", v[1],"\"}<br>"));
+                out.println(String.join("", k, " - {\"PRIMARY\":\"", v[0], "\", \"VALUE\":\"", v[1],"\", \"LEVEL\":\"", v[2],"\"}<br>"));
             }
         }
         if (LIST_TAGS_FOR_VARIFICATION.length > 0) {
@@ -698,6 +748,12 @@ public class SEMDValidator extends HttpServlet {
         , "</html>"));
     }
 
+    /**
+     * HTML страница с формой для отправки СЭМД на валидацию
+     * @param contextPath URL сайта для формирования ссылок
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     */
     private void send_semd(final String contextPath, HttpServletResponse resp) 
             throws IOException {
 
@@ -727,6 +783,12 @@ public class SEMDValidator extends HttpServlet {
         , "</html>"));
     }
 
+    /**
+     * Разархивация zip файла
+     * @param destinationFolder Каталог, куда будут сохранены файлы архива
+     * @param zipFile Исходный файл
+     * @throws IOException
+     */
     private static void unzip(final String destinationFolder, InputStream zipFile) 
             throws IOException {
 
@@ -763,9 +825,14 @@ public class SEMDValidator extends HttpServlet {
         return "SEMD Validator";
     }
 
+
     /**
-    * Apply stylesheet to source document
-    */
+     * Выполнить xslt трасформацию для xml
+     * @param source Поток с xml
+     * @param style Стилевой файл для выполнения трансформации
+     * @param dst Поток с результатом трансформации
+     * @throws TransformerException
+     */
     private void xslt(StreamSource source, final String style, StreamResult dst)
             throws TransformerException {
 
@@ -774,6 +841,15 @@ public class SEMDValidator extends HttpServlet {
         transformer.transform(source, dst);
     }
 
+    /**
+     * Построить DOM для xml и выполнить проверку на соответствие схеме. Схема по возможности берется из кеша
+     * @param xml Строка с xml
+     * @param xsd Путь к файлу со схемой
+     * @return DOM для xml
+     * @throws IOException
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     */
     private Document xsd(final String xml, final String xsd)
             throws IOException, ParserConfigurationException, SAXException {
 
@@ -793,9 +869,13 @@ public class SEMDValidator extends HttpServlet {
         return document;
     }
 
+
     /**
-    * Maintain prepared stylesheets and schemes in memory for reuse
-    */
+     * Получить шаблон xslt трасформации по xsl. Если шаблон сохранен в кеше, то взять из кеша. Иначе создается новый и сохраняется в кеше
+     * @param path Путь к файлу с стилем странсформации
+     * @return шаблон xslt трасформации
+     * @throws TransformerException
+     */
     private synchronized Templates tryXsltCache(final String path) 
             throws TransformerException {
 
@@ -807,6 +887,12 @@ public class SEMDValidator extends HttpServlet {
         }
         return x;
     }
+    /**
+     * Получить схему. Если схема сохранена в кеше, то взять из кеша. Иначе создается новая и сохраняется в кеше
+     * @param path Путь к файлу со схемой
+     * @return Схему для использования в процессе валидации
+     * @throws SAXException
+     */
     private synchronized Schema tryXsdCache(final String path) 
             throws SAXException {
 
@@ -818,68 +904,14 @@ public class SEMDValidator extends HttpServlet {
         }
         return s;
     }
-    
-    private synchronized void loadFNSIlist(PrintWriter resp) throws IOException {
-        final File file = new File(DATA_PATH+"/FNSIlist.txt");
-        if (file.exists()) {
-            FileInputStream fis = new FileInputStream(file);
-            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.US_ASCII);
-            BufferedReader reader = new BufferedReader(isr);
-            String line = reader.readLine();
-            int ln = 0;
-            JSONParser parser = new JSONParser();
-            try {
-                while (line != null) {
-                    int i = line.indexOf("-", 0);
-                    if (i < 0) {
-                        String msg = "В строке "+ln+" нет символа '-'";
-                        if (resp != null)
-                            resp.print(msg);
-                        else
-                            log.warn(msg);
-                    } else {
-                        if (line.substring(i).indexOf("SKIP") > 0) {
-                            FNSI_SKIP_LIST.add(line.substring(0, i).trim());
-                        } else {
-                            JSONObject obj = (JSONObject)parser.parse(line.substring(i+1));
-                            String primary = (String)obj.get("PRIMARY");
-                            if (primary == null) {
-                                String msg = "В строке "+ln+" не найдено задание PRIMARY";
-                                if (resp != null)
-                                    resp.print(msg);
-                                else
-                                    log.warn(msg);
-                            } else {
-                                String value = (String)obj.get("VALUE");
-                                if (value == null) {
-                                    String msg = "В строке "+ln+" не найдено задание VALUE";
-                                    if (resp != null)
-                                        resp.print(msg);
-                                    else
-                                        log.warn(msg);
-                                } else {
-                                    String[] arr = new String[2];
-                                    arr[0] = primary;
-                                    arr[1] = value;
-                                    FNSI_COLS_MAPPING.put(line.substring(0, i).trim(), arr);
-                                }
-                            }
-                        }
-                    }
-                    line = reader.readLine();
-                    ln++;
-                }
-                reader.close();
-            } catch (ParseException ex) {
-                if (resp != null)
-                    resp.print(ex);
-                else
-                    log.warn(ex);
-            }
-            FNSI_SKIP_LIST.sort(null);
-        }
-    }
 
+    /**
+     * Выполнить трасформацию xsd схемы в html.
+     * Директива <include> схемы преобразуется в гипер ссылку.
+     * @param path Путь к сайту, используемый для формирования гипер ссылок
+     * @param s исходный xml
+     * @return результирующий html
+     */
     public static String escapeHTML(final String path, final String s) {
         StringBuilder out = new StringBuilder(Math.max(16, s.length()));
         for (int i = 0; i < s.length(); i++) {
@@ -916,7 +948,66 @@ public class SEMDValidator extends HttpServlet {
         }
         return out.toString();
     }
+    
+    /**
+     * Загрузка файла с настройками проверки справочников ФНСИ
+     * @param resp - поток для вывода результата проверки
+     * @throws IOException
+     */
+    private synchronized void loadFNSIlist(PrintWriter resp) throws IOException {
+        final File file = new File(DATA_PATH+"/FNSIlist.txt");
+        if (file.exists()) {
+            FileInputStream fis = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.US_ASCII);
+            BufferedReader reader = new BufferedReader(isr);
+            String line = reader.readLine();
+            int ln = 0;
+            JSONParser parser = new JSONParser();
+            try {
+                while (line != null) {
+                    int i = line.indexOf("-", 0);
+                    if (i < 0) {
+                        String msg = "В строке "+ln+" нет символа '-'";
+                        if (resp != null)
+                            resp.print(msg);
+                        else
+                            log.warn(msg);
+                    } else {
+                        if (line.substring(i).indexOf("SKIP") > 0) {
+                            FNSI_SKIP_LIST.add(line.substring(0, i).trim());
+                        } else {
+                            JSONObject obj = (JSONObject)parser.parse(line.substring(i+1));
+                            String[] arr = new String[3];
+                            arr[0] = (String)obj.get("PRIMARY");
+                            arr[1] = (String)obj.get("VALUE");
+                            String level = (String)obj.get("LEVEL");
+                            if (level == null || !(level.equals("ERROR") || level.equals("WARNING")))
+                                level = "ERROR";
+                            arr[2] = level;
+                                FNSI_COLS_MAPPING.put(line.substring(0, i).trim(), arr);
+                        }
+                    }
+                    line = reader.readLine();
+                    ln++;
+                }
+                reader.close();
+            } catch (ParseException ex) {
+                if (resp != null)
+                    resp.print(ex);
+                else
+                    log.warn(ex);
+            }
+            FNSI_SKIP_LIST.sort(null);
+        }
+    }
 
+    /**
+     * Вроверка тега на соответствие ФНСИ
+     * @param resp - поток для вывода результата проверки
+     * @param tag - какой тег сейчас проверяется
+     * @param attributes - атрибуты проверяемого тега
+     * @return возвращает true в случае успешной прохождения проверки, false при наличии ошибки
+     */
     private boolean validateTag(PrintWriter resp, final String tag, final NamedNodeMap attributes) {
         final Node codeSystem = attributes.getNamedItem("codeSystem");
         if (codeSystem == null) {
@@ -937,9 +1028,15 @@ public class SEMDValidator extends HttpServlet {
         }        
     }
 
-    // получаем паспорт справочника и записываем паспорт в файл
-    // если паспорт был получен ранее, то читаем его с диска
-    // фукнция возвращает хеш с ключевыми данными паспорта - rowsCount, codeSystem, codeSystemName, codeSystemVersion, PRIMARY, VALUE
+    /**
+     * Получаем паспорт справочника и записываем паспорт в файл
+     * Если паспорт был получен ранее, то читаем его с диска
+     * Фукнция возвращает хеш с ключевыми данными паспорта - rowsCount, codeSystem, codeSystemName, codeSystemVersion, PRIMARY, VALUE
+     * @param resp - поток для вывода результата проверки
+     * @param tag - какой тег сейчас проверяется
+     * @param codeSystem - массив из 2-х строк, 1ая - OID справочник, 2-ая - версия справочника
+     * @return Возвращает данные паспорта - название тега со значением ключа и название поля со значением
+     */
     private HashMap<String, String> getPassport(PrintWriter resp, final String tag, final String[] codeSystem) {
         final String key = String.join("_", codeSystem);
         HashMap<String, String> ret = passports.get(key);
@@ -986,25 +1083,20 @@ public class SEMDValidator extends HttpServlet {
                 ret.put("codeSystemName", fullName);
                 ret.put("codeSystemVersion", codeSystem[1]);
                 String[] arr = FNSI_COLS_MAPPING.get(codeSystem[0]);
-                if (arr == null) {
-                    String primary_id = null;
-                    String value_name = null;
-                    Iterator<JSONObject> i = keys.iterator();
-                    while (i.hasNext()) {
-                        JSONObject ikey = i.next();
-                        String type = (String)ikey.get("type");
-                        if (primary_id == null && type.equals("PRIMARY")) {
-                            primary_id = (String)ikey.get("field");
-                            ret.put("PRIMARY", primary_id);
-                        } else if (value_name == null && type.equals("VALUE")) {
-                            value_name = (String)ikey.get("field");
-                            ret.put("VALUE", value_name);
-                        }
+                String primary_id = (arr == null) ? null : arr[0];
+                String value_name = (arr == null) ? null : arr[1];
+                Iterator<JSONObject> i = keys.iterator();
+                while (i.hasNext() && !(primary_id != null && value_name != null)) {
+                    JSONObject ikey = i.next();
+                    String type = (String)ikey.get("type");
+                    if (primary_id == null && type.equals("PRIMARY")) {
+                        primary_id = (String)ikey.get("field");
+                    } else if (value_name == null && type.equals("VALUE")) {
+                        value_name = (String)ikey.get("field");
                     }
-                } else {
-                    ret.put("PRIMARY", arr[0]);
-                    ret.put("VALUE", arr[1]);
                 }
+                ret.put("PRIMARY", primary_id);
+                ret.put("VALUE", value_name);
                 passports.put(key, ret);
                 FileTime fileTime = FileTime.fromMillis(System.currentTimeMillis());
                 touch(file, fileTime);
@@ -1032,12 +1124,19 @@ public class SEMDValidator extends HttpServlet {
         return null;
     }
 
-    // Проверка тега code на соответствие ФНСИ. 
-    // Для проверки получаем справочник и записываем в файл
-    // если справочник был получен ранее, то читаем его с диска в хеш. Тоже самое делаем сначала с паспортом справочника.
-    // Значение атрибута code сопоставляется со значение поля, указанного как PRIMARY в массиве keys в паспорте справочника.
-    // Значение атрибута displayName сопоставляется со значение поля, указанного как VALUE в массиве keys в паспорте справочника.
-    // Значение атрибута codeSystemName сопоставляется со значение поля fullName в паспорте справочника.
+    /**
+    * Проверка тега code на соответствие ФНСИ. 
+    * Для проверки получаем справочник и записываем в файл
+    * Если справочник был получен ранее, то читаем его с диска в хеш. Тоже самое делаем сначала с паспортом справочника.
+    * Значение атрибута code сопоставляется со значение поля, указанного как PRIMARY в массиве keys в паспорте справочника.
+    * Значение атрибута displayName сопоставляется со значение поля, указанного как VALUE в массиве keys в паспорте справочника.
+    * Значение атрибута codeSystemName сопоставляется со значение поля fullName в паспорте справочника.
+     * @param resp - поток для вывода результата проверки
+     * @param tag - какой тег сейчас проверяется
+     * @param attributes - атрибуты проверяемого тега
+     * @param passport - данные паспорта - название тега со значением ключа и название поля со значением
+     * @return возвращает true в случае успешной прохождения проверки, false при наличии ошибки
+     */
     private boolean getRef(PrintWriter resp, final String tag, final NamedNodeMap attributes, final HashMap<String, String> passport) {
         String code = null;
         String codeSystemName = null;
@@ -1065,21 +1164,21 @@ public class SEMDValidator extends HttpServlet {
             return true;
         }
         if (!passport.get("codeSystemName").equals(codeSystemName)) {
-            resp.print(":ERROR: Tag-"+tag+". Неверный codeSystemName. Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"] '."+passport.get("codeSystemName")+"' != '"+codeSystemName+"'\n");
+            resp.println(":ERROR: Tag-"+tag+". Неверный codeSystemName. Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"] '."+passport.get("codeSystemName")+"' != '"+codeSystemName+"'");
             return false;
         }
 
         final String primary_id = passport.get("PRIMARY");
         final String value_name = passport.get("VALUE");
         if (primary_id == null || value_name == null) {
-            resp.print(":WARNING: Tag-"+tag+". For ref "+codeSystem+" version "+codeSystemVersion+" '"+codeSystemName+"' can't figure out PRIMARY and VALUE fields\n");
-            return false;
+            resp.println(":WARNING: Tag-"+tag+". Для справочника "+codeSystem+", версия ["+codeSystemVersion+"] '"+codeSystemName+"' не установлены PRIMARY и VALUE");
+            return true;
         }
 
-        int rowsCount = Integer.parseInt(passport.get("rowsCount"));
+        final int rowsCount = Integer.parseInt(passport.get("rowsCount"));
         ConcurrentHashMap<String, String> ref = refs.get(key);
-        if (ref == null || ref.size() != rowsCount) {
-            int c = (rowsCount-1)/2000+1;
+        if (ref == null) {
+            final int c = (rowsCount-1)/2000+1;
             FileTime fileTime = FileTime.fromMillis(System.currentTimeMillis());
             for (int i=1; i <= c; i++) {
                 final File file = new File(DATA_PATH + "/fnsi/"+key+"_part"+i);
@@ -1097,75 +1196,104 @@ public class SEMDValidator extends HttpServlet {
                         fOutput.close();
                     } catch (MalformedURIException ex) {
                         log.error(ex.getMessage(), ex);
+                        return true;
                     } catch (IOException ex) {
                         log.error(ex.getMessage(), ex);
                         if (file.exists()) {
                             log.info("Delete wrong file (IOException) "+file);
                             file.delete();
                         }
+                        return true;
                     }
                 }
-                if (ref == null) {
-                    ref = new ConcurrentHashMap<String, String>();
-                    refs.put(key, ref);
-                }
-                try {
-                    log.info("Reading file "+file);
-                    JSONParser parser = new JSONParser();
-                    JSONObject obj = (JSONObject)parser.parse(new FileReader(file.getAbsolutePath()));
-                    if (obj.get("result").equals("OK")) {
-                        JSONArray list = (JSONArray)obj.get("list");
-                        Iterator it = list.iterator();
-                        while (it.hasNext()) {
-                            JSONArray row = (JSONArray)it.next();
-                            Iterator<JSONObject> i2 = row.iterator();
-                            String data_primary = null;
-                            String data_value = null;
-                            while (i2.hasNext()) {
-                                JSONObject field = i2.next();
-                                String col = (String)field.get("column");
-                                if (col.equals(primary_id)) {
-                                    data_primary = (String)field.get("value");
-                                    if (data_value != null)
-                                        break;
-                                } else if (col.equals(value_name)) {
-                                    data_value = (String)field.get("value");
-                                    if (data_primary != null)
-                                        break;
+            }
+
+            ref = new ConcurrentHashMap<String, String>();
+            for (int i=1; i <= c; i++) {
+                final File file = new File(DATA_PATH + "/fnsi/"+key+"_part"+i);
+                if (file.exists()) {
+                    try {
+                        log.info("Reading file "+file+ " PRIMARY-'"+primary_id+ "'' VALUE-'"+value_name+"'");
+                        JSONParser parser = new JSONParser();
+                        JSONObject obj = (JSONObject)parser.parse(new FileReader(file.getAbsolutePath()));
+                        if (obj.get("result").equals("OK")) {
+                            JSONArray list = (JSONArray)obj.get("list");
+                            Iterator it = list.iterator();
+                            while (it.hasNext()) {
+                                JSONArray row = (JSONArray)it.next();
+                                Iterator<JSONObject> i2 = row.iterator();
+                                String data_primary = null;
+                                String data_value = null;
+                                boolean data_primary_loaded = false;
+                                boolean data_value_loaded = false;
+                                while (i2.hasNext()) {
+                                    JSONObject field = i2.next();
+                                    String col = (String)field.get("column");
+                                    if (col.equals(primary_id)) {
+                                        data_primary = (String)field.get("value");
+                                        data_primary_loaded = true;
+                                        if (data_value_loaded)
+                                            break;
+                                    } else if (col.equals(value_name)) {
+                                        data_value = (String)field.get("value");
+                                        data_value_loaded = true;
+                                        if (data_primary_loaded)
+                                            break;
+                                    }
+                                }
+                                if (data_primary_loaded && data_value_loaded) {
+                                    if (data_primary != null && data_value != null)     // в справочнике МКБ есть нулевые записи
+                                        ref.put(data_primary, data_value);
+                                } else {
+                                    String msg = ":WARNING: Tag-"+tag+". Для справочника "+codeSystem+", версия ["+codeSystemVersion+"] '"+codeSystemName+"'  PRIMARY или VALUE установлен ошибочно - "+data_primary +" "+ data_value;
+                                    resp.println(msg);
+                                    log.error(msg);
+                                    return true;
                                 }
                             }
-                            if (data_primary != null && data_value != null)
-                                ref.put(data_primary, data_value);
                         }
                     }
-                }
-                catch (ParseException ex) {
-                    log.error("Passport-"+key+". "+ex);
-                    ex.printStackTrace(resp);
-                    if (file.exists()) {
-                        log.info("Delete wrong file (ParseException) "+file);
-                        file.delete();
+                    catch (ParseException ex) {
+                        log.error("Passport-"+key+". "+ex);
+                        ex.printStackTrace(resp);
+                        if (file.exists()) {
+                            log.info("Delete wrong file (ParseException) "+file);
+                            file.delete();
+                        }
+                        return false;
+                    } catch (IOException ex) {
+                        log.error(ex.getMessage(), ex);
+                        return false;
                     }
-                    return false;
-                } catch (IOException ex) {
-                    log.error(ex.getMessage(), ex);
-                    return false;
+                } else {
+                    String msg = "Не найден справочник "+file+"! Ошибка программы";
+                    resp.println(msg);
+                    log.error(msg);
+                    return true;
                 }
                 touch(file, fileTime);
+                refs.put(key, ref);
             }
         }
         String dn = ref.get(code);
         if (dn == null) {
-            resp.print(":ERROR: Tag-"+tag+". INVALID_ELEMENT_VALUE_CODE Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Элемент с кодом ["+code+"] отсутствует.\n");
+            resp.println(":ERROR: Tag-"+tag+". INVALID_ELEMENT_VALUE_CODE Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Элемент с кодом ["+code+"] отсутствует");
             return false;
         }
         if (!dn.equals(displayName)) {
-            resp.print(":ERROR: Tag-"+tag+". INVALID_ELEMENT_VALUE_NAME Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Наименование элемента ["+displayName+"] не соответствует наименованию элемента в НСИ ["+dn+"]\n");
+            final String[] arr = FNSI_COLS_MAPPING.get(codeSystem);
+            final String level = (arr != null) ? arr[2] : "ERROR";
+            resp.println(":"+level+": Tag-"+tag+". INVALID_ELEMENT_VALUE_NAME Справочник OID ["+codeSystem+"], версия ["+codeSystemVersion+"]. Наименование элемента ["+displayName+"] с кодом ["+code+"] не соответствует наименованию элемента в НСИ ["+dn+"]");
             return false;
         }
         return true;
     }
 
+    /**
+     * Действие аналогичное команде 'touch -a' в линуксе.
+     * @param file - файл
+     * @param fileTime - какое время установить
+     */
     private static void touch(final File file, final FileTime fileTime) {
         try {
             Path p = Paths.get(file.getAbsolutePath());

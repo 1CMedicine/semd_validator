@@ -1,0 +1,17 @@
+code
+administrativeGenderCode
+value
+identity:IdentityCardType
+identity:InsurancePolicyType
+identity:IdentityDocType
+address:Type
+address:stateCode
+functionCode
+translation
+confidentialityCode
+medService:serviceForm
+medService:serviceType
+medService:serviceCond
+interpretationCode
+address:residentCode
+identity:IdentityCardTypeId

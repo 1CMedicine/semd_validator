@@ -19,6 +19,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.*;
 
+import org.eclipse.jetty.io.RuntimeIOException;
 import org.eclipse.jetty.server.Request;
 import java.io.*;
 import java.net.*;
@@ -617,7 +618,7 @@ public class SEMDValidator extends HttpServlet {
         , "В этом случае обязательная папка будет иметь название betaOnko. Схемарон (при наличии) также будет иметь имя betaOnko.sch или betaOnko_1.sch</li>"
         , "</ul>"
          , "<hr>"
-        , "  <H1>Отправка файла со списком справочников ФНСИ, исключенных из контроля</H1>"
+        , "  <H1>Отправка файла со списком справочников ФНСИ</H1>"
         , "  <form enctype = 'multipart/form-data'  method='post' action='", contextPath, "/uploadFNSIlist'>"
         , "   <input type='file' name='file'/>"
         , "   <input type='submit' value='Отправить FNSIlist.txt'/>"
@@ -767,7 +768,7 @@ public class SEMDValidator extends HttpServlet {
         out.print(String.join("\n"
         , "</table>"));
         if (FNSI_SKIP_LIST.size() > 0) {
-            out.println("<H2>Список OID справочников ФНСИ, исключаемых из проверок</H2>");
+            out.println("<H2>Список OID справочников ФНСИ, исключаемых из проверок (FNSIlist.txt)</H2>");
             for (String k : FNSI_SKIP_LIST) {
                 out.println(String.join("", k, " - SKIP<br>\n"));
             }
@@ -776,7 +777,16 @@ public class SEMDValidator extends HttpServlet {
             out.println("<H2>Список OID справочников ФНСИ, с отдельными правилами проверки (FNSIlist.txt)</H2>");
             for (String k : FNSI_COLS_MAPPING.keySet()) {
                 String[] v = FNSI_COLS_MAPPING.get(k);
-                out.println(String.join("", k, " - {\"PRIMARY\":\"", v[0], "\", \"VALUE\":\"", v[1],"\", \"LEVEL\":\"", v[2],"\"}<br>"));
+                String primary = (v[0] != null) ? "\"PRIMARY\":\""+ v[0]+ "\"" : "";
+                String comma = (primary.length() > 0) ? ", " : "";
+                String value = (v[1] != null) ? comma+"\"VALUE\":\""+ v[1]+ "\"" : "";
+                comma = (value.length() > 0 || comma.length() > 0) ? ", " : "";
+                String level = (v[2] != null) ? comma+"\"LEVEL\":\""+ v[2]+ "\"" : "";
+                comma = (level.length() > 0 || comma.length() > 0) ? ", " : "";
+                String fullname = (v[3] != null) ? comma+"\"FULLNAME\":\""+ v[3]+ "\"" : "";
+                comma = (fullname.length() > 0 || comma.length() > 0) ? ", " : "";
+                String comment = (v[4] != null) ? comma+"\"COMMENT\":\""+ v[4]+ "\"" : "";
+                out.println(String.join("", k, " - {", primary, value, level, fullname, comment, "}<br>"));
             }
         }
         if (LIST_TAGS_FOR_VARIFICATION.size() > 0) {
@@ -1001,10 +1011,10 @@ public class SEMDValidator extends HttpServlet {
         final File file = new File(DATA_PATH+"/FNSIlist.txt");
         if (file.exists()) {
             FileInputStream fis = new FileInputStream(file);
-            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.US_ASCII);
+            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(isr);
             String line = reader.readLine();
-            int ln = 0;
+            int ln = 1;
             JSONParser parser = new JSONParser();
             try {
                 while (line != null) {
@@ -1020,25 +1030,40 @@ public class SEMDValidator extends HttpServlet {
                             FNSI_SKIP_LIST.add(line.substring(0, i).trim());
                         } else {
                             JSONObject obj = (JSONObject)parser.parse(line.substring(i+1));
-                            String[] arr = new String[3];
+                            String[] arr = new String[5];
                             arr[0] = (String)obj.get("PRIMARY");
                             arr[1] = (String)obj.get("VALUE");
                             String level = (String)obj.get("LEVEL");
-                            if (level == null || !(level.equals("ERROR") || level.equals("SKIP_codeSystemName") || level.equals("SKIP_displayName")))
+                            if (level == null || !(level.equals("ERROR") || level.equals("SKIP_displayName")))
                                 level = "ERROR";
                             arr[2] = level;
                                 FNSI_COLS_MAPPING.put(line.substring(0, i).trim(), arr);
+                            arr[3] = (String)obj.get("FULLNAME");
+                            arr[4] = (String)obj.get("COMMENT");
                         }
                     }
                     line = reader.readLine();
                     ln++;
                 }
-                reader.close();
             } catch (ParseException ex) {
-                if (resp != null)
+                if (resp != null) {
+                    resp.println("Line-"+ln);
                     resp.print(ex);
-                else
-                    log.warn(ex);
+                } else {
+                    log.warn("Line-"+ln);
+                    log.warn(ex.getMessage(), ex);
+                }
+                throw new RuntimeIOException(ex);
+            } catch (RuntimeException ex) {
+                if (resp != null) {
+                    resp.println("Line-"+ln);
+                } else {
+                    log.warn("Line-"+ln);
+                    log.warn(ex.getMessage(), ex);
+                }
+            }
+            finally {
+                reader.close();
             }
             FNSI_SKIP_LIST.sort(null);
         }
@@ -1054,7 +1079,7 @@ public class SEMDValidator extends HttpServlet {
         LIST_TAGS_FOR_VARIFICATION.clear();
         if (file.exists()) {
             FileInputStream fis = new FileInputStream(file);
-            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.US_ASCII);
+            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(isr);
             String line = reader.readLine();
             while (line != null) {
@@ -1141,14 +1166,17 @@ public class SEMDValidator extends HttpServlet {
             String fullName = (String)obj.get("fullName");
             JSONArray keys = (JSONArray)obj.get("keys");
             if (obj.get("result").equals("OK") && rowsCount != null && fullName != null && keys != null) {
-                ret = new HashMap<String, String>();
-                ret.put("rowsCount", rowsCount.toString());
-                ret.put("codeSystem", codeSystem[0]);
-                ret.put("codeSystemName", fullName);
-                ret.put("codeSystemVersion", codeSystem[1]);
                 String[] arr = FNSI_COLS_MAPPING.get(codeSystem[0]);
                 String primary_id = (arr == null) ? null : arr[0];
                 String value_name = (arr == null) ? null : arr[1];
+                if (arr != null && arr[3] != null) {
+                    fullName = arr[3];
+                }
+                ret = new HashMap<String, String>();
+                ret.put("rowsCount", rowsCount.toString());
+                ret.put("codeSystem", codeSystem[0]);
+                ret.put("codeSystemVersion", codeSystem[1]);
+                ret.put("codeSystemName", fullName);
                 Iterator<JSONObject> i = keys.iterator();
                 while (i.hasNext() && !(primary_id != null && value_name != null)) {
                     JSONObject ikey = i.next();

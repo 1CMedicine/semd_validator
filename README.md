@@ -40,7 +40,6 @@ administrativeGenderCode
 value
 functionCode
 translation
-confidentialityCode
 ```
 
 

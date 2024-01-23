@@ -8,7 +8,6 @@ address:Type
 address:stateCode
 functionCode
 translation
-confidentialityCode
 medService:serviceForm
 medService:serviceType
 medService:serviceCond

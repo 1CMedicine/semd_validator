@@ -1,0 +1,1 @@
+{  "result": "OK",  "resultText": null,  "resultCode": null,  "total": 2,  "list": [    [      {        "column": "ID",        "value": "2"      },      {        "column": "NAME",        "value": "многоплодные роды"      }    ],    [      {        "column": "ID",        "value": "1"      },      {        "column": "NAME",        "value": "одноплодные роды"      }    ]  ]}

@@ -6,6 +6,7 @@
 <!-- 14.11.2022 - v.2.0.0: Изменение принципа построения модуля - запрет @nullFlavor в элементах [0..1] и R[1..1] -->
 <!-- 22.11.2022 - v.2.0.1: У3-10 - value обязан иметь 1 translation -->
 <!-- 10.07.2023 - v.2.0.2: Обновлены модули Core03, Main01, Main02, Main12 -->
+<!-- 17.01.2024 - v.2.0.2: У3-11 - элемент name обязан быть представлен при code/@nullFlavor (У3-11-1-г-I-i-3); Core07-1 - элемент code может содержать @nullFlavor (У3-11-1-г-I-i-1, У3-11-1-г-I-i-2)-->
 
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
@@ -409,6 +410,11 @@
             <assert test="@code!=''">У3-11. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @code.</assert>
             <assert test="@codeSystemVersion!=''">У3-11. ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @codeSystemVersion.</assert>
             <assert test="@displayName!=''">У3-11. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code должен иметь не пустое значение атрибута @displayName.</assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial[code[@nullFlavor]]">
+            <assert test="count(name)=1">У3-11. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='RECIPE']/entry/substanceAdministration/consumable/manufacturedProduct/manufacturedMaterial обязан иметь 1 элемент name.</assert>
         </rule>
     </pattern>
     <pattern>
@@ -922,7 +928,7 @@
 
     <!-- Core07-1 -->
     <pattern>
-        <rule context="//code[not(parent::criterion)][not(parent::substanceAdministration)][not(parent::supply)]">
+        <rule context="//code[not(parent::criterion)][not(parent::substanceAdministration)][not(parent::supply)][not(parent::manufacturedMaterial[ancestor::section[code/@code='RECIPE']/entry[substanceAdministration/consumable]])]">
             <assert test="@codeSystem!=''">Core07-1. Элемент //code должен иметь не пустое значение атрибута @codeSystem.</assert>
             <assert test="@codeSystemName!=''">Core07-1. Элемент //code должен иметь не пустое значение атрибута @codeSystemName.</assert>
             <assert test="@code!=''">Core07-1. Элемент //code должен иметь не пустое значение атрибута @code.</assert>

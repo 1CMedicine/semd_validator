@@ -368,9 +368,7 @@ public class SEMDValidator extends HttpServlet {
                 NodeList codeList = document.getDocumentElement().getElementsByTagName(tag);
                 for (int j = 0; j < codeList.getLength(); j++) {
                     NamedNodeMap attributes = codeList.item(j).getAttributes();
-                    boolean v = validateTag(out, tag, attributes);
-                    if (!v)
-                        valid = false;
+                    validateTag(out, tag, attributes);
                 }
             }
         }
@@ -595,7 +593,7 @@ public class SEMDValidator extends HttpServlet {
         out.print(String.join("\n"
         , "<html>"
         , " <head>"
-        , "  <title>Отправка zip-архива со схемой и схематроном</title>"
+        , "  <title>Настройка</title>"
         , " </head>"
         , " <body>"
         , "  <H1>Отправка zip-архива со схемой и схематроном</H1>"

@@ -178,6 +178,12 @@ public class SEMDValidator extends HttpServlet {
                 get_sch_list(req.getContextPath(), resp);
             else
                 loginHtml(req.getContextPath(), resp);
+        } else if (req.getServletPath().equals("/fnsi.html")) { 
+            log.info(req.getServletPath());
+            if (user)
+                fnsi(req.getContextPath(), resp);
+            else
+                loginHtml(req.getContextPath(), resp);
         } else if (req.getServletPath().equals("/send_semd.html")) {
             log.info(req.getServletPath());
             send_semd(req.getContextPath(), resp);
@@ -629,7 +635,8 @@ public class SEMDValidator extends HttpServlet {
         , "  </form>"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
-        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
+        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a><br>"
+        , "<a href='", contextPath, "/fnsi.html'>Кеш справочников ФНСИ</a>"
         , "</body>"
         , "</html>"));
     }
@@ -794,7 +801,62 @@ public class SEMDValidator extends HttpServlet {
         out.print(String.join("\n"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_sch.html'>Настройки</a><br>"
-        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a>"
+        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
+        , "<a href='", contextPath, "/fnsi.html'>Кеш справочников ФНСИ</a>"
+        , "</body>"
+        , "</html>"));
+    }
+
+
+    /**
+     * HTML страница с выводом содержимого папки fnsi, где сохраняются справочники ФНСИ
+     * @param contextPath URL сайта для формирования ссылок
+     * @param resp Поток для вывода результата
+     * @throws IOException
+     */
+    private void fnsi(final String contextPath, HttpServletResponse resp) 
+            throws IOException {
+
+        resp.setHeader("Content-Type", "text/html; charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+        out.print(String.join("\n"
+        , "<html>"
+        , " <head>"
+        , "  <title>Кеш справочников ФНСИ</title>"
+        , " </head>"
+        , " <body>"));
+
+        List<String> list = new ArrayList<String>();
+        final File folder = new File(DATA_PATH+"/fnsi");
+        final File[] fl = folder.listFiles();
+        if (fl != null) {
+            for (final File fileEntry : fl) {
+                if (fileEntry.isFile()) {
+                    list.add(fileEntry.getName());
+                }
+            }
+        } else {
+            throw new IOException("Folder not found: "+DATA_PATH);
+        }
+        list.sort(Comparator.naturalOrder());
+
+        out.print("<h2>Кеш справочников ФНСИ</h2>\n");
+        out.print("<table><tr><th>File</th><th>Size in bytes</th><th>Upload date</th></tr>");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
+        for (Iterator<String> i = list.iterator(); i.hasNext();) {
+            String item = i.next();
+            String style = "";
+            File file = new File(DATA_PATH + "/fnsi/"+item);
+            out.print(String.join("", "<tr><td", style, "><a href='./file/fnsi/", item,"'>", item, "</a></td><td align='right'", style,">", Long.toString(file.length()), "</td><td", style,">", dateFormat.format(file.lastModified()), "</td></tr>\n"));
+        }
+
+        out.print(String.join("\n"
+        , "</table>"));
+        out.print(String.join("\n"
+        , "<h2>См. также</h2>"
+        , "<a href='", contextPath, "/send_sch.html'>Настройки</a><br>"
+        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
+        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
         , "</body>"
         , "</html>"));
     }
@@ -829,7 +891,8 @@ public class SEMDValidator extends HttpServlet {
         , "<hr>"
         , "<h2>См. также</h2>"
         , "<a href='", contextPath, "/send_sch.html'>Настройки</a><br>"
-        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
+        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a><br>"
+        , "<a href='", contextPath, "/fnsi.html'>Кеш справочников ФНСИ</a>"
         , "</body>"
         , "</html>"));
     }

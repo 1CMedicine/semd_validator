@@ -21,7 +21,7 @@
             <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
          </dct:Agent>
       </dct:creator>
-      <dct:created>2022-11-25T17:13:48.632933914+08:00</dct:created>
+      <dct:created>2024-01-26T18:13:21.915690915+08:00</dct:created>
    </rdf:Description>
    <xsl:output indent="yes"/>
    <xsl:template match="root()">
@@ -56,14 +56,14 @@
                         <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
                      </dct:Agent>
                   </dct:creator>
-                  <dct:created>2022-11-25T17:13:48.632933914+08:00</dct:created>
+                  <dct:created>2024-01-26T18:13:21.915690915+08:00</dct:created>
                </rdf:Description>
             </dct:source>
          </svrl:metadata>
       </xsl:variable>
       <xsl:variable name="report" as="element(schxslt:report)">
          <schxslt:report>
-            <xsl:call-template name="d4399e23"/>
+            <xsl:call-template name="d13e23"/>
          </schxslt:report>
       </xsl:variable>
       <xsl:variable name="schxslt:report" as="node()*">
@@ -92,9 +92,9 @@
       <xsl:apply-templates mode="#current" select="@*"/>
       <xsl:apply-templates mode="#current" select="node()"/>
    </xsl:template>
-   <xsl:template name="d4399e23">
+   <xsl:template name="d13e23">
       <schxslt:document>
-         <schxslt:pattern id="d4399e23">
+         <schxslt:pattern id="d13e23">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -104,7 +104,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e42">
+         <schxslt:pattern id="d13e42">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -114,7 +114,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e56">
+         <schxslt:pattern id="d13e56">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -124,7 +124,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e74">
+         <schxslt:pattern id="d13e74">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -134,7 +134,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e85">
+         <schxslt:pattern id="d13e85">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -144,7 +144,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e102">
+         <schxslt:pattern id="d13e102">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -154,7 +154,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e123">
+         <schxslt:pattern id="d13e123">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -164,7 +164,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e140">
+         <schxslt:pattern id="d13e140">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -174,7 +174,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e160">
+         <schxslt:pattern id="d13e160">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -184,7 +184,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e187">
+         <schxslt:pattern id="d13e187">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -194,7 +194,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e204">
+         <schxslt:pattern id="d13e204">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -204,7 +204,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e221">
+         <schxslt:pattern id="d13e221">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -214,7 +214,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e248">
+         <schxslt:pattern id="d13e248">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -224,7 +224,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e265">
+         <schxslt:pattern id="d13e265">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -234,7 +234,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e285">
+         <schxslt:pattern id="d13e285">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -244,7 +244,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e303">
+         <schxslt:pattern id="d13e303">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -254,7 +254,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e358">
+         <schxslt:pattern id="d13e358">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -264,7 +264,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e421">
+         <schxslt:pattern id="d13e421">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -274,7 +274,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e458">
+         <schxslt:pattern id="d13e458">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -284,7 +284,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e565">
+         <schxslt:pattern id="d13e565">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -294,7 +294,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e602">
+         <schxslt:pattern id="d13e602">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -304,7 +304,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e722">
+         <schxslt:pattern id="d13e722">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -314,7 +314,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e763">
+         <schxslt:pattern id="d13e763">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -324,7 +324,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e796">
+         <schxslt:pattern id="d13e796">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -334,7 +334,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e822">
+         <schxslt:pattern id="d13e822">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -344,7 +344,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e955">
+         <schxslt:pattern id="d13e955">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -354,7 +354,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1003">
+         <schxslt:pattern id="d13e1003">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -364,7 +364,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1013">
+         <schxslt:pattern id="d13e1013">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -374,7 +374,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1025">
+         <schxslt:pattern id="d13e1025">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -384,7 +384,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1050">
+         <schxslt:pattern id="d13e1050">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -394,7 +394,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1062">
+         <schxslt:pattern id="d13e1062">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -404,7 +404,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1071">
+         <schxslt:pattern id="d13e1071">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -414,7 +414,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1080">
+         <schxslt:pattern id="d13e1080">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -424,7 +424,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1096">
+         <schxslt:pattern id="d13e1096">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -434,7 +434,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1117">
+         <schxslt:pattern id="d13e1117">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -444,7 +444,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1132">
+         <schxslt:pattern id="d13e1132">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -454,7 +454,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1147">
+         <schxslt:pattern id="d13e1147">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -464,7 +464,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1162">
+         <schxslt:pattern id="d13e1162">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -474,7 +474,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1177">
+         <schxslt:pattern id="d13e1177">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -484,7 +484,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1187">
+         <schxslt:pattern id="d13e1187">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -494,7 +494,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1196">
+         <schxslt:pattern id="d13e1196">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -504,7 +504,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1219">
+         <schxslt:pattern id="d13e1219">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -514,7 +514,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1234">
+         <schxslt:pattern id="d13e1234">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -524,7 +524,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1283">
+         <schxslt:pattern id="d13e1283">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -534,7 +534,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1298">
+         <schxslt:pattern id="d13e1298">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -544,7 +544,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1407">
+         <schxslt:pattern id="d13e1407">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -554,7 +554,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1460">
+         <schxslt:pattern id="d13e1460">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -564,7 +564,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1537">
+         <schxslt:pattern id="d13e1537">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -574,7 +574,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1559">
+         <schxslt:pattern id="d13e1559">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -584,7 +584,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1580">
+         <schxslt:pattern id="d13e1580">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -594,7 +594,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1601">
+         <schxslt:pattern id="d13e1601">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -604,7 +604,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1713">
+         <schxslt:pattern id="d13e1713">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -614,7 +614,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1780">
+         <schxslt:pattern id="d13e1780">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -624,7 +624,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1833">
+         <schxslt:pattern id="d13e1833">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -634,7 +634,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1871">
+         <schxslt:pattern id="d13e1871">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -644,7 +644,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1909">
+         <schxslt:pattern id="d13e1909">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -654,7 +654,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1948">
+         <schxslt:pattern id="d13e1948">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -664,7 +664,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e1986">
+         <schxslt:pattern id="d13e1986">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -674,7 +674,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2024">
+         <schxslt:pattern id="d13e2024">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -684,7 +684,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2094">
+         <schxslt:pattern id="d13e2094">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -694,7 +694,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2163">
+         <schxslt:pattern id="d13e2163">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -704,7 +704,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2379">
+         <schxslt:pattern id="d13e2379">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -714,7 +714,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2424">
+         <schxslt:pattern id="d13e2424">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -724,7 +724,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2486">
+         <schxslt:pattern id="d13e2486">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -734,7 +734,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2564">
+         <schxslt:pattern id="d13e2564">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -744,7 +744,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2686">
+         <schxslt:pattern id="d13e2686">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -754,7 +754,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2895">
+         <schxslt:pattern id="d13e2895">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -764,7 +764,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2945">
+         <schxslt:pattern id="d13e2945">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -774,7 +774,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e2996">
+         <schxslt:pattern id="d13e2996">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -784,7 +784,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e3046">
+         <schxslt:pattern id="d13e3046">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -794,7 +794,7 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <schxslt:pattern id="d4399e3118">
+         <schxslt:pattern id="d13e3118">
             <xsl:if test="exists(base-uri(root()))">
                <xsl:attribute name="documents" select="base-uri(root())"/>
             </xsl:if>
@@ -804,14 +804,14 @@
                </svrl:active-pattern>
             </xsl:for-each>
          </schxslt:pattern>
-         <xsl:apply-templates mode="d4399e23" select="root()"/>
+         <xsl:apply-templates mode="d13e23" select="root()"/>
       </schxslt:document>
    </xsl:template>
-   <xsl:template match="//addr[not(@nullFlavor)]" priority="256" mode="d4399e23">
+   <xsl:template match="//addr[not(@nullFlavor)]" priority="256" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e23']">
-            <schxslt:rule pattern="d4399e23">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e23']">
+            <schxslt:rule pattern="d13e23">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "//addr[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//addr[not(@nullFlavor)]</xsl:attribute>
@@ -824,7 +824,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e23">
+            <schxslt:rule pattern="d13e23">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//addr[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -853,18 +853,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e23')"/>
+                                select="($schxslt:patterns-matched, 'd13e23')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="//addr[fias:Address[not(@nullFlavor)]]"
                   priority="255"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e42']">
-            <schxslt:rule pattern="d4399e42">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e42']">
+            <schxslt:rule pattern="d13e42">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "//addr[fias:Address[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//addr[fias:Address[not(@nullFlavor)]]</xsl:attribute>
@@ -877,7 +877,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e42">
+            <schxslt:rule pattern="d13e42">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//addr[fias:Address[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -899,16 +899,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e42')"/>
+                                select="($schxslt:patterns-matched, 'd13e42')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="//telecom[not(@nullFlavor)]" priority="254" mode="d4399e23">
+   <xsl:template match="//telecom[not(@nullFlavor)]" priority="254" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e56']">
-            <schxslt:rule pattern="d4399e56">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e56']">
+            <schxslt:rule pattern="d13e56">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "//telecom[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//telecom[not(@nullFlavor)]</xsl:attribute>
@@ -921,7 +921,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e56">
+            <schxslt:rule pattern="d13e56">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//telecom[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -936,16 +936,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e56')"/>
+                                select="($schxslt:patterns-matched, 'd13e56')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="//id" priority="253" mode="d4399e23">
+   <xsl:template match="//id" priority="253" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e74']">
-            <schxslt:rule pattern="d4399e74">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e74']">
+            <schxslt:rule pattern="d13e74">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "//id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//id</xsl:attribute>
@@ -958,7 +958,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e74">
+            <schxslt:rule pattern="d13e74">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">//id</xsl:attribute>
                </svrl:fired-rule>
@@ -973,16 +973,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e74')"/>
+                                select="($schxslt:patterns-matched, 'd13e74')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="252" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="252" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e85']">
-            <schxslt:rule pattern="d4399e85">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e85']">
+            <schxslt:rule pattern="d13e85">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -995,7 +995,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e85">
+            <schxslt:rule pattern="d13e85">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1010,16 +1010,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e85')"/>
+                                select="($schxslt:patterns-matched, 'd13e85')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/realmCode" priority="251" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/realmCode" priority="251" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e85']">
-            <schxslt:rule pattern="d4399e85">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e85']">
+            <schxslt:rule pattern="d13e85">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/realmCode" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/realmCode</xsl:attribute>
@@ -1032,7 +1032,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e85">
+            <schxslt:rule pattern="d13e85">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/realmCode</xsl:attribute>
                </svrl:fired-rule>
@@ -1047,16 +1047,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e85')"/>
+                                select="($schxslt:patterns-matched, 'd13e85')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="250" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="250" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e102']">
-            <schxslt:rule pattern="d4399e102">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e102']">
+            <schxslt:rule pattern="d13e102">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1069,7 +1069,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e102">
+            <schxslt:rule pattern="d13e102">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1084,16 +1084,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e102')"/>
+                                select="($schxslt:patterns-matched, 'd13e102')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/typeId" priority="249" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/typeId" priority="249" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e102']">
-            <schxslt:rule pattern="d4399e102">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e102']">
+            <schxslt:rule pattern="d13e102">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/typeId" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/typeId</xsl:attribute>
@@ -1106,7 +1106,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e102">
+            <schxslt:rule pattern="d13e102">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/typeId</xsl:attribute>
                </svrl:fired-rule>
@@ -1128,16 +1128,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e102')"/>
+                                select="($schxslt:patterns-matched, 'd13e102')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="248" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="248" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e123']">
-            <schxslt:rule pattern="d4399e123">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e123']">
+            <schxslt:rule pattern="d13e123">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1150,7 +1150,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e123">
+            <schxslt:rule pattern="d13e123">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1165,16 +1165,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e123')"/>
+                                select="($schxslt:patterns-matched, 'd13e123')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/templateId" priority="247" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/templateId" priority="247" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e123']">
-            <schxslt:rule pattern="d4399e123">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e123']">
+            <schxslt:rule pattern="d13e123">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/templateId" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/templateId</xsl:attribute>
@@ -1187,7 +1187,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e123">
+            <schxslt:rule pattern="d13e123">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/templateId</xsl:attribute>
                </svrl:fired-rule>
@@ -1202,16 +1202,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e123')"/>
+                                select="($schxslt:patterns-matched, 'd13e123')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="246" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="246" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e140']">
-            <schxslt:rule pattern="d4399e140">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e140']">
+            <schxslt:rule pattern="d13e140">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1224,7 +1224,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e140">
+            <schxslt:rule pattern="d13e140">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1239,16 +1239,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e140')"/>
+                                select="($schxslt:patterns-matched, 'd13e140')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/id" priority="245" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/id" priority="245" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e140']">
-            <schxslt:rule pattern="d4399e140">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e140']">
+            <schxslt:rule pattern="d13e140">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/id</xsl:attribute>
@@ -1261,7 +1261,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e140">
+            <schxslt:rule pattern="d13e140">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/id</xsl:attribute>
                </svrl:fired-rule>
@@ -1283,16 +1283,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e140')"/>
+                                select="($schxslt:patterns-matched, 'd13e140')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="244" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="244" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e160']">
-            <schxslt:rule pattern="d4399e160">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e160']">
+            <schxslt:rule pattern="d13e160">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1305,7 +1305,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e160">
+            <schxslt:rule pattern="d13e160">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1320,16 +1320,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e160')"/>
+                                select="($schxslt:patterns-matched, 'd13e160')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/code" priority="243" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/code" priority="243" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e160']">
-            <schxslt:rule pattern="d4399e160">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e160']">
+            <schxslt:rule pattern="d13e160">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/code</xsl:attribute>
@@ -1342,7 +1342,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e160">
+            <schxslt:rule pattern="d13e160">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/code</xsl:attribute>
                </svrl:fired-rule>
@@ -1378,16 +1378,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e160')"/>
+                                select="($schxslt:patterns-matched, 'd13e160')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="242" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="242" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e187']">
-            <schxslt:rule pattern="d4399e187">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e187']">
+            <schxslt:rule pattern="d13e187">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1400,7 +1400,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e187">
+            <schxslt:rule pattern="d13e187">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1415,16 +1415,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e187')"/>
+                                select="($schxslt:patterns-matched, 'd13e187')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/title" priority="241" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/title" priority="241" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e187']">
-            <schxslt:rule pattern="d4399e187">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e187']">
+            <schxslt:rule pattern="d13e187">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/title" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/title</xsl:attribute>
@@ -1437,7 +1437,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e187">
+            <schxslt:rule pattern="d13e187">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/title</xsl:attribute>
                </svrl:fired-rule>
@@ -1452,16 +1452,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e187')"/>
+                                select="($schxslt:patterns-matched, 'd13e187')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="240" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="240" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e204']">
-            <schxslt:rule pattern="d4399e204">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e204']">
+            <schxslt:rule pattern="d13e204">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1474,7 +1474,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e204">
+            <schxslt:rule pattern="d13e204">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1489,18 +1489,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e204')"/>
+                                select="($schxslt:patterns-matched, 'd13e204')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/effectiveTime"
-                  priority="239"
-                  mode="d4399e23">
+   <xsl:template match="ClinicalDocument/effectiveTime" priority="239" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e204']">
-            <schxslt:rule pattern="d4399e204">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e204']">
+            <schxslt:rule pattern="d13e204">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/effectiveTime</xsl:attribute>
@@ -1513,7 +1511,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e204">
+            <schxslt:rule pattern="d13e204">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -1528,16 +1526,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e204')"/>
+                                select="($schxslt:patterns-matched, 'd13e204')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="238" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="238" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e221']">
-            <schxslt:rule pattern="d4399e221">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e221']">
+            <schxslt:rule pattern="d13e221">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1550,7 +1548,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e221">
+            <schxslt:rule pattern="d13e221">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1565,18 +1563,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e221')"/>
+                                select="($schxslt:patterns-matched, 'd13e221')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/confidentialityCode"
                   priority="237"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e221']">
-            <schxslt:rule pattern="d4399e221">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e221']">
+            <schxslt:rule pattern="d13e221">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/confidentialityCode" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/confidentialityCode</xsl:attribute>
@@ -1589,7 +1587,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e221">
+            <schxslt:rule pattern="d13e221">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/confidentialityCode</xsl:attribute>
                </svrl:fired-rule>
@@ -1625,16 +1623,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e221')"/>
+                                select="($schxslt:patterns-matched, 'd13e221')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="236" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="236" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e248']">
-            <schxslt:rule pattern="d4399e248">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e248']">
+            <schxslt:rule pattern="d13e248">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1647,7 +1645,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e248">
+            <schxslt:rule pattern="d13e248">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1662,18 +1660,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e248')"/>
+                                select="($schxslt:patterns-matched, 'd13e248')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/languageCode"
-                  priority="235"
-                  mode="d4399e23">
+   <xsl:template match="ClinicalDocument/languageCode" priority="235" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e248']">
-            <schxslt:rule pattern="d4399e248">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e248']">
+            <schxslt:rule pattern="d13e248">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/languageCode" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/languageCode</xsl:attribute>
@@ -1686,7 +1682,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e248">
+            <schxslt:rule pattern="d13e248">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/languageCode</xsl:attribute>
                </svrl:fired-rule>
@@ -1701,16 +1697,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e248')"/>
+                                select="($schxslt:patterns-matched, 'd13e248')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="234" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="234" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e265']">
-            <schxslt:rule pattern="d4399e265">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e265']">
+            <schxslt:rule pattern="d13e265">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1723,7 +1719,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e265">
+            <schxslt:rule pattern="d13e265">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1738,16 +1734,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e265')"/>
+                                select="($schxslt:patterns-matched, 'd13e265')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/setId" priority="233" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/setId" priority="233" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e265']">
-            <schxslt:rule pattern="d4399e265">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e265']">
+            <schxslt:rule pattern="d13e265">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/setId" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/setId</xsl:attribute>
@@ -1760,7 +1756,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e265">
+            <schxslt:rule pattern="d13e265">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/setId</xsl:attribute>
                </svrl:fired-rule>
@@ -1782,16 +1778,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e265')"/>
+                                select="($schxslt:patterns-matched, 'd13e265')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="232" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="232" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e285']">
-            <schxslt:rule pattern="d4399e285">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e285']">
+            <schxslt:rule pattern="d13e285">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1804,7 +1800,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e285">
+            <schxslt:rule pattern="d13e285">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1819,18 +1815,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e285')"/>
+                                select="($schxslt:patterns-matched, 'd13e285')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/versionNumber"
-                  priority="231"
-                  mode="d4399e23">
+   <xsl:template match="ClinicalDocument/versionNumber" priority="231" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e285']">
-            <schxslt:rule pattern="d4399e285">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e285']">
+            <schxslt:rule pattern="d13e285">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/versionNumber" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/versionNumber</xsl:attribute>
@@ -1843,7 +1837,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e285">
+            <schxslt:rule pattern="d13e285">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/versionNumber</xsl:attribute>
                </svrl:fired-rule>
@@ -1858,16 +1852,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e285')"/>
+                                select="($schxslt:patterns-matched, 'd13e285')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="230" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="230" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e303']">
-            <schxslt:rule pattern="d4399e303">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e303']">
+            <schxslt:rule pattern="d13e303">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -1880,7 +1874,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e303">
+            <schxslt:rule pattern="d13e303">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -1895,18 +1889,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e303')"/>
+                                select="($schxslt:patterns-matched, 'd13e303')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/recordTarget"
-                  priority="229"
-                  mode="d4399e23">
+   <xsl:template match="ClinicalDocument/recordTarget" priority="229" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e303']">
-            <schxslt:rule pattern="d4399e303">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e303']">
+            <schxslt:rule pattern="d13e303">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget</xsl:attribute>
@@ -1919,7 +1911,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e303">
+            <schxslt:rule pattern="d13e303">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget</xsl:attribute>
                </svrl:fired-rule>
@@ -1934,18 +1926,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e303')"/>
+                                select="($schxslt:patterns-matched, 'd13e303')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole"
                   priority="228"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e303']">
-            <schxslt:rule pattern="d4399e303">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e303']">
+            <schxslt:rule pattern="d13e303">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole</xsl:attribute>
@@ -1958,7 +1950,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e303">
+            <schxslt:rule pattern="d13e303">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole</xsl:attribute>
                </svrl:fired-rule>
@@ -2008,18 +2000,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e303')"/>
+                                select="($schxslt:patterns-matched, 'd13e303')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/id[1]"
                   priority="227"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e303']">
-            <schxslt:rule pattern="d4399e303">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e303']">
+            <schxslt:rule pattern="d13e303">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/id[1]</xsl:attribute>
@@ -2032,7 +2024,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e303">
+            <schxslt:rule pattern="d13e303">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -2054,18 +2046,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e303')"/>
+                                select="($schxslt:patterns-matched, 'd13e303')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/id[2]"
                   priority="226"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e303']">
-            <schxslt:rule pattern="d4399e303">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e303']">
+            <schxslt:rule pattern="d13e303">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/id[2]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/id[2]</xsl:attribute>
@@ -2078,7 +2070,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e303">
+            <schxslt:rule pattern="d13e303">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/id[2]</xsl:attribute>
                </svrl:fired-rule>
@@ -2100,18 +2092,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e303')"/>
+                                select="($schxslt:patterns-matched, 'd13e303')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole[identity:IdentityDoc[not(@nullFlavor)]]"
                   priority="225"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e358']">
-            <schxslt:rule pattern="d4399e358">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e358']">
+            <schxslt:rule pattern="d13e358">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole[identity:IdentityDoc[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole[identity:IdentityDoc[not(@nullFlavor)]]</xsl:attribute>
@@ -2124,7 +2116,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e358">
+            <schxslt:rule pattern="d13e358">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole[identity:IdentityDoc[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -2258,18 +2250,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e358')"/>
+                                select="($schxslt:patterns-matched, 'd13e358')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole[identity:InsurancePolicy[not(@nullFlavor)]]"
                   priority="224"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e421']">
-            <schxslt:rule pattern="d4399e421">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e421']">
+            <schxslt:rule pattern="d13e421">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole[identity:InsurancePolicy[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole[identity:InsurancePolicy[not(@nullFlavor)]]</xsl:attribute>
@@ -2282,7 +2274,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e421">
+            <schxslt:rule pattern="d13e421">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole[identity:InsurancePolicy[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -2360,18 +2352,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e421')"/>
+                                select="($schxslt:patterns-matched, 'd13e421')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/addr[1][not(@nullFlavor)]"
                   priority="223"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/addr[1][not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/addr[1][not(@nullFlavor)]</xsl:attribute>
@@ -2384,7 +2376,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/addr[1][not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -2434,18 +2426,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/patient"
                   priority="222"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/patient" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient</xsl:attribute>
@@ -2458,7 +2450,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient</xsl:attribute>
                </svrl:fired-rule>
@@ -2487,18 +2479,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/patient/name[not(@nullFlavor)]"
                   priority="221"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/patient/name[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient/name[not(@nullFlavor)]</xsl:attribute>
@@ -2511,7 +2503,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient/name[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -2547,18 +2539,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/patient/birthTime[not(@nullFlavor)]"
                   priority="220"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/patient/birthTime[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient/birthTime[not(@nullFlavor)]</xsl:attribute>
@@ -2571,7 +2563,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient/birthTime[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -2586,18 +2578,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode[not(@nullFlavor)]"
                   priority="219"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode[not(@nullFlavor)]</xsl:attribute>
@@ -2610,7 +2602,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -2646,18 +2638,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/providerOrganization"
                   priority="218"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/providerOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization</xsl:attribute>
@@ -2670,7 +2662,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -2706,18 +2698,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1]"
                   priority="217"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1]</xsl:attribute>
@@ -2730,7 +2722,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -2745,18 +2737,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2]"
                   priority="216"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e458']">
-            <schxslt:rule pattern="d4399e458">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e458']">
+            <schxslt:rule pattern="d13e458">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2]</xsl:attribute>
@@ -2769,7 +2761,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e458">
+            <schxslt:rule pattern="d13e458">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization/id[2]</xsl:attribute>
                </svrl:fired-rule>
@@ -2798,18 +2790,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e458')"/>
+                                select="($schxslt:patterns-matched, 'd13e458')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/recordTarget/patientRole/providerOrganization[identity:Props[not(@nullFlavor)]]"
                   priority="215"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e565']">
-            <schxslt:rule pattern="d4399e565">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e565']">
+            <schxslt:rule pattern="d13e565">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/recordTarget/patientRole/providerOrganization[identity:Props[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization[identity:Props[not(@nullFlavor)]]</xsl:attribute>
@@ -2822,7 +2814,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e565">
+            <schxslt:rule pattern="d13e565">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/recordTarget/patientRole/providerOrganization[identity:Props[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -2893,16 +2885,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e565')"/>
+                                select="($schxslt:patterns-matched, 'd13e565')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="214" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="214" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -2915,7 +2907,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -2930,16 +2922,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/author" priority="213" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/author" priority="213" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author</xsl:attribute>
@@ -2952,7 +2944,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author</xsl:attribute>
                </svrl:fired-rule>
@@ -2974,16 +2966,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/author/time" priority="212" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/author/time" priority="212" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/time" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/time</xsl:attribute>
@@ -2996,7 +2988,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/time</xsl:attribute>
                </svrl:fired-rule>
@@ -3011,18 +3003,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor"
                   priority="211"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor</xsl:attribute>
@@ -3035,7 +3027,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor</xsl:attribute>
                </svrl:fired-rule>
@@ -3078,18 +3070,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor/id[1]"
                   priority="210"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/id[1]</xsl:attribute>
@@ -3102,7 +3094,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -3124,18 +3116,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor/id[2]"
                   priority="209"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor/id[2]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/id[2]</xsl:attribute>
@@ -3148,7 +3140,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/id[2]</xsl:attribute>
                </svrl:fired-rule>
@@ -3170,18 +3162,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor/code"
                   priority="208"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/code</xsl:attribute>
@@ -3194,7 +3186,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/code</xsl:attribute>
                </svrl:fired-rule>
@@ -3230,18 +3222,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor/assignedPerson"
                   priority="207"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor/assignedPerson" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/assignedPerson</xsl:attribute>
@@ -3254,7 +3246,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/assignedPerson</xsl:attribute>
                </svrl:fired-rule>
@@ -3269,18 +3261,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor/assignedPerson/name[not(@nullFlavor)]"
                   priority="206"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor/assignedPerson/name[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
@@ -3293,7 +3285,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -3329,18 +3321,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor/representedOrganization"
                   priority="205"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor/representedOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/representedOrganization</xsl:attribute>
@@ -3353,7 +3345,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/representedOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -3389,18 +3381,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/author/assignedAuthor/representedOrganization/id"
                   priority="204"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e602']">
-            <schxslt:rule pattern="d4399e602">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e602']">
+            <schxslt:rule pattern="d13e602">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/author/assignedAuthor/representedOrganization/id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/representedOrganization/id</xsl:attribute>
@@ -3413,7 +3405,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e602">
+            <schxslt:rule pattern="d13e602">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/author/assignedAuthor/representedOrganization/id</xsl:attribute>
                </svrl:fired-rule>
@@ -3428,16 +3420,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e602')"/>
+                                select="($schxslt:patterns-matched, 'd13e602')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="203" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="203" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e722']">
-            <schxslt:rule pattern="d4399e722">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e722']">
+            <schxslt:rule pattern="d13e722">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -3450,7 +3442,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e722">
+            <schxslt:rule pattern="d13e722">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -3465,16 +3457,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e722')"/>
+                                select="($schxslt:patterns-matched, 'd13e722')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/custodian" priority="202" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/custodian" priority="202" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e722']">
-            <schxslt:rule pattern="d4399e722">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e722']">
+            <schxslt:rule pattern="d13e722">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/custodian" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian</xsl:attribute>
@@ -3487,7 +3479,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e722">
+            <schxslt:rule pattern="d13e722">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian</xsl:attribute>
                </svrl:fired-rule>
@@ -3502,18 +3494,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e722')"/>
+                                select="($schxslt:patterns-matched, 'd13e722')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/custodian/assignedCustodian"
                   priority="201"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e722']">
-            <schxslt:rule pattern="d4399e722">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e722']">
+            <schxslt:rule pattern="d13e722">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/custodian/assignedCustodian" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian/assignedCustodian</xsl:attribute>
@@ -3526,7 +3518,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e722">
+            <schxslt:rule pattern="d13e722">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian/assignedCustodian</xsl:attribute>
                </svrl:fired-rule>
@@ -3541,18 +3533,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e722')"/>
+                                select="($schxslt:patterns-matched, 'd13e722')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization"
                   priority="200"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e722']">
-            <schxslt:rule pattern="d4399e722">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e722']">
+            <schxslt:rule pattern="d13e722">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization</xsl:attribute>
@@ -3565,7 +3557,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e722">
+            <schxslt:rule pattern="d13e722">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -3594,18 +3586,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e722')"/>
+                                select="($schxslt:patterns-matched, 'd13e722')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/id"
                   priority="199"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e722']">
-            <schxslt:rule pattern="d4399e722">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e722']">
+            <schxslt:rule pattern="d13e722">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/id</xsl:attribute>
@@ -3618,7 +3610,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e722">
+            <schxslt:rule pattern="d13e722">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/custodian/assignedCustodian/representedCustodianOrganization/id</xsl:attribute>
                </svrl:fired-rule>
@@ -3633,18 +3625,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e722')"/>
+                                select="($schxslt:patterns-matched, 'd13e722')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument[informationRecipient/intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']"
                   priority="198"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e763']">
-            <schxslt:rule pattern="d4399e763">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e763']">
+            <schxslt:rule pattern="d13e763">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument[informationRecipient/intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument[informationRecipient/intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']</xsl:attribute>
@@ -3657,7 +3649,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e763">
+            <schxslt:rule pattern="d13e763">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument[informationRecipient/intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']</xsl:attribute>
                </svrl:fired-rule>
@@ -3672,18 +3664,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e763')"/>
+                                select="($schxslt:patterns-matched, 'd13e763')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']"
                   priority="197"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e763']">
-            <schxslt:rule pattern="d4399e763">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e763']">
+            <schxslt:rule pattern="d13e763">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']</xsl:attribute>
@@ -3696,7 +3688,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e763">
+            <schxslt:rule pattern="d13e763">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root='1.2.643.5.1.13']</xsl:attribute>
                </svrl:fired-rule>
@@ -3711,18 +3703,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e763')"/>
+                                select="($schxslt:patterns-matched, 'd13e763')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root='1.2.643.5.1.13']"
                   priority="196"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e763']">
-            <schxslt:rule pattern="d4399e763">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e763']">
+            <schxslt:rule pattern="d13e763">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root='1.2.643.5.1.13']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root='1.2.643.5.1.13']</xsl:attribute>
@@ -3735,7 +3727,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e763">
+            <schxslt:rule pattern="d13e763">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root='1.2.643.5.1.13']</xsl:attribute>
                </svrl:fired-rule>
@@ -3750,18 +3742,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e763')"/>
+                                select="($schxslt:patterns-matched, 'd13e763')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root='1.2.643.5.1.13']"
                   priority="195"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e763']">
-            <schxslt:rule pattern="d4399e763">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e763']">
+            <schxslt:rule pattern="d13e763">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root='1.2.643.5.1.13']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root='1.2.643.5.1.13']</xsl:attribute>
@@ -3774,7 +3766,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e763">
+            <schxslt:rule pattern="d13e763">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root='1.2.643.5.1.13']</xsl:attribute>
                </svrl:fired-rule>
@@ -3796,18 +3788,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e763')"/>
+                                select="($schxslt:patterns-matched, 'd13e763')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root!='1.2.643.5.1.13']"
                   priority="194"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e796']">
-            <schxslt:rule pattern="d4399e796">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e796']">
+            <schxslt:rule pattern="d13e796">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root!='1.2.643.5.1.13']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root!='1.2.643.5.1.13']</xsl:attribute>
@@ -3820,7 +3812,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e796">
+            <schxslt:rule pattern="d13e796">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient[intendedRecipient/receivedOrganization/id/@root!='1.2.643.5.1.13']</xsl:attribute>
                </svrl:fired-rule>
@@ -3835,18 +3827,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e796')"/>
+                                select="($schxslt:patterns-matched, 'd13e796')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root!='1.2.643.5.1.13']"
                   priority="193"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e796']">
-            <schxslt:rule pattern="d4399e796">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e796']">
+            <schxslt:rule pattern="d13e796">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root!='1.2.643.5.1.13']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root!='1.2.643.5.1.13']</xsl:attribute>
@@ -3859,7 +3851,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e796">
+            <schxslt:rule pattern="d13e796">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient[receivedOrganization/id/@root!='1.2.643.5.1.13']</xsl:attribute>
                </svrl:fired-rule>
@@ -3874,18 +3866,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e796')"/>
+                                select="($schxslt:patterns-matched, 'd13e796')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root!='1.2.643.5.1.13']"
                   priority="192"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e796']">
-            <schxslt:rule pattern="d4399e796">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e796']">
+            <schxslt:rule pattern="d13e796">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root!='1.2.643.5.1.13']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root!='1.2.643.5.1.13']</xsl:attribute>
@@ -3898,7 +3890,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e796">
+            <schxslt:rule pattern="d13e796">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/informationRecipient/intendedRecipient/receivedOrganization[id/@root!='1.2.643.5.1.13']</xsl:attribute>
                </svrl:fired-rule>
@@ -3920,16 +3912,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e796')"/>
+                                select="($schxslt:patterns-matched, 'd13e796')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="191" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="191" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -3942,7 +3934,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -3957,18 +3949,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator"
                   priority="190"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator</xsl:attribute>
@@ -3981,7 +3973,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator</xsl:attribute>
                </svrl:fired-rule>
@@ -4010,18 +4002,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/time"
                   priority="189"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/time" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/time</xsl:attribute>
@@ -4034,7 +4026,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/time</xsl:attribute>
                </svrl:fired-rule>
@@ -4049,18 +4041,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/signatureCode"
                   priority="188"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/signatureCode" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/signatureCode</xsl:attribute>
@@ -4073,7 +4065,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/signatureCode</xsl:attribute>
                </svrl:fired-rule>
@@ -4088,18 +4080,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity"
                   priority="187"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity</xsl:attribute>
@@ -4112,7 +4104,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity</xsl:attribute>
                </svrl:fired-rule>
@@ -4155,18 +4147,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity/id[1]"
                   priority="186"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/id[1]</xsl:attribute>
@@ -4179,7 +4171,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -4201,18 +4193,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity/id[2]"
                   priority="185"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity/id[2]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/id[2]</xsl:attribute>
@@ -4225,7 +4217,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/id[2]</xsl:attribute>
                </svrl:fired-rule>
@@ -4247,18 +4239,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity/code"
                   priority="184"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/code</xsl:attribute>
@@ -4271,7 +4263,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/code</xsl:attribute>
                </svrl:fired-rule>
@@ -4314,18 +4306,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson"
                   priority="183"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson</xsl:attribute>
@@ -4338,7 +4330,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson</xsl:attribute>
                </svrl:fired-rule>
@@ -4353,18 +4345,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name[not(@nullFlavor)]"
                   priority="182"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
@@ -4377,7 +4369,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -4413,18 +4405,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization"
                   priority="181"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization</xsl:attribute>
@@ -4437,7 +4429,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -4473,18 +4465,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/id"
                   priority="180"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e822']">
-            <schxslt:rule pattern="d4399e822">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e822']">
+            <schxslt:rule pattern="d13e822">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/id</xsl:attribute>
@@ -4497,7 +4489,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e822">
+            <schxslt:rule pattern="d13e822">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/legalAuthenticator/assignedEntity/representedOrganization/id</xsl:attribute>
                </svrl:fired-rule>
@@ -4512,16 +4504,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e822')"/>
+                                select="($schxslt:patterns-matched, 'd13e822')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="179" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="179" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e955']">
-            <schxslt:rule pattern="d4399e955">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e955']">
+            <schxslt:rule pattern="d13e955">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -4534,7 +4526,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e955">
+            <schxslt:rule pattern="d13e955">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -4549,18 +4541,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e955')"/>
+                                select="($schxslt:patterns-matched, 'd13e955')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']"
                   priority="178"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e955']">
-            <schxslt:rule pattern="d4399e955">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e955']">
+            <schxslt:rule pattern="d13e955">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']</xsl:attribute>
@@ -4573,7 +4565,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e955">
+            <schxslt:rule pattern="d13e955">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']</xsl:attribute>
                </svrl:fired-rule>
@@ -4588,18 +4580,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e955')"/>
+                                select="($schxslt:patterns-matched, 'd13e955')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity"
                   priority="177"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e955']">
-            <schxslt:rule pattern="d4399e955">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e955']">
+            <schxslt:rule pattern="d13e955">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity</xsl:attribute>
@@ -4612,7 +4604,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e955">
+            <schxslt:rule pattern="d13e955">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity</xsl:attribute>
                </svrl:fired-rule>
@@ -4648,18 +4640,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e955')"/>
+                                select="($schxslt:patterns-matched, 'd13e955')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity/code"
                   priority="176"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e955']">
-            <schxslt:rule pattern="d4399e955">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e955']">
+            <schxslt:rule pattern="d13e955">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity/code</xsl:attribute>
@@ -4672,7 +4664,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e955">
+            <schxslt:rule pattern="d13e955">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity/code</xsl:attribute>
                </svrl:fired-rule>
@@ -4715,18 +4707,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e955')"/>
+                                select="($schxslt:patterns-matched, 'd13e955')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['8','9','10','11']]"
                   priority="175"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1003']">
-            <schxslt:rule pattern="d4399e1003">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1003']">
+            <schxslt:rule pattern="d13e1003">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['8','9','10','11']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['8','9','10','11']]</xsl:attribute>
@@ -4739,7 +4731,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1003">
+            <schxslt:rule pattern="d13e1003">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['8','9','10','11']]</xsl:attribute>
                </svrl:fired-rule>
@@ -4754,18 +4746,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1003')"/>
+                                select="($schxslt:patterns-matched, 'd13e1003')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]"
                   priority="174"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1013']">
-            <schxslt:rule pattern="d4399e1013">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1013']">
+            <schxslt:rule pattern="d13e1013">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]</xsl:attribute>
@@ -4778,7 +4770,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1013">
+            <schxslt:rule pattern="d13e1013">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -4800,18 +4792,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1013')"/>
+                                select="($schxslt:patterns-matched, 'd13e1013')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType[not(@nullFlavor)]]"
                   priority="173"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1025']">
-            <schxslt:rule pattern="d4399e1025">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1025']">
+            <schxslt:rule pattern="d13e1025">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType[not(@nullFlavor)]]</xsl:attribute>
@@ -4824,7 +4816,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1025">
+            <schxslt:rule pattern="d13e1025">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -4874,18 +4866,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1025')"/>
+                                select="($schxslt:patterns-matched, 'd13e1025')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]"
                   priority="172"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1050']">
-            <schxslt:rule pattern="d4399e1050">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1050']">
+            <schxslt:rule pattern="d13e1050">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]</xsl:attribute>
@@ -4898,7 +4890,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1050">
+            <schxslt:rule pattern="d13e1050">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -4920,18 +4912,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1050')"/>
+                                select="($schxslt:patterns-matched, 'd13e1050')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Series[not(@nullFlavor)]]"
                   priority="171"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1062']">
-            <schxslt:rule pattern="d4399e1062">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1062']">
+            <schxslt:rule pattern="d13e1062">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Series[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Series[not(@nullFlavor)]]</xsl:attribute>
@@ -4944,7 +4936,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1062">
+            <schxslt:rule pattern="d13e1062">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Series[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -4959,18 +4951,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1062')"/>
+                                select="($schxslt:patterns-matched, 'd13e1062')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Number[not(@nullFlavor)]]"
                   priority="170"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1071']">
-            <schxslt:rule pattern="d4399e1071">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1071']">
+            <schxslt:rule pattern="d13e1071">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Number[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Number[not(@nullFlavor)]]</xsl:attribute>
@@ -4983,7 +4975,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1071">
+            <schxslt:rule pattern="d13e1071">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:Number[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -4998,18 +4990,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1071')"/>
+                                select="($schxslt:patterns-matched, 'd13e1071')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]"
                   priority="169"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1080']">
-            <schxslt:rule pattern="d4399e1080">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1080']">
+            <schxslt:rule pattern="d13e1080">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]</xsl:attribute>
@@ -5022,7 +5014,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1080">
+            <schxslt:rule pattern="d13e1080">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -5051,18 +5043,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1080')"/>
+                                select="($schxslt:patterns-matched, 'd13e1080')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='1']"
                   priority="168"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1096']">
-            <schxslt:rule pattern="d4399e1096">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1096']">
+            <schxslt:rule pattern="d13e1096">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='1']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='1']</xsl:attribute>
@@ -5075,7 +5067,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1096">
+            <schxslt:rule pattern="d13e1096">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='1']</xsl:attribute>
                </svrl:fired-rule>
@@ -5090,18 +5082,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1096')"/>
+                                select="($schxslt:patterns-matched, 'd13e1096')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='3']"
                   priority="167"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1096']">
-            <schxslt:rule pattern="d4399e1096">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1096']">
+            <schxslt:rule pattern="d13e1096">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='3']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='3']</xsl:attribute>
@@ -5114,7 +5106,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1096">
+            <schxslt:rule pattern="d13e1096">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code='3']</xsl:attribute>
                </svrl:fired-rule>
@@ -5129,18 +5121,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1096')"/>
+                                select="($schxslt:patterns-matched, 'd13e1096')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['4','5','6']]"
                   priority="166"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1096']">
-            <schxslt:rule pattern="d4399e1096">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1096']">
+            <schxslt:rule pattern="d13e1096">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['4','5','6']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['4','5','6']]</xsl:attribute>
@@ -5153,7 +5145,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1096">
+            <schxslt:rule pattern="d13e1096">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['4','5','6']]</xsl:attribute>
                </svrl:fired-rule>
@@ -5168,18 +5160,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1096')"/>
+                                select="($schxslt:patterns-matched, 'd13e1096')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='1'][identity:DocInfo/identity:InsurancePolicyType/@nullFlavor]"
                   priority="165"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1117']">
-            <schxslt:rule pattern="d4399e1117">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1117']">
+            <schxslt:rule pattern="d13e1117">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='1'][identity:DocInfo/identity:InsurancePolicyType/@nullFlavor]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='1'][identity:DocInfo/identity:InsurancePolicyType/@nullFlavor]</xsl:attribute>
@@ -5192,7 +5184,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1117">
+            <schxslt:rule pattern="d13e1117">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='1'][identity:DocInfo/identity:InsurancePolicyType/@nullFlavor]</xsl:attribute>
                </svrl:fired-rule>
@@ -5207,18 +5199,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1117')"/>
+                                select="($schxslt:patterns-matched, 'd13e1117')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code=['2','3']]"
                   priority="164"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1117']">
-            <schxslt:rule pattern="d4399e1117">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1117']">
+            <schxslt:rule pattern="d13e1117">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code=['2','3']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code=['2','3']]</xsl:attribute>
@@ -5231,7 +5223,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1117">
+            <schxslt:rule pattern="d13e1117">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code=['2','3']]</xsl:attribute>
                </svrl:fired-rule>
@@ -5246,18 +5238,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1117')"/>
+                                select="($schxslt:patterns-matched, 'd13e1117')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='1'][identity:DocInfo/identity:Series[not(@nullFlavor)]]"
                   priority="163"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1132']">
-            <schxslt:rule pattern="d4399e1132">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1132']">
+            <schxslt:rule pattern="d13e1132">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='1'][identity:DocInfo/identity:Series[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='1'][identity:DocInfo/identity:Series[not(@nullFlavor)]]</xsl:attribute>
@@ -5270,7 +5262,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1132">
+            <schxslt:rule pattern="d13e1132">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='1'][identity:DocInfo/identity:Series[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -5285,18 +5277,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1132')"/>
+                                select="($schxslt:patterns-matched, 'd13e1132')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code=['2','3','4']]"
                   priority="162"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1132']">
-            <schxslt:rule pattern="d4399e1132">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1132']">
+            <schxslt:rule pattern="d13e1132">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code=['2','3','4']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code=['2','3','4']]</xsl:attribute>
@@ -5309,7 +5301,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1132">
+            <schxslt:rule pattern="d13e1132">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code=['2','3','4']]</xsl:attribute>
                </svrl:fired-rule>
@@ -5324,18 +5316,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1132')"/>
+                                select="($schxslt:patterns-matched, 'd13e1132')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']"
                   priority="161"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1147']">
-            <schxslt:rule pattern="d4399e1147">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1147']">
+            <schxslt:rule pattern="d13e1147">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']</xsl:attribute>
@@ -5348,7 +5340,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1147">
+            <schxslt:rule pattern="d13e1147">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']</xsl:attribute>
                </svrl:fired-rule>
@@ -5363,18 +5355,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1147')"/>
+                                select="($schxslt:patterns-matched, 'd13e1147')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NA']"
                   priority="160"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1147']">
-            <schxslt:rule pattern="d4399e1147">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1147']">
+            <schxslt:rule pattern="d13e1147">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NA']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NA']</xsl:attribute>
@@ -5387,7 +5379,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1147">
+            <schxslt:rule pattern="d13e1147">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NA']</xsl:attribute>
                </svrl:fired-rule>
@@ -5402,18 +5394,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1147')"/>
+                                select="($schxslt:patterns-matched, 'd13e1147')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']"
                   priority="159"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1162']">
-            <schxslt:rule pattern="d4399e1162">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1162']">
+            <schxslt:rule pattern="d13e1162">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']</xsl:attribute>
@@ -5426,7 +5418,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1162">
+            <schxslt:rule pattern="d13e1162">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']</xsl:attribute>
                </svrl:fired-rule>
@@ -5441,18 +5433,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1162')"/>
+                                select="($schxslt:patterns-matched, 'd13e1162')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:Series[not(@nullFlavor)]]"
                   priority="158"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1162']">
-            <schxslt:rule pattern="d4399e1162">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1162']">
+            <schxslt:rule pattern="d13e1162">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:Series[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:Series[not(@nullFlavor)]]</xsl:attribute>
@@ -5465,7 +5457,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1162">
+            <schxslt:rule pattern="d13e1162">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:Series[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -5480,18 +5472,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1162')"/>
+                                select="($schxslt:patterns-matched, 'd13e1162')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='3'][identity:DocInfo/identity:INN[not(@nullFlavor)]]"
                   priority="157"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1177']">
-            <schxslt:rule pattern="d4399e1177">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1177']">
+            <schxslt:rule pattern="d13e1177">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='3'][identity:DocInfo/identity:INN[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='3'][identity:DocInfo/identity:INN[not(@nullFlavor)]]</xsl:attribute>
@@ -5504,7 +5496,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1177">
+            <schxslt:rule pattern="d13e1177">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:IdentityDocType/@code='3'][identity:DocInfo/identity:INN[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -5519,18 +5511,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1177')"/>
+                                select="($schxslt:patterns-matched, 'd13e1177')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']"
                   priority="156"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1187']">
-            <schxslt:rule pattern="d4399e1187">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1187']">
+            <schxslt:rule pattern="d13e1187">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']</xsl:attribute>
@@ -5543,7 +5535,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1187">
+            <schxslt:rule pattern="d13e1187">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV']</xsl:attribute>
                </svrl:fired-rule>
@@ -5558,18 +5550,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1187')"/>
+                                select="($schxslt:patterns-matched, 'd13e1187')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]"
                   priority="155"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1196']">
-            <schxslt:rule pattern="d4399e1196">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1196']">
+            <schxslt:rule pattern="d13e1196">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]</xsl:attribute>
@@ -5582,7 +5574,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1196">
+            <schxslt:rule pattern="d13e1196">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@nullFlavor='NAV')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -5611,18 +5603,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1196')"/>
+                                select="($schxslt:patterns-matched, 'd13e1196')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='2']"
                   priority="154"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1219']">
-            <schxslt:rule pattern="d4399e1219">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1219']">
+            <schxslt:rule pattern="d13e1219">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='2']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='2']</xsl:attribute>
@@ -5635,7 +5627,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1219">
+            <schxslt:rule pattern="d13e1219">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[identity:DocInfo/identity:InsurancePolicyType/@code='2']</xsl:attribute>
                </svrl:fired-rule>
@@ -5650,18 +5642,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1219')"/>
+                                select="($schxslt:patterns-matched, 'd13e1219')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@code='2')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]"
                   priority="153"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1219']">
-            <schxslt:rule pattern="d4399e1219">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1219']">
+            <schxslt:rule pattern="d13e1219">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@code='2')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@code='2')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]</xsl:attribute>
@@ -5674,7 +5666,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1219">
+            <schxslt:rule pattern="d13e1219">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[not(identity:DocInfo/identity:InsurancePolicyType/@code='2')][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]][identity:DocInfo/identity:effectiveTime[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -5689,18 +5681,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1219')"/>
+                                select="($schxslt:patterns-matched, 'd13e1219')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization"
                   priority="152"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1234']">
-            <schxslt:rule pattern="d4399e1234">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1234']">
+            <schxslt:rule pattern="d13e1234">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization</xsl:attribute>
@@ -5713,7 +5705,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1234">
+            <schxslt:rule pattern="d13e1234">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -5749,18 +5741,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1234')"/>
+                                select="($schxslt:patterns-matched, 'd13e1234')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[not(@nullFlavor)]"
                   priority="151"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1234']">
-            <schxslt:rule pattern="d4399e1234">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1234']">
+            <schxslt:rule pattern="d13e1234">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[not(@nullFlavor)]</xsl:attribute>
@@ -5773,7 +5765,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1234">
+            <schxslt:rule pattern="d13e1234">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -5795,18 +5787,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1234')"/>
+                                select="($schxslt:patterns-matched, 'd13e1234')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[nullFlavor]"
                   priority="150"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1234']">
-            <schxslt:rule pattern="d4399e1234">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1234']">
+            <schxslt:rule pattern="d13e1234">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[nullFlavor]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[nullFlavor]</xsl:attribute>
@@ -5819,7 +5811,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1234">
+            <schxslt:rule pattern="d13e1234">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/id[nullFlavor]</xsl:attribute>
                </svrl:fired-rule>
@@ -5834,18 +5826,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1234')"/>
+                                select="($schxslt:patterns-matched, 'd13e1234')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[not(@nullFlavor)]"
                   priority="149"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1234']">
-            <schxslt:rule pattern="d4399e1234">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1234']">
+            <schxslt:rule pattern="d13e1234">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[not(@nullFlavor)]</xsl:attribute>
@@ -5858,7 +5850,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1234">
+            <schxslt:rule pattern="d13e1234">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -5887,18 +5879,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1234')"/>
+                                select="($schxslt:patterns-matched, 'd13e1234')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[fias:Address[not(@nullFlavor)]]"
                   priority="148"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1283']">
-            <schxslt:rule pattern="d4399e1283">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1283']">
+            <schxslt:rule pattern="d13e1283">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[fias:Address[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[fias:Address[not(@nullFlavor)]]</xsl:attribute>
@@ -5911,7 +5903,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1283">
+            <schxslt:rule pattern="d13e1283">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='IND']/associatedEntity[code/@code=['1','3','6']]/scopingOrganization/addr[fias:Address[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -5933,16 +5925,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1283')"/>
+                                select="($schxslt:patterns-matched, 'd13e1283')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="147" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="147" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -5955,7 +5947,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -5970,18 +5962,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']"
                   priority="146"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']</xsl:attribute>
@@ -5994,7 +5986,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']</xsl:attribute>
                </svrl:fired-rule>
@@ -6009,18 +6001,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']/associatedEntity"
                   priority="145"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']/associatedEntity" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity</xsl:attribute>
@@ -6033,7 +6025,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity</xsl:attribute>
                </svrl:fired-rule>
@@ -6083,18 +6075,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[1]"
                   priority="144"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[1]</xsl:attribute>
@@ -6107,7 +6099,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -6129,18 +6121,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[2][not(@nullFlavor)]"
                   priority="143"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[2][not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[2][not(@nullFlavor)]</xsl:attribute>
@@ -6153,7 +6145,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/id[2][not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -6175,18 +6167,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']/associatedEntity/code"
                   priority="142"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']/associatedEntity/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/code</xsl:attribute>
@@ -6199,7 +6191,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/code</xsl:attribute>
                </svrl:fired-rule>
@@ -6242,18 +6234,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson"
                   priority="141"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson</xsl:attribute>
@@ -6266,7 +6258,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson</xsl:attribute>
                </svrl:fired-rule>
@@ -6281,18 +6273,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson/name[not(@nullFlavor)]"
                   priority="140"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson/name[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson/name[not(@nullFlavor)]</xsl:attribute>
@@ -6305,7 +6297,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/associatedPerson/name[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -6341,18 +6333,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/participant[@typeCode='REF']/associatedEntity/scopingOrganization"
                   priority="139"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1298']">
-            <schxslt:rule pattern="d4399e1298">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1298']">
+            <schxslt:rule pattern="d13e1298">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/participant[@typeCode='REF']/associatedEntity/scopingOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/scopingOrganization</xsl:attribute>
@@ -6365,7 +6357,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1298">
+            <schxslt:rule pattern="d13e1298">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/participant[@typeCode='REF']/associatedEntity/scopingOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -6394,16 +6386,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1298')"/>
+                                select="($schxslt:patterns-matched, 'd13e1298')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="138" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="138" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1407']">
-            <schxslt:rule pattern="d4399e1407">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1407']">
+            <schxslt:rule pattern="d13e1407">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -6416,7 +6408,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1407">
+            <schxslt:rule pattern="d13e1407">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -6431,18 +6423,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1407')"/>
+                                select="($schxslt:patterns-matched, 'd13e1407')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/inFulfillmentOf"
                   priority="137"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1407']">
-            <schxslt:rule pattern="d4399e1407">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1407']">
+            <schxslt:rule pattern="d13e1407">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/inFulfillmentOf" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf</xsl:attribute>
@@ -6455,7 +6447,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1407">
+            <schxslt:rule pattern="d13e1407">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf</xsl:attribute>
                </svrl:fired-rule>
@@ -6470,18 +6462,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1407')"/>
+                                select="($schxslt:patterns-matched, 'd13e1407')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/inFulfillmentOf/order"
                   priority="136"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1407']">
-            <schxslt:rule pattern="d4399e1407">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1407']">
+            <schxslt:rule pattern="d13e1407">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/inFulfillmentOf/order" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf/order</xsl:attribute>
@@ -6494,7 +6486,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1407">
+            <schxslt:rule pattern="d13e1407">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf/order</xsl:attribute>
                </svrl:fired-rule>
@@ -6516,18 +6508,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1407')"/>
+                                select="($schxslt:patterns-matched, 'd13e1407')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/inFulfillmentOf/order/id"
                   priority="135"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1407']">
-            <schxslt:rule pattern="d4399e1407">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1407']">
+            <schxslt:rule pattern="d13e1407">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/inFulfillmentOf/order/id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf/order/id</xsl:attribute>
@@ -6540,7 +6532,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1407">
+            <schxslt:rule pattern="d13e1407">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf/order/id</xsl:attribute>
                </svrl:fired-rule>
@@ -6562,18 +6554,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1407')"/>
+                                select="($schxslt:patterns-matched, 'd13e1407')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/inFulfillmentOf/order/code"
                   priority="134"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1407']">
-            <schxslt:rule pattern="d4399e1407">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1407']">
+            <schxslt:rule pattern="d13e1407">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/inFulfillmentOf/order/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf/order/code</xsl:attribute>
@@ -6586,7 +6578,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1407">
+            <schxslt:rule pattern="d13e1407">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/inFulfillmentOf/order/code</xsl:attribute>
                </svrl:fired-rule>
@@ -6629,16 +6621,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1407')"/>
+                                select="($schxslt:patterns-matched, 'd13e1407')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="133" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="133" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1460']">
-            <schxslt:rule pattern="d4399e1460">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1460']">
+            <schxslt:rule pattern="d13e1460">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -6651,7 +6643,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1460">
+            <schxslt:rule pattern="d13e1460">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -6666,18 +6658,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1460')"/>
+                                select="($schxslt:patterns-matched, 'd13e1460')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf"
                   priority="132"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1460']">
-            <schxslt:rule pattern="d4399e1460">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1460']">
+            <schxslt:rule pattern="d13e1460">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf</xsl:attribute>
@@ -6690,7 +6682,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1460">
+            <schxslt:rule pattern="d13e1460">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf</xsl:attribute>
                </svrl:fired-rule>
@@ -6705,18 +6697,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1460')"/>
+                                select="($schxslt:patterns-matched, 'd13e1460')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent"
                   priority="131"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1460']">
-            <schxslt:rule pattern="d4399e1460">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1460']">
+            <schxslt:rule pattern="d13e1460">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent</xsl:attribute>
@@ -6729,7 +6721,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1460">
+            <schxslt:rule pattern="d13e1460">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent</xsl:attribute>
                </svrl:fired-rule>
@@ -6779,18 +6771,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1460')"/>
+                                select="($schxslt:patterns-matched, 'd13e1460')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/code"
                   priority="130"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1460']">
-            <schxslt:rule pattern="d4399e1460">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1460']">
+            <schxslt:rule pattern="d13e1460">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/code</xsl:attribute>
@@ -6803,7 +6795,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1460">
+            <schxslt:rule pattern="d13e1460">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/code</xsl:attribute>
                </svrl:fired-rule>
@@ -6846,18 +6838,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1460')"/>
+                                select="($schxslt:patterns-matched, 'd13e1460')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/effectiveTime"
                   priority="129"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1460']">
-            <schxslt:rule pattern="d4399e1460">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1460']">
+            <schxslt:rule pattern="d13e1460">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/effectiveTime</xsl:attribute>
@@ -6870,7 +6862,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1460">
+            <schxslt:rule pattern="d13e1460">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -6892,18 +6884,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1460')"/>
+                                select="($schxslt:patterns-matched, 'd13e1460')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/effectiveTime/low"
                   priority="128"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1460']">
-            <schxslt:rule pattern="d4399e1460">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1460']">
+            <schxslt:rule pattern="d13e1460">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/effectiveTime/low" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/effectiveTime/low</xsl:attribute>
@@ -6916,7 +6908,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1460">
+            <schxslt:rule pattern="d13e1460">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/effectiveTime/low</xsl:attribute>
                </svrl:fired-rule>
@@ -6931,18 +6923,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1460')"/>
+                                select="($schxslt:patterns-matched, 'd13e1460')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/effectiveTime/high"
                   priority="127"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1460']">
-            <schxslt:rule pattern="d4399e1460">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1460']">
+            <schxslt:rule pattern="d13e1460">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/effectiveTime/high" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/effectiveTime/high</xsl:attribute>
@@ -6955,7 +6947,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1460">
+            <schxslt:rule pattern="d13e1460">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/effectiveTime/high</xsl:attribute>
                </svrl:fired-rule>
@@ -6970,18 +6962,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1460')"/>
+                                select="($schxslt:patterns-matched, 'd13e1460')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent[medService:serviceForm[not(@nullFlavor)]]"
                   priority="126"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1537']">
-            <schxslt:rule pattern="d4399e1537">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1537']">
+            <schxslt:rule pattern="d13e1537">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent[medService:serviceForm[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent[medService:serviceForm[not(@nullFlavor)]]</xsl:attribute>
@@ -6994,7 +6986,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1537">
+            <schxslt:rule pattern="d13e1537">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent[medService:serviceForm[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -7037,18 +7029,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1537')"/>
+                                select="($schxslt:patterns-matched, 'd13e1537')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent[medService:serviceType]"
                   priority="125"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1559']">
-            <schxslt:rule pattern="d4399e1559">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1559']">
+            <schxslt:rule pattern="d13e1559">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent[medService:serviceType]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent[medService:serviceType]</xsl:attribute>
@@ -7061,7 +7053,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1559">
+            <schxslt:rule pattern="d13e1559">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent[medService:serviceType]</xsl:attribute>
                </svrl:fired-rule>
@@ -7104,18 +7096,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1559')"/>
+                                select="($schxslt:patterns-matched, 'd13e1559')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent[medService:serviceCond[not(@nullFlavor)]]"
                   priority="124"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1580']">
-            <schxslt:rule pattern="d4399e1580">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1580']">
+            <schxslt:rule pattern="d13e1580">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent[medService:serviceCond[not(@nullFlavor)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent[medService:serviceCond[not(@nullFlavor)]]</xsl:attribute>
@@ -7128,7 +7120,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1580">
+            <schxslt:rule pattern="d13e1580">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent[medService:serviceCond[not(@nullFlavor)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -7171,18 +7163,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1580')"/>
+                                select="($schxslt:patterns-matched, 'd13e1580')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer"
                   priority="123"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer</xsl:attribute>
@@ -7195,7 +7187,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer</xsl:attribute>
                </svrl:fired-rule>
@@ -7217,18 +7209,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity"
                   priority="122"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity</xsl:attribute>
@@ -7241,7 +7233,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity</xsl:attribute>
                </svrl:fired-rule>
@@ -7284,18 +7276,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[1]"
                   priority="121"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[1]</xsl:attribute>
@@ -7308,7 +7300,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -7330,18 +7322,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[2]"
                   priority="120"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[2]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[2]</xsl:attribute>
@@ -7354,7 +7346,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/id[2]</xsl:attribute>
                </svrl:fired-rule>
@@ -7376,18 +7368,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/code"
                   priority="119"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/code</xsl:attribute>
@@ -7400,7 +7392,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/code</xsl:attribute>
                </svrl:fired-rule>
@@ -7443,18 +7435,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson"
                   priority="118"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson</xsl:attribute>
@@ -7467,7 +7459,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson</xsl:attribute>
                </svrl:fired-rule>
@@ -7482,18 +7474,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]"
                   priority="117"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
@@ -7506,7 +7498,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -7542,18 +7534,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization"
                   priority="116"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization</xsl:attribute>
@@ -7566,7 +7558,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -7595,18 +7587,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/id"
                   priority="115"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1601']">
-            <schxslt:rule pattern="d4399e1601">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1601']">
+            <schxslt:rule pattern="d13e1601">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/id</xsl:attribute>
@@ -7619,7 +7611,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1601">
+            <schxslt:rule pattern="d13e1601">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity/representedOrganization/id</xsl:attribute>
                </svrl:fired-rule>
@@ -7634,16 +7626,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1601')"/>
+                                select="($schxslt:patterns-matched, 'd13e1601')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument" priority="114" mode="d4399e23">
+   <xsl:template match="ClinicalDocument" priority="114" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1713']">
-            <schxslt:rule pattern="d4399e1713">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1713']">
+            <schxslt:rule pattern="d13e1713">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
@@ -7656,7 +7648,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1713">
+            <schxslt:rule pattern="d13e1713">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -7671,16 +7663,16 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1713')"/>
+                                select="($schxslt:patterns-matched, 'd13e1713')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-   <xsl:template match="ClinicalDocument/componentOf" priority="113" mode="d4399e23">
+   <xsl:template match="ClinicalDocument/componentOf" priority="113" mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1713']">
-            <schxslt:rule pattern="d4399e1713">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1713']">
+            <schxslt:rule pattern="d13e1713">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf</xsl:attribute>
@@ -7693,7 +7685,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1713">
+            <schxslt:rule pattern="d13e1713">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf</xsl:attribute>
                </svrl:fired-rule>
@@ -7708,18 +7700,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1713')"/>
+                                select="($schxslt:patterns-matched, 'd13e1713')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter"
                   priority="112"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1713']">
-            <schxslt:rule pattern="d4399e1713">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1713']">
+            <schxslt:rule pattern="d13e1713">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter</xsl:attribute>
@@ -7732,7 +7724,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1713">
+            <schxslt:rule pattern="d13e1713">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter</xsl:attribute>
                </svrl:fired-rule>
@@ -7768,18 +7760,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1713')"/>
+                                select="($schxslt:patterns-matched, 'd13e1713')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter/id[1]"
                   priority="111"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1713']">
-            <schxslt:rule pattern="d4399e1713">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1713']">
+            <schxslt:rule pattern="d13e1713">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/id[1]</xsl:attribute>
@@ -7792,7 +7784,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1713">
+            <schxslt:rule pattern="d13e1713">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -7814,18 +7806,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1713')"/>
+                                select="($schxslt:patterns-matched, 'd13e1713')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter/id[2]"
                   priority="110"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1713']">
-            <schxslt:rule pattern="d4399e1713">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1713']">
+            <schxslt:rule pattern="d13e1713">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter/id[2]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/id[2]</xsl:attribute>
@@ -7838,7 +7830,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1713">
+            <schxslt:rule pattern="d13e1713">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/id[2]</xsl:attribute>
                </svrl:fired-rule>
@@ -7860,18 +7852,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1713')"/>
+                                select="($schxslt:patterns-matched, 'd13e1713')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter/code"
                   priority="109"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1713']">
-            <schxslt:rule pattern="d4399e1713">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1713']">
+            <schxslt:rule pattern="d13e1713">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/code</xsl:attribute>
@@ -7884,7 +7876,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1713">
+            <schxslt:rule pattern="d13e1713">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/code</xsl:attribute>
                </svrl:fired-rule>
@@ -7927,18 +7919,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1713')"/>
+                                select="($schxslt:patterns-matched, 'd13e1713')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter[medService:DocType]"
                   priority="108"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1780']">
-            <schxslt:rule pattern="d4399e1780">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1780']">
+            <schxslt:rule pattern="d13e1780">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter[medService:DocType]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter[medService:DocType]</xsl:attribute>
@@ -7951,7 +7943,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1780">
+            <schxslt:rule pattern="d13e1780">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter[medService:DocType]</xsl:attribute>
                </svrl:fired-rule>
@@ -8001,18 +7993,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1780')"/>
+                                select="($schxslt:patterns-matched, 'd13e1780')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter/effectiveTime"
                   priority="107"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1780']">
-            <schxslt:rule pattern="d4399e1780">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1780']">
+            <schxslt:rule pattern="d13e1780">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/effectiveTime</xsl:attribute>
@@ -8025,7 +8017,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1780">
+            <schxslt:rule pattern="d13e1780">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -8047,18 +8039,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1780')"/>
+                                select="($schxslt:patterns-matched, 'd13e1780')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/low"
                   priority="106"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1780']">
-            <schxslt:rule pattern="d4399e1780">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1780']">
+            <schxslt:rule pattern="d13e1780">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/low" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/low</xsl:attribute>
@@ -8071,7 +8063,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1780">
+            <schxslt:rule pattern="d13e1780">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/low</xsl:attribute>
                </svrl:fired-rule>
@@ -8086,18 +8078,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1780')"/>
+                                select="($schxslt:patterns-matched, 'd13e1780')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/high"
                   priority="105"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1780']">
-            <schxslt:rule pattern="d4399e1780">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1780']">
+            <schxslt:rule pattern="d13e1780">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/high" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/high</xsl:attribute>
@@ -8110,7 +8102,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1780">
+            <schxslt:rule pattern="d13e1780">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/componentOf/encompassingEncounter/effectiveTime/high</xsl:attribute>
                </svrl:fired-rule>
@@ -8125,18 +8117,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1780')"/>
+                                select="($schxslt:patterns-matched, 'd13e1780')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody"
                   priority="104"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1833']">
-            <schxslt:rule pattern="d4399e1833">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1833']">
+            <schxslt:rule pattern="d13e1833">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
@@ -8149,7 +8141,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1833">
+            <schxslt:rule pattern="d13e1833">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
                </svrl:fired-rule>
@@ -8164,18 +8156,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1833')"/>
+                                select="($schxslt:patterns-matched, 'd13e1833')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']"
                   priority="103"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1833']">
-            <schxslt:rule pattern="d4399e1833">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1833']">
+            <schxslt:rule pattern="d13e1833">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
@@ -8188,7 +8180,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1833">
+            <schxslt:rule pattern="d13e1833">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -8217,18 +8209,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1833')"/>
+                                select="($schxslt:patterns-matched, 'd13e1833')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section/code[@code='DOCINFO']"
                   priority="102"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1833']">
-            <schxslt:rule pattern="d4399e1833">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1833']">
+            <schxslt:rule pattern="d13e1833">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section/code[@code='DOCINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='DOCINFO']</xsl:attribute>
@@ -8241,7 +8233,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1833">
+            <schxslt:rule pattern="d13e1833">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='DOCINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -8277,18 +8269,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1833')"/>
+                                select="($schxslt:patterns-matched, 'd13e1833')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody"
                   priority="101"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1871']">
-            <schxslt:rule pattern="d4399e1871">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1871']">
+            <schxslt:rule pattern="d13e1871">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
@@ -8301,7 +8293,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1871">
+            <schxslt:rule pattern="d13e1871">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
                </svrl:fired-rule>
@@ -8316,18 +8308,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1871')"/>
+                                select="($schxslt:patterns-matched, 'd13e1871')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']"
                   priority="100"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1871']">
-            <schxslt:rule pattern="d4399e1871">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1871']">
+            <schxslt:rule pattern="d13e1871">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']</xsl:attribute>
@@ -8340,7 +8332,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1871">
+            <schxslt:rule pattern="d13e1871">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']</xsl:attribute>
                </svrl:fired-rule>
@@ -8369,18 +8361,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1871')"/>
+                                select="($schxslt:patterns-matched, 'd13e1871')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section/code[@code='VITALPARAM']"
                   priority="99"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1871']">
-            <schxslt:rule pattern="d4399e1871">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1871']">
+            <schxslt:rule pattern="d13e1871">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section/code[@code='VITALPARAM']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='VITALPARAM']</xsl:attribute>
@@ -8393,7 +8385,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1871">
+            <schxslt:rule pattern="d13e1871">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='VITALPARAM']</xsl:attribute>
                </svrl:fired-rule>
@@ -8429,18 +8421,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1871')"/>
+                                select="($schxslt:patterns-matched, 'd13e1871')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody"
                   priority="98"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1909']">
-            <schxslt:rule pattern="d4399e1909">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1909']">
+            <schxslt:rule pattern="d13e1909">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
@@ -8453,7 +8445,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1909">
+            <schxslt:rule pattern="d13e1909">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
                </svrl:fired-rule>
@@ -8468,18 +8460,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1909')"/>
+                                select="($schxslt:patterns-matched, 'd13e1909')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']"
                   priority="97"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1909']">
-            <schxslt:rule pattern="d4399e1909">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1909']">
+            <schxslt:rule pattern="d13e1909">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']</xsl:attribute>
@@ -8492,7 +8484,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1909">
+            <schxslt:rule pattern="d13e1909">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']</xsl:attribute>
                </svrl:fired-rule>
@@ -8521,18 +8513,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1909')"/>
+                                select="($schxslt:patterns-matched, 'd13e1909')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section/code[@code='SCORES']"
                   priority="96"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1909']">
-            <schxslt:rule pattern="d4399e1909">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1909']">
+            <schxslt:rule pattern="d13e1909">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section/code[@code='SCORES']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='SCORES']</xsl:attribute>
@@ -8545,7 +8537,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1909">
+            <schxslt:rule pattern="d13e1909">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='SCORES']</xsl:attribute>
                </svrl:fired-rule>
@@ -8581,18 +8573,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1909')"/>
+                                select="($schxslt:patterns-matched, 'd13e1909')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody"
                   priority="95"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1948']">
-            <schxslt:rule pattern="d4399e1948">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1948']">
+            <schxslt:rule pattern="d13e1948">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
@@ -8605,7 +8597,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1948">
+            <schxslt:rule pattern="d13e1948">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
                </svrl:fired-rule>
@@ -8620,18 +8612,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1948')"/>
+                                select="($schxslt:patterns-matched, 'd13e1948')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']"
                   priority="94"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1948']">
-            <schxslt:rule pattern="d4399e1948">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1948']">
+            <schxslt:rule pattern="d13e1948">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']</xsl:attribute>
@@ -8644,7 +8636,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1948">
+            <schxslt:rule pattern="d13e1948">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -8673,18 +8665,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1948')"/>
+                                select="($schxslt:patterns-matched, 'd13e1948')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section/code[@code='RESINFO']"
                   priority="93"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1948']">
-            <schxslt:rule pattern="d4399e1948">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1948']">
+            <schxslt:rule pattern="d13e1948">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section/code[@code='RESINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='RESINFO']</xsl:attribute>
@@ -8697,7 +8689,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1948">
+            <schxslt:rule pattern="d13e1948">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='RESINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -8733,18 +8725,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1948')"/>
+                                select="($schxslt:patterns-matched, 'd13e1948')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody"
                   priority="92"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1986']">
-            <schxslt:rule pattern="d4399e1986">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1986']">
+            <schxslt:rule pattern="d13e1986">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
@@ -8757,7 +8749,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1986">
+            <schxslt:rule pattern="d13e1986">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody</xsl:attribute>
                </svrl:fired-rule>
@@ -8772,18 +8764,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1986')"/>
+                                select="($schxslt:patterns-matched, 'd13e1986')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']"
                   priority="91"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1986']">
-            <schxslt:rule pattern="d4399e1986">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1986']">
+            <schxslt:rule pattern="d13e1986">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']</xsl:attribute>
@@ -8796,7 +8788,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1986">
+            <schxslt:rule pattern="d13e1986">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']</xsl:attribute>
                </svrl:fired-rule>
@@ -8825,18 +8817,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1986')"/>
+                                select="($schxslt:patterns-matched, 'd13e1986')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section/code[@code='SERVICES']"
                   priority="90"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e1986']">
-            <schxslt:rule pattern="d4399e1986">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e1986']">
+            <schxslt:rule pattern="d13e1986">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section/code[@code='SERVICES']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='SERVICES']</xsl:attribute>
@@ -8849,7 +8841,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e1986">
+            <schxslt:rule pattern="d13e1986">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section/code[@code='SERVICES']</xsl:attribute>
                </svrl:fired-rule>
@@ -8885,18 +8877,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e1986')"/>
+                                select="($schxslt:patterns-matched, 'd13e1986')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']"
                   priority="89"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2024']">
-            <schxslt:rule pattern="d4399e2024">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2024']">
+            <schxslt:rule pattern="d13e2024">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
@@ -8909,7 +8901,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2024">
+            <schxslt:rule pattern="d13e2024">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -8924,18 +8916,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2024')"/>
+                                select="($schxslt:patterns-matched, 'd13e2024')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='800']]"
                   priority="88"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2024']">
-            <schxslt:rule pattern="d4399e2024">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2024']">
+            <schxslt:rule pattern="d13e2024">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='800']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='800']]</xsl:attribute>
@@ -8948,7 +8940,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2024">
+            <schxslt:rule pattern="d13e2024">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='800']]</xsl:attribute>
                </svrl:fired-rule>
@@ -8963,18 +8955,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2024')"/>
+                                select="($schxslt:patterns-matched, 'd13e2024')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]"
                   priority="87"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2024']">
-            <schxslt:rule pattern="d4399e2024">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2024']">
+            <schxslt:rule pattern="d13e2024">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]</xsl:attribute>
@@ -8987,7 +8979,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2024">
+            <schxslt:rule pattern="d13e2024">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]</xsl:attribute>
                </svrl:fired-rule>
@@ -9023,18 +9015,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2024')"/>
+                                select="($schxslt:patterns-matched, 'd13e2024')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='800']"
                   priority="86"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2024']">
-            <schxslt:rule pattern="d4399e2024">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2024']">
+            <schxslt:rule pattern="d13e2024">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='800']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='800']</xsl:attribute>
@@ -9047,7 +9039,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2024">
+            <schxslt:rule pattern="d13e2024">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='800']</xsl:attribute>
                </svrl:fired-rule>
@@ -9083,18 +9075,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2024')"/>
+                                select="($schxslt:patterns-matched, 'd13e2024')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]/value"
                   priority="85"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2024']">
-            <schxslt:rule pattern="d4399e2024">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2024']">
+            <schxslt:rule pattern="d13e2024">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]/value</xsl:attribute>
@@ -9107,7 +9099,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2024">
+            <schxslt:rule pattern="d13e2024">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='800']]/value</xsl:attribute>
                </svrl:fired-rule>
@@ -9157,18 +9149,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2024')"/>
+                                select="($schxslt:patterns-matched, 'd13e2024')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']"
                   priority="84"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2094']">
-            <schxslt:rule pattern="d4399e2094">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2094']">
+            <schxslt:rule pattern="d13e2094">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
@@ -9181,7 +9173,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2094">
+            <schxslt:rule pattern="d13e2094">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -9196,18 +9188,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2094')"/>
+                                select="($schxslt:patterns-matched, 'd13e2094')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='801']]"
                   priority="83"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2094']">
-            <schxslt:rule pattern="d4399e2094">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2094']">
+            <schxslt:rule pattern="d13e2094">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='801']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='801']]</xsl:attribute>
@@ -9220,7 +9212,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2094">
+            <schxslt:rule pattern="d13e2094">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='801']]</xsl:attribute>
                </svrl:fired-rule>
@@ -9235,18 +9227,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2094')"/>
+                                select="($schxslt:patterns-matched, 'd13e2094')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]"
                   priority="82"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2094']">
-            <schxslt:rule pattern="d4399e2094">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2094']">
+            <schxslt:rule pattern="d13e2094">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]</xsl:attribute>
@@ -9259,7 +9251,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2094">
+            <schxslt:rule pattern="d13e2094">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]</xsl:attribute>
                </svrl:fired-rule>
@@ -9295,18 +9287,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2094')"/>
+                                select="($schxslt:patterns-matched, 'd13e2094')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='801']"
                   priority="81"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2094']">
-            <schxslt:rule pattern="d4399e2094">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2094']">
+            <schxslt:rule pattern="d13e2094">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='801']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='801']</xsl:attribute>
@@ -9319,7 +9311,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2094">
+            <schxslt:rule pattern="d13e2094">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='801']</xsl:attribute>
                </svrl:fired-rule>
@@ -9355,18 +9347,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2094')"/>
+                                select="($schxslt:patterns-matched, 'd13e2094')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]/value"
                   priority="80"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2094']">
-            <schxslt:rule pattern="d4399e2094">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2094']">
+            <schxslt:rule pattern="d13e2094">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]/value</xsl:attribute>
@@ -9379,7 +9371,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2094">
+            <schxslt:rule pattern="d13e2094">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='801']]/value</xsl:attribute>
                </svrl:fired-rule>
@@ -9429,18 +9421,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2094')"/>
+                                select="($schxslt:patterns-matched, 'd13e2094')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']"
                   priority="79"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
@@ -9453,7 +9445,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -9468,18 +9460,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act/statusCode]"
                   priority="78"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act/statusCode]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act/statusCode]</xsl:attribute>
@@ -9492,7 +9484,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act/statusCode]</xsl:attribute>
                </svrl:fired-rule>
@@ -9507,18 +9499,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]"
                   priority="77"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]</xsl:attribute>
@@ -9531,7 +9523,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]</xsl:attribute>
                </svrl:fired-rule>
@@ -9581,18 +9573,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/code"
                   priority="76"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/code</xsl:attribute>
@@ -9605,7 +9597,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/code</xsl:attribute>
                </svrl:fired-rule>
@@ -9648,18 +9640,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act/statusCode"
                   priority="75"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act/statusCode" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act/statusCode</xsl:attribute>
@@ -9672,7 +9664,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act/statusCode</xsl:attribute>
                </svrl:fired-rule>
@@ -9687,18 +9679,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime"
                   priority="74"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime</xsl:attribute>
@@ -9711,7 +9703,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -9733,18 +9725,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/low[not(@nullFlavor)]"
                   priority="73"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/low[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/low[not(@nullFlavor)]</xsl:attribute>
@@ -9757,7 +9749,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/low[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -9772,18 +9764,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/high"
                   priority="72"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/high" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/high</xsl:attribute>
@@ -9796,7 +9788,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/effectiveTime/high</xsl:attribute>
                </svrl:fired-rule>
@@ -9811,18 +9803,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[observation]"
                   priority="71"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[observation]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[observation]</xsl:attribute>
@@ -9835,7 +9827,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[observation]</xsl:attribute>
                </svrl:fired-rule>
@@ -9857,18 +9849,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation"
                   priority="70"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation</xsl:attribute>
@@ -9881,7 +9873,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation</xsl:attribute>
                </svrl:fired-rule>
@@ -9917,18 +9909,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/code"
                   priority="69"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/code</xsl:attribute>
@@ -9941,7 +9933,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/code</xsl:attribute>
                </svrl:fired-rule>
@@ -9984,18 +9976,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value"
                   priority="68"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value</xsl:attribute>
@@ -10008,7 +10000,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value</xsl:attribute>
                </svrl:fired-rule>
@@ -10044,18 +10036,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value/translation"
                   priority="67"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value/translation" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value/translation</xsl:attribute>
@@ -10068,7 +10060,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/observation/value/translation</xsl:attribute>
                </svrl:fired-rule>
@@ -10118,18 +10110,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[act]"
                   priority="66"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[act]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[act]</xsl:attribute>
@@ -10142,7 +10134,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship[act]</xsl:attribute>
                </svrl:fired-rule>
@@ -10171,18 +10163,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act"
                   priority="65"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act</xsl:attribute>
@@ -10195,7 +10187,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act</xsl:attribute>
                </svrl:fired-rule>
@@ -10231,18 +10223,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/code"
                   priority="64"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/code</xsl:attribute>
@@ -10255,7 +10247,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/code</xsl:attribute>
                </svrl:fired-rule>
@@ -10298,18 +10290,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/effectiveTime"
                   priority="63"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2163']">
-            <schxslt:rule pattern="d4399e2163">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2163']">
+            <schxslt:rule pattern="d13e2163">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/effectiveTime</xsl:attribute>
@@ -10322,7 +10314,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2163">
+            <schxslt:rule pattern="d13e2163">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[statusCode]/entryRelationship/act/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -10337,18 +10329,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2163')"/>
+                                select="($schxslt:patterns-matched, 'd13e2163')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observationMedia]"
                   priority="62"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2379']">
-            <schxslt:rule pattern="d4399e2379">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2379']">
+            <schxslt:rule pattern="d13e2379">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observationMedia]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observationMedia]</xsl:attribute>
@@ -10361,7 +10353,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2379">
+            <schxslt:rule pattern="d13e2379">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observationMedia]</xsl:attribute>
                </svrl:fired-rule>
@@ -10376,18 +10368,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2379')"/>
+                                select="($schxslt:patterns-matched, 'd13e2379')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia"
                   priority="61"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2379']">
-            <schxslt:rule pattern="d4399e2379">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2379']">
+            <schxslt:rule pattern="d13e2379">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia</xsl:attribute>
@@ -10400,7 +10392,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2379">
+            <schxslt:rule pattern="d13e2379">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia</xsl:attribute>
                </svrl:fired-rule>
@@ -10436,18 +10428,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2379')"/>
+                                select="($schxslt:patterns-matched, 'd13e2379')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value"
                   priority="60"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2379']">
-            <schxslt:rule pattern="d4399e2379">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2379']">
+            <schxslt:rule pattern="d13e2379">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value</xsl:attribute>
@@ -10460,7 +10452,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2379">
+            <schxslt:rule pattern="d13e2379">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value</xsl:attribute>
                </svrl:fired-rule>
@@ -10489,18 +10481,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2379')"/>
+                                select="($schxslt:patterns-matched, 'd13e2379')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value/reference"
                   priority="59"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2379']">
-            <schxslt:rule pattern="d4399e2379">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2379']">
+            <schxslt:rule pattern="d13e2379">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value/reference" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value/reference</xsl:attribute>
@@ -10513,7 +10505,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2379">
+            <schxslt:rule pattern="d13e2379">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observationMedia/value/reference</xsl:attribute>
                </svrl:fired-rule>
@@ -10528,18 +10520,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2379')"/>
+                                select="($schxslt:patterns-matched, 'd13e2379')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='838']]"
                   priority="58"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2424']">
-            <schxslt:rule pattern="d4399e2424">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2424']">
+            <schxslt:rule pattern="d13e2424">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='838']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='838']]</xsl:attribute>
@@ -10552,7 +10544,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2424">
+            <schxslt:rule pattern="d13e2424">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[observation/code[@code='838']]</xsl:attribute>
                </svrl:fired-rule>
@@ -10567,18 +10559,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2424')"/>
+                                select="($schxslt:patterns-matched, 'd13e2424')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]"
                   priority="57"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2424']">
-            <schxslt:rule pattern="d4399e2424">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2424']">
+            <schxslt:rule pattern="d13e2424">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]</xsl:attribute>
@@ -10591,7 +10583,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2424">
+            <schxslt:rule pattern="d13e2424">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]</xsl:attribute>
                </svrl:fired-rule>
@@ -10634,18 +10626,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2424')"/>
+                                select="($schxslt:patterns-matched, 'd13e2424')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='838']"
                   priority="56"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2424']">
-            <schxslt:rule pattern="d4399e2424">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2424']">
+            <schxslt:rule pattern="d13e2424">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='838']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='838']</xsl:attribute>
@@ -10658,7 +10650,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2424">
+            <schxslt:rule pattern="d13e2424">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation/code[@code='838']</xsl:attribute>
                </svrl:fired-rule>
@@ -10694,18 +10686,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2424')"/>
+                                select="($schxslt:patterns-matched, 'd13e2424')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]/value[not(@nullFlavor)]"
                   priority="55"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2424']">
-            <schxslt:rule pattern="d4399e2424">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2424']">
+            <schxslt:rule pattern="d13e2424">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]/value[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]/value[not(@nullFlavor)]</xsl:attribute>
@@ -10718,7 +10710,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2424">
+            <schxslt:rule pattern="d13e2424">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/observation[code[@code='838']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -10761,18 +10753,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2424')"/>
+                                select="($schxslt:patterns-matched, 'd13e2424')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']"
                   priority="54"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
@@ -10785,7 +10777,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']</xsl:attribute>
                </svrl:fired-rule>
@@ -10800,18 +10792,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act[not(statusCode)]]"
                   priority="53"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act[not(statusCode)]]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act[not(statusCode)]]</xsl:attribute>
@@ -10824,7 +10816,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry[act[not(statusCode)]]</xsl:attribute>
                </svrl:fired-rule>
@@ -10839,18 +10831,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]"
                   priority="52"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]</xsl:attribute>
@@ -10863,7 +10855,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]</xsl:attribute>
                </svrl:fired-rule>
@@ -10899,18 +10891,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/code"
                   priority="51"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/code</xsl:attribute>
@@ -10923,7 +10915,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/code</xsl:attribute>
                </svrl:fired-rule>
@@ -10938,18 +10930,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference"
                   priority="50"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference</xsl:attribute>
@@ -10962,7 +10954,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference</xsl:attribute>
                </svrl:fired-rule>
@@ -10984,18 +10976,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument"
                   priority="49"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument</xsl:attribute>
@@ -11008,7 +11000,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument</xsl:attribute>
                </svrl:fired-rule>
@@ -11044,18 +11036,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/id"
                   priority="48"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/id" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/id</xsl:attribute>
@@ -11068,7 +11060,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/id</xsl:attribute>
                </svrl:fired-rule>
@@ -11090,18 +11082,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/text"
                   priority="47"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2486']">
-            <schxslt:rule pattern="d4399e2486">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2486']">
+            <schxslt:rule pattern="d13e2486">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/text" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/text</xsl:attribute>
@@ -11114,7 +11106,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2486">
+            <schxslt:rule pattern="d13e2486">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='DOCINFO']/entry/act[not(statusCode)]/reference/externalDocument/text</xsl:attribute>
                </svrl:fired-rule>
@@ -11129,18 +11121,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2486')"/>
+                                select="($schxslt:patterns-matched, 'd13e2486')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry"
                   priority="46"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry</xsl:attribute>
@@ -11153,7 +11145,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry</xsl:attribute>
                </svrl:fired-rule>
@@ -11168,18 +11160,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer"
                   priority="45"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer</xsl:attribute>
@@ -11192,7 +11184,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer</xsl:attribute>
                </svrl:fired-rule>
@@ -11235,18 +11227,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/statusCode"
                   priority="44"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/statusCode" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/statusCode</xsl:attribute>
@@ -11259,7 +11251,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/statusCode</xsl:attribute>
                </svrl:fired-rule>
@@ -11274,18 +11266,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/effectiveTime"
                   priority="43"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/effectiveTime</xsl:attribute>
@@ -11298,7 +11290,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -11313,18 +11305,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component"
                   priority="42"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component</xsl:attribute>
@@ -11337,7 +11329,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component</xsl:attribute>
                </svrl:fired-rule>
@@ -11359,18 +11351,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation"
                   priority="41"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation</xsl:attribute>
@@ -11383,7 +11375,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation</xsl:attribute>
                </svrl:fired-rule>
@@ -11419,18 +11411,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/code"
                   priority="40"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/code</xsl:attribute>
@@ -11443,7 +11435,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/code</xsl:attribute>
                </svrl:fired-rule>
@@ -11486,18 +11478,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value"
                   priority="39"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value</xsl:attribute>
@@ -11510,7 +11502,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value</xsl:attribute>
                </svrl:fired-rule>
@@ -11546,18 +11538,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value/translation"
                   priority="38"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2564']">
-            <schxslt:rule pattern="d4399e2564">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2564']">
+            <schxslt:rule pattern="d13e2564">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value/translation" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value/translation</xsl:attribute>
@@ -11570,7 +11562,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2564">
+            <schxslt:rule pattern="d13e2564">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='VITALPARAM']/entry/organizer/component/observation/value/translation</xsl:attribute>
                </svrl:fired-rule>
@@ -11620,18 +11612,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2564')"/>
+                                select="($schxslt:patterns-matched, 'd13e2564')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']"
                   priority="37"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']</xsl:attribute>
@@ -11644,7 +11636,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']</xsl:attribute>
                </svrl:fired-rule>
@@ -11659,18 +11651,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry"
                   priority="36"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry</xsl:attribute>
@@ -11683,7 +11675,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry</xsl:attribute>
                </svrl:fired-rule>
@@ -11698,18 +11690,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation"
                   priority="35"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation</xsl:attribute>
@@ -11722,7 +11714,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation</xsl:attribute>
                </svrl:fired-rule>
@@ -11779,18 +11771,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/code"
                   priority="34"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/code</xsl:attribute>
@@ -11803,7 +11795,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/code</xsl:attribute>
                </svrl:fired-rule>
@@ -11846,18 +11838,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/effectiveTime"
                   priority="33"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/effectiveTime</xsl:attribute>
@@ -11870,7 +11862,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -11885,18 +11877,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value"
                   priority="32"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value</xsl:attribute>
@@ -11909,7 +11901,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value</xsl:attribute>
                </svrl:fired-rule>
@@ -11931,18 +11923,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value/translation"
                   priority="31"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value/translation" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value/translation</xsl:attribute>
@@ -11955,7 +11947,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/observation/value/translation</xsl:attribute>
                </svrl:fired-rule>
@@ -11998,18 +11990,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer"
                   priority="30"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer</xsl:attribute>
@@ -12022,7 +12014,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer</xsl:attribute>
                </svrl:fired-rule>
@@ -12044,18 +12036,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/modeCode"
                   priority="29"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/modeCode" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/modeCode</xsl:attribute>
@@ -12068,7 +12060,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/modeCode</xsl:attribute>
                </svrl:fired-rule>
@@ -12111,18 +12103,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity"
                   priority="28"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity</xsl:attribute>
@@ -12135,7 +12127,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity</xsl:attribute>
                </svrl:fired-rule>
@@ -12171,18 +12163,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[1]"
                   priority="27"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[1]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[1]</xsl:attribute>
@@ -12195,7 +12187,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[1]</xsl:attribute>
                </svrl:fired-rule>
@@ -12217,18 +12209,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[2]"
                   priority="26"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[2]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[2]</xsl:attribute>
@@ -12241,7 +12233,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/id[2]</xsl:attribute>
                </svrl:fired-rule>
@@ -12263,18 +12255,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/code"
                   priority="25"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/code</xsl:attribute>
@@ -12287,7 +12279,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/code</xsl:attribute>
                </svrl:fired-rule>
@@ -12330,18 +12322,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson"
                   priority="24"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson</xsl:attribute>
@@ -12354,7 +12346,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson</xsl:attribute>
                </svrl:fired-rule>
@@ -12369,18 +12361,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]"
                   priority="23"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
@@ -12393,7 +12385,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/assignedPerson/name[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -12429,18 +12421,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/representedOrganization"
                   priority="22"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2686']">
-            <schxslt:rule pattern="d4399e2686">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2686']">
+            <schxslt:rule pattern="d13e2686">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/representedOrganization" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/representedOrganization</xsl:attribute>
@@ -12453,7 +12445,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2686">
+            <schxslt:rule pattern="d13e2686">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SCORES']/entry/performer/assignedEntity/representedOrganization</xsl:attribute>
                </svrl:fired-rule>
@@ -12489,18 +12481,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2686')"/>
+                                select="($schxslt:patterns-matched, 'd13e2686')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1805']]"
                   priority="21"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2895']">
-            <schxslt:rule pattern="d4399e2895">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2895']">
+            <schxslt:rule pattern="d13e2895">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1805']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1805']]</xsl:attribute>
@@ -12513,7 +12505,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2895">
+            <schxslt:rule pattern="d13e2895">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1805']]</xsl:attribute>
                </svrl:fired-rule>
@@ -12528,18 +12520,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2895')"/>
+                                select="($schxslt:patterns-matched, 'd13e2895')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]"
                   priority="20"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2895']">
-            <schxslt:rule pattern="d4399e2895">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2895']">
+            <schxslt:rule pattern="d13e2895">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]</xsl:attribute>
@@ -12552,7 +12544,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2895">
+            <schxslt:rule pattern="d13e2895">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]</xsl:attribute>
                </svrl:fired-rule>
@@ -12595,18 +12587,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2895')"/>
+                                select="($schxslt:patterns-matched, 'd13e2895')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1805']"
                   priority="19"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2895']">
-            <schxslt:rule pattern="d4399e2895">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2895']">
+            <schxslt:rule pattern="d13e2895">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1805']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1805']</xsl:attribute>
@@ -12619,7 +12611,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2895">
+            <schxslt:rule pattern="d13e2895">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1805']</xsl:attribute>
                </svrl:fired-rule>
@@ -12655,18 +12647,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2895')"/>
+                                select="($schxslt:patterns-matched, 'd13e2895')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]/value"
                   priority="18"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2895']">
-            <schxslt:rule pattern="d4399e2895">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2895']">
+            <schxslt:rule pattern="d13e2895">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]/value</xsl:attribute>
@@ -12679,7 +12671,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2895">
+            <schxslt:rule pattern="d13e2895">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1805']]/value</xsl:attribute>
                </svrl:fired-rule>
@@ -12694,18 +12686,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2895')"/>
+                                select="($schxslt:patterns-matched, 'd13e2895')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1806']]"
                   priority="17"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2945']">
-            <schxslt:rule pattern="d4399e2945">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2945']">
+            <schxslt:rule pattern="d13e2945">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1806']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1806']]</xsl:attribute>
@@ -12718,7 +12710,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2945">
+            <schxslt:rule pattern="d13e2945">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='1806']]</xsl:attribute>
                </svrl:fired-rule>
@@ -12733,18 +12725,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2945')"/>
+                                select="($schxslt:patterns-matched, 'd13e2945')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]"
                   priority="16"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2945']">
-            <schxslt:rule pattern="d4399e2945">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2945']">
+            <schxslt:rule pattern="d13e2945">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]</xsl:attribute>
@@ -12757,7 +12749,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2945">
+            <schxslt:rule pattern="d13e2945">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]</xsl:attribute>
                </svrl:fired-rule>
@@ -12800,18 +12792,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2945')"/>
+                                select="($schxslt:patterns-matched, 'd13e2945')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1806']"
                   priority="15"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2945']">
-            <schxslt:rule pattern="d4399e2945">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2945']">
+            <schxslt:rule pattern="d13e2945">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1806']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1806']</xsl:attribute>
@@ -12824,7 +12816,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2945">
+            <schxslt:rule pattern="d13e2945">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='1806']</xsl:attribute>
                </svrl:fired-rule>
@@ -12860,18 +12852,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2945')"/>
+                                select="($schxslt:patterns-matched, 'd13e2945')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]/value"
                   priority="14"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2945']">
-            <schxslt:rule pattern="d4399e2945">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2945']">
+            <schxslt:rule pattern="d13e2945">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]/value</xsl:attribute>
@@ -12884,7 +12876,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2945">
+            <schxslt:rule pattern="d13e2945">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='1806']]/value</xsl:attribute>
                </svrl:fired-rule>
@@ -12899,18 +12891,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2945')"/>
+                                select="($schxslt:patterns-matched, 'd13e2945')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='807']]"
                   priority="13"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2996']">
-            <schxslt:rule pattern="d4399e2996">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2996']">
+            <schxslt:rule pattern="d13e2996">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='807']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='807']]</xsl:attribute>
@@ -12923,7 +12915,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2996">
+            <schxslt:rule pattern="d13e2996">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='807']]</xsl:attribute>
                </svrl:fired-rule>
@@ -12938,18 +12930,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2996')"/>
+                                select="($schxslt:patterns-matched, 'd13e2996')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]"
                   priority="12"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2996']">
-            <schxslt:rule pattern="d4399e2996">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2996']">
+            <schxslt:rule pattern="d13e2996">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]</xsl:attribute>
@@ -12962,7 +12954,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2996">
+            <schxslt:rule pattern="d13e2996">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]</xsl:attribute>
                </svrl:fired-rule>
@@ -13005,18 +12997,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2996')"/>
+                                select="($schxslt:patterns-matched, 'd13e2996')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='807']"
                   priority="11"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2996']">
-            <schxslt:rule pattern="d4399e2996">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2996']">
+            <schxslt:rule pattern="d13e2996">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='807']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='807']</xsl:attribute>
@@ -13029,7 +13021,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2996">
+            <schxslt:rule pattern="d13e2996">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='807']</xsl:attribute>
                </svrl:fired-rule>
@@ -13065,18 +13057,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2996')"/>
+                                select="($schxslt:patterns-matched, 'd13e2996')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]/value"
                   priority="10"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e2996']">
-            <schxslt:rule pattern="d4399e2996">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e2996']">
+            <schxslt:rule pattern="d13e2996">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]/value" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]/value</xsl:attribute>
@@ -13089,7 +13081,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e2996">
+            <schxslt:rule pattern="d13e2996">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='807']]/value</xsl:attribute>
                </svrl:fired-rule>
@@ -13104,18 +13096,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e2996')"/>
+                                select="($schxslt:patterns-matched, 'd13e2996')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='808']]"
                   priority="9"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3046']">
-            <schxslt:rule pattern="d4399e3046">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3046']">
+            <schxslt:rule pattern="d13e3046">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='808']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='808']]</xsl:attribute>
@@ -13128,7 +13120,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3046">
+            <schxslt:rule pattern="d13e3046">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry[observation/code[@code='808']]</xsl:attribute>
                </svrl:fired-rule>
@@ -13143,18 +13135,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3046')"/>
+                                select="($schxslt:patterns-matched, 'd13e3046')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]"
                   priority="8"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3046']">
-            <schxslt:rule pattern="d4399e3046">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3046']">
+            <schxslt:rule pattern="d13e3046">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]</xsl:attribute>
@@ -13167,7 +13159,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3046">
+            <schxslt:rule pattern="d13e3046">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]</xsl:attribute>
                </svrl:fired-rule>
@@ -13203,18 +13195,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3046')"/>
+                                select="($schxslt:patterns-matched, 'd13e3046')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='808']"
                   priority="7"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3046']">
-            <schxslt:rule pattern="d4399e3046">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3046']">
+            <schxslt:rule pattern="d13e3046">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='808']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='808']</xsl:attribute>
@@ -13227,7 +13219,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3046">
+            <schxslt:rule pattern="d13e3046">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation/code[@code='808']</xsl:attribute>
                </svrl:fired-rule>
@@ -13263,18 +13255,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3046')"/>
+                                select="($schxslt:patterns-matched, 'd13e3046')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[not(@nullFlavor)]"
                   priority="6"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3046']">
-            <schxslt:rule pattern="d4399e3046">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3046']">
+            <schxslt:rule pattern="d13e3046">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[not(@nullFlavor)]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[not(@nullFlavor)]</xsl:attribute>
@@ -13287,7 +13279,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3046">
+            <schxslt:rule pattern="d13e3046">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[not(@nullFlavor)]</xsl:attribute>
                </svrl:fired-rule>
@@ -13344,18 +13336,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3046')"/>
+                                select="($schxslt:patterns-matched, 'd13e3046')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[@nullFlavor]"
                   priority="5"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3046']">
-            <schxslt:rule pattern="d4399e3046">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3046']">
+            <schxslt:rule pattern="d13e3046">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[@nullFlavor]" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[@nullFlavor]</xsl:attribute>
@@ -13368,7 +13360,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3046">
+            <schxslt:rule pattern="d13e3046">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/observation[code[@code='808']]/value[@nullFlavor]</xsl:attribute>
                </svrl:fired-rule>
@@ -13383,18 +13375,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3046')"/>
+                                select="($schxslt:patterns-matched, 'd13e3046')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']"
                   priority="4"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3118']">
-            <schxslt:rule pattern="d4399e3118">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3118']">
+            <schxslt:rule pattern="d13e3118">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']</xsl:attribute>
@@ -13407,7 +13399,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3118">
+            <schxslt:rule pattern="d13e3118">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']</xsl:attribute>
                </svrl:fired-rule>
@@ -13422,18 +13414,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3118')"/>
+                                select="($schxslt:patterns-matched, 'd13e3118')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry"
                   priority="3"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3118']">
-            <schxslt:rule pattern="d4399e3118">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3118']">
+            <schxslt:rule pattern="d13e3118">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry</xsl:attribute>
@@ -13446,7 +13438,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3118">
+            <schxslt:rule pattern="d13e3118">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry</xsl:attribute>
                </svrl:fired-rule>
@@ -13461,18 +13453,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3118')"/>
+                                select="($schxslt:patterns-matched, 'd13e3118')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/act"
                   priority="2"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3118']">
-            <schxslt:rule pattern="d4399e3118">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3118']">
+            <schxslt:rule pattern="d13e3118">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/act" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/act</xsl:attribute>
@@ -13485,7 +13477,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3118">
+            <schxslt:rule pattern="d13e3118">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='RESINFO']/entry/act</xsl:attribute>
                </svrl:fired-rule>
@@ -13521,18 +13513,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3118')"/>
+                                select="($schxslt:patterns-matched, 'd13e3118')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/code"
                   priority="1"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3118']">
-            <schxslt:rule pattern="d4399e3118">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3118']">
+            <schxslt:rule pattern="d13e3118">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/code" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/code</xsl:attribute>
@@ -13545,7 +13537,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3118">
+            <schxslt:rule pattern="d13e3118">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/code</xsl:attribute>
                </svrl:fired-rule>
@@ -13588,18 +13580,18 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3118')"/>
+                                select="($schxslt:patterns-matched, 'd13e3118')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
    <xsl:template match="ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/effectiveTime"
                   priority="0"
-                  mode="d4399e23">
+                  mode="d13e23">
       <xsl:param name="schxslt:patterns-matched" as="xs:string*"/>
       <xsl:choose>
-         <xsl:when test="$schxslt:patterns-matched[. = 'd4399e3118']">
-            <schxslt:rule pattern="d4399e3118">
+         <xsl:when test="$schxslt:patterns-matched[. = 'd13e3118']">
+            <schxslt:rule pattern="d13e3118">
                <xsl:comment xmlns:svrl="http://purl.oclc.org/dsdl/svrl">WARNING: Rule for context "ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/effectiveTime" shadowed by preceding rule</xsl:comment>
                <svrl:suppressed-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/effectiveTime</xsl:attribute>
@@ -13612,7 +13604,7 @@
             </xsl:next-match>
          </xsl:when>
          <xsl:otherwise>
-            <schxslt:rule pattern="d4399e3118">
+            <schxslt:rule pattern="d13e3118">
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='SERVICES']/entry/act/effectiveTime</xsl:attribute>
                </svrl:fired-rule>
@@ -13627,7 +13619,7 @@
             <xsl:next-match>
                <xsl:with-param name="schxslt:patterns-matched"
                                 as="xs:string*"
-                                select="($schxslt:patterns-matched, 'd4399e3118')"/>
+                                select="($schxslt:patterns-matched, 'd13e3118')"/>
             </xsl:next-match>
          </xsl:otherwise>
       </xsl:choose>

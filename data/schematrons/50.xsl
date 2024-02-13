@@ -15,11 +15,11 @@
                      xmlns:skos="http://www.w3.org/2004/02/skos/core#">
       <dct:creator>
          <dct:Agent>
-            <skos:prefLabel>SchXslt/1.9.1 SAXON/HE 11.3</skos:prefLabel>
+            <skos:prefLabel>SchXslt/1.9.1 SAXON/HE 11.4</skos:prefLabel>
             <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
          </dct:Agent>
       </dct:creator>
-      <dct:created>2022-07-19T13:54:01.611+08:00</dct:created>
+      <dct:created>2024-02-13T13:11:40.671859256+08:00</dct:created>
    </rdf:Description>
    <xsl:output indent="yes"/>
    <xsl:template match="root()">
@@ -50,11 +50,11 @@
                <rdf:Description xmlns:dc="http://purl.org/dc/elements/1.1/">
                   <dct:creator>
                      <dct:Agent>
-                        <skos:prefLabel>SchXslt/1.9.1 SAXON/HE 11.3</skos:prefLabel>
+                        <skos:prefLabel>SchXslt/1.9.1 SAXON/HE 11.4</skos:prefLabel>
                         <schxslt.compile.typed-variables xmlns="https://doi.org/10.5281/zenodo.1495494#">true</schxslt.compile.typed-variables>
                      </dct:Agent>
                   </dct:creator>
-                  <dct:created>2022-07-19T13:54:01.611+08:00</dct:created>
+                  <dct:created>2024-02-13T13:11:40.671859256+08:00</dct:created>
                </rdf:Description>
             </dct:source>
          </svrl:metadata>
@@ -5885,11 +5885,11 @@
                <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
                   <xsl:attribute name="context">ClinicalDocument/component/structuredBody/component/section[code/@code='IMM']</xsl:attribute>
                </svrl:fired-rule>
-               <xsl:if test="not(count(entry)=1)">
+               <xsl:if test="not(count(entry)&gt;=1)">
                   <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                                        location="{schxslt:location(.)}">
-                     <xsl:attribute name="test">count(entry)=1</xsl:attribute>
-                     <svrl:text>У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='IMM'] должен иметь 1 элемент entry.</svrl:text>
+                     <xsl:attribute name="test">count(entry)&gt;=1</xsl:attribute>
+                     <svrl:text>У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='IMM'] должен иметь не менее 1 элемента entry.</svrl:text>
                   </svrl:failed-assert>
                </xsl:if>
             </schxslt:rule>

@@ -634,9 +634,9 @@ public class SEMDValidator extends HttpServlet {
         , "   <input type='submit' value='Отправить FNSITags.txt'/>"
         , "  </form>"
         , "<h2>См. также</h2>"
-        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
-        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a><br>"
-        , "<a href='", contextPath, "/fnsi.html'>Кеш справочников ФНСИ</a>"
+        , "<a href='" + contextPath + "/send_semd.html'>Валидация СЭМД</a><br>"
+        , "<a href='" + contextPath + "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a><br>"
+        , "<a href='" + contextPath + "/fnsi.html'>Кеш справочников ФНСИ</a>"
         , "</body>"
         , "</html>"));
     }
@@ -800,9 +800,9 @@ public class SEMDValidator extends HttpServlet {
         }
         out.print(String.join("\n"
         , "<h2>См. также</h2>"
-        , "<a href='", contextPath, "/send_sch.html'>Настройки</a><br>"
-        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
-        , "<a href='", contextPath, "/fnsi.html'>Кеш справочников ФНСИ</a>"
+        , "<a href='" + contextPath + "/send_sch.html'>Настройки</a><br>"
+        , "<a href='" + contextPath + "/send_semd.html'>Валидация СЭМД</a><br>"
+        , "<a href='" + contextPath + "/fnsi.html'>Кеш справочников ФНСИ</a>"
         , "</body>"
         , "</html>"));
     }
@@ -854,9 +854,9 @@ public class SEMDValidator extends HttpServlet {
         , "</table>"));
         out.print(String.join("\n"
         , "<h2>См. также</h2>"
-        , "<a href='", contextPath, "/send_sch.html'>Настройки</a><br>"
-        , "<a href='", contextPath, "/send_semd.html'>Валидация СЭМД</a><br>"
-        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
+        , "<a href='" + contextPath + "/send_sch.html'>Настройки</a><br>"
+        , "<a href='" + contextPath + "/send_semd.html'>Валидация СЭМД</a><br>"
+        , "<a href='" + contextPath + "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a>"
         , "</body>"
         , "</html>"));
     }
@@ -890,9 +890,9 @@ public class SEMDValidator extends HttpServlet {
         , "</form>"
         , "<hr>"
         , "<h2>См. также</h2>"
-        , "<a href='", contextPath, "/send_sch.html'>Настройки</a><br>"
-        , "<a href='", contextPath, "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a><br>"
-        , "<a href='", contextPath, "/fnsi.html'>Кеш справочников ФНСИ</a>"
+        , "<a href='" + contextPath + "/send_sch.html'>Настройки</a><br>"
+        , "<a href='" + contextPath + "/get_sch_list.html'>Просмотр загруженных схем и схематронов</a><br>"
+        , "<a href='" + contextPath + "/fnsi.html'>Кеш справочников ФНСИ</a>"
         , "</body>"
         , "</html>"));
     }

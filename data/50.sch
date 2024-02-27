@@ -630,7 +630,7 @@
     <!-- У3-4 -->
     <pattern>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='IMM']">
-            <assert test="count(entry)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='IMM'] должен иметь 1 элемент entry.</assert>
+            <assert test="count(entry)>=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='IMM'] должен иметь не менее 1 элемента entry.</assert>
         </rule>
         <rule context="ClinicalDocument/component/structuredBody/component/section[code/@code='IMM']/entry">
             <assert test="count(substanceAdministration)=1">У3-4. Элемент ClinicalDocument/component/structuredBody/component/section[code/@code='IMM']/entry должен иметь 1 элемент substanceAdministration.</assert>
